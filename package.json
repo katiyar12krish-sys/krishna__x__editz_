@@ -1,0 +1,23 @@
+{
+  "name": "krishna-x-editz",
+  "version": "1.0.0",
+  "description": "KRISHNA X EDITZ — Luxury 3D Video Showcase & Portfolio",
+  "main": "server.js",
+  "scripts": {
+    "start": "node server.js",
+    "dev": "node server.js"
+  },
+  "keywords": [
+    "video-editing",
+    "portfolio",
+    "showcase"
+  ],
+  "author": "Krishna",
+  "license": "ISC",
+  "type": "commonjs",
+  "dependencies": {
+    "cors": "^2.8.6",
+    "express": "^5.2.1",
+    "sqlite3": "^6.0.1"
+  }
+}

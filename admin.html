@@ -1,0 +1,787 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>KRISHNA X EDITZ — Admin Command Center</title>
+  
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Cinzel+Decorative:wght@700;900&family=Cinzel:wght@600;700;800&family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+
+  <style>
+    :root {
+      --ink: #0d0a07;
+      --ink-card: #18130d;
+      --ink-surface: #221a12;
+      --gold: #d4af37;
+      --gold-bright: #fff2c6;
+      --gold-foil: #f3d484;
+      --emerald: #10b981;
+      --emerald-glow: rgba(16, 185, 129, 0.4);
+      --crimson: #e11d48;
+      --violet: #8b5cf6;
+      --cyan: #06b6d4;
+      --text: #fdfaf3;
+      --muted: #a39580;
+      --sans: "Plus Jakarta Sans", sans-serif;
+      --display: "Cinzel Decorative", "Cinzel", serif;
+      --ease: cubic-bezier(0.16, 1, 0.3, 1);
+    }
+
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+
+    body {
+      background: var(--ink);
+      color: var(--text);
+      font-family: var(--sans);
+      min-height: 100vh;
+      display: flex;
+      flex-direction: column;
+      -webkit-font-smoothing: antialiased;
+    }
+
+    /* TOP HEADER */
+    .admin-nav {
+      background: rgba(18, 14, 10, 0.95);
+      border-bottom: 1px solid rgba(212, 175, 55, 0.25);
+      padding: 16px 4vw;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      backdrop-filter: blur(16px);
+      position: sticky;
+      top: 0;
+      z-index: 50;
+    }
+
+    .brand {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      text-decoration: none;
+      color: var(--gold-bright);
+      font-family: var(--display);
+      font-size: 20px;
+      font-weight: 700;
+      letter-spacing: .06em;
+    }
+
+    .brand span {
+      background: linear-gradient(135deg, #ffd700 0%, #ff6b6b 100%);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+    }
+
+    .admin-pill {
+      font-family: var(--sans);
+      font-size: 10px;
+      font-weight: 800;
+      letter-spacing: .2em;
+      text-transform: uppercase;
+      padding: 4px 10px;
+      border-radius: 999px;
+      background: rgba(245, 158, 11, 0.15);
+      color: var(--gold-foil);
+      border: 1px solid rgba(245, 158, 11, 0.4);
+    }
+
+    .nav-tools {
+      display: flex;
+      align-items: center;
+      gap: 14px;
+    }
+
+    .btn-sync {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      padding: 8px 18px;
+      border-radius: 999px;
+      background: var(--ink-surface);
+      border: 1px solid rgba(212, 175, 55, 0.35);
+      color: var(--gold-bright);
+      font-size: 12px;
+      font-weight: 700;
+      cursor: pointer;
+      transition: background 200ms ease, transform 200ms ease;
+    }
+
+    .btn-sync:hover {
+      background: rgba(212, 175, 55, 0.2);
+      transform: translateY(-1px);
+    }
+
+    .btn-live-site {
+      text-decoration: none;
+      padding: 8px 18px;
+      border-radius: 999px;
+      background: linear-gradient(135deg, #ffd700 0%, #ea580c 100%);
+      color: #1a1005;
+      font-size: 12px;
+      font-weight: 800;
+      letter-spacing: .06em;
+      transition: filter 200ms ease;
+    }
+
+    .btn-live-site:hover { filter: brightness(1.15); }
+
+    /* CONTAINER & TABS */
+    .container {
+      width: min(1360px, 94vw);
+      margin: 32px auto;
+      flex: 1 1 auto;
+    }
+
+    /* STATS CARDS ROW */
+    .stats-row {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+      gap: 20px;
+      margin-bottom: 35px;
+    }
+
+    .stat-box {
+      background: var(--ink-card);
+      border: 1px solid rgba(212, 175, 55, 0.2);
+      border-radius: 18px;
+      padding: 24px;
+      box-shadow: 0 10px 30px rgba(0,0,0,0.5);
+      position: relative;
+      overflow: hidden;
+    }
+
+    .stat-box::before {
+      content: "";
+      position: absolute;
+      top: 0; left: 0; right: 0; height: 3px;
+      background: var(--stat-color, var(--gold));
+    }
+
+    .stat-box.emerald { --stat-color: var(--emerald); }
+    .stat-box.gold { --stat-color: #f59e0b; }
+    .stat-box.violet { --stat-color: var(--violet); }
+    .stat-box.cyan { --stat-color: var(--cyan); }
+
+    .stat-box-title {
+      font-size: 12px;
+      font-weight: 700;
+      letter-spacing: .12em;
+      text-transform: uppercase;
+      color: var(--muted);
+      margin-bottom: 8px;
+    }
+
+    .stat-box-num {
+      font-family: var(--display);
+      font-size: 38px;
+      font-weight: 900;
+      color: #ffffff;
+      line-height: 1;
+    }
+
+    .stat-box-sub {
+      font-size: 12px;
+      color: var(--muted);
+      margin-top: 6px;
+    }
+
+    /* MAIN CONTENT CARD */
+    .dashboard-card {
+      background: var(--ink-card);
+      border: 1px solid rgba(212, 175, 55, 0.25);
+      border-radius: 20px;
+      box-shadow: 0 16px 45px rgba(0,0,0,0.6);
+      overflow: hidden;
+    }
+
+    .card-header {
+      padding: 20px 28px;
+      background: rgba(28, 22, 16, 0.85);
+      border-bottom: 1px solid rgba(212, 175, 55, 0.2);
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      flex-wrap: wrap;
+      gap: 16px;
+    }
+
+    .tab-pills {
+      display: flex;
+      gap: 8px;
+    }
+
+    .tab-btn {
+      background: transparent;
+      border: 1px solid rgba(255, 255, 255, 0.1);
+      color: var(--muted);
+      padding: 8px 18px;
+      border-radius: 999px;
+      font-size: 13px;
+      font-weight: 700;
+      cursor: pointer;
+      transition: all 200ms ease;
+    }
+
+    .tab-btn.active {
+      background: rgba(212, 175, 55, 0.25);
+      border-color: var(--gold-foil);
+      color: var(--gold-bright);
+    }
+
+    .filters-bar {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+    }
+
+    .search-input {
+      background: var(--ink-surface);
+      border: 1px solid rgba(212, 175, 55, 0.3);
+      color: #fff;
+      padding: 8px 16px;
+      border-radius: 999px;
+      font-size: 13px;
+      outline: none;
+      width: 220px;
+      transition: border-color 200ms ease, width 200ms ease;
+    }
+
+    .search-input:focus {
+      border-color: var(--gold-bright);
+      width: 260px;
+    }
+
+    .filter-select {
+      background: var(--ink-surface);
+      border: 1px solid rgba(212, 175, 55, 0.3);
+      color: var(--gold-bright);
+      padding: 8px 14px;
+      border-radius: 999px;
+      font-size: 12.5px;
+      font-weight: 700;
+      outline: none;
+      cursor: pointer;
+    }
+
+    /* LEADS TABLE */
+    .table-responsive {
+      width: 100%;
+      overflow-x: auto;
+    }
+
+    table {
+      width: 100%;
+      border-collapse: collapse;
+      text-align: left;
+    }
+
+    th {
+      background: rgba(22, 17, 12, 0.95);
+      color: var(--muted);
+      font-size: 11.5px;
+      font-weight: 800;
+      letter-spacing: .12em;
+      text-transform: uppercase;
+      padding: 16px 22px;
+      border-bottom: 1px solid rgba(212, 175, 55, 0.15);
+      white-space: nowrap;
+    }
+
+    td {
+      padding: 18px 22px;
+      border-bottom: 1px solid rgba(255, 255, 255, 0.06);
+      font-size: 13.5px;
+      color: #eae1d1;
+      vertical-align: middle;
+    }
+
+    tr:hover td {
+      background: rgba(255, 255, 255, 0.02);
+    }
+
+    .client-cell {
+      display: flex;
+      flex-direction: column;
+    }
+
+    .client-name {
+      font-weight: 800;
+      color: #ffffff;
+      font-size: 14.5px;
+    }
+
+    .client-email {
+      font-size: 12.5px;
+      color: var(--muted);
+    }
+
+    .package-tag {
+      display: inline-block;
+      padding: 3px 10px;
+      border-radius: 6px;
+      font-size: 11.5px;
+      font-weight: 700;
+      background: rgba(212, 175, 55, 0.15);
+      color: var(--gold-bright);
+      border: 1px solid rgba(212, 175, 55, 0.3);
+    }
+
+    .status-select {
+      background: #110d09;
+      border: 1px solid rgba(255, 255, 255, 0.2);
+      color: #fff;
+      padding: 5px 10px;
+      border-radius: 8px;
+      font-size: 12px;
+      font-weight: 700;
+      cursor: pointer;
+      outline: none;
+    }
+
+    .status-select[data-status="Pending"] { color: #f59e0b; border-color: #f59e0b; }
+    .status-select[data-status="In Discussion"] { color: #38bdf8; border-color: #38bdf8; }
+    .status-select[data-status="Booked"] { color: #34d399; border-color: #34d399; }
+    .status-select[data-status="Completed"] { color: #a78bfa; border-color: #a78bfa; }
+    .status-select[data-status="Declined"] { color: #f87171; border-color: #f87171; }
+
+    .actions-cell {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+    }
+
+    .btn-wa-chat {
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      padding: 6px 14px;
+      border-radius: 8px;
+      background: #25d366;
+      color: #0c3318;
+      text-decoration: none;
+      font-size: 12px;
+      font-weight: 800;
+      box-shadow: 0 4px 12px rgba(37, 211, 102, 0.35);
+      transition: filter 200ms ease;
+    }
+
+    .btn-wa-chat:hover { filter: brightness(1.15); }
+
+    .btn-view-brief {
+      padding: 6px 12px;
+      border-radius: 8px;
+      background: rgba(255, 255, 255, 0.08);
+      border: 1px solid rgba(255, 255, 255, 0.15);
+      color: #fff;
+      font-size: 12px;
+      font-weight: 700;
+      cursor: pointer;
+    }
+
+    .btn-view-brief:hover { background: rgba(255, 255, 255, 0.16); }
+
+    .btn-delete {
+      background: none;
+      border: none;
+      color: #f87171;
+      cursor: pointer;
+      padding: 6px;
+      opacity: 0.7;
+      transition: opacity 200ms ease;
+    }
+    .btn-delete:hover { opacity: 1; }
+
+    /* EMPTY STATE */
+    .empty-state {
+      text-align: center;
+      padding: 60px 20px;
+      color: var(--muted);
+    }
+
+    /* MODAL FOR PROJECT BRIEF */
+    .brief-modal {
+      position: fixed;
+      inset: 0;
+      z-index: 100;
+      display: none;
+      place-items: center;
+      background: rgba(0, 0, 0, 0.8);
+      backdrop-filter: blur(10px);
+    }
+
+    .brief-modal.open { display: grid; }
+
+    .brief-modal-content {
+      background: #18130d;
+      border: 1px solid rgba(212, 175, 55, 0.4);
+      border-radius: 20px;
+      width: min(580px, 92vw);
+      padding: 32px;
+      box-shadow: 0 20px 60px rgba(0, 0, 0, 0.9);
+      position: relative;
+    }
+
+    .brief-modal-title {
+      font-family: var(--display);
+      font-size: 22px;
+      color: var(--gold-bright);
+      margin-bottom: 16px;
+    }
+
+    .brief-modal-body {
+      font-size: 14px;
+      line-height: 1.7;
+      color: #eae1d1;
+      background: #100c08;
+      padding: 16px;
+      border-radius: 10px;
+      border: 1px solid rgba(255, 255, 255, 0.08);
+      white-space: pre-wrap;
+      max-height: 300px;
+      overflow-y: auto;
+      margin-bottom: 24px;
+    }
+
+    .btn-close-modal {
+      padding: 10px 24px;
+      border-radius: 999px;
+      background: var(--gold);
+      color: #1a1005;
+      font-weight: 800;
+      font-size: 13px;
+      cursor: pointer;
+      border: none;
+      width: 100%;
+    }
+
+    /* SUBSCRIBERS VIEW */
+    .subscribers-bar {
+      padding: 16px 28px;
+      background: rgba(22, 17, 12, 0.95);
+      border-bottom: 1px solid rgba(212, 175, 55, 0.15);
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+  </style>
+</head>
+<body>
+
+  <!-- TOPBAR -->
+  <header class="admin-nav">
+    <a href="#" class="brand">
+      KRISHNA <span>X</span> EDITZ <span class="admin-pill">Command Center</span>
+    </a>
+    <div class="nav-tools">
+      <button class="btn-sync" onclick="loadAllData()">
+        <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5">
+          <polyline points="23 4 23 10 17 10"></polyline>
+          <polyline points="1 20 1 14 7 14"></polyline>
+          <path d="M3.51 9a9 9 0 0 1 14.85-3.36L23 10M1 14l4.64 4.36A9 9 0 0 0 20.49 15"></path>
+        </svg>
+        Sync Data
+      </button>
+      <a href="/" class="btn-live-site" target="_blank">&larr; Live Portfolio</a>
+    </div>
+  </header>
+
+  <div class="container">
+    
+    <!-- STATS ROW -->
+    <div class="stats-row">
+      <div class="stat-box emerald">
+        <div class="stat-box-title">Total Client Leads</div>
+        <div class="stat-box-num" id="statTotalBookings">0</div>
+        <div class="stat-box-sub">Across all service categories</div>
+      </div>
+
+      <div class="stat-box gold">
+        <div class="stat-box-title">Pending Review</div>
+        <div class="stat-box-num" id="statPendingBookings">0</div>
+        <div class="stat-box-sub">Needs creator reply</div>
+      </div>
+
+      <div class="stat-box violet">
+        <div class="stat-box-title">VIP Subscribers</div>
+        <div class="stat-box-num" id="statTotalSubscribers">0</div>
+        <div class="stat-box-sub">Free LUT drop recipients</div>
+      </div>
+
+      <div class="stat-box cyan">
+        <div class="stat-box-title">Studio Interactions</div>
+        <div class="stat-box-num" id="statTotalEvents">0</div>
+        <div class="stat-box-sub">3D Book opens & clicks</div>
+      </div>
+    </div>
+
+    <!-- MAIN DASHBOARD -->
+    <div class="dashboard-card">
+      
+      <div class="card-header">
+        <div class="tab-pills">
+          <button class="tab-btn active" id="tabBookingsBtn" onclick="switchTab('bookings')">Client Leads</button>
+          <button class="tab-btn" id="tabSubscribersBtn" onclick="switchTab('subscribers')">VIP Subscribers</button>
+        </div>
+
+        <div class="filters-bar" id="bookingsFilters">
+          <input type="text" class="search-input" id="searchLeads" placeholder="Search client or email..." oninput="filterBookings()">
+          <select class="filter-select" id="filterStatus" onchange="loadBookings()">
+            <option value="All">All Statuses</option>
+            <option value="Pending">Pending</option>
+            <option value="In Discussion">In Discussion</option>
+            <option value="Booked">Booked</option>
+            <option value="Completed">Completed</option>
+            <option value="Declined">Declined</option>
+          </select>
+        </div>
+      </div>
+
+      <!-- VIEW 1: BOOKINGS TABLE -->
+      <div id="viewBookings" class="table-responsive">
+        <table>
+          <thead>
+            <tr>
+              <th>Date</th>
+              <th>Client Information</th>
+              <th>Service Package</th>
+              <th>Est. Budget</th>
+              <th>Status</th>
+              <th>Actions</th>
+            </tr>
+          </thead>
+          <tbody id="bookingsTableBody">
+            <tr>
+              <td colspan="6" class="empty-state">Loading leads from SQLite database...</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+
+      <!-- VIEW 2: SUBSCRIBERS TABLE -->
+      <div id="viewSubscribers" class="table-responsive" style="display: none;">
+        <div class="subscribers-bar">
+          <span style="font-size: 13px; color: var(--muted);" id="subscribersCount">0 Subscribers</span>
+          <button class="btn-sync" onclick="copyAllEmails()">📋 Copy All Emails</button>
+        </div>
+        <table>
+          <thead>
+            <tr>
+              <th>Subscriber Email</th>
+              <th>Joined Date</th>
+              <th>Status</th>
+            </tr>
+          </thead>
+          <tbody id="subscribersTableBody"></tbody>
+        </table>
+      </div>
+
+    </div>
+
+  </div>
+
+  <!-- MODAL: VIEW PROJECT BRIEF -->
+  <div class="brief-modal" id="briefModal">
+    <div class="brief-modal-content">
+      <h3 class="brief-modal-title" id="briefModalClient">Project Brief</h3>
+      <div class="brief-modal-body" id="briefModalText"></div>
+      <button class="btn-close-modal" onclick="closeBriefModal()">Close Window</button>
+    </div>
+  </div>
+
+  <script>
+    let allBookings = [];
+    let allSubscribers = [];
+
+    async function loadStats() {
+      try {
+        const res = await fetch('/api/admin/stats');
+        const json = await res.json();
+        if (json.success) {
+          document.getElementById('statTotalBookings').textContent = json.data.total_bookings;
+          document.getElementById('statPendingBookings').textContent = json.data.pending_bookings;
+          document.getElementById('statTotalSubscribers').textContent = json.data.total_subscribers;
+          document.getElementById('statTotalEvents').textContent = json.data.total_events;
+        }
+      } catch (e) {
+        console.error('Error fetching stats:', e);
+      }
+    }
+
+    async function loadBookings() {
+      const status = document.getElementById('filterStatus').value;
+      const url = status && status !== 'All' ? `/api/admin/bookings?status=${encodeURIComponent(status)}` : '/api/admin/bookings';
+
+      try {
+        const res = await fetch(url);
+        const json = await res.json();
+        if (json.success) {
+          allBookings = json.data;
+          renderBookings(allBookings);
+        }
+      } catch (e) {
+        console.error('Error loading bookings:', e);
+      }
+    }
+
+    function renderBookings(list) {
+      const tbody = document.getElementById('bookingsTableBody');
+      if (!list || list.length === 0) {
+        tbody.innerHTML = `<tr><td colspan="6" class="empty-state">No client leads found.</td></tr>`;
+        return;
+      }
+
+      tbody.innerHTML = list.map(b => {
+        const dateStr = new Date(b.created_at).toLocaleDateString('en-US', { month: 'short', day: 'numeric', year: 'numeric' });
+        const waMsg = encodeURIComponent(`Hi ${b.client_name}! Krishna here regarding your video inquiry for ${b.service_type}.`);
+        const cleanPhone = b.phone.replace(/[^0-9]/g, '');
+
+        return `
+          <tr>
+            <td style="white-space: nowrap; color: var(--muted); font-size: 12.5px;">${dateStr}</td>
+            <td>
+              <div class="client-cell">
+                <span class="client-name">${escapeHtml(b.client_name)}</span>
+                <span class="client-email">${escapeHtml(b.email)} • ${escapeHtml(b.phone)}</span>
+              </div>
+            </td>
+            <td><span class="package-tag">${escapeHtml(b.service_type)}</span></td>
+            <td style="font-weight: 700; color: var(--gold-bright);">${escapeHtml(b.budget || 'Custom')}</td>
+            <td>
+              <select class="status-select" data-status="${b.status}" onchange="updateStatus(${b.id}, this.value)">
+                <option value="Pending" ${b.status === 'Pending' ? 'selected' : ''}>Pending</option>
+                <option value="In Discussion" ${b.status === 'In Discussion' ? 'selected' : ''}>In Discussion</option>
+                <option value="Booked" ${b.status === 'Booked' ? 'selected' : ''}>Booked</option>
+                <option value="Completed" ${b.status === 'Completed' ? 'selected' : ''}>Completed</option>
+                <option value="Declined" ${b.status === 'Declined' ? 'selected' : ''}>Declined</option>
+              </select>
+            </td>
+            <td>
+              <div class="actions-cell">
+                <a href="https://wa.me/${cleanPhone}?text=${waMsg}" target="_blank" class="btn-wa-chat" title="Chat on WhatsApp">
+                  WhatsApp
+                </a>
+                <button class="btn-view-brief" onclick="viewBrief(${b.id})">Brief</button>
+                <button class="btn-delete" onclick="deleteBooking(${b.id})" title="Delete Lead">&times;</button>
+              </div>
+            </td>
+          </tr>
+        `;
+      }).join('');
+    }
+
+    function filterBookings() {
+      const q = document.getElementById('searchLeads').value.toLowerCase();
+      const filtered = allBookings.filter(b => 
+        b.client_name.toLowerCase().includes(q) || 
+        b.email.toLowerCase().includes(q) || 
+        b.phone.includes(q) ||
+        b.service_type.toLowerCase().includes(q)
+      );
+      renderBookings(filtered);
+    }
+
+    async function updateStatus(id, newStatus) {
+      try {
+        const res = await fetch(`/api/admin/bookings/${id}`, {
+          method: 'PATCH',
+          headers: { 'Content-Type': 'application/json' },
+          body: JSON.stringify({ status: newStatus })
+        });
+        const json = await res.json();
+        if (json.success) {
+          loadStats();
+          loadBookings();
+        }
+      } catch (e) {
+        alert('Failed to update status');
+      }
+    }
+
+    async function deleteBooking(id) {
+      if (!confirm('Are you sure you want to delete this client lead?')) return;
+      try {
+        const res = await fetch(`/api/admin/bookings/${id}`, { method: 'DELETE' });
+        const json = await res.json();
+        if (json.success) {
+          loadStats();
+          loadBookings();
+        }
+      } catch (e) {
+        alert('Failed to delete booking');
+      }
+    }
+
+    function viewBrief(id) {
+      const booking = allBookings.find(b => b.id === id);
+      if (!booking) return;
+      document.getElementById('briefModalClient').textContent = `Project Brief: ${booking.client_name} (${booking.service_type})`;
+      document.getElementById('briefModalText').textContent = booking.project_brief || 'No detailed brief submitted.';
+      document.getElementById('briefModal').classList.add('open');
+    }
+
+    function closeBriefModal() {
+      document.getElementById('briefModal').classList.remove('open');
+    }
+
+    async function loadSubscribers() {
+      try {
+        const res = await fetch('/api/admin/subscribers');
+        const json = await res.json();
+        if (json.success) {
+          allSubscribers = json.data;
+          document.getElementById('subscribersCount').textContent = `${allSubscribers.length} VIP Subscribers`;
+          const tbody = document.getElementById('subscribersTableBody');
+          tbody.innerHTML = allSubscribers.map(s => `
+            <tr>
+              <td style="font-weight: 700; color: #fff;">${escapeHtml(s.email)}</td>
+              <td style="color: var(--muted);">${new Date(s.created_at).toLocaleDateString()}</td>
+              <td><span style="color: var(--emerald); font-weight: 800;">● Active</span></td>
+            </tr>
+          `).join('');
+        }
+      } catch (e) {
+        console.error('Error loading subscribers:', e);
+      }
+    }
+
+    function copyAllEmails() {
+      const emails = allSubscribers.map(s => s.email).join(', ');
+      navigator.clipboard.writeText(emails);
+      alert(`Copied ${allSubscribers.length} subscriber emails to clipboard!`);
+    }
+
+    function switchTab(tab) {
+      if (tab === 'bookings') {
+        document.getElementById('tabBookingsBtn').classList.add('active');
+        document.getElementById('tabSubscribersBtn').classList.remove('active');
+        document.getElementById('viewBookings').style.display = 'block';
+        document.getElementById('viewSubscribers').style.display = 'none';
+        document.getElementById('bookingsFilters').style.display = 'flex';
+      } else {
+        document.getElementById('tabBookingsBtn').classList.remove('active');
+        document.getElementById('tabSubscribersBtn').classList.add('active');
+        document.getElementById('viewBookings').style.display = 'none';
+        document.getElementById('viewSubscribers').style.display = 'block';
+        document.getElementById('bookingsFilters').style.display = 'none';
+        loadSubscribers();
+      }
+    }
+
+    function escapeHtml(text) {
+      const div = document.createElement('div');
+      div.textContent = text || '';
+      return div.innerHTML;
+    }
+
+    function loadAllData() {
+      loadStats();
+      loadBookings();
+    }
+
+    // Initial Load
+    loadAllData();
+    setInterval(loadStats, 30000);
+  </script>
+</body>
+</html>

@@ -1,0 +1,7 @@
+node_modules/
+*.log
+.DS_Store
+*.mp4
+!assets/*.mp4
+index.html.bak
+scratch/
