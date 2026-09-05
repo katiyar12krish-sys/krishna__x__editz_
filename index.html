@@ -1343,6 +1343,191 @@
       display: block;
     }
 
+    /* BOOK 2 & HOMEPAGE: LUXURY REAL CLIENT VIDEO SHOWCASE */
+    .works-videos-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+      gap: 20px;
+      margin-top: 14px;
+    }
+
+    .work-video-card {
+      background: rgba(22, 17, 12, 0.9);
+      border: 1px solid rgba(212, 175, 55, 0.28);
+      border-radius: 16px;
+      overflow: hidden;
+      display: flex;
+      flex-direction: column;
+      box-shadow: 0 10px 30px rgba(0, 0, 0, 0.45);
+      transition: transform 250ms ease, border-color 250ms ease, box-shadow 250ms ease;
+      position: relative;
+    }
+
+    .work-video-card:hover {
+      transform: translateY(-4px);
+      border-color: rgba(212, 175, 55, 0.65);
+      box-shadow: 0 16px 40px rgba(0, 0, 0, 0.6), 0 0 25px rgba(212, 175, 55, 0.2);
+    }
+
+    .work-video-card.theme-crimson:hover {
+      border-color: var(--crimson-neon);
+      box-shadow: 0 16px 40px rgba(0, 0, 0, 0.6), 0 0 25px var(--crimson-glow);
+    }
+
+    .work-video-card.theme-gold:hover {
+      border-color: var(--gold-neon);
+      box-shadow: 0 16px 40px rgba(0, 0, 0, 0.6), 0 0 25px rgba(245, 158, 11, 0.25);
+    }
+
+    .work-video-card.theme-cyan:hover {
+      border-color: var(--cyan-neon);
+      box-shadow: 0 16px 40px rgba(0, 0, 0, 0.6), 0 0 25px var(--cyan-glow);
+    }
+
+    .work-video-card.theme-emerald:hover {
+      border-color: var(--emerald-neon);
+      box-shadow: 0 16px 40px rgba(0, 0, 0, 0.6), 0 0 25px var(--emerald-glow);
+    }
+
+    .work-video-wrapper {
+      position: relative;
+      background: #000;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      overflow: hidden;
+      border-bottom: 1px solid rgba(212, 175, 55, 0.15);
+    }
+
+    .work-video-wrapper.ratio-vertical {
+      height: 440px;
+      max-height: 55vh;
+    }
+
+    .work-video-wrapper.ratio-landscape {
+      height: 240px;
+    }
+
+    .work-video-elem {
+      width: 100%;
+      height: 100%;
+      object-fit: contain;
+      background: #050403;
+      display: block;
+      outline: none;
+    }
+
+    .work-video-badge-top {
+      position: absolute;
+      top: 12px;
+      left: 12px;
+      background: rgba(10, 8, 6, 0.85);
+      backdrop-filter: blur(8px);
+      border: 1px solid rgba(212, 175, 55, 0.4);
+      color: var(--gold-bright);
+      font-size: 10.5px;
+      font-weight: 800;
+      letter-spacing: 0.5px;
+      text-transform: uppercase;
+      padding: 4px 10px;
+      border-radius: 999px;
+      z-index: 2;
+      pointer-events: none;
+    }
+
+    .work-video-aspect-tag {
+      position: absolute;
+      top: 12px;
+      right: 12px;
+      background: rgba(10, 8, 6, 0.85);
+      backdrop-filter: blur(8px);
+      border: 1px solid rgba(255, 255, 255, 0.2);
+      color: #fff;
+      font-size: 10.5px;
+      font-weight: 700;
+      padding: 3px 8px;
+      border-radius: 6px;
+      z-index: 2;
+      pointer-events: none;
+    }
+
+    .work-video-content {
+      padding: 16px 16px 14px;
+      display: flex;
+      flex-direction: column;
+      flex: 1;
+      justify-content: space-between;
+    }
+
+    .work-video-title {
+      font-family: var(--display);
+      font-size: 16px;
+      font-weight: 800;
+      color: #fff;
+      line-height: 1.35;
+      margin-bottom: 8px;
+    }
+
+    .work-video-desc {
+      font-size: 12px;
+      color: var(--muted);
+      line-height: 1.55;
+      margin-bottom: 12px;
+      flex: 1;
+    }
+
+    .work-highlights-list {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 6px;
+      margin-bottom: 14px;
+    }
+
+    .work-highlight-pill {
+      background: rgba(212, 175, 55, 0.1);
+      border: 1px solid rgba(212, 175, 55, 0.22);
+      color: var(--gold-bright);
+      font-size: 10.5px;
+      font-weight: 600;
+      padding: 3px 8px;
+      border-radius: 999px;
+    }
+
+    .work-card-footer {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding-top: 10px;
+      border-top: 1px solid rgba(255, 255, 255, 0.08);
+      gap: 10px;
+    }
+
+    .work-card-category {
+      font-size: 11px;
+      font-weight: 700;
+      color: var(--gold-foil);
+    }
+
+    .btn-work-commission {
+      background: linear-gradient(135deg, rgba(212, 175, 55, 0.2) 0%, rgba(212, 175, 55, 0.05) 100%);
+      border: 1px solid rgba(212, 175, 55, 0.45);
+      color: var(--gold-bright);
+      font-size: 11px;
+      font-weight: 700;
+      padding: 6px 12px;
+      border-radius: 8px;
+      cursor: pointer;
+      transition: all 200ms ease;
+      white-space: nowrap;
+    }
+
+    .btn-work-commission:hover {
+      background: linear-gradient(135deg, #d4af37 0%, #f59e0b 100%);
+      color: #0a0806;
+      border-color: #d4af37;
+      transform: translateY(-1px);
+    }
+
     /* BOOK 2: VERIFIED REVIEWS & RATINGS */
     .book-reviews-grid {
       display: flex;
@@ -4203,6 +4388,160 @@
       </div>
     </section>
 
+    <!-- SECTION 2.5: FEATURED WORKS & CLIENT VIDEO SHOWCASE -->
+    <section class="section" id="works-section">
+      <div class="container">
+        <div class="section-header reveal-elem">
+          <span class="section-eyebrow">✦ Real Edited Projects &amp; Video Proofs ✦</span>
+          <h2 class="section-title">Client Video Showcase</h2>
+          <p class="section-desc">
+            Watch our real client video edits below. Streamed in high-definition with dynamic pacing, custom sound foley, and cinematic color science.
+          </p>
+        </div>
+
+        <div class="works-videos-grid">
+          <!-- Video 1: 0824 Company Edit -->
+          <div class="work-video-card theme-crimson">
+            <div class="work-video-wrapper ratio-landscape">
+              <span class="work-video-badge-top">4K Corporate Edit</span>
+              <span class="work-video-aspect-tag">16:9 Landscape</span>
+              <video 
+                class="work-video-elem" 
+                controls 
+                playsinline 
+                preload="metadata" 
+                src="assets/work_company.mp4"
+                onplay="handleSingleVideoPlayback(this)"
+              >
+                Your browser does not support HTML5 video.
+              </video>
+            </div>
+            <div class="work-video-content">
+              <h4 class="work-video-title">Apex Corporate Brand Showcase</h4>
+              <p class="work-video-desc">A sleek, authoritative company brand commercial edit featuring precision pacing, cinematic title cards, enterprise-grade color grading, and razor-sharp sound design built for maximum brand credibility.</p>
+              <div class="work-highlights-list">
+                <span class="work-highlight-pill">Enterprise Grade Motion</span>
+                <span class="work-highlight-pill">Cinematic Sound Mastering</span>
+                <span class="work-highlight-pill">4K Landscape Master</span>
+              </div>
+              <div class="work-card-footer">
+                <span class="work-card-category">Commercial / Corporate</span>
+                <button type="button" class="btn-work-commission" onclick="openBookingModal('Commercials & Ads')">
+                  Book Similar Edit &rarr;
+                </button>
+              </div>
+            </div>
+          </div>
+
+          <!-- Video 2: 0828 Cool Birthday Edit -->
+          <div class="work-video-card theme-gold">
+            <div class="work-video-wrapper ratio-vertical">
+              <span class="work-video-badge-top">Speed Ramp &amp; VFX</span>
+              <span class="work-video-aspect-tag">9:16 Vertical Reel</span>
+              <video 
+                class="work-video-elem" 
+                controls 
+                playsinline 
+                preload="metadata" 
+                src="assets/work_birthday.mp4"
+                onplay="handleSingleVideoPlayback(this)"
+              >
+                Your browser does not support HTML5 video.
+              </video>
+            </div>
+            <div class="work-video-content">
+              <h4 class="work-video-title">Neon Vibe — Cinematic Birthday Celebration</h4>
+              <p class="work-video-desc">High-energy celebration reel featuring seamless speed ramps, vibrant neon glows, beat-matched transitions, and infectious cinematic rhythm that captures every electric moment.</p>
+              <div class="work-highlights-list">
+                <span class="work-highlight-pill">Beat-Synced Transitions</span>
+                <span class="work-highlight-pill">Vibrant Color Grading</span>
+                <span class="work-highlight-pill">Ultra HD 9:16 Reel</span>
+              </div>
+              <div class="work-card-footer">
+                <span class="work-card-category">Cinematic Birthday</span>
+                <button type="button" class="btn-work-commission" onclick="openBookingModal('Viral Reels & Shorts')">
+                  Book Similar Edit &rarr;
+                </button>
+              </div>
+            </div>
+          </div>
+
+          <!-- Video 3: 0903(1)(3) Gym Motivation Edit -->
+          <div class="work-video-card theme-cyan">
+            <div class="work-video-wrapper ratio-vertical">
+              <span class="work-video-badge-top">High-Octane Retention</span>
+              <span class="work-video-aspect-tag">9:16 Vertical Reel</span>
+              <video 
+                class="work-video-elem" 
+                controls 
+                playsinline 
+                preload="metadata" 
+                src="assets/work_gym.mp4"
+                onplay="handleSingleVideoPlayback(this)"
+              >
+                Your browser does not support HTML5 video.
+              </video>
+            </div>
+            <div class="work-video-content">
+              <h4 class="work-video-title">Relentless Beast — Gym Motivation Edit</h4>
+              <p class="work-video-desc">Aggressive, high-octane workout edit engineered with hard-hitting bass drops, dynamic punch-ins, motion blur whip pans, and intense film grain aesthetics to ignite unstoppable energy.</p>
+              <div class="work-highlights-list">
+                <span class="work-highlight-pill">Explosive Bass Drops</span>
+                <span class="work-highlight-pill">Retention-Engineered Cuts</span>
+                <span class="work-highlight-pill">Dynamic Zoom Transitions</span>
+              </div>
+              <div class="work-card-footer">
+                <span class="work-card-category">Gym Motivation</span>
+                <button type="button" class="btn-work-commission" onclick="openBookingModal('Viral Reels & Shorts')">
+                  Book Similar Edit &rarr;
+                </button>
+              </div>
+            </div>
+          </div>
+
+          <!-- Video 4: 0903(1) Charity / Feeding Needy & Stray Animals -->
+          <div class="work-video-card theme-emerald">
+            <div class="work-video-wrapper ratio-vertical">
+              <span class="work-video-badge-top">Heartfelt Storytelling</span>
+              <span class="work-video-aspect-tag">9:16 Vertical Story</span>
+              <video 
+                class="work-video-elem" 
+                controls 
+                playsinline 
+                preload="metadata" 
+                src="assets/work_charity.mp4"
+                onplay="handleSingleVideoPlayback(this)"
+              >
+                Your browser does not support HTML5 video.
+              </video>
+            </div>
+            <div class="work-video-content">
+              <h4 class="work-video-title">Compassion in Motion — Feeding the Needy &amp; Rescuing Stray Lives</h4>
+              <p class="work-video-desc">A deeply moving and heartfelt social documentary story capturing a young girl distributing warm meals to the homeless and feeding hungry stray animals on the streets. Crafted with uplifting warm tones, emotional narrative rhythm, and soul-stirring audio atmosphere.</p>
+              <div class="work-highlights-list">
+                <span class="work-highlight-pill">Emotional Story Pacing</span>
+                <span class="work-highlight-pill">Humanitarian Social Impact</span>
+                <span class="work-highlight-pill">Warm Acoustic Mastering</span>
+              </div>
+              <div class="work-card-footer">
+                <span class="work-card-category">Social Impact Story</span>
+                <button type="button" class="btn-work-commission" onclick="openBookingModal('YouTube Documentaries')">
+                  Book Similar Edit &rarr;
+                </button>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div style="text-align: center; margin-top: 36px;">
+          <button class="service-btn" style="display: inline-flex; align-items: center; gap: 8px; padding: 12px 28px; font-size: 13.5px;" onclick="selectBook('works')">
+            <span>Explore Full Works Book, Client Reviews &amp; Pricing</span>
+            <span>&rarr;</span>
+          </button>
+        </div>
+      </div>
+    </section>
+
     <!-- SECTION 3: PRODUCTION PIPELINE WITH ELECTRIC BEAM -->
     <section class="section" id="pipeline-section">
       <div class="container">
@@ -4928,8 +5267,64 @@
         reviews: "4.0 / 5.0 (Client Rating)",
         hero: "Our Works",
         label: "Vol. 02 — Featured Edited Projects & Showreels",
-        btnText: "Commission Similar Project",
-        projects: [],
+        projects: [
+          {
+            id: "proj-company",
+            num: "0824",
+            title: "Apex Corporate Brand Showcase",
+            category: "Commercials & Ads",
+            badge: "4K Corporate Edit",
+            tag: "Corporate Commercial",
+            accent: "crimson",
+            aspect: "16:9 Landscape",
+            isVertical: false,
+            video: "assets/work_company.mp4",
+            desc: "A sleek, authoritative company brand commercial edit featuring precision pacing, cinematic title cards, enterprise-grade color grading, and razor-sharp sound design built for maximum brand credibility.",
+            highlights: ["Enterprise Grade Motion", "Cinematic Sound Mastering", "4K Landscape Master"]
+          },
+          {
+            id: "proj-birthday",
+            num: "0828",
+            title: "Neon Vibe — Cinematic Birthday Celebration",
+            category: "Viral Reels & Shorts",
+            badge: "Speed Ramp & VFX",
+            tag: "Cinematic Birthday",
+            accent: "gold",
+            aspect: "9:16 Vertical Reel",
+            isVertical: true,
+            video: "assets/work_birthday.mp4",
+            desc: "High-energy celebration reel featuring seamless speed ramps, vibrant neon glows, beat-matched transitions, and infectious cinematic rhythm that captures every electric moment.",
+            highlights: ["Beat-Synced Transitions", "Vibrant Color Grading", "Ultra HD 9:16 Reel"]
+          },
+          {
+            id: "proj-gym",
+            num: "0903(1)(3)",
+            title: "Relentless Beast — Gym Motivation Edit",
+            category: "Viral Reels & Shorts",
+            badge: "High-Octane Retention",
+            tag: "Gym Motivation",
+            accent: "cyan",
+            aspect: "9:16 Vertical Reel",
+            isVertical: true,
+            video: "assets/work_gym.mp4",
+            desc: "Aggressive, high-octane workout edit engineered with hard-hitting bass drops, dynamic punch-ins, motion blur whip pans, and intense film grain aesthetics to ignite unstoppable energy.",
+            highlights: ["Explosive Bass Drops", "Retention-Engineered Cuts", "Dynamic Zoom Transitions"]
+          },
+          {
+            id: "proj-charity",
+            num: "0903(1)",
+            title: "Compassion in Motion — Feeding the Needy & Rescuing Stray Lives",
+            category: "YouTube Documentaries",
+            badge: "Heartfelt Storytelling",
+            tag: "Social Impact Story",
+            accent: "emerald",
+            aspect: "9:16 Vertical Story",
+            isVertical: true,
+            video: "assets/work_charity.mp4",
+            desc: "A deeply moving and heartfelt social documentary story capturing a young girl distributing warm meals to the homeless and feeding hungry stray animals on the streets. Crafted with uplifting warm tones, emotional narrative rhythm, and soul-stirring audio atmosphere.",
+            highlights: ["Emotional Story Pacing", "Humanitarian Social Impact", "Warm Acoustic Mastering"]
+          }
+        ],
         reviewsList: [
           { name: "Aman Sharma", role: "Automotive Creator (450K Followers)", rating: 4.5, stars: "★★★★½", text: "Krishna edited our supercar launch reel and it crossed 2.4M views in 4 days! The sound design and seamless speed ramping are unmatched." },
           { name: "Priya Mehta", role: "Founder, Aurum Luxe Jewelry", rating: 4.0, stars: "★★★★☆", text: "Delivered our luxury jewelry ad in under 48 hours. The color grade looks like a Netflix film production. High quality work!" },
@@ -5661,6 +6056,15 @@
       }
     }, { passive: true });
 
+    // Automatic single video playback controller
+    function handleSingleVideoPlayback(currentVideo) {
+      document.querySelectorAll('video.work-video-elem').forEach(v => {
+        if (v !== currentVideo && !v.paused) {
+          v.pause();
+        }
+      });
+    }
+
     // Open Book Handler for all 3 books
     function selectBook(bookId) {
       currentSelected = bookId;
@@ -5781,16 +6185,50 @@
             `;
           }
           scrollContainer.innerHTML = `
-            <!-- Section 1: Real Client Video Showcase Updating -->
+            <!-- Section 1: Real Client Video Showcase -->
             <section class="doc-section" id="sec-projects">
-              <h3 class="doc-label">🎬 ${data.label}</h3>
-              <div style="padding: 30px 20px; border-radius: 14px; background: rgba(22, 17, 12, 0.75); border: 1px dashed rgba(212, 175, 55, 0.45); text-align: center; margin-bottom: 8px;">
-                <div style="font-size: 34px; margin-bottom: 10px;">📽️</div>
-                <strong style="color: #fff; font-size: 16px; display: block; margin-bottom: 6px;">Client Video Showcase Updating</strong>
-                <span style="color: var(--muted); font-size: 12.5px; line-height: 1.55; display: block; max-width: 440px; margin: 0 auto 14px;">Real client video showreels, viral reels, and documentaries edited by Krishna are currently being uploaded with high-definition video previews.</span>
-                <div style="display: inline-flex; align-items: center; gap: 6px; background: rgba(212, 175, 55, 0.12); border: 1px solid rgba(212, 175, 55, 0.35); padding: 5px 16px; border-radius: 999px; color: var(--gold-bright); font-size: 11.5px; font-weight: 700;">
-                  <span>⚡ Real Client Videos &amp; Case Studies Coming Soon</span>
+              <div style="display: flex; justify-content: space-between; align-items: flex-end; flex-wrap: wrap; gap: 8px; margin-bottom: 12px;">
+                <div>
+                  <h3 class="doc-label" style="margin-bottom: 2px;">🎬 ${data.label}</h3>
+                  <span style="font-size: 11.5px; color: var(--muted);">Click any video to play • Full 4K audio &amp; retention pacing master</span>
                 </div>
+                <span style="font-size: 11px; background: rgba(212, 175, 55, 0.12); border: 1px solid rgba(212, 175, 55, 0.35); padding: 3px 10px; border-radius: 999px; color: var(--gold-bright); font-weight: 700;">
+                  ⚡ 4 Master Works Live
+                </span>
+              </div>
+
+              <div class="works-videos-grid">
+                ${data.projects.map(p => `
+                  <div class="work-video-card theme-${p.accent}" id="${p.id}">
+                    <div class="work-video-wrapper ${p.isVertical ? 'ratio-vertical' : 'ratio-landscape'}">
+                      <span class="work-video-badge-top">${escapeHtml(p.badge)}</span>
+                      <span class="work-video-aspect-tag">${escapeHtml(p.aspect)}</span>
+                      <video 
+                        class="work-video-elem" 
+                        controls 
+                        playsinline 
+                        preload="metadata" 
+                        src="${p.video}"
+                        onplay="handleSingleVideoPlayback(this)"
+                      >
+                        Your browser does not support HTML5 video.
+                      </video>
+                    </div>
+                    <div class="work-video-content">
+                      <h4 class="work-video-title">${escapeHtml(p.title)}</h4>
+                      <p class="work-video-desc">${escapeHtml(p.desc)}</p>
+                      <div class="work-highlights-list">
+                        ${p.highlights.map(h => `<span class="work-highlight-pill">${escapeHtml(h)}</span>`).join('')}
+                      </div>
+                      <div class="work-card-footer">
+                        <span class="work-card-category">${escapeHtml(p.tag)}</span>
+                        <button type="button" class="btn-work-commission" onclick="openBookingModal('${p.category}')">
+                          Book Similar Edit &rarr;
+                        </button>
+                      </div>
+                    </div>
+                  </div>
+                `).join('')}
               </div>
             </section>
 

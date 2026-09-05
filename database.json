@@ -1,0 +1,61 @@
+{
+  "bookings": [
+    {
+      "id": 1,
+      "client_name": "Aarav Mehta",
+      "email": "aarav@creatorstudio.com",
+      "phone": "+919876543210",
+      "service_type": "Commercials & Ads",
+      "budget": "₹3,300 - ₹3,500",
+      "project_brief": "Luxury watch commercial 4K shoot and master cinematic color grade.",
+      "status": "In Discussion",
+      "created_at": "2026-09-03T17:57:58.961Z"
+    },
+    {
+      "id": 2,
+      "client_name": "Rahul Sharma",
+      "email": "rahul@apexmedia.in",
+      "phone": "+919811223344",
+      "service_type": "Viral Reels & Shorts",
+      "budget": "₹500 (1 Min Proper Edit)",
+      "project_brief": "Monthly pack of 12 viral retention reels with custom SFX and motion blur.",
+      "status": "Booked",
+      "created_at": "2026-09-04T17:57:58.962Z"
+    },
+    {
+      "id": 3,
+      "client_name": "Test User",
+      "email": "test@test.com",
+      "phone": "12345",
+      "service_type": "Reels",
+      "budget": "500",
+      "project_brief": "Test brief",
+      "status": "Pending",
+      "created_at": "2026-09-05T17:58:04.084Z"
+    }
+  ],
+  "newsletter_subscribers": [
+    {
+      "id": 1,
+      "email": "vip.creator@youtube.com",
+      "status": "Active",
+      "created_at": "2026-09-04T17:57:58.962Z"
+    },
+    {
+      "id": 2,
+      "email": "director.film@gmail.com",
+      "status": "Active",
+      "created_at": "2026-09-04T17:57:58.962Z"
+    }
+  ],
+  "contact_messages": [],
+  "analytics_events": [
+    {
+      "id": 1,
+      "event_type": "book_opened",
+      "event_data": "\"works\"",
+      "user_agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/152.0.0.0 Safari/537.36 Edg/152.0.0.0",
+      "created_at": "2026-09-05T19:51:37.141Z"
+    }
+  ]
+}

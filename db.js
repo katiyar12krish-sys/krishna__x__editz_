@@ -1,91 +1,268 @@
-const sqlite3 = require('sqlite3').verbose();
+const fs = require('fs');
 const path = require('path');
 
-const DB_PATH = path.join(__dirname, 'database.sqlite');
+const DB_FILE = path.join(__dirname, 'database.json');
 
-const db = new sqlite3.Database(DB_PATH, (err) => {
-  if (err) {
-    console.error('❌ Error connecting to SQLite database:', err.message);
+// In-Memory Data Store with JSON File Persistence (Zero Native C++ / Zero GLIBC Dependencies)
+let data = {
+  bookings: [
+    {
+      id: 1,
+      client_name: 'Aarav Mehta',
+      email: 'aarav@creatorstudio.com',
+      phone: '+919876543210',
+      service_type: 'Commercials & Ads',
+      budget: '₹3,300 - ₹3,500',
+      project_brief: 'Luxury watch commercial 4K shoot and master cinematic color grade.',
+      status: 'In Discussion',
+      created_at: new Date(Date.now() - 2 * 86400000).toISOString()
+    },
+    {
+      id: 2,
+      client_name: 'Rahul Sharma',
+      email: 'rahul@apexmedia.in',
+      phone: '+919811223344',
+      service_type: 'Viral Reels & Shorts',
+      budget: '₹500 (1 Min Proper Edit)',
+      project_brief: 'Monthly pack of 12 viral retention reels with custom SFX and motion blur.',
+      status: 'Booked',
+      created_at: new Date(Date.now() - 1 * 86400000).toISOString()
+    }
+  ],
+  newsletter_subscribers: [
+    { id: 1, email: 'vip.creator@youtube.com', status: 'Active', created_at: new Date(Date.now() - 1 * 86400000).toISOString() },
+    { id: 2, email: 'director.film@gmail.com', status: 'Active', created_at: new Date(Date.now() - 86400000).toISOString() }
+  ],
+  contact_messages: [],
+  analytics_events: []
+};
+
+// Load persisted data if file exists
+try {
+  if (fs.existsSync(DB_FILE)) {
+    const raw = fs.readFileSync(DB_FILE, 'utf8');
+    const parsed = JSON.parse(raw);
+    data = { ...data, ...parsed };
+    console.log('✅ Loaded database from database.json');
   } else {
-    console.log('✅ Connected to SQLite database at', DB_PATH);
+    fs.writeFileSync(DB_FILE, JSON.stringify(data, null, 2), 'utf8');
+    console.log('✅ Initialized database.json with sample records');
   }
-});
+} catch (e) {
+  console.warn('⚠️ Note on database file:', e.message);
+}
 
-// Initialize Tables
-db.serialize(() => {
-  // 1. Client Bookings & Project Inquiries
-  db.run(`
-    CREATE TABLE IF NOT EXISTS bookings (
-      id INTEGER PRIMARY KEY AUTOINCREMENT,
-      client_name TEXT NOT NULL,
-      email TEXT NOT NULL,
-      phone TEXT NOT NULL,
-      service_type TEXT NOT NULL,
-      budget TEXT,
-      project_brief TEXT,
-      status TEXT DEFAULT 'Pending',
-      created_at DATETIME DEFAULT CURRENT_TIMESTAMP
-    )
-  `);
+function save() {
+  try {
+    fs.writeFileSync(DB_FILE, JSON.stringify(data, null, 2), 'utf8');
+  } catch (e) {
+    console.error('Database save error:', e);
+  }
+}
 
-  // 2. VIP Newsletter Subscribers
-  db.run(`
-    CREATE TABLE IF NOT EXISTS newsletter_subscribers (
-      id INTEGER PRIMARY KEY AUTOINCREMENT,
-      email TEXT UNIQUE NOT NULL,
-      status TEXT DEFAULT 'Active',
-      created_at DATETIME DEFAULT CURRENT_TIMESTAMP
-    )
-  `);
+function normalizeParams(params, cb) {
+  if (typeof params === 'function') {
+    return { p: [], callback: params };
+  }
+  return { p: Array.isArray(params) ? params : (params ? [params] : []), callback: cb || (() => {}) };
+}
 
-  // 3. Quick Messages / Contact Inquiries
-  db.run(`
-    CREATE TABLE IF NOT EXISTS contact_messages (
-      id INTEGER PRIMARY KEY AUTOINCREMENT,
-      name TEXT,
-      contact_info TEXT NOT NULL,
-      message TEXT NOT NULL,
-      created_at DATETIME DEFAULT CURRENT_TIMESTAMP
-    )
-  `);
+const db = {
+  serialize(fn) {
+    if (typeof fn === 'function') fn();
+  },
 
-  // 4. Analytics / Event Tracking (Book opens, CTA clicks)
-  db.run(`
-    CREATE TABLE IF NOT EXISTS analytics_events (
-      id INTEGER PRIMARY KEY AUTOINCREMENT,
-      event_type TEXT NOT NULL,
-      event_data TEXT,
-      user_agent TEXT,
-      created_at DATETIME DEFAULT CURRENT_TIMESTAMP
-    )
-  `);
+  run(sql, params, cb) {
+    const { p, callback } = normalizeParams(params, cb);
+    const self = { lastID: 0, changes: 0 };
+    const query = sql.trim();
 
-  // Seed sample initial test data if table is empty
-  db.get('SELECT COUNT(*) as count FROM bookings', (err, row) => {
-    if (!err && row && row.count === 0) {
-      const stmt = db.prepare(`
-        INSERT INTO bookings (client_name, email, phone, service_type, budget, project_brief, status, created_at)
-        VALUES (?, ?, ?, ?, ?, ?, ?, datetime('now', '-2 days'))
-      `);
-      stmt.run('Aarav Mehta', 'aarav@creatorstudio.com', '+919876543210', 'Commercials & Ads', '$1,000 - $2,500', 'Luxury watch commercial 4K shoot and master cinematic color grade.', 'In Discussion');
-      stmt.run('Rahul Sharma', 'rahul@apexmedia.in', '+919811223344', 'Viral Reels & Shorts', '$500 - $1,000', 'Monthly pack of 12 viral retention reels with custom SFX and motion blur.', 'Booked');
-      stmt.finalize();
-      console.log('📦 Initial sample bookings seeded.');
+    try {
+      // 1. INSERT INTO bookings
+      if (/^INSERT\s+INTO\s+bookings/i.test(query)) {
+        const id = (data.bookings.length ? Math.max(...data.bookings.map(b => b.id || 0)) : 0) + 1;
+        const [client_name, email, phone, service_type, budget, project_brief] = p;
+        data.bookings.push({
+          id,
+          client_name,
+          email,
+          phone,
+          service_type,
+          budget: budget || '',
+          project_brief: project_brief || '',
+          status: 'Pending',
+          created_at: new Date().toISOString()
+        });
+        self.lastID = id;
+        self.changes = 1;
+        save();
+        return callback.call(self, null);
+      }
+
+      // 2. INSERT INTO newsletter_subscribers
+      if (/^INSERT\s+INTO\s+newsletter_subscribers/i.test(query) || /^INSERT\s+OR\s+IGNORE\s+INTO\s+newsletter_subscribers/i.test(query)) {
+        const email = (p[0] || '').toLowerCase().trim();
+        const exists = data.newsletter_subscribers.find(s => s.email.toLowerCase() === email);
+        if (exists) {
+          const err = new Error('UNIQUE constraint failed: newsletter_subscribers.email');
+          return callback.call(self, err);
+        }
+        const id = (data.newsletter_subscribers.length ? Math.max(...data.newsletter_subscribers.map(s => s.id || 0)) : 0) + 1;
+        data.newsletter_subscribers.push({
+          id,
+          email,
+          status: 'Active',
+          created_at: new Date().toISOString()
+        });
+        self.lastID = id;
+        self.changes = 1;
+        save();
+        return callback.call(self, null);
+      }
+
+      // 3. INSERT INTO contact_messages
+      if (/^INSERT\s+INTO\s+contact_messages/i.test(query)) {
+        const id = (data.contact_messages.length ? Math.max(...data.contact_messages.map(m => m.id || 0)) : 0) + 1;
+        const [name, contact_info, message] = p;
+        data.contact_messages.push({
+          id,
+          name,
+          contact_info,
+          message,
+          created_at: new Date().toISOString()
+        });
+        self.lastID = id;
+        self.changes = 1;
+        save();
+        return callback.call(self, null);
+      }
+
+      // 4. INSERT INTO analytics_events
+      if (/^INSERT\s+INTO\s+analytics_events/i.test(query)) {
+        const id = (data.analytics_events.length ? Math.max(...data.analytics_events.map(a => a.id || 0)) : 0) + 1;
+        const [event_type, event_data, user_agent] = p;
+        data.analytics_events.push({
+          id,
+          event_type,
+          event_data,
+          user_agent: user_agent || '',
+          created_at: new Date().toISOString()
+        });
+        self.lastID = id;
+        self.changes = 1;
+        save();
+        return callback.call(self, null);
+      }
+
+      // 5. UPDATE bookings SET status = ? WHERE id = ?
+      if (/^UPDATE\s+bookings/i.test(query)) {
+        const [status, id] = p;
+        const booking = data.bookings.find(b => String(b.id) === String(id));
+        if (booking) {
+          booking.status = status;
+          self.changes = 1;
+          save();
+        }
+        return callback.call(self, null);
+      }
+
+      // 6. DELETE FROM bookings WHERE id = ?
+      if (/^DELETE\s+FROM\s+bookings/i.test(query)) {
+        const [id] = p;
+        const initialLen = data.bookings.length;
+        data.bookings = data.bookings.filter(b => String(b.id) !== String(id));
+        self.changes = initialLen - data.bookings.length;
+        save();
+        return callback.call(self, null);
+      }
+
+      // Generic DDL (CREATE TABLE, etc.) - no-op success
+      if (/^CREATE\s+TABLE/i.test(query)) {
+        return callback.call(self, null);
+      }
+
+      return callback.call(self, null);
+    } catch (err) {
+      return callback.call(self, err);
     }
-  });
+  },
 
-  db.get('SELECT COUNT(*) as count FROM newsletter_subscribers', (err, row) => {
-    if (!err && row && row.count === 0) {
-      const stmt = db.prepare(`
-        INSERT OR IGNORE INTO newsletter_subscribers (email, created_at)
-        VALUES (?, datetime('now', '-1 days'))
-      `);
-      stmt.run('vip.creator@youtube.com');
-      stmt.run('director.film@gmail.com');
-      stmt.finalize();
-      console.log('📦 Initial VIP subscribers seeded.');
+  get(sql, params, cb) {
+    const { p, callback } = normalizeParams(params, cb);
+    const query = sql.trim();
+
+    try {
+      // COUNT(*) queries
+      if (/SELECT\s+COUNT\(\*\)\s+as\s+count\s+FROM\s+bookings\s+WHERE\s+status\s*=\s*'Pending'/i.test(query)) {
+        const count = data.bookings.filter(b => b.status === 'Pending').length;
+        return callback(null, { count });
+      }
+      if (/SELECT\s+COUNT\(\*\)\s+as\s+count\s+FROM\s+bookings/i.test(query)) {
+        return callback(null, { count: data.bookings.length });
+      }
+      if (/SELECT\s+COUNT\(\*\)\s+as\s+count\s+FROM\s+newsletter_subscribers/i.test(query)) {
+        return callback(null, { count: data.newsletter_subscribers.length });
+      }
+      if (/SELECT\s+COUNT\(\*\)\s+as\s+count\s+FROM\s+analytics_events/i.test(query)) {
+        return callback(null, { count: data.analytics_events.length });
+      }
+      return callback(null, null);
+    } catch (err) {
+      return callback(err);
     }
-  });
-});
+  },
+
+  all(sql, params, cb) {
+    const { p, callback } = normalizeParams(params, cb);
+    const query = sql.trim();
+
+    try {
+      if (/FROM\s+bookings/i.test(query)) {
+        let list = [...data.bookings];
+        if (p.length > 0) {
+          list = list.filter(b => b.status.toLowerCase() === String(p[0]).toLowerCase());
+        }
+        list.sort((a, b) => new Date(b.created_at) - new Date(a.created_at));
+        if (/LIMIT\s+5/i.test(query)) {
+          list = list.slice(0, 5);
+        }
+        return callback(null, list);
+      }
+
+      if (/FROM\s+newsletter_subscribers/i.test(query)) {
+        let list = [...data.newsletter_subscribers];
+        list.sort((a, b) => new Date(b.created_at) - new Date(a.created_at));
+        return callback(null, list);
+      }
+
+      if (/FROM\s+contact_messages/i.test(query)) {
+        let list = [...data.contact_messages];
+        list.sort((a, b) => new Date(b.created_at) - new Date(a.created_at));
+        return callback(null, list);
+      }
+
+      if (/FROM\s+analytics_events/i.test(query)) {
+        let list = [...data.analytics_events];
+        list.sort((a, b) => new Date(b.created_at) - new Date(a.created_at));
+        return callback(null, list);
+      }
+
+      return callback(null, []);
+    } catch (err) {
+      return callback(err);
+    }
+  },
+
+  prepare(sql) {
+    const self = this;
+    return {
+      run(...args) {
+        const cb = typeof args[args.length - 1] === 'function' ? args.pop() : () => {};
+        self.run(sql, args, cb);
+      },
+      finalize() {}
+    };
+  }
+};
 
 module.exports = db;
