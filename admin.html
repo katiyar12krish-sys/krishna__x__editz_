@@ -570,6 +570,7 @@
               <th>Subscriber Email</th>
               <th>Joined Date</th>
               <th>Status</th>
+              <th style="text-align: right;">Action</th>
             </tr>
           </thead>
           <tbody id="subscribersTableBody"></tbody>
@@ -589,52 +590,137 @@
     </div>
   </div>
 
+  <!-- SECURITY PIN LOCKSCREEN OVERLAY -->
+  <div id="adminLockscreenOverlay" style="position: fixed; inset: 0; z-index: 9999; background: rgba(10, 8, 6, 0.96); backdrop-filter: blur(20px); display: flex; align-items: center; justify-content: center; padding: 20px;">
+    <div style="background: #18130d; border: 1px solid rgba(212, 175, 55, 0.4); border-radius: 20px; width: min(440px, 92vw); padding: 36px 30px; text-align: center; box-shadow: 0 20px 60px rgba(0,0,0,0.9), 0 0 30px rgba(212, 175, 55, 0.15);">
+      <div style="font-size: 38px; margin-bottom: 12px;">🔒</div>
+      <h2 style="font-family: var(--display); font-size: 22px; color: var(--gold-bright); margin-bottom: 8px;">Studio Security Check</h2>
+      <p style="color: var(--muted); font-size: 13px; line-height: 1.5; margin-bottom: 24px;">Enter your 4-digit security PIN to access the KRISHNA X EDITZ Command Center.</p>
+      
+      <input type="password" id="adminPagePinInput" maxlength="4" placeholder="••••" style="width: 180px; text-align: center; font-size: 24px; letter-spacing: 0.3em; padding: 10px; border-radius: 12px; background: #0e0a06; border: 1px solid rgba(212, 175, 55, 0.5); color: var(--gold-bright); margin-bottom: 18px; outline: none;" onkeydown="if(event.key==='Enter') unlockAdminPage()">
+      <br>
+      <button onclick="unlockAdminPage()" style="width: 100%; padding: 12px; border-radius: 10px; background: var(--gold); color: #0e0a06; font-weight: 800; font-size: 13px; cursor: pointer; border: none; text-transform: uppercase; letter-spacing: 0.05em; transition: all 200ms ease;">
+        Unlock Command Center &rarr;
+      </button>
+      <p style="margin-top: 16px; font-size: 11.5px; color: var(--gold-foil); cursor: pointer;" onclick="document.getElementById('adminPagePinInput').value='8090'; unlockAdminPage();">
+        [🔑 Admin PIN: <strong>8090</strong> • Click to Auto-Unlock]
+      </p>
+    </div>
+  </div>
+
   <script>
+    const API_BASE = (window.location.origin && window.location.origin.includes(':3000')) ? '' : 'http://localhost:3000';
+    let isAdminUnlocked = false;
     let allBookings = [];
     let allSubscribers = [];
 
+    function unlockAdminPage() {
+      const pin = document.getElementById('adminPagePinInput').value.trim();
+      if (pin === '8090') {
+        isAdminUnlocked = true;
+        document.getElementById('adminLockscreenOverlay').style.display = 'none';
+        loadAllData();
+      } else {
+        alert('Incorrect Security PIN. Please enter 8090.');
+        document.getElementById('adminPagePinInput').value = '';
+        document.getElementById('adminPagePinInput').focus();
+      }
+    }
+
     async function loadStats() {
       try {
-        const res = await fetch('/api/admin/stats');
-        const json = await res.json();
-        if (json.success) {
-          document.getElementById('statTotalBookings').textContent = json.data.total_bookings;
-          document.getElementById('statPendingBookings').textContent = json.data.pending_bookings;
-          document.getElementById('statTotalSubscribers').textContent = json.data.total_subscribers;
-          document.getElementById('statTotalEvents').textContent = json.data.total_events;
+        const res = await fetch(`${API_BASE}/api/admin/stats`, { cache: 'no-cache' });
+        if (res.ok) {
+          const json = await res.json();
+          if (json.success) {
+            document.getElementById('statTotalBookings').textContent = json.data.total_bookings;
+            document.getElementById('statPendingBookings').textContent = json.data.pending_bookings;
+            document.getElementById('statTotalSubscribers').textContent = json.data.total_subscribers;
+            document.getElementById('statTotalEvents').textContent = json.data.total_events;
+          }
         }
       } catch (e) {
-        console.error('Error fetching stats:', e);
+        console.warn('Backend offline, computing stats from leads.');
       }
     }
 
     async function loadBookings() {
       const status = document.getElementById('filterStatus').value;
-      const url = status && status !== 'All' ? `/api/admin/bookings?status=${encodeURIComponent(status)}` : '/api/admin/bookings';
+      let serverBookings = [];
+      let localBookings = [];
 
       try {
-        const res = await fetch(url);
-        const json = await res.json();
-        if (json.success) {
-          allBookings = json.data;
-          renderBookings(allBookings);
+        localBookings = JSON.parse(localStorage.getItem('krishna_leads') || '[]');
+        localBookings = localBookings.filter(b => 
+          !['vikram rajput', 'aarav mehta', 'rahul sharma'].includes((b.client_name || '').toLowerCase())
+        );
+        localStorage.setItem('krishna_leads', JSON.stringify(localBookings));
+      } catch (e) {
+        localBookings = [];
+      }
+
+      try {
+        const url = status && status !== 'All' 
+          ? `${API_BASE}/api/admin/bookings?status=${encodeURIComponent(status)}` 
+          : `${API_BASE}/api/admin/bookings`;
+        const res = await fetch(url, { cache: 'no-cache' });
+        if (res.ok) {
+          const json = await res.json();
+          if (json.success && Array.isArray(json.data)) {
+            serverBookings = json.data;
+          }
         }
       } catch (e) {
-        console.error('Error loading bookings:', e);
+        console.warn('Backend server not responding, showing stored leads:', e);
       }
+
+      // Merge server & local leads without duplicates
+      const mergedMap = new Map();
+      serverBookings.forEach(b => {
+        const key = String(b.id || (b.phone + '_' + (b.created_at || '')));
+        mergedMap.set(key, b);
+      });
+
+      localBookings.forEach(b => {
+        const key = String(b.id || (b.phone + '_' + (b.created_at || '')));
+        if (!mergedMap.has(key)) {
+          mergedMap.set(key, b);
+          // Auto sync to server in background if available
+          if (serverBookings.length >= 0) {
+            fetch(`${API_BASE}/api/bookings`, {
+              method: 'POST',
+              headers: { 'Content-Type': 'application/json' },
+              body: JSON.stringify(b)
+            }).catch(() => {});
+          }
+        }
+      });
+
+      let list = Array.from(mergedMap.values());
+      if (status && status !== 'All') {
+        list = list.filter(b => (b.status || 'Pending').toLowerCase() === status.toLowerCase());
+      }
+      list.sort((a, b) => new Date(b.created_at || 0) - new Date(a.created_at || 0));
+
+      allBookings = list;
+      renderBookings(allBookings);
+
+      // Keep stats cards accurate
+      document.getElementById('statTotalBookings').textContent = list.length;
+      document.getElementById('statPendingBookings').textContent = list.filter(b => (b.status || 'Pending') === 'Pending').length;
     }
 
     function renderBookings(list) {
       const tbody = document.getElementById('bookingsTableBody');
       if (!list || list.length === 0) {
-        tbody.innerHTML = `<tr><td colspan="6" class="empty-state">No client leads found.</td></tr>`;
+        tbody.innerHTML = `<tr><td colspan="6" class="empty-state">No client leads found. Submit a booking from the website to see it live!</td></tr>`;
         return;
       }
 
       tbody.innerHTML = list.map(b => {
-        const dateStr = new Date(b.created_at).toLocaleDateString('en-US', { month: 'short', day: 'numeric', year: 'numeric' });
+        const dateStr = b.created_at ? new Date(b.created_at).toLocaleDateString('en-US', { month: 'short', day: 'numeric', year: 'numeric' }) : 'Recent';
         const waMsg = encodeURIComponent(`Hi ${b.client_name}! Krishna here regarding your video inquiry for ${b.service_type}.`);
-        const cleanPhone = b.phone.replace(/[^0-9]/g, '');
+        const cleanPhone = (b.phone || '').replace(/[^0-9]/g, '');
 
         return `
           <tr>
@@ -642,13 +728,13 @@
             <td>
               <div class="client-cell">
                 <span class="client-name">${escapeHtml(b.client_name)}</span>
-                <span class="client-email">${escapeHtml(b.email)} • ${escapeHtml(b.phone)}</span>
+                <span class="client-email">${escapeHtml(b.email)} • <strong style="color: var(--gold-foil);">${escapeHtml(b.phone)}</strong></span>
               </div>
             </td>
             <td><span class="package-tag">${escapeHtml(b.service_type)}</span></td>
             <td style="font-weight: 700; color: var(--gold-bright);">${escapeHtml(b.budget || 'Custom')}</td>
             <td>
-              <select class="status-select" data-status="${b.status}" onchange="updateStatus(${b.id}, this.value)">
+              <select class="status-select" data-status="${b.status}" onchange="updateStatus('${b.id}', this.value)">
                 <option value="Pending" ${b.status === 'Pending' ? 'selected' : ''}>Pending</option>
                 <option value="In Discussion" ${b.status === 'In Discussion' ? 'selected' : ''}>In Discussion</option>
                 <option value="Booked" ${b.status === 'Booked' ? 'selected' : ''}>Booked</option>
@@ -661,8 +747,8 @@
                 <a href="https://wa.me/${cleanPhone}?text=${waMsg}" target="_blank" class="btn-wa-chat" title="Chat on WhatsApp">
                   WhatsApp
                 </a>
-                <button class="btn-view-brief" onclick="viewBrief(${b.id})">Brief</button>
-                <button class="btn-delete" onclick="deleteBooking(${b.id})" title="Delete Lead">&times;</button>
+                <button class="btn-view-brief" onclick="viewBrief('${b.id}')">Brief</button>
+                <button class="btn-delete" onclick="deleteBooking('${b.id}')" title="Delete Lead">&times;</button>
               </div>
             </td>
           </tr>
@@ -673,47 +759,48 @@
     function filterBookings() {
       const q = document.getElementById('searchLeads').value.toLowerCase();
       const filtered = allBookings.filter(b => 
-        b.client_name.toLowerCase().includes(q) || 
-        b.email.toLowerCase().includes(q) || 
-        b.phone.includes(q) ||
-        b.service_type.toLowerCase().includes(q)
+        (b.client_name || '').toLowerCase().includes(q) || 
+        (b.email || '').toLowerCase().includes(q) || 
+        (b.phone || '').includes(q) ||
+        (b.service_type || '').toLowerCase().includes(q)
       );
       renderBookings(filtered);
     }
 
     async function updateStatus(id, newStatus) {
       try {
-        const res = await fetch(`/api/admin/bookings/${id}`, {
+        let stored = JSON.parse(localStorage.getItem('krishna_leads') || '[]');
+        const localItem = stored.find(b => String(b.id) === String(id));
+        if (localItem) {
+          localItem.status = newStatus;
+          localStorage.setItem('krishna_leads', JSON.stringify(stored));
+        }
+
+        await fetch(`${API_BASE}/api/admin/bookings/${id}`, {
           method: 'PATCH',
           headers: { 'Content-Type': 'application/json' },
           body: JSON.stringify({ status: newStatus })
         });
-        const json = await res.json();
-        if (json.success) {
-          loadStats();
-          loadBookings();
-        }
-      } catch (e) {
-        alert('Failed to update status');
-      }
+      } catch (e) {}
+      loadStats();
+      loadBookings();
     }
 
     async function deleteBooking(id) {
       if (!confirm('Are you sure you want to delete this client lead?')) return;
       try {
-        const res = await fetch(`/api/admin/bookings/${id}`, { method: 'DELETE' });
-        const json = await res.json();
-        if (json.success) {
-          loadStats();
-          loadBookings();
-        }
-      } catch (e) {
-        alert('Failed to delete booking');
-      }
+        let stored = JSON.parse(localStorage.getItem('krishna_leads') || '[]');
+        stored = stored.filter(b => String(b.id) !== String(id));
+        localStorage.setItem('krishna_leads', JSON.stringify(stored));
+
+        await fetch(`${API_BASE}/api/admin/bookings/${id}`, { method: 'DELETE' });
+      } catch (e) {}
+      loadStats();
+      loadBookings();
     }
 
     function viewBrief(id) {
-      const booking = allBookings.find(b => b.id === id);
+      const booking = allBookings.find(b => String(b.id) === String(id));
       if (!booking) return;
       document.getElementById('briefModalClient').textContent = `Project Brief: ${booking.client_name} (${booking.service_type})`;
       document.getElementById('briefModalText').textContent = booking.project_brief || 'No detailed brief submitted.';
@@ -726,23 +813,40 @@
 
     async function loadSubscribers() {
       try {
-        const res = await fetch('/api/admin/subscribers');
+        const res = await fetch(`${API_BASE}/api/admin/subscribers`);
         const json = await res.json();
         if (json.success) {
           allSubscribers = json.data;
           document.getElementById('subscribersCount').textContent = `${allSubscribers.length} VIP Subscribers`;
+          document.getElementById('statTotalSubscribers').textContent = allSubscribers.length;
           const tbody = document.getElementById('subscribersTableBody');
+          if (!allSubscribers || allSubscribers.length === 0) {
+            tbody.innerHTML = `<tr><td colspan="4" class="empty-state">No subscribers found.</td></tr>`;
+            return;
+          }
           tbody.innerHTML = allSubscribers.map(s => `
             <tr>
               <td style="font-weight: 700; color: #fff;">${escapeHtml(s.email)}</td>
               <td style="color: var(--muted);">${new Date(s.created_at).toLocaleDateString()}</td>
               <td><span style="color: var(--emerald); font-weight: 800;">● Active</span></td>
+              <td style="text-align: right;">
+                <button class="btn-delete" onclick="deleteSubscriber('${s.id}')" title="Delete Subscriber">&times;</button>
+              </td>
             </tr>
           `).join('');
         }
       } catch (e) {
         console.error('Error loading subscribers:', e);
       }
+    }
+
+    async function deleteSubscriber(id) {
+      if (!confirm('Are you sure you want to remove this subscriber?')) return;
+      try {
+        await fetch(`${API_BASE}/api/admin/subscribers/${id}`, { method: 'DELETE' });
+        loadStats();
+        loadSubscribers();
+      } catch (e) {}
     }
 
     function copyAllEmails() {
@@ -779,9 +883,11 @@
       loadBookings();
     }
 
-    // Initial Load
-    loadAllData();
-    setInterval(loadStats, 30000);
+    // Initialize lockscreen focus
+    setTimeout(() => {
+      const pinInput = document.getElementById('adminPagePinInput');
+      if (pinInput) pinInput.focus();
+    }, 200);
   </script>
 </body>
 </html>

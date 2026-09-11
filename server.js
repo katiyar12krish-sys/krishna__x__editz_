@@ -86,9 +86,18 @@ app.post('/api/bookings', async (req, res) => {
       project_brief || ''
     ]);
 
-    // Generate Direct WhatsApp Chat Link for Krishna (+91 8449495147)
+    // Generate Direct WhatsApp Chat & Notification Link for Krishna (+91 8449495147)
     const waText = encodeURIComponent(
-      `Hi Krishna! I just submitted a project brief on Krishna X Editz.\n\n*Name:* ${client_name}\n*Service:* ${service_type}\n*Budget:* ${budget || 'Custom'}\n*Brief:* ${project_brief || 'N/A'}`
+      `🚨 *NEW CLIENT WORK BOOKING RECEIVED!* 🚨\n` +
+      `----------------------------------------\n` +
+      `👤 *Client Name:* ${client_name}\n` +
+      `📱 *Phone / WhatsApp:* ${phone}\n` +
+      `📧 *Email Address:* ${email}\n` +
+      `🎬 *Service Package:* ${service_type}\n` +
+      `💰 *Budget / Rate:* ${budget || 'Custom / Flexible'}\n` +
+      `📝 *Project Brief / Vision:*\n${project_brief || 'None provided'}\n` +
+      `----------------------------------------\n` +
+      `🌐 *Source:* KRISHNA X EDITZ Portfolio`
     );
     const whatsappUrl = `https://wa.me/918449495147?text=${waText}`;
 
@@ -201,6 +210,17 @@ app.get('/api/admin/subscribers', async (req, res) => {
   try {
     const rows = await dbAll('SELECT * FROM newsletter_subscribers ORDER BY created_at DESC');
     res.json({ success: true, count: rows.length, data: rows });
+  } catch (err) {
+    res.status(500).json({ success: false, error: err.message });
+  }
+});
+
+// Delete subscriber (for Admin)
+app.delete('/api/admin/subscribers/:id', async (req, res) => {
+  try {
+    const { id } = req.params;
+    await dbRun('DELETE FROM newsletter_subscribers WHERE id = ?', [id]);
+    res.json({ success: true, message: 'Subscriber deleted successfully.' });
   } catch (err) {
     res.status(500).json({ success: false, error: err.message });
   }

@@ -5,34 +5,8 @@ const DB_FILE = path.join(__dirname, 'database.json');
 
 // In-Memory Data Store with JSON File Persistence (Zero Native C++ / Zero GLIBC Dependencies)
 let data = {
-  bookings: [
-    {
-      id: 1,
-      client_name: 'Aarav Mehta',
-      email: 'aarav@creatorstudio.com',
-      phone: '+919876543210',
-      service_type: 'Commercials & Ads',
-      budget: '₹3,300 - ₹3,500',
-      project_brief: 'Luxury watch commercial 4K shoot and master cinematic color grade.',
-      status: 'In Discussion',
-      created_at: new Date(Date.now() - 2 * 86400000).toISOString()
-    },
-    {
-      id: 2,
-      client_name: 'Rahul Sharma',
-      email: 'rahul@apexmedia.in',
-      phone: '+919811223344',
-      service_type: 'Viral Reels & Shorts',
-      budget: '₹500 (1 Min Proper Edit)',
-      project_brief: 'Monthly pack of 12 viral retention reels with custom SFX and motion blur.',
-      status: 'Booked',
-      created_at: new Date(Date.now() - 1 * 86400000).toISOString()
-    }
-  ],
-  newsletter_subscribers: [
-    { id: 1, email: 'vip.creator@youtube.com', status: 'Active', created_at: new Date(Date.now() - 1 * 86400000).toISOString() },
-    { id: 2, email: 'director.film@gmail.com', status: 'Active', created_at: new Date(Date.now() - 86400000).toISOString() }
-  ],
+  bookings: [],
+  newsletter_subscribers: [],
   contact_messages: [],
   analytics_events: []
 };
@@ -46,7 +20,7 @@ try {
     console.log('✅ Loaded database from database.json');
   } else {
     fs.writeFileSync(DB_FILE, JSON.stringify(data, null, 2), 'utf8');
-    console.log('✅ Initialized database.json with sample records');
+    console.log('✅ Initialized database.json with empty store');
   }
 } catch (e) {
   console.warn('⚠️ Note on database file:', e.message);
@@ -172,6 +146,16 @@ const db = {
         const initialLen = data.bookings.length;
         data.bookings = data.bookings.filter(b => String(b.id) !== String(id));
         self.changes = initialLen - data.bookings.length;
+        save();
+        return callback.call(self, null);
+      }
+
+      // 7. DELETE FROM newsletter_subscribers WHERE id = ?
+      if (/^DELETE\s+FROM\s+newsletter_subscribers/i.test(query)) {
+        const [id] = p;
+        const initialLen = data.newsletter_subscribers.length;
+        data.newsletter_subscribers = data.newsletter_subscribers.filter(s => String(s.id) !== String(id));
+        self.changes = initialLen - data.newsletter_subscribers.length;
         save();
         return callback.call(self, null);
       }

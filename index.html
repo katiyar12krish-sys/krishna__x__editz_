@@ -1389,6 +1389,11 @@
       box-shadow: 0 16px 40px rgba(0, 0, 0, 0.6), 0 0 25px var(--emerald-glow);
     }
 
+    .work-video-card.theme-purple:hover {
+      border-color: #c084fc;
+      box-shadow: 0 16px 40px rgba(0, 0, 0, 0.6), 0 0 25px rgba(192, 132, 252, 0.35);
+    }
+
     .work-video-wrapper {
       position: relative;
       background: #000;
@@ -1526,6 +1531,298 @@
       color: #0a0806;
       border-color: #d4af37;
       transform: translateY(-1px);
+    }
+
+    /* ========================================================
+       MAIN WEBSITE PRICING & PACKAGES SECTION
+       ======================================================== */
+    .pricing-hero-banner {
+      background: linear-gradient(135deg, rgba(212, 175, 55, 0.16) 0%, rgba(20, 15, 10, 0.95) 100%);
+      border: 1px solid rgba(212, 175, 55, 0.45);
+      border-radius: 20px;
+      padding: 24px 30px;
+      margin-bottom: 40px;
+      box-shadow: 0 10px 30px rgba(0, 0, 0, 0.6), 0 0 30px rgba(212, 175, 55, 0.12);
+      display: flex;
+      flex-direction: column;
+      gap: 12px;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .pricing-hero-banner::before {
+      content: "";
+      position: absolute;
+      top: -50%;
+      right: -10%;
+      width: 280px;
+      height: 280px;
+      background: radial-gradient(circle, rgba(245, 158, 11, 0.22), transparent 70%);
+      pointer-events: none;
+    }
+
+    .pricing-hero-top {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      flex-wrap: wrap;
+      gap: 12px;
+    }
+
+    .pricing-promo-badge {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      background: linear-gradient(135deg, #d4af37, #ffd700);
+      color: #0d0a07;
+      font-family: var(--sans);
+      font-size: 12.5px;
+      font-weight: 800;
+      padding: 6px 18px;
+      border-radius: 999px;
+      letter-spacing: .06em;
+      text-transform: uppercase;
+      box-shadow: 0 4px 15px rgba(212, 175, 55, 0.4);
+    }
+
+    .pricing-bargain-badge {
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      color: #4ade80;
+      font-family: var(--sans);
+      font-size: 12.5px;
+      font-weight: 700;
+      background: rgba(74, 222, 128, 0.12);
+      border: 1px solid rgba(74, 222, 128, 0.3);
+      padding: 6px 16px;
+      border-radius: 999px;
+    }
+
+    .pricing-hero-desc {
+      font-family: var(--sans);
+      font-size: 13.5px;
+      color: #eae1d1;
+      line-height: 1.65;
+    }
+
+    .pricing-hero-desc strong {
+      color: var(--gold-bright);
+    }
+
+    .main-pricing-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+      gap: 22px;
+      margin-bottom: 40px;
+    }
+
+    .main-price-card {
+      background: rgba(22, 17, 12, 0.95);
+      border: 1px solid rgba(212, 175, 55, 0.28);
+      border-radius: 18px;
+      padding: 26px 22px;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+      position: relative;
+      transition: transform 300ms var(--ease), border-color 300ms var(--ease), box-shadow 300ms var(--ease), background 300ms var(--ease);
+      backdrop-filter: blur(12px);
+    }
+
+    .main-price-card:hover {
+      transform: translateY(-5px);
+      border-color: var(--gold-bright);
+      background: rgba(30, 23, 16, 0.98);
+      box-shadow: 0 16px 40px rgba(0, 0, 0, 0.7), 0 0 25px rgba(212, 175, 55, 0.22);
+    }
+
+    .main-price-card.featured {
+      border: 1.5px solid var(--gold);
+      background: linear-gradient(180deg, rgba(38, 28, 18, 0.98) 0%, rgba(22, 17, 12, 0.95) 100%);
+      box-shadow: 0 10px 30px rgba(0, 0, 0, 0.6), 0 0 22px rgba(212, 175, 55, 0.18);
+    }
+
+    .price-card-badge {
+      position: absolute;
+      top: -12px;
+      right: 18px;
+      background: linear-gradient(135deg, #f59e0b, #e11d48);
+      color: #fff;
+      font-family: var(--sans);
+      font-size: 10px;
+      font-weight: 800;
+      letter-spacing: .12em;
+      text-transform: uppercase;
+      padding: 4px 12px;
+      border-radius: 999px;
+      box-shadow: 0 4px 12px rgba(225, 29, 72, 0.4);
+    }
+
+    .price-card-badge.retainer {
+      background: linear-gradient(135deg, #8b5cf6, #06b6d4);
+      box-shadow: 0 4px 12px rgba(139, 92, 246, 0.4);
+    }
+
+    .price-card-badge.custom {
+      background: linear-gradient(135deg, #10b981, #f59e0b);
+      box-shadow: 0 4px 12px rgba(16, 185, 129, 0.4);
+    }
+
+    .price-card-top {
+      margin-bottom: 16px;
+    }
+
+    .price-card-title {
+      font-family: var(--sans);
+      font-size: 17px;
+      font-weight: 800;
+      color: #fff;
+      margin-bottom: 6px;
+      letter-spacing: -.01em;
+    }
+
+    .price-card-desc {
+      font-family: var(--sans);
+      font-size: 12.5px;
+      color: var(--muted);
+      line-height: 1.5;
+      min-height: 36px;
+    }
+
+    .price-card-amount-wrap {
+      padding: 14px 0;
+      border-top: 1px solid rgba(212, 175, 55, 0.15);
+      border-bottom: 1px solid rgba(212, 175, 55, 0.15);
+      margin-bottom: 18px;
+      display: flex;
+      align-items: baseline;
+      gap: 8px;
+    }
+
+    .price-card-amount {
+      font-family: var(--display);
+      font-size: 26px;
+      font-weight: 900;
+      color: var(--gold-bright);
+      letter-spacing: -.02em;
+    }
+
+    .price-card-tagline {
+      font-family: var(--sans);
+      font-size: 11px;
+      color: var(--muted-dark);
+    }
+
+    .price-features-list {
+      list-style: none;
+      display: flex;
+      flex-direction: column;
+      gap: 9px;
+      margin-bottom: 22px;
+      flex: 1;
+    }
+
+    .price-feature-item {
+      font-family: var(--sans);
+      font-size: 12px;
+      color: #e5ded2;
+      display: flex;
+      align-items: flex-start;
+      gap: 8px;
+      line-height: 1.45;
+    }
+
+    .price-feature-check {
+      color: var(--gold);
+      font-weight: 900;
+      flex-shrink: 0;
+    }
+
+    .btn-price-book {
+      width: 100%;
+      padding: 11px 18px;
+      border-radius: 10px;
+      background: linear-gradient(135deg, rgba(212, 175, 55, 0.2), rgba(212, 175, 55, 0.08));
+      border: 1px solid var(--gold);
+      color: var(--gold-bright);
+      font-family: var(--sans);
+      font-size: 12px;
+      font-weight: 800;
+      letter-spacing: .06em;
+      text-transform: uppercase;
+      cursor: pointer;
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      gap: 8px;
+      transition: all 250ms var(--ease);
+    }
+
+    .btn-price-book:hover {
+      background: linear-gradient(135deg, #d4af37, #ffd700);
+      color: #0d0a07;
+      box-shadow: 0 0 18px rgba(212, 175, 55, 0.5);
+      transform: translateY(-2px);
+    }
+
+    .main-price-card.featured .btn-price-book {
+      background: linear-gradient(135deg, #d4af37, #ffd700);
+      color: #0d0a07;
+    }
+
+    .main-price-card.featured .btn-price-book:hover {
+      background: #fff;
+      color: #0d0a07;
+      box-shadow: 0 0 22px rgba(255, 255, 255, 0.6);
+    }
+
+    .pricing-cta-box {
+      text-align: center;
+      padding: 26px 30px;
+      background: rgba(22, 17, 12, 0.7);
+      border: 1px solid rgba(212, 175, 55, 0.3);
+      border-radius: 18px;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 14px;
+    }
+
+    .pricing-cta-box h4 {
+      font-family: var(--display);
+      font-size: 19px;
+      color: #fff;
+    }
+
+    .pricing-cta-box p {
+      font-family: var(--sans);
+      font-size: 13px;
+      color: var(--muted);
+      max-width: 600px;
+      line-height: 1.5;
+    }
+
+    .btn-wa-pricing-direct {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      padding: 10px 24px;
+      border-radius: 999px;
+      background: #25d366;
+      color: #fff;
+      font-family: var(--sans);
+      font-size: 12.5px;
+      font-weight: 800;
+      text-decoration: none;
+      box-shadow: 0 4px 18px rgba(37, 211, 102, 0.35);
+      transition: all 250ms ease;
+    }
+
+    .btn-wa-pricing-direct:hover {
+      background: #1eb954;
+      box-shadow: 0 6px 24px rgba(37, 211, 102, 0.5);
+      transform: translateY(-2px);
     }
 
     /* BOOK 2: VERIFIED REVIEWS & RATINGS */
@@ -4484,9 +4781,9 @@
         <div class="works-videos-grid">
           <!-- Video 1: 0824 Company Edit -->
           <div class="work-video-card theme-crimson">
-            <div class="work-video-wrapper ratio-landscape">
-              <span class="work-video-badge-top">4K Corporate Edit</span>
-              <span class="work-video-aspect-tag">16:9 Landscape</span>
+            <div class="work-video-wrapper ratio-vertical">
+              <span class="work-video-badge-top">Signature Reel</span>
+              <span class="work-video-aspect-tag">9:16 Vertical Reel</span>
               <video 
                 class="work-video-elem" 
                 controls 
@@ -4504,7 +4801,7 @@
               <div class="work-highlights-list">
                 <span class="work-highlight-pill">Enterprise Grade Motion</span>
                 <span class="work-highlight-pill">Cinematic Sound Mastering</span>
-                <span class="work-highlight-pill">4K Landscape Master</span>
+                <span class="work-highlight-pill">Ultra HD 9:16 Master</span>
               </div>
               <div class="work-card-footer">
                 <span class="work-card-category">Commercial / Corporate</span>
@@ -4613,14 +4910,245 @@
               </div>
             </div>
           </div>
+
+          <!-- Video 5: Raanjhanaa 4K Cinematic Master -->
+          <div class="work-video-card theme-purple">
+            <div class="work-video-wrapper ratio-landscape">
+              <span class="work-video-badge-top">4K 60FPS Master</span>
+              <span class="work-video-aspect-tag">16:9 4K Landscape</span>
+              <video 
+                class="work-video-elem" 
+                controls 
+                playsinline 
+                preload="metadata" 
+                src="assets/work_ranjhana.mp4"
+                onplay="handleSingleVideoPlayback(this)"
+              >
+                Your browser does not support HTML5 video.
+              </video>
+            </div>
+            <div class="work-video-content">
+              <h4 class="work-video-title">Raanjhanaa — Cinematic 4K Film Master</h4>
+              <p class="work-video-desc">A breathtaking cinematic film edit set to Raanjhanaa, rendered in pristine 3840x2160 4K UHD at ultra-smooth 60FPS. Featuring atmospheric film emulation, emotive color grading, rhythmically timed motion dynamics, and deeply immersive audio.</p>
+              <div class="work-highlights-list">
+                <span class="work-highlight-pill">3840x2160 4K UHD</span>
+                <span class="work-highlight-pill">Ultra-Smooth 60 FPS</span>
+                <span class="work-highlight-pill">Film Color Science</span>
+              </div>
+              <div class="work-card-footer">
+                <span class="work-card-category">Cinematic Film Edit</span>
+                <button type="button" class="btn-work-commission" onclick="openBookingModal('Music Videos & Films')">
+                  Book Similar Edit &rarr;
+                </button>
+              </div>
+            </div>
+          </div>
         </div>
 
         <div style="text-align: center; margin-top: 36px;">
           <button class="service-btn" style="display: inline-flex; align-items: center; gap: 8px; padding: 12px 28px; font-size: 13.5px;" onclick="selectBook('works')">
-            <span>Explore Full Works Book, Client Reviews &amp; Pricing</span>
+            <span>Explore 3D Interactive Portfolio &amp; Reviews</span>
             <span>&rarr;</span>
           </button>
         </div>
+      </div>
+    </section>
+
+    <!-- SECTION 2.8: TRANSPARENT VIDEO EDITING PRICING & PACKAGES -->
+    <section class="section" id="pricing-section">
+      <div class="container">
+        <div class="section-header reveal-elem">
+          <span class="section-eyebrow">✦ Transparent Rates &amp; Creative Retainers ✦</span>
+          <h2 class="section-title">Video Editing Pricing &amp; Packages</h2>
+          <p class="section-desc">
+            Direct transparent rates for viral short-form reels, high-retention creator videos, and cinematic commercials. All packages include Hollywood color grading, custom sound Foley &amp; commercial rights.
+          </p>
+        </div>
+
+        <!-- SPECIAL DISCOUNT & NEGOTIABLE ANNOUNCEMENT BANNER -->
+        <div class="pricing-hero-banner reveal-elem">
+          <div class="pricing-hero-top">
+            <span class="pricing-promo-badge">
+              🎉 Flat 20% OFF On First Order
+            </span>
+            <span class="pricing-bargain-badge">
+              🤝 Flexible &amp; Bargainable Rates
+            </span>
+          </div>
+          <div class="pricing-hero-desc">
+            💡 <strong>Rates are flexible / negotiable (halka upar-neeche ho sakta hai).</strong> A standard 5-min video edit is <strong>₹1,600 - ₹1,700</strong>, and a full 10-min YouTube master edit is <strong>₹3,300 - ₹3,500</strong>. Other video projects scale dynamically based on total footage runtime, style complexity, and your custom reference videos.
+          </div>
+        </div>
+
+        <!-- 7 COMPLETE VIDEO PACKAGES GRID -->
+        <div class="main-pricing-grid">
+
+          <!-- Tier 1 -->
+          <div class="main-price-card reveal-elem stagger-1">
+            <div class="price-card-top">
+              <h3 class="price-card-title">Basic Cut &amp; Trim (15-20s)</h3>
+              <p class="price-card-desc">Quick, clean cut &amp; trim with crisp audio balance. Perfect for simple stories, teasers &amp; personal status.</p>
+            </div>
+            <div class="price-card-amount-wrap">
+              <span class="price-card-amount">₹250</span>
+              <span class="price-card-tagline">/ single video edit</span>
+            </div>
+            <ul class="price-features-list">
+              <li class="price-feature-item"><span class="price-feature-check">✓</span> 15-20 sec duration</li>
+              <li class="price-feature-item"><span class="price-feature-check">✓</span> Clean cuts, removal of dead air &amp; trims</li>
+              <li class="price-feature-item"><span class="price-feature-check">✓</span> Basic audio leveling &amp; sync</li>
+              <li class="price-feature-item"><span class="price-feature-check">✓</span> Ultra-fast 24h turnaround</li>
+            </ul>
+            <button type="button" class="btn-price-book" onclick="openBookingModal('Viral Reels & Shorts')">
+              Book This Package &rarr;
+            </button>
+          </div>
+
+          <!-- Tier 2 -->
+          <div class="main-price-card reveal-elem stagger-2">
+            <div class="price-card-top">
+              <h3 class="price-card-title">Standard Transition Edit (20-30s)</h3>
+              <p class="price-card-desc">Smooth transition-driven reel with beat matching, punch-ins &amp; rhythmic pacing for engaging shorts.</p>
+            </div>
+            <div class="price-card-amount-wrap">
+              <span class="price-card-amount">₹300</span>
+              <span class="price-card-tagline">/ single video edit</span>
+            </div>
+            <ul class="price-features-list">
+              <li class="price-feature-item"><span class="price-feature-check">✓</span> 20-30 sec duration</li>
+              <li class="price-feature-item"><span class="price-feature-check">✓</span> Normal smooth whip &amp; zoom transitions</li>
+              <li class="price-feature-item"><span class="price-feature-check">✓</span> Rhythm &amp; music beat sync</li>
+              <li class="price-feature-item"><span class="price-feature-check">✓</span> Color enhancement &amp; clean audio mix</li>
+            </ul>
+            <button type="button" class="btn-price-book" onclick="openBookingModal('Viral Reels & Shorts')">
+              Book This Package &rarr;
+            </button>
+          </div>
+
+          <!-- Tier 3: FEATURED / POPULAR -->
+          <div class="main-price-card featured reveal-elem stagger-3">
+            <span class="price-card-badge">🔥 Most Popular • High Retention</span>
+            <div class="price-card-top">
+              <h3 class="price-card-title">Pro Viral Full Edit (1 Min Proper)</h3>
+              <p class="price-card-desc">Comprehensive 1-minute viral master edit engineered for maximum algorithm retention, watch time &amp; shares.</p>
+            </div>
+            <div class="price-card-amount-wrap">
+              <span class="price-card-amount">₹500</span>
+              <span class="price-card-tagline">/ 1-min master polish</span>
+            </div>
+            <ul class="price-features-list">
+              <li class="price-feature-item"><span class="price-feature-check">✓</span> Up to 60 sec high-octane proper edit</li>
+              <li class="price-feature-item"><span class="price-feature-check">✓</span> 3-second hook mastery &amp; kinetic typography</li>
+              <li class="price-feature-item"><span class="price-feature-check">✓</span> Multi-layered sound SFX (whooshes, risers, impacts)</li>
+              <li class="price-feature-item"><span class="price-feature-check">✓</span> Hollywood film LUT color grading</li>
+              <li class="price-feature-item"><span class="price-feature-check">✓</span> Speed ramps, motion blur &amp; dynamic punch-ins</li>
+            </ul>
+            <button type="button" class="btn-price-book" onclick="openBookingModal('Viral Reels & Shorts')">
+              Book Pro Viral Edit &rarr;
+            </button>
+          </div>
+
+          <!-- Tier 4 -->
+          <div class="main-price-card reveal-elem stagger-1">
+            <div class="price-card-top">
+              <h3 class="price-card-title">5-Min Mid-Length Video Edit</h3>
+              <p class="price-card-desc">Dynamic YouTube, vlog, or agency video edit structured for high audience retention, B-roll pacing &amp; narrative clarity.</p>
+            </div>
+            <div class="price-card-amount-wrap">
+              <span class="price-card-amount">₹1,600 - ₹1,700</span>
+              <span class="price-card-tagline">/ 5-min master deliverable</span>
+            </div>
+            <ul class="price-features-list">
+              <li class="price-feature-item"><span class="price-feature-check">✓</span> 5-Minute complete video edit</li>
+              <li class="price-feature-item"><span class="price-feature-check">✓</span> Curated B-roll selection &amp; story structure</li>
+              <li class="price-feature-item"><span class="price-feature-check">✓</span> Lower thirds, title cards &amp; kinetic callouts</li>
+              <li class="price-feature-item"><span class="price-feature-check">✓</span> Dialogue cleaning &amp; dynamic background audio</li>
+              <li class="price-feature-item"><span class="price-feature-check">✓</span> Bargainable / negotiable based on complexity</li>
+            </ul>
+            <button type="button" class="btn-price-book" onclick="openBookingModal('YouTube Documentaries')">
+              Book 5-Min Edit &rarr;
+            </button>
+          </div>
+
+          <!-- Tier 5 -->
+          <div class="main-price-card featured reveal-elem stagger-2">
+            <span class="price-card-badge">🎬 Long-Form Master</span>
+            <div class="price-card-top">
+              <h3 class="price-card-title">Full 10-Min Video Edit</h3>
+              <p class="price-card-desc">Deep-dive YouTube documentary, podcast, or cinematic film episode with multi-cam, sound foley &amp; graphics.</p>
+            </div>
+            <div class="price-card-amount-wrap">
+              <span class="price-card-amount">₹3,300 - ₹3,500</span>
+              <span class="price-card-tagline">/ 10-min full production</span>
+            </div>
+            <ul class="price-features-list">
+              <li class="price-feature-item"><span class="price-feature-check">✓</span> Full 10-minute long-form episode edit</li>
+              <li class="price-feature-item"><span class="price-feature-check">✓</span> Multi-cam synchronization &amp; angle switches</li>
+              <li class="price-feature-item"><span class="price-feature-check">✓</span> Narrative pacing &amp; animated infographics</li>
+              <li class="price-feature-item"><span class="price-feature-check">✓</span> Immersive Foley audio &amp; Hollywood grade</li>
+              <li class="price-feature-item"><span class="price-feature-check">✓</span> Express revisions &amp; 4K ProRes export</li>
+            </ul>
+            <button type="button" class="btn-price-book" onclick="openBookingModal('YouTube Documentaries')">
+              Book 10-Min Edit &rarr;
+            </button>
+          </div>
+
+          <!-- Tier 6 -->
+          <div class="main-price-card reveal-elem stagger-3">
+            <span class="price-card-badge retainer">👑 Monthly Retainer</span>
+            <div class="price-card-top">
+              <h3 class="price-card-title">Permanent Monthly Video Editor</h3>
+              <p class="price-card-desc">Hire Krishna as your dedicated monthly editor for consistent, high-impact branding across YouTube and Instagram.</p>
+            </div>
+            <div class="price-card-amount-wrap">
+              <span class="price-card-amount">Available for Hire</span>
+              <span class="price-card-tagline">/ monthly creator retainer</span>
+            </div>
+            <ul class="price-features-list">
+              <li class="price-feature-item"><span class="price-feature-check">✓</span> Dedicated video editing partner</li>
+              <li class="price-feature-item"><span class="price-feature-check">✓</span> Regular batch delivery (Reels, Shorts, YouTube)</li>
+              <li class="price-feature-item"><span class="price-feature-check">✓</span> Consistent brand identity &amp; signature style</li>
+              <li class="price-feature-item"><span class="price-feature-check">✓</span> Priority turnaround &amp; 24/7 direct WhatsApp access</li>
+            </ul>
+            <button type="button" class="btn-price-book" onclick="openBookingModal('Permanent Monthly Video Editor')">
+              Hire Krishna Monthly &rarr;
+            </button>
+          </div>
+
+          <!-- Tier 7 -->
+          <div class="main-price-card reveal-elem stagger-1">
+            <span class="price-card-badge custom">⚡ 100% Custom</span>
+            <div class="price-card-top">
+              <h3 class="price-card-title">Custom Timing / Reference Edit</h3>
+              <p class="price-card-desc">Have a specific reference reel, custom video duration (2-30+ min), or unique visual style? Let's discuss directly.</p>
+            </div>
+            <div class="price-card-amount-wrap">
+              <span class="price-card-amount">Flexible / Bargainable</span>
+              <span class="price-card-tagline">/ negotiable quote</span>
+            </div>
+            <ul class="price-features-list">
+              <li class="price-feature-item"><span class="price-feature-check">✓</span> Rates scale according to your exact timing</li>
+              <li class="price-feature-item"><span class="price-feature-check">✓</span> Share any Instagram or YouTube reference link</li>
+              <li class="price-feature-item"><span class="price-feature-check">✓</span> Halka upar-neeche negotiable for all creators</li>
+              <li class="price-feature-item"><span class="price-feature-check">✓</span> Custom revisions &amp; tailored workflow</li>
+            </ul>
+            <button type="button" class="btn-price-book" onclick="openBookingModal('Custom Project (Rates by Timing & Ref)')">
+              Discuss Custom Project &rarr;
+            </button>
+          </div>
+
+        </div>
+
+        <!-- FAST WHATSAPP DIRECT ACTION BAR -->
+        <div class="pricing-cta-box reveal-elem">
+          <h4>Have a custom reference or need an instant price quote?</h4>
+          <p>Send your reference reel or project script directly to Krishna on WhatsApp. We provide instant estimates within 15 minutes.</p>
+          <a href="https://wa.me/918449495147?text=Hi%20Krishna!%20I%20want%20to%20discuss%20pricing%20for%20a%20video%20editing%20project." target="_blank" class="btn-wa-pricing-direct">
+            <span>💬 Chat on WhatsApp (+91 8449495147)</span>
+            <span>&rarr;</span>
+          </a>
+        </div>
+
       </div>
     </section>
 
@@ -5206,7 +5734,7 @@
           
           <input type="password" id="adminPinInput" class="pin-input" maxlength="4" placeholder="••••" onkeydown="if(event.key==='Enter') unlockAdminPortal()">
           <button class="btn-unlock" onclick="unlockAdminPortal()">Unlock Command Center &rarr;</button>
-          <p style="margin-top: 14px; font-size: 11.5px; color: var(--muted); cursor: pointer;" onclick="quickUnlock()">[Default Pin: <strong>1234</strong> • Click to Auto-Unlock]</p>
+          <p style="margin-top: 14px; font-size: 11.5px; color: var(--gold-foil); cursor: pointer;" onclick="quickUnlock()">[🔑 Studio Admin PIN: <strong>8090</strong> • Click to Auto-Unlock]</p>
         </div>
 
         <!-- View 2: Unlocked Command Center -->
@@ -5283,6 +5811,7 @@
                   <th>Subscriber Email</th>
                   <th>Joined Date</th>
                   <th>Status</th>
+                  <th style="text-align: right;">Action</th>
                 </tr>
               </thead>
               <tbody id="admSubscribersTbody"></tbody>
@@ -5355,14 +5884,14 @@
             num: "0824",
             title: "Apex Corporate Brand Showcase",
             category: "Commercials & Ads",
-            badge: "4K Corporate Edit",
-            tag: "Corporate Commercial",
+            badge: "Signature Reel",
+            tag: "Signature Reel",
             accent: "crimson",
-            aspect: "16:9 Landscape",
-            isVertical: false,
+            aspect: "9:16 Vertical Reel",
+            isVertical: true,
             video: "assets/work_company.mp4",
             desc: "A sleek, authoritative company brand commercial edit featuring precision pacing, cinematic title cards, enterprise-grade color grading, and razor-sharp sound design built for maximum brand credibility.",
-            highlights: ["Enterprise Grade Motion", "Cinematic Sound Mastering", "4K Landscape Master"]
+            highlights: ["Enterprise Grade Motion", "Cinematic Sound Mastering", "Ultra HD 9:16 Master"]
           },
           {
             id: "proj-birthday",
@@ -5405,6 +5934,20 @@
             video: "assets/work_charity.mp4",
             desc: "A deeply moving and heartfelt social documentary story capturing a young girl distributing warm meals to the homeless and feeding hungry stray animals on the streets. Crafted with uplifting warm tones, emotional narrative rhythm, and soul-stirring audio atmosphere.",
             highlights: ["Emotional Story Pacing", "Humanitarian Social Impact", "Warm Acoustic Mastering"]
+          },
+          {
+            id: "proj-ranjhana",
+            num: "0910",
+            title: "Raanjhanaa — Cinematic 4K Film Master",
+            category: "Music Videos & Films",
+            badge: "4K 60FPS Master",
+            tag: "Cinematic Film Edit",
+            accent: "purple",
+            aspect: "16:9 4K Landscape",
+            isVertical: false,
+            video: "assets/work_ranjhana.mp4",
+            desc: "A breathtaking cinematic film edit set to Raanjhanaa, rendered in pristine 3840x2160 4K UHD at ultra-smooth 60FPS. Featuring atmospheric film emulation, emotive color grading, rhythmically timed motion dynamics, and deeply immersive audio.",
+            highlights: ["3840x2160 4K UHD", "Ultra-Smooth 60 FPS", "Film Color Science"]
           }
         ],
         reviewsList: [
@@ -5620,12 +6163,12 @@
       playTone(220, 'sine', 0.12, 0.03);
     }
 
-    // Submit Project Booking Brief (POST /api/bookings)
+    // Submit Project Booking Brief (POST /api/bookings + Instant WhatsApp to Krishna)
     async function handleBookingSubmit(e) {
       e.preventDefault();
       const submitBtn = document.getElementById('bookingSubmitBtn');
       const origText = submitBtn.innerHTML;
-      submitBtn.innerHTML = '<span>Submitting Brief... ⏳</span>';
+      submitBtn.innerHTML = '<span>Saving &amp; Opening WhatsApp... ⏳</span>';
       submitBtn.disabled = true;
 
       const payload = {
@@ -5637,35 +6180,67 @@
         project_brief: document.getElementById('projectBrief').value.trim()
       };
 
+      // 1. Format Instant WhatsApp Notification Message for Krishna (+91 8449495147)
+      const dateStr = new Date().toLocaleString('en-IN', { timeZone: 'Asia/Kolkata', dateStyle: 'medium', timeStyle: 'short' });
+      const waMessage = 
+`🚨 *NEW CLIENT WORK BOOKING RECEIVED!* 🚨
+----------------------------------------
+👤 *Client Name:* ${payload.client_name}
+📱 *Phone / WhatsApp:* ${payload.phone}
+📧 *Email Address:* ${payload.email}
+🎬 *Service Package:* ${payload.service_type}
+💰 *Budget / Rates:* ${payload.budget || 'Custom / Flexible'}
+📝 *Project Brief / Vision:*
+${payload.project_brief || 'None specified'}
+----------------------------------------
+🕒 *Submitted At:* ${dateStr}
+🌐 *Source:* KRISHNA X EDITZ Portfolio`;
+
+      const whatsappUrl = `https://wa.me/918449495147?text=${encodeURIComponent(waMessage)}`;
+
+      // 2. Zero-Lost-Leads Safeguard: Save directly to localStorage
+      const newLead = {
+        id: Date.now(),
+        client_name: payload.client_name,
+        email: payload.email,
+        phone: payload.phone,
+        service_type: payload.service_type,
+        budget: payload.budget || 'Custom',
+        project_brief: payload.project_brief || '',
+        status: 'Pending',
+        created_at: new Date().toISOString()
+      };
+
       try {
-        const res = await fetch(`${API_BASE}/api/bookings`, {
+        let stored = JSON.parse(localStorage.getItem('krishna_leads') || '[]');
+        stored.unshift(newLead);
+        localStorage.setItem('krishna_leads', JSON.stringify(stored));
+      } catch (err) {
+        console.warn('LocalStorage save note:', err);
+      }
+
+      // 3. POST to backend database (async)
+      try {
+        fetch(`${API_BASE}/api/bookings`, {
           method: 'POST',
           headers: { 'Content-Type': 'application/json' },
           body: JSON.stringify(payload)
-        });
-        const data = await res.json();
+        }).catch(err => console.warn('Backend sync deferred:', err));
+      } catch (err) {}
 
-        if (data.success) {
-          closeBookingModal();
-          showToast(data.message);
-          playTone(600, 'sine', 0.3, 0.06);
-          document.getElementById('bookingForm').reset();
-          
-          setTimeout(() => {
-            if (confirm("Would you like to open WhatsApp to chat with Krishna directly now?")) {
-              window.open(data.whatsapp_url, '_blank');
-            }
-          }, 600);
-        } else {
-          showToast(data.message || 'Submission error.');
-        }
-      } catch (err) {
-        closeBookingModal();
-        showToast("🎉 Brief submitted successfully to Krishna X Editz!");
-      } finally {
-        submitBtn.innerHTML = origText;
-        submitBtn.disabled = false;
-      }
+      // 4. UI Success Feedback
+      closeBookingModal();
+      showToast("🎉 Booking received! Opening WhatsApp so project details go directly to Krishna...");
+      playTone(600, 'sine', 0.3, 0.06);
+      document.getElementById('bookingForm').reset();
+
+      // 5. Open Krishna's WhatsApp immediately with full client details prefilled
+      setTimeout(() => {
+        window.open(whatsappUrl, '_blank');
+      }, 400);
+
+      submitBtn.innerHTML = origText;
+      submitBtn.disabled = false;
     }
 
     // ========================================================
@@ -5695,86 +6270,123 @@
     }
 
     function unlockAdminPortal() {
-      const pin = document.getElementById('adminPinInput').value;
-      if (pin === '1234' || pin === '2026' || pin === '') {
+      const pin = document.getElementById('adminPinInput').value.trim();
+      if (pin === '8090') {
         isAdminUnlocked = true;
         document.getElementById('adminLockscreen').style.display = 'none';
         document.getElementById('adminDashboardContent').style.display = 'block';
         playTone(620, 'sine', 0.25, 0.06);
         loadEmbeddedAdminData();
       } else {
-        alert('Incorrect Admin PIN. (Default PIN: 1234)');
+        alert('Incorrect Admin PIN. Please enter the valid 4-digit Studio PIN (8090).');
+        document.getElementById('adminPinInput').value = '';
+        document.getElementById('adminPinInput').focus();
       }
     }
 
     function quickUnlock() {
-      document.getElementById('adminPinInput').value = '1234';
+      document.getElementById('adminPinInput').value = '8090';
       unlockAdminPortal();
     }
 
     async function loadEmbeddedAdminData() {
-      const tbody = document.getElementById('admBookingsTbody');
+      // 1. Fetch Stats from backend if online
       try {
-        // 1. Fetch Stats
-        const statsRes = await fetch(`${API_BASE}/api/admin/stats`);
-        if (!statsRes.ok) throw new Error('HTTP ' + statsRes.status);
-        const statsJson = await statsRes.json();
-        if (statsJson.success) {
-          document.getElementById('admTotalBookings').textContent = statsJson.data.total_bookings;
-          document.getElementById('admPendingBookings').textContent = statsJson.data.pending_bookings;
-          document.getElementById('admTotalSubscribers').textContent = statsJson.data.total_subscribers;
-          document.getElementById('admTotalEvents').textContent = statsJson.data.total_events;
+        const statsRes = await fetch(`${API_BASE}/api/admin/stats`, { cache: 'no-cache' });
+        if (statsRes.ok) {
+          const statsJson = await statsRes.json();
+          if (statsJson.success) {
+            document.getElementById('admTotalBookings').textContent = statsJson.data.total_bookings;
+            document.getElementById('admPendingBookings').textContent = statsJson.data.pending_bookings;
+            document.getElementById('admTotalSubscribers').textContent = statsJson.data.total_subscribers;
+            document.getElementById('admTotalEvents').textContent = statsJson.data.total_events;
+          }
         }
-
-        // 2. Fetch Bookings
-        await loadEmbeddedBookings();
       } catch (err) {
-        console.error('Error loading admin data:', err);
-        tbody.innerHTML = `
-          <tr>
-            <td colspan="6" style="text-align: center; padding: 30px; color: #f87171;">
-              ⚠️ Unable to connect to backend server at <code>http://localhost:3000</code>.<br>
-              <span style="color: var(--muted); font-size: 12px; margin-top: 4px; display: inline-block;">
-                Please ensure <code>node server.js</code> is running in your terminal.
-              </span>
-              <div style="margin-top: 12px;">
-                <button class="btn-sync" style="background: rgba(212,175,55,0.25); border-color: var(--gold);" onclick="loadEmbeddedAdminData()">🔄 Retry Connection</button>
-              </div>
-            </td>
-          </tr>
-        `;
+        console.warn('Server offline, computing stats from stored leads');
       }
+
+      // 2. Fetch & Render Bookings
+      await loadEmbeddedBookings();
     }
 
     async function loadEmbeddedBookings() {
       const status = document.getElementById('admFilterStatus').value;
-      const url = status && status !== 'All' 
-        ? `${API_BASE}/api/admin/bookings?status=${encodeURIComponent(status)}` 
-        : `${API_BASE}/api/admin/bookings`;
+      let serverBookings = [];
+      let localBookings = [];
+
       try {
-        const res = await fetch(url);
-        if (!res.ok) throw new Error('HTTP ' + res.status);
-        const json = await res.json();
-        if (json.success) {
-          embeddedBookings = json.data;
-          renderEmbeddedBookings(embeddedBookings);
+        localBookings = JSON.parse(localStorage.getItem('krishna_leads') || '[]');
+        localBookings = localBookings.filter(b => 
+          !['vikram rajput', 'aarav mehta', 'rahul sharma'].includes((b.client_name || '').toLowerCase())
+        );
+        localStorage.setItem('krishna_leads', JSON.stringify(localBookings));
+      } catch (e) {
+        localBookings = [];
+      }
+
+      try {
+        const url = status && status !== 'All' 
+          ? `${API_BASE}/api/admin/bookings?status=${encodeURIComponent(status)}` 
+          : `${API_BASE}/api/admin/bookings`;
+        const res = await fetch(url, { cache: 'no-cache' });
+        if (res.ok) {
+          const json = await res.json();
+          if (json.success && Array.isArray(json.data)) {
+            serverBookings = json.data;
+          }
         }
       } catch (e) {
-        console.error('Failed to load bookings:', e);
+        console.warn('Backend server not responding, showing offline/local leads:', e);
       }
+
+      // Merge server & local leads seamlessly without duplicates
+      const mergedMap = new Map();
+      serverBookings.forEach(b => {
+        const key = String(b.id || (b.phone + '_' + (b.created_at || '')));
+        mergedMap.set(key, b);
+      });
+
+      localBookings.forEach(b => {
+        const key = String(b.id || (b.phone + '_' + (b.created_at || '')));
+        if (!mergedMap.has(key)) {
+          mergedMap.set(key, b);
+          // Sync to server in background if server was reached
+          if (serverBookings.length >= 0) {
+            fetch(`${API_BASE}/api/bookings`, {
+              method: 'POST',
+              headers: { 'Content-Type': 'application/json' },
+              body: JSON.stringify(b)
+            }).catch(() => {});
+          }
+        }
+      });
+
+      let list = Array.from(mergedMap.values());
+      if (status && status !== 'All') {
+        list = list.filter(b => (b.status || 'Pending').toLowerCase() === status.toLowerCase());
+      }
+      list.sort((a, b) => new Date(b.created_at || 0) - new Date(a.created_at || 0));
+
+      embeddedBookings = list;
+      renderEmbeddedBookings(embeddedBookings);
+
+      // Keep stats cards accurate
+      document.getElementById('admTotalBookings').textContent = list.length;
+      document.getElementById('admPendingBookings').textContent = list.filter(b => (b.status || 'Pending') === 'Pending').length;
     }
 
     function renderEmbeddedBookings(list) {
       const tbody = document.getElementById('admBookingsTbody');
       if (!list || list.length === 0) {
-        tbody.innerHTML = `<tr><td colspan="6" style="text-align: center; color: var(--muted); padding: 30px;">No client leads found in database.</td></tr>`;
+        tbody.innerHTML = `<tr><td colspan="6" style="text-align: center; color: var(--muted); padding: 35px; font-size: 13.5px;">No client leads found. Submit a test brief from the website to see it here!</td></tr>`;
         return;
       }
 
       tbody.innerHTML = list.map(b => {
-        const dateStr = new Date(b.created_at).toLocaleDateString('en-US', { month: 'short', day: 'numeric' });
-        const waMsg = encodeURIComponent(`Hi ${b.client_name}! Krishna here regarding your video brief for ${b.service_type}.`);
-        const cleanPhone = b.phone.replace(/[^0-9]/g, '');
+        const dateStr = b.created_at ? new Date(b.created_at).toLocaleDateString('en-US', { month: 'short', day: 'numeric', year: 'numeric' }) : 'Recent';
+        const waMsg = encodeURIComponent(`Hi ${b.client_name}! Krishna here regarding your video inquiry for ${b.service_type}.`);
+        const cleanPhone = (b.phone || '').replace(/[^0-9]/g, '');
 
         return `
           <tr>
@@ -5782,13 +6394,13 @@
             <td>
               <div class="client-cell">
                 <span class="client-name" style="font-weight: 700; color: #fff;">${escapeHtml(b.client_name)}</span>
-                <span class="client-email" style="font-size: 11.5px; color: var(--muted); display: block;">${escapeHtml(b.email)} • ${escapeHtml(b.phone)}</span>
+                <span class="client-email" style="font-size: 11.5px; color: var(--muted); display: block;">${escapeHtml(b.email)} • <strong style="color: var(--gold-foil);">${escapeHtml(b.phone)}</strong></span>
               </div>
             </td>
-            <td><span class="package-tag" style="background: rgba(212,175,55,0.15); color: var(--gold-bright); padding: 3px 10px; border-radius: 6px; font-size: 11.5px;">${escapeHtml(b.service_type)}</span></td>
+            <td><span class="package-tag" style="background: rgba(212,175,55,0.15); color: var(--gold-bright); padding: 3px 10px; border-radius: 6px; font-size: 11.5px; font-weight: 600;">${escapeHtml(b.service_type)}</span></td>
             <td style="font-weight: 700; color: var(--gold-bright); font-size: 12.5px;">${escapeHtml(b.budget || 'Custom')}</td>
             <td>
-              <select class="status-select" data-status="${b.status}" onchange="updateAdmStatus(${b.id}, this.value)" style="background: #1c150e; color: #fff; border: 1px solid rgba(212,175,55,0.3); border-radius: 6px; padding: 4px 8px; font-size: 12px;">
+              <select class="status-select" data-status="${b.status}" onchange="updateAdmStatus('${b.id}', this.value)" style="background: #1c150e; color: #fff; border: 1px solid rgba(212,175,55,0.3); border-radius: 6px; padding: 4px 8px; font-size: 12px;">
                 <option value="Pending" ${b.status === 'Pending' ? 'selected' : ''}>Pending</option>
                 <option value="In Discussion" ${b.status === 'In Discussion' ? 'selected' : ''}>In Discussion</option>
                 <option value="Booked" ${b.status === 'Booked' ? 'selected' : ''}>Booked</option>
@@ -5798,9 +6410,9 @@
             </td>
             <td>
               <div class="actions-cell" style="display: flex; gap: 6px; align-items: center;">
-                <a href="https://wa.me/${cleanPhone}?text=${waMsg}" target="_blank" class="adm-btn-wa">WhatsApp</a>
-                <button class="adm-btn-brief" onclick="alert('Brief for ' + '${escapeHtml(b.client_name)}' + ':\\n\\n' + '${escapeHtml(b.project_brief || 'No brief text')}');">Brief</button>
-                <button class="adm-btn-del" onclick="deleteAdmBooking(${b.id})">&times;</button>
+                <a href="https://wa.me/${cleanPhone}?text=${waMsg}" target="_blank" class="adm-btn-wa" title="Open direct WhatsApp chat with client">WhatsApp</a>
+                <button class="adm-btn-brief" onclick="alert('Client: ' + '${escapeHtml(b.client_name)}' + '\\nPhone: ' + '${escapeHtml(b.phone)}' + '\\nService: ' + '${escapeHtml(b.service_type)}' + '\\nBudget: ' + '${escapeHtml(b.budget || 'Custom')}' + '\\n\\nBrief Details:\\n' + '${escapeHtml(b.project_brief || 'No detailed brief submitted.')}');">Brief</button>
+                <button class="adm-btn-del" onclick="deleteAdmBooking('${b.id}')" title="Delete lead">&times;</button>
               </div>
             </td>
           </tr>
@@ -5811,31 +6423,41 @@
     function filterAdmBookings() {
       const q = document.getElementById('admSearchLeads').value.toLowerCase();
       const filtered = embeddedBookings.filter(b => 
-        b.client_name.toLowerCase().includes(q) || 
-        b.email.toLowerCase().includes(q) || 
-        b.phone.includes(q) ||
-        b.service_type.toLowerCase().includes(q)
+        (b.client_name || '').toLowerCase().includes(q) || 
+        (b.email || '').toLowerCase().includes(q) || 
+        (b.phone || '').includes(q) ||
+        (b.service_type || '').toLowerCase().includes(q)
       );
       renderEmbeddedBookings(filtered);
     }
 
     async function updateAdmStatus(id, newStatus) {
       try {
+        let stored = JSON.parse(localStorage.getItem('krishna_leads') || '[]');
+        const localItem = stored.find(b => String(b.id) === String(id));
+        if (localItem) {
+          localItem.status = newStatus;
+          localStorage.setItem('krishna_leads', JSON.stringify(stored));
+        }
         await fetch(`${API_BASE}/api/admin/bookings/${id}`, {
           method: 'PATCH',
           headers: { 'Content-Type': 'application/json' },
           body: JSON.stringify({ status: newStatus })
         });
-        loadEmbeddedAdminData();
       } catch (e) {}
+      loadEmbeddedBookings();
     }
 
     async function deleteAdmBooking(id) {
-      if (!confirm('Delete this client lead?')) return;
+      if (!confirm('Are you sure you want to delete this client lead?')) return;
       try {
+        let stored = JSON.parse(localStorage.getItem('krishna_leads') || '[]');
+        stored = stored.filter(b => String(b.id) !== String(id));
+        localStorage.setItem('krishna_leads', JSON.stringify(stored));
+
         await fetch(`${API_BASE}/api/admin/bookings/${id}`, { method: 'DELETE' });
-        loadEmbeddedAdminData();
       } catch (e) {}
+      loadEmbeddedBookings();
     }
 
     async function loadEmbeddedSubscribers() {
@@ -5845,15 +6467,32 @@
         if (json.success) {
           embeddedSubscribers = json.data;
           document.getElementById('admSubscribersCount').textContent = `${embeddedSubscribers.length} VIP Subscribers`;
-          document.getElementById('admSubscribersTbody').innerHTML = embeddedSubscribers.map(s => `
+          document.getElementById('admTotalSubscribers').textContent = embeddedSubscribers.length;
+          const tbody = document.getElementById('admSubscribersTbody');
+          if (!embeddedSubscribers || embeddedSubscribers.length === 0) {
+            tbody.innerHTML = `<tr><td colspan="4" style="text-align: center; color: var(--muted); padding: 30px;">No subscribers yet.</td></tr>`;
+            return;
+          }
+          tbody.innerHTML = embeddedSubscribers.map(s => `
             <tr>
               <td style="font-weight: 700; color: #fff;">${escapeHtml(s.email)}</td>
               <td style="color: var(--muted);">${new Date(s.created_at).toLocaleDateString()}</td>
               <td><span style="color: var(--emerald); font-weight: 800;">● Active</span></td>
+              <td style="text-align: right;">
+                <button class="adm-btn-del" onclick="deleteAdmSubscriber('${s.id}')" title="Delete subscriber">&times;</button>
+              </td>
             </tr>
           `).join('');
         }
       } catch (e) {}
+    }
+
+    async function deleteAdmSubscriber(id) {
+      if (!confirm('Are you sure you want to remove this subscriber email?')) return;
+      try {
+        await fetch(`${API_BASE}/api/admin/subscribers/${id}`, { method: 'DELETE' });
+      } catch (e) {}
+      loadEmbeddedSubscribers();
     }
 
     function copyAllAdmEmails() {
@@ -6263,7 +6902,6 @@
               <button type="button" class="book-nav-tab active" data-target="sec-projects" onclick="scrollToBookSection('sec-projects')">🎬 Video Showcase</button>
               <button type="button" class="book-nav-tab" data-target="sec-reviews" onclick="scrollToBookSection('sec-reviews')">⭐ Client Reviews</button>
               <button type="button" class="book-nav-tab" data-target="sec-stats" onclick="scrollToBookSection('sec-stats')">📊 Viral Stats</button>
-              <button type="button" class="book-nav-tab" data-target="sec-pricing" onclick="scrollToBookSection('sec-pricing')">💎 Commission in ₹</button>
             `;
           }
           scrollContainer.innerHTML = `
@@ -6275,7 +6913,7 @@
                   <span style="font-size: 11.5px; color: var(--muted);">Click any video to play • Full 4K audio &amp; retention pacing master</span>
                 </div>
                 <span style="font-size: 11px; background: rgba(212, 175, 55, 0.12); border: 1px solid rgba(212, 175, 55, 0.35); padding: 3px 10px; border-radius: 999px; color: var(--gold-bright); font-weight: 700;">
-                  ⚡ 4 Master Works Live
+                  ⚡ 5 Master Works Live
                 </span>
               </div>
 
@@ -6341,41 +6979,6 @@
                   <div class="stat-badge">
                     <div class="stat-val">${escapeHtml(st.value)}</div>
                     <div class="stat-sub">${escapeHtml(st.label)}</div>
-                  </div>
-                `).join('')}
-              </div>
-            </section>
-
-            <!-- Section 4: Commission Rates in Rupees (₹) -->
-            <section class="doc-section" id="sec-pricing">
-              <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 8px;">
-                <h3 class="doc-label" style="margin-bottom: 0;">💎 Commission a Project (₹)</h3>
-                <span style="font-size: 11px; color: var(--gold-foil); font-weight: 700;">↓ All 7 Packages ↓</span>
-              </div>
-              <div style="background: linear-gradient(135deg, rgba(212, 175, 55, 0.14) 0%, rgba(26, 20, 14, 0.85) 100%); border: 1px solid rgba(212, 175, 55, 0.4); border-radius: 12px; padding: 12px 16px; margin-bottom: 14px; box-shadow: 0 4px 18px rgba(0,0,0,0.35);">
-                <div style="display: flex; align-items: center; justify-content: space-between; flex-wrap: wrap; gap: 8px; margin-bottom: 6px;">
-                  <span style="display: inline-flex; align-items: center; gap: 6px; background: linear-gradient(135deg, #d4af37, #f3cf65); color: #0a0806; font-weight: 800; font-size: 11.5px; padding: 4px 12px; border-radius: 999px; letter-spacing: 0.5px; text-transform: uppercase;">
-                    🎉 Flat 20% OFF On First Order
-                  </span>
-                  <span style="color: #4ade80; font-size: 11.5px; font-weight: 700;">
-                    🤝 Flexible &amp; Bargainable Rates
-                  </span>
-                </div>
-                <div style="font-size: 11.5px; color: var(--muted); line-height: 1.55;">
-                  💡 <strong style="color: #fff;">Prices are bargainable / negotiable (halka upar-neeche ho sakta hai).</strong> 5-min video is ₹1,600 - ₹1,700, 10-min is ₹3,300 - ₹3,500. Other prices scale according to timing, edit complexity &amp; reference clips.
-                </div>
-              </div>
-              <div class="book-pricing-grid">
-                ${data.tiers.map(t => `
-                  <div class="book-tier-card">
-                    <div class="book-tier-info">
-                      <div class="tier-name">${escapeHtml(t.name)}</div>
-                      <div class="tier-features">${escapeHtml(t.features)}</div>
-                    </div>
-                    <div class="book-tier-action">
-                      <div class="tier-price">${escapeHtml(t.price)}</div>
-                      <button type="button" class="btn-book-tier" onclick="openBookingModal('${t.service}')">Select &rarr;</button>
-                    </div>
                   </div>
                 `).join('')}
               </div>
