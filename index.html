@@ -1344,6 +1344,41 @@
     }
 
     /* BOOK 2 & HOMEPAGE: LUXURY REAL CLIENT VIDEO SHOWCASE */
+    .works-group-header {
+      margin: 36px 0 16px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      flex-wrap: wrap;
+      gap: 12px;
+      border-bottom: 1px solid rgba(212, 175, 55, 0.22);
+      padding-bottom: 10px;
+    }
+
+    .works-group-title {
+      font-family: var(--display);
+      font-size: 18.5px;
+      font-weight: 800;
+      color: #fff;
+      letter-spacing: 0.5px;
+      margin: 0;
+      display: flex;
+      align-items: center;
+      gap: 10px;
+    }
+
+    .works-group-pill {
+      font-size: 11px;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 0.5px;
+      padding: 4px 12px;
+      border-radius: 999px;
+      background: rgba(212, 175, 55, 0.12);
+      border: 1px solid rgba(212, 175, 55, 0.35);
+      color: var(--gold-bright);
+    }
+
     .works-videos-grid {
       display: grid;
       grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
@@ -4778,8 +4813,187 @@
           </p>
         </div>
 
+        <!-- GROUP 1: 4 LANDSCAPE 16:9 VIDEOS TOGETHER (NO EMPTY SPACE) -->
+        <div class="works-group-header">
+          <h3 class="works-group-title">🎬 16:9 Widescreen &amp; 4K Cinematic Masterpieces</h3>
+          <span class="works-group-pill">✦ 4 Widescreen Works ✦</span>
+        </div>
+
         <div class="works-videos-grid">
-          <!-- Video 1: 0824 Company Edit -->
+          <!-- Video 1: Sahiba Song Shoot & Edit (16:9 Landscape 4K) -->
+          <div class="work-video-card theme-crimson">
+            <div class="work-video-wrapper ratio-landscape">
+              <span class="work-video-badge-top">✦ 4K Cinematic Master ✦</span>
+              <span class="work-video-aspect-tag">16:9 4K UHD</span>
+              <video 
+                class="work-video-elem" 
+                controls 
+                playsinline 
+                preload="metadata" 
+                src="assets/work_sahiba.mp4"
+                onplay="handleSingleVideoPlayback(this)"
+              >
+                Your browser does not support HTML5 video.
+              </video>
+            </div>
+            <div class="work-video-content">
+              <h4 class="work-video-title">Sahiba — Cinematic Shoot &amp; Narrative Music Edit</h4>
+              <p class="work-video-desc">A soulful, cinema-grade music video shoot and edit set to Sahiba. Featuring delicate poetic pacing, natural lighting cinematography, warm film emulation tones, and deep emotional resonance.</p>
+              <div class="work-highlights-list">
+                <span class="work-highlight-pill">Cinematic Camera Direction</span>
+                <span class="work-highlight-pill">Film Emulation LUT</span>
+                <span class="work-highlight-pill">3840x2160 4K UHD</span>
+              </div>
+              <div class="work-card-footer">
+                <span class="work-card-category">Music Video &amp; Direction</span>
+                <button type="button" class="btn-work-commission" onclick="openBookingModal('Music Videos & Films')">
+                  Book Similar Edit &rarr;
+                </button>
+              </div>
+            </div>
+          </div>
+
+          <!-- Video 2: Shyamlatal Lake Cinematic Shoot & Edit (16:9 Landscape 4K) -->
+          <div class="work-video-card theme-cyan">
+            <div class="work-video-wrapper ratio-landscape">
+              <span class="work-video-badge-top">✦ Cinematic Nature Odyssey ✦</span>
+              <span class="work-video-aspect-tag">16:9 4K UHD</span>
+              <video 
+                class="work-video-elem" 
+                controls 
+                playsinline 
+                preload="metadata" 
+                src="assets/work_shyamlatal.mp4"
+                onplay="handleSingleVideoPlayback(this)"
+              >
+                Your browser does not support HTML5 video.
+              </video>
+            </div>
+            <div class="work-video-content">
+              <h4 class="work-video-title">Shyamlatal Serenity — 4K Cinematic Travel &amp; Nature Film</h4>
+              <p class="work-video-desc">Shot on location and color-graded to perfection at pristine Shyamlatal lake. Breathtaking landscape framing, tranquil pacing, atmospheric sound foley, and rich natural earth grading.</p>
+              <div class="work-highlights-list">
+                <span class="work-highlight-pill">Location Direction &amp; Shoot</span>
+                <span class="work-highlight-pill">Cinematic Color Mastery</span>
+                <span class="work-highlight-pill">Immersive Sound Foley</span>
+              </div>
+              <div class="work-card-footer">
+                <span class="work-card-category">Travel &amp; Cinematic Shoot</span>
+                <button type="button" class="btn-work-commission" onclick="openBookingModal('Commercials & Ads')">
+                  Book Similar Edit &rarr;
+                </button>
+              </div>
+            </div>
+          </div>
+
+          <!-- Video 3: Sample for Long Video Edits (16:9 Landscape 4K) -->
+          <div class="work-video-card theme-emerald">
+            <div class="work-video-wrapper ratio-landscape">
+              <span class="work-video-badge-top">✦ Long Video Edit Sample ✦</span>
+              <span class="work-video-aspect-tag">16:9 Landscape</span>
+              <video 
+                class="work-video-elem" 
+                controls 
+                playsinline 
+                preload="metadata" 
+                src="assets/work_long_sample.mp4"
+                onplay="handleSingleVideoPlayback(this)"
+              >
+                Your browser does not support HTML5 video.
+              </video>
+            </div>
+            <div class="work-video-content">
+              <h4 class="work-video-title">Sample for Long Video Edits — Pacing &amp; B-Roll Structure</h4>
+              <p class="work-video-desc">A sample demonstration edit specifically crafted for long videos and YouTube content. Showcases clean narrative pacing, smooth B-roll integration, high viewer retention cuts, and balanced audio mixing.</p>
+              <div class="work-highlights-list">
+                <span class="work-highlight-pill">Long Video Edit Sample</span>
+                <span class="work-highlight-pill">B-Roll Pacing &amp; Cuts</span>
+                <span class="work-highlight-pill">YouTube Video Flow</span>
+              </div>
+              <div class="work-card-footer">
+                <span class="work-card-category">Long Video Edit Sample</span>
+                <button type="button" class="btn-work-commission" onclick="openBookingModal('YouTube Documentaries')">
+                  Book Similar Edit &rarr;
+                </button>
+              </div>
+            </div>
+          </div>
+
+          <!-- Video 4: Raanjhanaa 4K 60FPS Cinematic Master (16:9 Landscape 4K) -->
+          <div class="work-video-card theme-purple">
+            <div class="work-video-wrapper ratio-landscape">
+              <span class="work-video-badge-top">✦ 4K 60FPS Masterpiece ✦</span>
+              <span class="work-video-aspect-tag">16:9 4K UHD</span>
+              <video 
+                class="work-video-elem" 
+                controls 
+                playsinline 
+                preload="metadata" 
+                src="assets/work_ranjhana.mp4"
+                onplay="handleSingleVideoPlayback(this)"
+              >
+                Your browser does not support HTML5 video.
+              </video>
+            </div>
+            <div class="work-video-content">
+              <h4 class="work-video-title">Raanjhanaa — Cinematic 4K Film Master</h4>
+              <p class="work-video-desc">A breathtaking cinematic film edit set to Raanjhanaa, rendered in pristine 3840x2160 4K UHD at ultra-smooth 60FPS. Featuring atmospheric film emulation, emotive color grading, rhythmically timed motion dynamics, and deeply immersive audio.</p>
+              <div class="work-highlights-list">
+                <span class="work-highlight-pill">3840x2160 4K UHD</span>
+                <span class="work-highlight-pill">Ultra-Smooth 60 FPS</span>
+                <span class="work-highlight-pill">Film Color Science</span>
+              </div>
+              <div class="work-card-footer">
+                <span class="work-card-category">Cinematic Film Edit</span>
+                <button type="button" class="btn-work-commission" onclick="openBookingModal('Music Videos & Films')">
+                  Book Similar Edit &rarr;
+                </button>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- GROUP 2: 5 VERTICAL 9:16 REELS TOGETHER (NO EMPTY SPACE) -->
+        <div class="works-group-header" style="margin-top: 48px;">
+          <h3 class="works-group-title">📱 9:16 High-Retention Viral Reels &amp; Shorts</h3>
+          <span class="works-group-pill">✦ 5 Vertical Reels ✦</span>
+        </div>
+
+        <div class="works-videos-grid">
+          <!-- Video 5: Ganesh Chaturthi Edit (NEWEST - Vertical 9:16 Reel) -->
+          <div class="work-video-card theme-gold">
+            <div class="work-video-wrapper ratio-vertical">
+              <span class="work-video-badge-top">✦ Festival Celebration Reel ✦</span>
+              <span class="work-video-aspect-tag">9:16 Vertical Reel</span>
+              <video 
+                class="work-video-elem" 
+                controls 
+                playsinline 
+                preload="metadata" 
+                src="assets/work_ganesh.mp4"
+                onplay="handleSingleVideoPlayback(this)"
+              >
+                Your browser does not support HTML5 video.
+              </video>
+            </div>
+            <div class="work-video-content">
+              <h4 class="work-video-title">Ganesh Chaturthi — High-Energy Festival Celebration Reel</h4>
+              <p class="work-video-desc">High-energy festive celebration reel featuring energetic beat-matched transitions, vibrant colors, festive music synchronization, and dynamic crowd moments.</p>
+              <div class="work-highlights-list">
+                <span class="work-highlight-pill">Beat-Synced Cuts</span>
+                <span class="work-highlight-pill">Festive Color Grade</span>
+                <span class="work-highlight-pill">Ultra HD 9:16 Reel</span>
+              </div>
+              <div class="work-card-footer">
+                <span class="work-card-category">Festival Celebration Reel</span>
+                <button type="button" class="btn-work-commission" onclick="openBookingModal('Viral Reels & Shorts')">
+                  Book Similar Edit &rarr;
+                </button>
+              </div>
+            </div>
+          </div>
+
+          <!-- Video 6: 0824 Company Edit (Archive) -->
           <div class="work-video-card theme-crimson">
             <div class="work-video-wrapper ratio-vertical">
               <span class="work-video-badge-top">Signature Reel</span>
@@ -4812,7 +5026,7 @@
             </div>
           </div>
 
-          <!-- Video 2: 0828 Cool Birthday Edit -->
+          <!-- Video 7: 0828 Cool Birthday Edit (Archive) -->
           <div class="work-video-card theme-gold">
             <div class="work-video-wrapper ratio-vertical">
               <span class="work-video-badge-top">Speed Ramp &amp; VFX</span>
@@ -4845,7 +5059,7 @@
             </div>
           </div>
 
-          <!-- Video 3: 0903(1)(3) Gym Motivation Edit -->
+          <!-- Video 8: 0903(1)(3) Gym Motivation Edit (Archive) -->
           <div class="work-video-card theme-cyan">
             <div class="work-video-wrapper ratio-vertical">
               <span class="work-video-badge-top">High-Octane Retention</span>
@@ -4878,7 +5092,7 @@
             </div>
           </div>
 
-          <!-- Video 4: 0903(1) Charity / Feeding Needy & Stray Animals -->
+          <!-- Video 9: 0903(1) Charity / Feeding Needy & Stray Animals (Archive) -->
           <div class="work-video-card theme-emerald">
             <div class="work-video-wrapper ratio-vertical">
               <span class="work-video-badge-top">Heartfelt Storytelling</span>
@@ -4905,39 +5119,6 @@
               <div class="work-card-footer">
                 <span class="work-card-category">Social Impact Story</span>
                 <button type="button" class="btn-work-commission" onclick="openBookingModal('YouTube Documentaries')">
-                  Book Similar Edit &rarr;
-                </button>
-              </div>
-            </div>
-          </div>
-
-          <!-- Video 5: Raanjhanaa 4K Cinematic Master -->
-          <div class="work-video-card theme-purple">
-            <div class="work-video-wrapper ratio-landscape">
-              <span class="work-video-badge-top">4K 60FPS Master</span>
-              <span class="work-video-aspect-tag">16:9 4K Landscape</span>
-              <video 
-                class="work-video-elem" 
-                controls 
-                playsinline 
-                preload="metadata" 
-                src="assets/work_ranjhana.mp4"
-                onplay="handleSingleVideoPlayback(this)"
-              >
-                Your browser does not support HTML5 video.
-              </video>
-            </div>
-            <div class="work-video-content">
-              <h4 class="work-video-title">Raanjhanaa — Cinematic 4K Film Master</h4>
-              <p class="work-video-desc">A breathtaking cinematic film edit set to Raanjhanaa, rendered in pristine 3840x2160 4K UHD at ultra-smooth 60FPS. Featuring atmospheric film emulation, emotive color grading, rhythmically timed motion dynamics, and deeply immersive audio.</p>
-              <div class="work-highlights-list">
-                <span class="work-highlight-pill">3840x2160 4K UHD</span>
-                <span class="work-highlight-pill">Ultra-Smooth 60 FPS</span>
-                <span class="work-highlight-pill">Film Color Science</span>
-              </div>
-              <div class="work-card-footer">
-                <span class="work-card-category">Cinematic Film Edit</span>
-                <button type="button" class="btn-work-commission" onclick="openBookingModal('Music Videos & Films')">
                   Book Similar Edit &rarr;
                 </button>
               </div>
@@ -5880,6 +6061,76 @@
         label: "Vol. 02 — Featured Edited Projects & Showreels",
         projects: [
           {
+            id: "proj-sahiba",
+            num: "0912",
+            title: "Sahiba — Cinematic Shoot & Narrative Music Edit",
+            category: "Music Videos & Films",
+            badge: "✦ 4K Cinematic Master ✦",
+            tag: "Music Video & Direction",
+            accent: "crimson",
+            aspect: "16:9 4K UHD Landscape",
+            isVertical: false,
+            video: "assets/work_sahiba.mp4",
+            desc: "A soulful, cinema-grade music video shoot and edit set to Sahiba. Featuring delicate poetic pacing, natural lighting cinematography, warm film emulation tones, and emotional resonance.",
+            highlights: ["Cinematic Camera Direction", "Film Emulation LUT", "3840x2160 4K UHD"]
+          },
+          {
+            id: "proj-shyamlatal",
+            num: "0913",
+            title: "Shyamlatal Serenity — 4K Cinematic Travel & Nature Film",
+            category: "Commercials & Ads",
+            badge: "✦ Cinematic Nature Odyssey ✦",
+            tag: "Travel & Cinematic Shoot",
+            accent: "cyan",
+            aspect: "16:9 4K UHD Landscape",
+            isVertical: false,
+            video: "assets/work_shyamlatal.mp4",
+            desc: "Shot on location and color-graded to perfection at pristine Shyamlatal lake. Breathtaking landscape framing, tranquil pacing, atmospheric sound foley, and rich natural earth grading.",
+            highlights: ["Location Direction & Shoot", "Cinematic Color Mastery", "Immersive Sound Foley"]
+          },
+          {
+            id: "proj-longsample",
+            num: "0912L",
+            title: "Sample for Long Video Edits — Pacing & B-Roll Structure",
+            category: "YouTube Documentaries",
+            badge: "✦ Long Video Edit Sample ✦",
+            tag: "Long Video Edit Sample",
+            accent: "emerald",
+            aspect: "16:9 Landscape Video",
+            isVertical: false,
+            video: "assets/work_long_sample.mp4",
+            desc: "A sample demonstration edit specifically crafted for long videos and YouTube content. Showcases clean narrative pacing, smooth B-roll integration, high viewer retention cuts, and balanced audio mixing.",
+            highlights: ["Long Video Edit Sample", "B-Roll Pacing & Cuts", "YouTube Video Flow"]
+          },
+          {
+            id: "proj-ranjhana",
+            num: "0910",
+            title: "Raanjhanaa — Cinematic 4K Film Master",
+            category: "Music Videos & Films",
+            badge: "✦ 4K 60FPS Masterpiece ✦",
+            tag: "Cinematic Film Edit",
+            accent: "purple",
+            aspect: "16:9 4K Landscape",
+            isVertical: false,
+            video: "assets/work_ranjhana.mp4",
+            desc: "A breathtaking cinematic film edit set to Raanjhanaa in pristine 3840x2160 4K UHD at ultra-smooth 60FPS. Featuring atmospheric film emulation, emotive color grading, rhythmically timed motion dynamics, and deeply immersive audio.",
+            highlights: ["3840x2160 4K UHD", "Ultra-Smooth 60 FPS", "Film Color Science"]
+          },
+          {
+            id: "proj-ganesh",
+            num: "0914",
+            title: "Ganesh Chaturthi — High-Energy Festival Celebration Reel",
+            category: "Viral Reels & Shorts",
+            badge: "✦ Festival Celebration Reel ✦",
+            tag: "Festival Celebration Reel",
+            accent: "gold",
+            aspect: "9:16 Vertical Reel",
+            isVertical: true,
+            video: "assets/work_ganesh.mp4",
+            desc: "High-energy festive celebration reel featuring energetic beat-matched transitions, vibrant colors, festive music synchronization, and dynamic crowd moments.",
+            highlights: ["Beat-Synced Cuts", "Festive Color Grade", "Ultra HD 9:16 Reel"]
+          },
+          {
             id: "proj-company",
             num: "0824",
             title: "Apex Corporate Brand Showcase",
@@ -5934,20 +6185,6 @@
             video: "assets/work_charity.mp4",
             desc: "A deeply moving and heartfelt social documentary story capturing a young girl distributing warm meals to the homeless and feeding hungry stray animals on the streets. Crafted with uplifting warm tones, emotional narrative rhythm, and soul-stirring audio atmosphere.",
             highlights: ["Emotional Story Pacing", "Humanitarian Social Impact", "Warm Acoustic Mastering"]
-          },
-          {
-            id: "proj-ranjhana",
-            num: "0910",
-            title: "Raanjhanaa — Cinematic 4K Film Master",
-            category: "Music Videos & Films",
-            badge: "4K 60FPS Master",
-            tag: "Cinematic Film Edit",
-            accent: "purple",
-            aspect: "16:9 4K Landscape",
-            isVertical: false,
-            video: "assets/work_ranjhana.mp4",
-            desc: "A breathtaking cinematic film edit set to Raanjhanaa, rendered in pristine 3840x2160 4K UHD at ultra-smooth 60FPS. Featuring atmospheric film emulation, emotive color grading, rhythmically timed motion dynamics, and deeply immersive audio.",
-            highlights: ["3840x2160 4K UHD", "Ultra-Smooth 60 FPS", "Film Color Science"]
           }
         ],
         reviewsList: [
@@ -6913,7 +7150,7 @@ ${payload.project_brief || 'None specified'}
                   <span style="font-size: 11.5px; color: var(--muted);">Click any video to play • Full 4K audio &amp; retention pacing master</span>
                 </div>
                 <span style="font-size: 11px; background: rgba(212, 175, 55, 0.12); border: 1px solid rgba(212, 175, 55, 0.35); padding: 3px 10px; border-radius: 999px; color: var(--gold-bright); font-weight: 700;">
-                  ⚡ 5 Master Works Live
+                  ⚡ 9 Master Works Live
                 </span>
               </div>
 

@@ -28,6 +28,14 @@ app.use((req, res, next) => {
   next();
 });
 
+// Health check / Keep-Alive route for UptimeRobot / Pingers
+app.get('/health', (req, res) => {
+  res.status(200).json({ status: 'OK', message: 'Server is active and awake' });
+});
+app.get('/ping', (req, res) => {
+  res.status(200).send('pong');
+});
+
 // Promisified Database Helpers
 const dbGet = (query, params = []) => {
   return new Promise((resolve, reject) => {
