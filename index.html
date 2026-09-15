@@ -4988,8 +4988,9 @@
                 class="work-video-elem" 
                 controls 
                 playsinline 
-                preload="metadata" 
-                data-video-id="work_sahiba" src="assets/work_sahiba_1080p.mp4"
+                preload="none" 
+                data-video-id="work_sahiba" 
+                data-src="assets/work_sahiba_1080p.mp4"
                 onplay="handleSingleVideoPlayback(this)"
               >
                 Your browser does not support HTML5 video.
@@ -5021,8 +5022,9 @@
                 class="work-video-elem" 
                 controls 
                 playsinline 
-                preload="metadata" 
-                data-video-id="work_shyamlatal" src="assets/work_shyamlatal_1080p.mp4"
+                preload="none" 
+                data-video-id="work_shyamlatal" 
+                data-src="assets/work_shyamlatal_1080p.mp4"
                 onplay="handleSingleVideoPlayback(this)"
               >
                 Your browser does not support HTML5 video.
@@ -5054,8 +5056,9 @@
                 class="work-video-elem" 
                 controls 
                 playsinline 
-                preload="metadata" 
-                data-video-id="work_long_sample" src="assets/work_long_sample_1080p.mp4"
+                preload="none" 
+                data-video-id="work_long_sample" 
+                data-src="assets/work_long_sample_1080p.mp4"
                 onplay="handleSingleVideoPlayback(this)"
               >
                 Your browser does not support HTML5 video.
@@ -5087,8 +5090,9 @@
                 class="work-video-elem" 
                 controls 
                 playsinline 
-                preload="metadata" 
-                data-video-id="work_ranjhana" src="assets/work_ranjhana_1080p.mp4"
+                preload="none" 
+                data-video-id="work_ranjhana" 
+                data-src="assets/work_ranjhana_1080p.mp4"
                 onplay="handleSingleVideoPlayback(this)"
               >
                 Your browser does not support HTML5 video.
@@ -5128,8 +5132,9 @@
                 class="work-video-elem" 
                 controls 
                 playsinline 
-                preload="metadata" 
-                data-video-id="work_ganesh" src="assets/work_ganesh_1080p.mp4"
+                preload="none" 
+                data-video-id="work_ganesh" 
+                data-src="assets/work_ganesh_1080p.mp4"
                 onplay="handleSingleVideoPlayback(this)"
               >
                 Your browser does not support HTML5 video.
@@ -5161,8 +5166,9 @@
                 class="work-video-elem" 
                 controls 
                 playsinline 
-                preload="metadata" 
-                data-video-id="work_company" src="assets/work_company_1080p.mp4"
+                preload="none" 
+                data-video-id="work_company" 
+                data-src="assets/work_company_1080p.mp4"
                 onplay="handleSingleVideoPlayback(this)"
               >
                 Your browser does not support HTML5 video.
@@ -5194,8 +5200,9 @@
                 class="work-video-elem" 
                 controls 
                 playsinline 
-                preload="metadata" 
-                data-video-id="work_birthday" src="assets/work_birthday_1080p.mp4"
+                preload="none" 
+                data-video-id="work_birthday" 
+                data-src="assets/work_birthday_1080p.mp4"
                 onplay="handleSingleVideoPlayback(this)"
               >
                 Your browser does not support HTML5 video.
@@ -5227,8 +5234,9 @@
                 class="work-video-elem" 
                 controls 
                 playsinline 
-                preload="metadata" 
-                data-video-id="work_gym" src="assets/work_gym_1080p.mp4"
+                preload="none" 
+                data-video-id="work_gym" 
+                data-src="assets/work_gym_1080p.mp4"
                 onplay="handleSingleVideoPlayback(this)"
               >
                 Your browser does not support HTML5 video.
@@ -5260,8 +5268,9 @@
                 class="work-video-elem" 
                 controls 
                 playsinline 
-                preload="metadata" 
-                data-video-id="work_charity" src="assets/work_charity_1080p.mp4"
+                preload="none" 
+                data-video-id="work_charity" 
+                data-src="assets/work_charity_1080p.mp4"
                 onplay="handleSingleVideoPlayback(this)"
               >
                 Your browser does not support HTML5 video.
@@ -6957,13 +6966,34 @@ ${payload.project_brief || 'None specified'}
     let parallaxRafId = null;
     let isHeroInView = true;
 
-    // Track hero intersection to stop parallax completely when scrolled down
+    // COVER MOTION VIDEOS AUTOPLAY & LIFECYCLE
+    const coverVideos = [...document.querySelectorAll('.cover-motion')];
+    coverVideos.forEach((video) => {
+      const reveal = () => { video.setAttribute('data-ready', 'true'); };
+      if (video.readyState >= 2) {
+        reveal();
+      } else {
+        video.addEventListener('loadeddata', reveal, { once: true });
+        video.addEventListener('canplay', reveal, { once: true });
+      }
+      video.play().catch(() => {});
+    });
+
+    // Track hero intersection to stop parallax completely and PAUSE cover videos when scrolled down
     const heroObserver = new IntersectionObserver((entries) => {
       entries.forEach(entry => {
         isHeroInView = entry.isIntersecting;
         if (isHeroInView && mouse.isMoving) {
           startParallaxLoop();
         }
+        // Free GPU & video decoders when hero section is not in view
+        coverVideos.forEach(v => {
+          if (isHeroInView) {
+            v.play().catch(() => {});
+          } else {
+            v.pause();
+          }
+        });
       });
     }, { threshold: 0.05 });
     if (heroStage) heroObserver.observe(heroStage);
@@ -7071,18 +7101,6 @@ ${payload.project_brief || 'None specified'}
       }, { passive: true });
     });
 
-    // COVER MOTION VIDEOS AUTOPLAY & LIFECYCLE
-    const coverVideos = [...document.querySelectorAll('.cover-motion')];
-    coverVideos.forEach((video) => {
-      const reveal = () => { video.setAttribute('data-ready', 'true'); };
-      if (video.readyState >= 2) {
-        reveal();
-      } else {
-        video.addEventListener('loadeddata', reveal, { once: true });
-        video.addEventListener('canplay', reveal, { once: true });
-      }
-      video.play().catch(() => {});
-    });
 
     function syncCoverMotion() {
       const shouldPlay = document.visibilityState === 'visible';
@@ -7180,10 +7198,17 @@ ${payload.project_brief || 'None specified'}
           v.pause();
         }
       });
+      // Also pause hero cover videos while playing work showcase to allocate 100% GPU decoding power
+      if (typeof coverVideos !== 'undefined') {
+        coverVideos.forEach(v => {
+          if (!v.paused) v.pause();
+        });
+      }
     }
 
     // =========================================================================
     // YOUTUBE-STYLE HLS ADAPTIVE BITRATE STREAMING & MULTI-QUALITY ENGINE
+    // HIGH PERFORMANCE LAZY-LOAD (ZERO LAG / ULTRA SMOOTH 60-120 FPS)
     // =========================================================================
     const hlsInstances = new WeakMap();
 
@@ -7245,6 +7270,9 @@ ${payload.project_brief || 'None specified'}
       }
       if (menu) menu.classList.remove('show');
 
+      // Make sure video is initialized before switching quality
+      initVideoSource(video, wrapper);
+
       const hls = hlsInstances.get(video);
       if (hls && hls.levels && hls.levels.length > 0) {
         if (quality === 'auto') {
@@ -7271,7 +7299,7 @@ ${payload.project_brief || 'None specified'}
         }
       } else {
         // Fallback for standalone MP4
-        const videoId = wrapper.getAttribute('data-video-id') || getVideoBaseId(video.currentSrc || video.src);
+        const videoId = wrapper.getAttribute('data-video-id') || getVideoBaseId(video.getAttribute('data-src') || video.currentSrc || video.src);
         if (!videoId) return;
         const currentTime = video.currentTime || 0;
         const wasPlaying = !video.paused;
@@ -7293,19 +7321,104 @@ ${payload.project_brief || 'None specified'}
       }
     };
 
-    // Attach YouTube Quality UI & HLS Engine to all video cards
-    function setupAdaptiveVideoElements() {
+    // Lazy load individual video source on demand
+    function initVideoSource(video, wrapper) {
+      if (!video || video.dataset.hlsInit === 'true') return;
+      video.dataset.hlsInit = 'true';
+
       const isMobile = window.innerWidth <= 768;
+      const rawSrc = video.getAttribute('data-src') || video.getAttribute('src') || video.currentSrc || '';
+      const videoId = wrapper.getAttribute('data-video-id') || getVideoBaseId(rawSrc);
+      if (!videoId) return;
+
+      wrapper.setAttribute('data-video-id', videoId);
+      const hlsUrl = `assets/streams/${videoId}/master.m3u8`;
+      const fallback1080Url = `assets/${videoId}_1080p.mp4`;
+
+      if (window.Hls && Hls.isSupported()) {
+        const hls = new Hls({
+          capLevelToPlayerSize: true, // Limits quality level to mobile screen dimensions
+          autoStartLoad: false,
+          startLevel: -1 // Auto
+        });
+
+        hls.loadSource(hlsUrl);
+        hls.attachMedia(video);
+        hlsInstances.set(video, hls);
+
+        // Lazy start loading segments ONLY when user plays
+        video.addEventListener('play', () => {
+          hls.startLoad();
+        }, { once: true });
+
+        hls.on(Hls.Events.MANIFEST_PARSED, () => {
+          if (isMobile) {
+            showVideoToast(wrapper, '⚡ Auto Mobile Stream (Smooth)');
+          }
+        });
+
+        hls.on(Hls.Events.ERROR, (event, data) => {
+          if (data.fatal) {
+            if (data.type === Hls.ErrorTypes.MEDIA_ERROR) {
+              hls.recoverMediaError();
+            } else {
+              hls.destroy();
+              hlsInstances.delete(video);
+              video.src = isMobile ? fallback1080Url : (video.getAttribute('data-src') || rawSrc || fallback1080Url);
+            }
+          }
+        });
+      } else if (video.canPlayType('application/vnd.apple.mpegurl')) {
+        // Safari iOS/macOS Native HLS
+        video.src = hlsUrl;
+      } else {
+        video.src = fallback1080Url;
+      }
+
+      // Fallback recovery on decoder error
+      video.addEventListener('error', () => {
+        console.warn(`[Auto-Recovery] Hardware decoder error on ${videoId}. Falling back to 1080p stream.`);
+        const cur = video.currentTime || 0;
+        video.src = fallback1080Url;
+        video.currentTime = cur;
+        video.play().catch(() => {});
+      });
+    }
+
+    // Work Video IntersectionObserver instance
+    let workVideoObserver = null;
+
+    // Attach YouTube Quality UI & Lazy-Load Engine to all video cards
+    function setupAdaptiveVideoElements() {
+      if (!workVideoObserver && 'IntersectionObserver' in window) {
+        workVideoObserver = new IntersectionObserver((entries) => {
+          entries.forEach(entry => {
+            const wrapper = entry.target;
+            const video = wrapper.querySelector('video.work-video-elem');
+            if (!video) return;
+
+            if (entry.isIntersecting) {
+              // User is scrolling near this video - prepare source
+              initVideoSource(video, wrapper);
+            } else {
+              // Scrolled out of view - pause to free mobile decoder pipeline
+              if (!video.paused) {
+                video.pause();
+              }
+            }
+          });
+        }, { rootMargin: '300px 0px', threshold: 0.05 });
+      }
 
       document.querySelectorAll('.work-video-wrapper').forEach(wrapper => {
         const video = wrapper.querySelector('video.work-video-elem');
         if (!video) return;
 
-        const rawSrc = video.getAttribute('src') || video.currentSrc || '';
+        const rawSrc = video.getAttribute('data-src') || video.getAttribute('src') || video.currentSrc || '';
         const videoId = wrapper.getAttribute('data-video-id') || getVideoBaseId(rawSrc);
-        if (!videoId) return;
-
-        wrapper.setAttribute('data-video-id', videoId);
+        if (videoId) {
+          wrapper.setAttribute('data-video-id', videoId);
+        }
 
         // 1. Inject Quality Switcher Button & Dropdown if missing
         if (!wrapper.querySelector('.video-quality-wrap')) {
@@ -7335,67 +7448,20 @@ ${payload.project_brief || 'None specified'}
           wrapper.appendChild(qWrap);
         }
 
-        const hlsUrl = `assets/streams/${videoId}/master.m3u8`;
-        const fallback1080Url = `assets/${videoId}_1080p.mp4`;
-
-        // 2. Initialize Hls.js or Native HLS once
-        if (!video.dataset.hlsInit) {
-          video.dataset.hlsInit = 'true';
-
-          if (window.Hls && Hls.isSupported()) {
-            const hls = new Hls({
-              capLevelToPlayerSize: true, // Limits quality level to mobile screen dimensions
-              autoStartLoad: false,
-              startLevel: -1 // Auto
-            });
-
-            hls.loadSource(hlsUrl);
-            hls.attachMedia(video);
-            hlsInstances.set(video, hls);
-
-            // Lazy start loading segments when user plays
-            video.addEventListener('play', () => {
-              hls.startLoad();
-            }, { once: true });
-
-            hls.on(Hls.Events.MANIFEST_PARSED, () => {
-              if (isMobile) {
-                showVideoToast(wrapper, '⚡ Auto Mobile Stream (1080p Smooth)');
-              }
-            });
-
-            hls.on(Hls.Events.ERROR, (event, data) => {
-              if (data.fatal) {
-                if (data.type === Hls.ErrorTypes.MEDIA_ERROR) {
-                  hls.recoverMediaError();
-                  showVideoToast(wrapper, '⚡ Auto-adapting for smooth decoding...', true);
-                } else {
-                  hls.destroy();
-                  hlsInstances.delete(video);
-                  video.src = isMobile ? fallback1080Url : (video.getAttribute('src') || rawSrc);
-                }
-              }
-            });
-          } else if (video.canPlayType('application/vnd.apple.mpegurl')) {
-            // Safari iOS/macOS Native HLS
-            video.src = hlsUrl;
-          } else {
-            if (isMobile) {
-              video.src = fallback1080Url;
-            }
-          }
-
-          // 3. HARDWARE DECODER CRASH SAFETY NET:
-          // If any mobile phone fails to decode 4K, automatically load the 1080p web stream
-          video.addEventListener('error', () => {
-            console.warn(`[Auto-Recovery] Hardware decoder error on ${videoId}. Falling back to 1080p stream.`);
-            showVideoToast(wrapper, '✨ Switched to 1080p Web Stream for Compatibility', true);
-            const cur = video.currentTime || 0;
-            video.src = fallback1080Url;
-            video.currentTime = cur;
-            video.play().catch(() => {});
-          });
+        // 2. Observe for Lazy Loading on scroll
+        if (workVideoObserver) {
+          workVideoObserver.observe(wrapper);
+        } else {
+          initVideoSource(video, wrapper);
         }
+
+        // 3. User interaction triggers immediate initialization
+        video.addEventListener('play', () => {
+          initVideoSource(video, wrapper);
+        }, { once: true });
+        wrapper.addEventListener('pointerdown', () => {
+          initVideoSource(video, wrapper);
+        }, { once: true });
       });
     }
 
@@ -7547,8 +7613,9 @@ ${payload.project_brief || 'None specified'}
                         class="work-video-elem" 
                         controls 
                         playsinline 
-                        preload="metadata" 
-                        src="${p.video}"
+                        preload="none" 
+                        data-src="${p.video}"
+                        data-video-id="${p.id ? p.id.replace('proj-', 'work_') : ''}"
                         onplay="handleSingleVideoPlayback(this)"
                       >
                         Your browser does not support HTML5 video.
