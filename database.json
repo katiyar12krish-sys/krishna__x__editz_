@@ -1,0 +1,14 @@
+{
+  "bookings": [],
+  "newsletter_subscribers": [],
+  "contact_messages": [],
+  "analytics_events": [
+    {
+      "id": 1,
+      "event_type": "book_opened",
+      "event_data": "\"works\"",
+      "user_agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/153.0.0.0 Safari/537.36 Edg/153.0.0.0",
+      "created_at": "2026-09-14T17:40:47.945Z"
+    }
+  ]
+}

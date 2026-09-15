@@ -1,0 +1,20 @@
+# Dependencies
+node_modules/
+
+# Logs
+*.log
+
+# System files
+.DS_Store
+Thumbs.db
+
+# Large raw video files exceeding GitHub 100MB limit
+assets/work_long_sample.mp4
+assets/work_ganesh.mp4
+assets/work_shyamlatal.mp4
+assets/work_ranjhana.mp4
+
+# Temporary & Database
+index.html.bak
+database.sqlite
+scratch/
