@@ -1,0 +1,636 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>KRISHNA X EDITZ — Mobile Phone Simulator &amp; Live Preview</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@600;700;800;900&family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      --bg: #070605;
+      --card-bg: rgba(22, 17, 12, 0.95);
+      --gold: #d4af37;
+      --gold-bright: #ffd700;
+      --gold-foil: #dfb86c;
+      --border: rgba(212, 175, 55, 0.35);
+      --muted: #a69b89;
+      --phone-w: 393px;
+      --phone-h: 852px;
+      --phone-radius: 54px;
+      --scale: 1;
+    }
+
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    body {
+      background: var(--bg);
+      color: #fff;
+      font-family: 'Plus Jakarta Sans', sans-serif;
+      min-height: 100vh;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      overflow-x: hidden;
+      background-image: 
+        radial-gradient(circle at 15% 20%, rgba(212, 175, 55, 0.08), transparent 45%),
+        radial-gradient(circle at 85% 80%, rgba(225, 29, 72, 0.07), transparent 45%),
+        linear-gradient(180deg, #090705 0%, #120e0a 100%);
+    }
+
+    /* TOP CONTROLS NAVBAR */
+    .sim-navbar {
+      width: 100%;
+      background: rgba(15, 12, 9, 0.95);
+      border-bottom: 1px solid var(--border);
+      backdrop-filter: blur(16px);
+      padding: 12px 24px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 16px;
+      position: sticky;
+      top: 0;
+      z-index: 100;
+      box-shadow: 0 10px 30px rgba(0,0,0,0.7);
+      flex-wrap: wrap;
+    }
+
+    .sim-brand {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      font-family: 'Cinzel', serif;
+      font-size: 16px;
+      font-weight: 800;
+      color: var(--gold-bright);
+      text-decoration: none;
+      letter-spacing: .05em;
+    }
+
+    .sim-brand span {
+      background: linear-gradient(135deg, #ffd700, #ff6b6b);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+    }
+
+    .sim-badge {
+      font-size: 10px;
+      font-family: 'Plus Jakarta Sans', sans-serif;
+      font-weight: 800;
+      text-transform: uppercase;
+      letter-spacing: .1em;
+      padding: 3px 8px;
+      border-radius: 999px;
+      background: rgba(212, 175, 55, 0.15);
+      border: 1px solid var(--border);
+      color: var(--gold-bright);
+    }
+
+    .device-tabs {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      background: rgba(28, 22, 16, 0.85);
+      padding: 4px;
+      border-radius: 12px;
+      border: 1px solid rgba(212, 175, 55, 0.25);
+    }
+
+    .device-tab {
+      background: transparent;
+      border: none;
+      color: var(--muted);
+      font-family: 'Plus Jakarta Sans', sans-serif;
+      font-size: 12px;
+      font-weight: 700;
+      padding: 6px 14px;
+      border-radius: 8px;
+      cursor: pointer;
+      display: flex;
+      align-items: center;
+      gap: 6px;
+      transition: all 0.2s ease;
+    }
+
+    .device-tab:hover {
+      color: #fff;
+      background: rgba(255, 255, 255, 0.05);
+    }
+
+    .device-tab.active {
+      background: linear-gradient(135deg, #d4af37, #f59e0b);
+      color: #0d0a07;
+      box-shadow: 0 4px 12px rgba(212, 175, 55, 0.35);
+    }
+
+    .sim-actions {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+    }
+
+    .sim-btn {
+      background: rgba(28, 22, 16, 0.9);
+      border: 1px solid rgba(212, 175, 55, 0.3);
+      color: #e5ded2;
+      font-family: 'Plus Jakarta Sans', sans-serif;
+      font-size: 12px;
+      font-weight: 700;
+      padding: 7px 14px;
+      border-radius: 999px;
+      cursor: pointer;
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      text-decoration: none;
+      transition: all 0.2s ease;
+    }
+
+    .sim-btn:hover {
+      border-color: var(--gold-bright);
+      color: #fff;
+      transform: translateY(-1px);
+      box-shadow: 0 4px 14px rgba(212, 175, 55, 0.2);
+    }
+
+    .sim-btn svg {
+      width: 14px;
+      height: 14px;
+      fill: currentColor;
+    }
+
+    /* MAIN STAGE */
+    .sim-stage {
+      flex: 1;
+      width: 100%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      padding: 30px 20px 50px;
+      position: relative;
+    }
+
+    /* PHONE CONTAINER */
+    .phone-container {
+      position: relative;
+      width: var(--phone-w);
+      height: var(--phone-h);
+      transition: width 0.35s cubic-bezier(0.16, 1, 0.3, 1), height 0.35s cubic-bezier(0.16, 1, 0.3, 1), transform 0.3s ease;
+      transform: scale(var(--scale));
+      transform-origin: top center;
+    }
+
+    /* TITANIUM CHASSIS */
+    .phone-chassis {
+      position: absolute;
+      inset: -14px;
+      border-radius: var(--phone-radius);
+      background: linear-gradient(145deg, #2b2620, #14100c 50%, #2b2620);
+      box-shadow: 
+        0 0 0 1.5px rgba(212, 175, 55, 0.45),
+        0 0 0 4px #0c0906,
+        0 25px 70px rgba(0, 0, 0, 0.95),
+        0 0 50px rgba(212, 175, 55, 0.15);
+      border: 1px solid rgba(255, 255, 255, 0.15);
+      pointer-events: none;
+      z-index: 10;
+    }
+
+    /* PHYSICAL BUTTONS */
+    .phone-btn-vol-up {
+      position: absolute;
+      left: -17px;
+      top: 110px;
+      width: 3.5px;
+      height: 50px;
+      background: #3a3229;
+      border-radius: 3px 0 0 3px;
+      box-shadow: -1px 0 3px rgba(0,0,0,0.5);
+    }
+    .phone-btn-vol-down {
+      position: absolute;
+      left: -17px;
+      top: 175px;
+      width: 3.5px;
+      height: 50px;
+      background: #3a3229;
+      border-radius: 3px 0 0 3px;
+      box-shadow: -1px 0 3px rgba(0,0,0,0.5);
+    }
+    .phone-btn-power {
+      position: absolute;
+      right: -17px;
+      top: 140px;
+      width: 3.5px;
+      height: 75px;
+      background: #3a3229;
+      border-radius: 0 3px 3px 0;
+      box-shadow: 1px 0 3px rgba(0,0,0,0.5);
+    }
+
+    /* SCREEN FRAME */
+    .phone-screen {
+      position: relative;
+      width: 100%;
+      height: 100%;
+      border-radius: calc(var(--phone-radius) - 12px);
+      overflow: hidden;
+      background: #000;
+      box-shadow: inset 0 0 8px rgba(0, 0, 0, 0.8);
+      z-index: 20;
+    }
+
+    /* STATUS BAR */
+    .phone-status-bar {
+      position: absolute;
+      top: 0;
+      left: 0;
+      right: 0;
+      height: 44px;
+      padding: 0 28px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      font-size: 13px;
+      font-weight: 700;
+      color: #fff;
+      z-index: 30;
+      pointer-events: none;
+      background: linear-gradient(180deg, rgba(0, 0, 0, 0.7) 0%, transparent 100%);
+    }
+
+    /* DYNAMIC ISLAND */
+    .dynamic-island {
+      position: absolute;
+      top: 10px;
+      left: 50%;
+      transform: translateX(-50%);
+      width: 116px;
+      height: 30px;
+      background: #000;
+      border-radius: 20px;
+      z-index: 40;
+      pointer-events: none;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 0 10px;
+      box-shadow: 0 2px 6px rgba(0, 0, 0, 0.8);
+      border: 1px solid rgba(255, 255, 255, 0.08);
+    }
+
+    .island-camera {
+      width: 10px;
+      height: 10px;
+      border-radius: 50%;
+      background: #07172b;
+      box-shadow: inset 0 0 2px rgba(255, 255, 255, 0.3);
+    }
+    .island-sensor {
+      width: 8px;
+      height: 8px;
+      border-radius: 50%;
+      background: #040913;
+    }
+
+    /* STATUS ICONS */
+    .status-icons {
+      display: flex;
+      align-items: center;
+      gap: 6px;
+      font-size: 11px;
+    }
+
+    /* LIVE IFRAME */
+    .phone-iframe {
+      width: 100%;
+      height: 100%;
+      border: none;
+      background: #0a0806;
+      display: block;
+    }
+
+    /* BOTTOM HOME INDICATOR */
+    .phone-home-bar {
+      position: absolute;
+      bottom: 8px;
+      left: 50%;
+      transform: translateX(-50%);
+      width: 130px;
+      height: 4.5px;
+      background: rgba(255, 255, 255, 0.4);
+      border-radius: 10px;
+      z-index: 30;
+      pointer-events: none;
+    }
+
+    /* GLASS REFLECTION */
+    .phone-glare {
+      position: absolute;
+      inset: 0;
+      background: linear-gradient(135deg, rgba(255, 255, 255, 0.04) 0%, transparent 40%, rgba(212, 175, 55, 0.02) 100%);
+      pointer-events: none;
+      z-index: 25;
+      border-radius: calc(var(--phone-radius) - 12px);
+    }
+
+    /* FLOATING FOOTER INFO */
+    .sim-info-bar {
+      width: min(700px, 92vw);
+      background: rgba(22, 17, 12, 0.85);
+      border: 1px solid var(--border);
+      border-radius: 16px;
+      padding: 14px 20px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 16px;
+      margin-bottom: 24px;
+      font-size: 12.5px;
+      color: var(--muted);
+      flex-wrap: wrap;
+    }
+
+    .sim-info-bar strong {
+      color: var(--gold-bright);
+    }
+
+    /* MODAL FOR QR CODE & WI-FI TESTING */
+    .wifi-modal {
+      position: fixed;
+      inset: 0;
+      background: rgba(0, 0, 0, 0.85);
+      backdrop-filter: blur(12px);
+      z-index: 200;
+      display: none;
+      place-items: center;
+      padding: 20px;
+    }
+
+    .wifi-modal.open {
+      display: grid;
+    }
+
+    .wifi-dialog {
+      background: linear-gradient(150deg, #1c150e, #120e09);
+      border: 1.5px solid var(--border);
+      border-radius: 24px;
+      padding: 30px;
+      max-width: 440px;
+      width: 100%;
+      text-align: center;
+      position: relative;
+      box-shadow: 0 25px 60px rgba(0, 0, 0, 0.9), 0 0 35px rgba(212, 175, 55, 0.2);
+    }
+
+    .wifi-close {
+      position: absolute;
+      top: 14px;
+      right: 16px;
+      background: transparent;
+      border: none;
+      color: #fff;
+      font-size: 22px;
+      cursor: pointer;
+    }
+
+    .wifi-title {
+      font-family: 'Cinzel', serif;
+      font-size: 20px;
+      font-weight: 800;
+      color: var(--gold-bright);
+      margin-bottom: 8px;
+    }
+
+    .wifi-url-box {
+      background: #090705;
+      border: 1px solid rgba(212, 175, 55, 0.4);
+      padding: 12px;
+      border-radius: 12px;
+      margin: 16px 0;
+      font-family: monospace;
+      font-size: 14px;
+      color: #34d399;
+      word-break: break-all;
+      user-select: all;
+    }
+
+    @media (max-width: 800px) {
+      .device-tabs {
+        overflow-x: auto;
+      }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- TOP NAVBAR -->
+  <header class="sim-navbar">
+    <a href="/" class="sim-brand">
+      KRISHNA <span>X</span> EDITZ
+      <span class="sim-badge">📱 Phone Simulator</span>
+    </a>
+
+    <!-- DEVICE SELECTOR -->
+    <div class="device-tabs">
+      <button type="button" class="device-tab active" onclick="setDevice('iphone15', this)">
+        <span> iPhone 15 Pro</span> (393×852)
+      </button>
+      <button type="button" class="device-tab" onclick="setDevice('s24', this)">
+        <span>📱 Galaxy S24</span> (412×915)
+      </button>
+      <button type="button" class="device-tab" onclick="setDevice('compact', this)">
+        <span>📱 Compact Phone</span> (360×740)
+      </button>
+      <button type="button" class="device-tab" onclick="setDevice('tablet', this)">
+        <span>📱 iPad Mini</span> (768×1024)
+      </button>
+    </div>
+
+    <!-- ACTIONS -->
+    <div class="sim-actions">
+      <button type="button" class="sim-btn" onclick="rotateDevice()" title="Rotate Portrait / Landscape">
+        <svg viewBox="0 0 24 24"><path d="M7 16a4 4 0 0 1-.88-7.9 4 4 0 0 1 7.76 0A4 4 0 0 1 13 16h-1v-2h1a2 2 0 0 0 1.95-1.57 2 2 0 0 0-1.8-2.43H14v-2h.15a2 2 0 0 0-3.9 0H10v2h-.15a2 2 0 0 0-1.8 2.43A2 2 0 0 0 10 14h1v2H7z M12 2a10 10 0 1 0 10 10A10 10 0 0 0 12 2zm0 18a8 8 0 1 1 8-8 8 8 0 0 1-8 8z"/></svg>
+        <span>Rotate</span>
+      </button>
+
+      <button type="button" class="sim-btn" onclick="reloadFrame()" title="Reload Screen">
+        <svg viewBox="0 0 24 24"><path d="M17.65 6.35A7.958 7.958 0 0 0 12 4c-4.42 0-7.99 3.58-7.99 8s3.57 8 7.99 8c3.73 0 6.84-2.55 7.73-6h-2.08A5.99 5.99 0 0 1 12 18c-3.31 0-6-2.69-6-6s2.69-6 6-6c1.66 0 3.14.69 4.22 1.78L13 11h7V4l-2.35 2.35z"/></svg>
+        <span>Reload</span>
+      </button>
+
+      <button type="button" class="sim-btn" onclick="openWifiModal()" title="Test on Real Phone over Wi-Fi">
+        <span>📲 Real Phone Wi-Fi</span>
+      </button>
+
+      <a href="/" target="_blank" class="sim-btn" title="Open Fullscreen in New Tab">
+        <span>↗ Full Tab</span>
+      </a>
+    </div>
+  </header>
+
+  <!-- STAGE -->
+  <main class="sim-stage">
+    <div class="phone-container" id="phoneContainer">
+      <!-- HARDWARE CHASSIS -->
+      <div class="phone-chassis"></div>
+      <div class="phone-btn-vol-up"></div>
+      <div class="phone-btn-vol-down"></div>
+      <div class="phone-btn-power"></div>
+
+      <!-- SCREEN -->
+      <div class="phone-screen" id="phoneScreen">
+        <!-- STATUS BAR -->
+        <div class="phone-status-bar" id="statusBar">
+          <span id="liveTime">9:41</span>
+          <div class="dynamic-island" id="dynamicIsland">
+            <div class="island-camera"></div>
+            <div class="island-sensor"></div>
+          </div>
+          <div class="status-icons">
+            <span>5G</span>
+            <span>📶</span>
+            <span>100% 🔋</span>
+          </div>
+        </div>
+
+        <!-- GLASS GLARE -->
+        <div class="phone-glare"></div>
+
+        <!-- LIVE WEBSITE IFRAME -->
+        <iframe src="/" class="phone-iframe" id="phoneIframe" title="KRISHNA X EDITZ Mobile Preview"></iframe>
+
+        <!-- HOME INDICATOR -->
+        <div class="phone-home-bar" id="homeBar"></div>
+      </div>
+    </div>
+  </main>
+
+  <!-- BOTTOM INFO BAR -->
+  <footer class="sim-info-bar">
+    <div>
+      <span>Current Viewport: </span>
+      <strong id="dimLabel">393px × 852px (iPhone 15 Pro)</strong>
+    </div>
+    <div>
+      <span>Zoom: </span>
+      <button type="button" style="background:none; border:none; color:var(--gold); cursor:pointer; font-weight:700; margin: 0 4px;" onclick="setScale(0.85)">85%</button>
+      <button type="button" style="background:none; border:none; color:var(--gold); cursor:pointer; font-weight:700; margin: 0 4px;" onclick="setScale(0.95)">95%</button>
+      <button type="button" style="background:none; border:none; color:var(--gold); cursor:pointer; font-weight:700; margin: 0 4px;" onclick="setScale(1.0)">100%</button>
+    </div>
+    <div>
+      <span>Tip: Press <strong>F12</strong> anytime to open Chrome Device Inspector.</span>
+    </div>
+  </footer>
+
+  <!-- WI-FI PHONE MODAL -->
+  <div class="wifi-modal" id="wifiModal">
+    <div class="wifi-dialog">
+      <button class="wifi-close" onclick="closeWifiModal()">&times;</button>
+      <h3 class="wifi-title">📲 Test on Your Real Phone</h3>
+      <p style="font-size: 13px; color: var(--muted); line-height: 1.5;">
+        Make sure your phone and laptop/PC are connected to the <strong>same Wi-Fi network</strong>. Then open this URL in your phone's browser (Chrome/Safari):
+      </p>
+
+      <div class="wifi-url-box" id="wifiUrlText">http://localhost:3000</div>
+
+      <p style="font-size: 12px; color: #dfb86c; margin-top: 10px;">
+        💡 You can also run <code>ipconfig</code> in CMD to find your local IPv4 address (e.g. <code>http://192.168.1.X:3000</code>).
+      </p>
+    </div>
+  </div>
+
+  <script>
+    const DEVICES = {
+      iphone15: { w: 393, h: 852, radius: 54, name: 'iPhone 15 Pro', island: true },
+      s24: { w: 412, h: 915, radius: 46, name: 'Samsung Galaxy S24', island: false },
+      compact: { w: 360, h: 740, radius: 36, name: 'Compact Phone', island: false },
+      tablet: { w: 768, h: 1024, radius: 28, name: 'iPad Mini Tablet', island: false }
+    };
+
+    let currentDevice = 'iphone15';
+    let isLandscape = false;
+    let currentScale = 1;
+
+    const phoneContainer = document.getElementById('phoneContainer');
+    const dynamicIsland = document.getElementById('dynamicIsland');
+    const dimLabel = document.getElementById('dimLabel');
+    const phoneIframe = document.getElementById('phoneIframe');
+
+    function updatePhoneDimensions() {
+      const dev = DEVICES[currentDevice];
+      let width = isLandscape ? dev.h : dev.w;
+      let height = isLandscape ? dev.w : dev.h;
+
+      // Automatically scale down on small desktop displays so phone fits nicely
+      const availableH = window.innerHeight - 170;
+      if (height > availableH && currentScale === 1) {
+        currentScale = Math.min(1, Math.max(0.7, availableH / height));
+      }
+
+      phoneContainer.style.setProperty('--phone-w', `${width}px`);
+      phoneContainer.style.setProperty('--phone-h', `${height}px`);
+      phoneContainer.style.setProperty('--phone-radius', `${dev.radius}px`);
+      phoneContainer.style.setProperty('--scale', currentScale);
+
+      dimLabel.textContent = `${width}px × ${height}px (${dev.name}${isLandscape ? ' - Landscape' : ''})`;
+      dynamicIsland.style.display = (dev.island && !isLandscape) ? 'flex' : 'none';
+    }
+
+    function setDevice(deviceKey, btn) {
+      currentDevice = deviceKey;
+      document.querySelectorAll('.device-tab').forEach(b => b.classList.remove('active'));
+      if (btn) btn.classList.add('active');
+      updatePhoneDimensions();
+    }
+
+    function rotateDevice() {
+      isLandscape = !isLandscape;
+      updatePhoneDimensions();
+    }
+
+    function setScale(scale) {
+      currentScale = scale;
+      phoneContainer.style.setProperty('--scale', currentScale);
+    }
+
+    function reloadFrame() {
+      phoneIframe.src = phoneIframe.src;
+    }
+
+    // Live clock on phone status bar
+    function updateLiveClock() {
+      const now = new Date();
+      let hours = now.getHours();
+      let minutes = now.getMinutes();
+      minutes = minutes < 10 ? '0' + minutes : minutes;
+      const timeElem = document.getElementById('liveTime');
+      if (timeElem) timeElem.textContent = `${hours}:${minutes}`;
+    }
+    setInterval(updateLiveClock, 1000);
+    updateLiveClock();
+
+    // WiFi testing modal
+    function openWifiModal() {
+      document.getElementById('wifiModal').classList.add('open');
+      const origin = window.location.origin;
+      document.getElementById('wifiUrlText').textContent = origin || 'http://localhost:3000';
+    }
+    function closeWifiModal() {
+      document.getElementById('wifiModal').classList.remove('open');
+    }
+
+    // Auto-fit on initial load & resize
+    window.addEventListener('resize', () => {
+      updatePhoneDimensions();
+    });
+    updatePhoneDimensions();
+  </script>
+</body>
+</html>
