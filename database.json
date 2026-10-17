@@ -30,6 +30,13 @@
       "event_data": "\"works\"",
       "user_agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/155.0.0.0 Safari/537.36 Edg/155.0.0.0",
       "created_at": "2026-10-17T09:27:53.800Z"
+    },
+    {
+      "id": 5,
+      "event_type": "book_opened",
+      "event_data": "\"works\"",
+      "user_agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/155.0.0.0 Safari/537.36 Edg/155.0.0.0",
+      "created_at": "2026-10-17T11:42:34.182Z"
     }
   ],
   "visitors": [
@@ -43,9 +50,9 @@
       "browser": "Chrome",
       "screen_res": "1920x1080",
       "referrer": "https://instagram.com",
-      "pageviews": 8,
+      "pageviews": 11,
       "first_visit": "2026-10-17T10:05:47.991Z",
-      "last_visit": "2026-10-17T11:15:29.599Z"
+      "last_visit": "2026-10-17T11:42:16.068Z"
     }
   ]
 }
