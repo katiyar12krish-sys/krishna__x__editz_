@@ -279,6 +279,113 @@ app.post('/api/analytics', async (req, res) => {
   }
 });
 
+// Unique Daily Visitor Tracker API (Counts 1 unique visitor per day even if they open 10+ times)
+app.post('/api/track-visit', async (req, res) => {
+  try {
+    const { visitor_token, screen, referrer } = req.body || {};
+    const userAgent = req.headers['user-agent'] || 'Unknown';
+    let ip = req.headers['x-forwarded-for'] || req.socket.remoteAddress || '127.0.0.1';
+    if (ip.includes(',')) ip = ip.split(',')[0].trim();
+    if (ip === '::1' || ip === '::ffff:127.0.0.1') ip = '127.0.0.1 (Localhost)';
+
+    // Detect Device & OS
+    let device = '💻 Desktop';
+    if (/mobile|android|iphone|ipad|ipod/i.test(userAgent)) device = '📱 Mobile';
+    if (/tablet|ipad/i.test(userAgent)) device = '📱 Tablet';
+
+    let os = 'Windows';
+    if (/android/i.test(userAgent)) os = 'Android';
+    else if (/iphone|ipad|ipod/i.test(userAgent)) os = 'iOS';
+    else if (/macintosh|mac os x/i.test(userAgent)) os = 'macOS';
+    else if (/linux/i.test(userAgent)) os = 'Linux';
+
+    let browser = 'Chrome';
+    if (/edg/i.test(userAgent)) browser = 'Edge';
+    else if (/crios|chrome/i.test(userAgent)) browser = 'Chrome';
+    else if (/safari/i.test(userAgent) && !/chrome/i.test(userAgent)) browser = 'Safari';
+    else if (/firefox|fxios/i.test(userAgent)) browser = 'Firefox';
+
+    // Today's date YYYY-MM-DD
+    const now = new Date();
+    const today = now.toISOString().split('T')[0];
+    const token = visitor_token || `${ip}_${os}`;
+
+    if (!db.data.visitors) db.data.visitors = [];
+
+    // Find if this unique device/visitor was already recorded today
+    const existing = db.data.visitors.find(v => 
+      v.date === today && (v.visitor_token === token || (v.ip === ip && v.device_type.includes(os)))
+    );
+
+    if (existing) {
+      existing.pageviews = (existing.pageviews || 1) + 1;
+      existing.last_visit = now.toISOString();
+    } else {
+      const newId = (db.data.visitors.length ? Math.max(...db.data.visitors.map(v => v.id || 0)) : 0) + 1;
+      db.data.visitors.push({
+        id: newId,
+        visitor_token: token,
+        date: today,
+        ip: ip,
+        user_agent: userAgent,
+        device_type: `${device} (${os})`,
+        browser: browser,
+        screen_res: screen || 'Unknown',
+        referrer: referrer || 'Direct Visit',
+        pageviews: 1,
+        first_visit: now.toISOString(),
+        last_visit: now.toISOString()
+      });
+    }
+
+    db.save();
+    res.json({ success: true, date: today });
+  } catch (err) {
+    console.error('Error tracking visit:', err);
+    res.status(500).json({ success: false });
+  }
+});
+
+// Admin Visitors Analytics API
+app.get('/api/admin/visitors', (req, res) => {
+  try {
+    const range = req.query.range || 'all'; // 'today', 'week', 'month', 'all'
+    const visitors = db.data.visitors || [];
+    const now = new Date();
+    const todayStr = now.toISOString().split('T')[0];
+
+    const weekAgo = new Date(now.getTime() - 7 * 24 * 60 * 60 * 1000).toISOString().split('T')[0];
+    const monthAgo = new Date(now.getTime() - 30 * 24 * 60 * 60 * 1000).toISOString().split('T')[0];
+
+    const todayVisitors = visitors.filter(v => v.date === todayStr);
+    const weekVisitors = visitors.filter(v => v.date >= weekAgo);
+    const monthVisitors = visitors.filter(v => v.date >= monthAgo);
+
+    let filtered = [...visitors];
+    if (range === 'today') filtered = todayVisitors;
+    else if (range === 'week') filtered = weekVisitors;
+    else if (range === 'month') filtered = monthVisitors;
+
+    filtered.sort((a, b) => new Date(b.last_visit) - new Date(a.last_visit));
+
+    res.json({
+      success: true,
+      stats: {
+        today_unique: todayVisitors.length,
+        week_unique: weekVisitors.length,
+        month_unique: monthVisitors.length,
+        total_all_time: visitors.length,
+        total_pageviews_today: todayVisitors.reduce((acc, v) => acc + (v.pageviews || 1), 0)
+      },
+      range,
+      count: filtered.length,
+      data: filtered
+    });
+  } catch (err) {
+    res.status(500).json({ success: false, error: err.message });
+  }
+});
+
 // ==========================================
 // 5. ADMIN SUMMARY STATS API
 // ==========================================
@@ -291,6 +398,16 @@ app.get('/api/admin/stats', async (req, res) => {
     const eventsCount = await dbGet('SELECT COUNT(*) as count FROM analytics_events');
     const recentLeads = await dbAll('SELECT * FROM bookings ORDER BY created_at DESC LIMIT 5');
 
+    const now = new Date();
+    const todayStr = now.toISOString().split('T')[0];
+    const weekAgo = new Date(now.getTime() - 7 * 24 * 60 * 60 * 1000).toISOString().split('T')[0];
+    const monthAgo = new Date(now.getTime() - 30 * 24 * 60 * 60 * 1000).toISOString().split('T')[0];
+    const visitors = db.data.visitors || [];
+
+    const todayUnique = visitors.filter(v => v.date === todayStr).length;
+    const weekUnique = visitors.filter(v => v.date >= weekAgo).length;
+    const monthUnique = visitors.filter(v => v.date >= monthAgo).length;
+
     res.json({
       success: true,
       data: {
@@ -298,6 +415,9 @@ app.get('/api/admin/stats', async (req, res) => {
         pending_bookings: pendingCount ? pendingCount.count : 0,
         total_subscribers: subscribersCount ? subscribersCount.count : 0,
         total_events: eventsCount ? eventsCount.count : 0,
+        today_unique_visitors: todayUnique,
+        week_unique_visitors: weekUnique,
+        month_unique_visitors: monthUnique,
         recent_leads: recentLeads || []
       }
     });

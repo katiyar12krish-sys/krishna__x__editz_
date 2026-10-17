@@ -8,7 +8,8 @@ let data = {
   bookings: [],
   newsletter_subscribers: [],
   contact_messages: [],
-  analytics_events: []
+  analytics_events: [],
+  visitors: []
 };
 
 // Load persisted data if file exists
@@ -246,7 +247,10 @@ const db = {
       },
       finalize() {}
     };
-  }
+  },
+
+  data,
+  save
 };
 
 module.exports = db;

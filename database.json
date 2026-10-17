@@ -9,6 +9,43 @@
       "event_data": "\"works\"",
       "user_agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/153.0.0.0 Safari/537.36 Edg/153.0.0.0",
       "created_at": "2026-09-14T17:40:47.945Z"
+    },
+    {
+      "id": 2,
+      "event_type": "book_opened",
+      "event_data": "\"services\"",
+      "user_agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/155.0.0.0 Safari/537.36 Edg/155.0.0.0",
+      "created_at": "2026-10-17T08:31:27.667Z"
+    },
+    {
+      "id": 3,
+      "event_type": "book_opened",
+      "event_data": "\"works\"",
+      "user_agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/155.0.0.0 Safari/537.36 Edg/155.0.0.0",
+      "created_at": "2026-10-17T09:27:44.349Z"
+    },
+    {
+      "id": 4,
+      "event_type": "portfolio_shared",
+      "event_data": "\"works\"",
+      "user_agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/155.0.0.0 Safari/537.36 Edg/155.0.0.0",
+      "created_at": "2026-10-17T09:27:53.800Z"
+    }
+  ],
+  "visitors": [
+    {
+      "id": 1,
+      "visitor_token": "kx_test_device_999",
+      "date": "2026-10-17",
+      "ip": "127.0.0.1",
+      "user_agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/120.0.0.0 Safari/537.36",
+      "device_type": "💻 Desktop (Windows)",
+      "browser": "Chrome",
+      "screen_res": "1920x1080",
+      "referrer": "https://instagram.com",
+      "pageviews": 3,
+      "first_visit": "2026-10-17T10:05:47.991Z",
+      "last_visit": "2026-10-17T10:05:48.007Z"
     }
   ]
 }

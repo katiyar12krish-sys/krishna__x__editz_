@@ -19,8 +19,15 @@ assets/work_khamoshi.mp4
 assets/work_kalyani.mp4
 assets/work_unamerican_girls.mp4
 assets/work_grind_viral.mp4
+assets/work_friends_chaos.mp4
+assets/work_gangster_attitude.mp4
+assets/work_gangster_mafia.mp4
+assets/work_nazar_cinematic.mp4
+
 
 # Temporary & Database
 index.html.bak
 database.sqlite
 scratch/
+
+*.bak

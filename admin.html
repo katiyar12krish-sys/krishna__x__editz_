@@ -490,6 +490,11 @@
     
     <!-- STATS ROW -->
     <div class="stats-row">
+      <div class="stat-box gold" onclick="switchTab('visitors')" style="cursor: pointer;" title="Click to view full Unique Visitors log">
+        <div class="stat-box-title">Today's Unique Visitors 👥</div>
+        <div class="stat-box-num" id="statTodayVisitors">0</div>
+        <div class="stat-box-sub">1 count per person / day (Click to view)</div>
+      </div>
       <div class="stat-box emerald">
         <div class="stat-box-title">Total Client Leads</div>
         <div class="stat-box-num" id="statTotalBookings">0</div>
@@ -522,6 +527,7 @@
         <div class="tab-pills">
           <button class="tab-btn active" id="tabBookingsBtn" onclick="switchTab('bookings')">Client Leads</button>
           <button class="tab-btn" id="tabSubscribersBtn" onclick="switchTab('subscribers')">VIP Subscribers</button>
+          <button class="tab-btn" id="tabVisitorsBtn" onclick="switchTab('visitors')">👥 Unique Visitors</button>
         </div>
 
         <div class="filters-bar" id="bookingsFilters">
@@ -574,6 +580,41 @@
             </tr>
           </thead>
           <tbody id="subscribersTableBody"></tbody>
+        </table>
+      </div>
+
+      <!-- VIEW 3: UNIQUE VISITORS & TRAFFIC TABLE -->
+      <div id="viewVisitors" class="table-responsive" style="display: none;">
+        <div class="subscribers-bar" style="flex-wrap: wrap; gap: 14px;">
+          <div style="display: flex; align-items: center; gap: 10px; flex-wrap: wrap;">
+            <span style="font-size: 13px; font-weight: 800; color: var(--gold-bright);" id="visitorsCount">0 Unique Visitors</span>
+            <div style="display: flex; gap: 6px;" id="visitorRangeBtns">
+              <button class="btn-sync" style="padding: 4px 12px; font-size: 11px;" onclick="changeVisitorRange('today', this)">Today</button>
+              <button class="btn-sync" style="padding: 4px 12px; font-size: 11px;" onclick="changeVisitorRange('week', this)">This Week</button>
+              <button class="btn-sync" style="padding: 4px 12px; font-size: 11px;" onclick="changeVisitorRange('month', this)">This Month</button>
+              <button class="btn-sync" style="padding: 4px 12px; font-size: 11px;" onclick="changeVisitorRange('all', this)">All Time</button>
+            </div>
+          </div>
+          <div style="display: flex; align-items: center; gap: 12px;">
+            <span style="font-size: 11.5px; color: var(--muted);" id="visitorPageviewsInfo">Total Pageviews Today: 0</span>
+            <button class="btn-sync" onclick="loadVisitors(currentVisitorRange)">🔄 Refresh</button>
+          </div>
+        </div>
+        <table>
+          <thead>
+            <tr>
+              <th>Date &amp; Time (IST)</th>
+              <th>Device &amp; Platform</th>
+              <th>Browser</th>
+              <th>IP Address</th>
+              <th>Visits Today</th>
+              <th>First Seen</th>
+              <th>Last Active</th>
+            </tr>
+          </thead>
+          <tbody id="visitorsTableBody">
+            <tr><td colspan="7" class="empty-state">Loading visitors data...</td></tr>
+          </tbody>
         </table>
       </div>
 
@@ -856,19 +897,29 @@
     }
 
     function switchTab(tab) {
+      document.getElementById('tabBookingsBtn').classList.remove('active');
+      document.getElementById('tabSubscribersBtn').classList.remove('active');
+      const visBtn = document.getElementById('tabVisitorsBtn');
+      if (visBtn) visBtn.classList.remove('active');
+
+      document.getElementById('viewBookings').style.display = 'none';
+      document.getElementById('viewSubscribers').style.display = 'none';
+      const visView = document.getElementById('viewVisitors');
+      if (visView) visView.style.display = 'none';
+      document.getElementById('bookingsFilters').style.display = 'none';
+
       if (tab === 'bookings') {
         document.getElementById('tabBookingsBtn').classList.add('active');
-        document.getElementById('tabSubscribersBtn').classList.remove('active');
         document.getElementById('viewBookings').style.display = 'block';
-        document.getElementById('viewSubscribers').style.display = 'none';
         document.getElementById('bookingsFilters').style.display = 'flex';
-      } else {
-        document.getElementById('tabBookingsBtn').classList.remove('active');
+      } else if (tab === 'subscribers') {
         document.getElementById('tabSubscribersBtn').classList.add('active');
-        document.getElementById('viewBookings').style.display = 'none';
         document.getElementById('viewSubscribers').style.display = 'block';
-        document.getElementById('bookingsFilters').style.display = 'none';
         loadSubscribers();
+      } else if (tab === 'visitors') {
+        if (visBtn) visBtn.classList.add('active');
+        if (visView) visView.style.display = 'block';
+        loadVisitors(currentVisitorRange);
       }
     }
 
@@ -878,6 +929,67 @@
       return div.innerHTML;
     }
 
+    let currentVisitorRange = 'today';
+
+    async function loadVisitors(range = 'today') {
+      currentVisitorRange = range;
+      try {
+        const res = await fetch(`${API_BASE}/api/admin/visitors?range=${range}`);
+        const json = await res.json();
+        if (json.success) {
+          const stats = json.stats || {};
+          document.getElementById('statTodayVisitors').textContent = stats.today_unique || 0;
+          document.getElementById('visitorsCount').textContent = `${json.count || 0} Unique Visitors (${range.toUpperCase()})`;
+          document.getElementById('visitorPageviewsInfo').textContent = `Today's Total Hits: ${stats.total_pageviews_today || 0} (Counts 1 unique per person)`;
+
+          const tbody = document.getElementById('visitorsTableBody');
+          const list = json.data || [];
+          if (!list || list.length === 0) {
+            tbody.innerHTML = `<tr><td colspan="7" class="empty-state">No visitors recorded yet for ${range}. Open the portfolio website to record live visits!</td></tr>`;
+            return;
+          }
+
+          tbody.innerHTML = list.map(v => {
+            const lastTime = v.last_visit ? new Date(v.last_visit).toLocaleTimeString([], { hour: '2-digit', minute: '2-digit', second: '2-digit' }) : 'Just now';
+            const dateStr = v.date || (v.first_visit ? new Date(v.first_visit).toLocaleDateString() : 'Today');
+            const isToday = v.date === new Date().toISOString().split('T')[0];
+            const badgeColor = isToday ? 'var(--emerald)' : 'var(--gold)';
+            const reloadText = v.pageviews > 1 ? `${v.pageviews} visits` : '1 visit';
+
+            return `
+              <tr>
+                <td style="white-space: nowrap; font-weight: 700; color: #fff;">${dateStr} <span style="font-size: 11px; color: var(--muted);">${lastTime}</span></td>
+                <td>
+                  <span style="font-weight: 800; color: #fff;">${escapeHtml(v.device_type)}</span>
+                  <div style="font-size: 11px; color: var(--muted);">Res: ${escapeHtml(v.screen_res)}</div>
+                </td>
+                <td><span class="package-tag">${escapeHtml(v.browser)}</span></td>
+                <td style="font-family: monospace; font-size: 12px; color: #38bdf8;">${escapeHtml(v.ip)}</td>
+                <td>
+                  <span style="display: inline-block; padding: 2px 8px; border-radius: 6px; background: rgba(56, 189, 248, 0.15); border: 1px solid rgba(56, 189, 248, 0.3); color: #38bdf8; font-weight: 800; font-size: 11.5px;">
+                    ${reloadText}
+                  </span>
+                </td>
+                <td style="font-size: 12px; color: var(--muted);">${v.first_visit ? new Date(v.first_visit).toLocaleTimeString([], { hour: '2-digit', minute: '2-digit' }) : '-'}</td>
+                <td style="font-size: 12px; font-weight: 700; color: ${badgeColor};">${v.last_visit ? new Date(v.last_visit).toLocaleTimeString([], { hour: '2-digit', minute: '2-digit' }) : '-'}</td>
+              </tr>
+            `;
+          }).join('');
+        }
+      } catch (err) {
+        console.error('Error loading visitors:', err);
+      }
+    }
+
+    function changeVisitorRange(range, btn) {
+      if (btn) {
+        document.querySelectorAll('#visitorRangeBtns .btn-sync').forEach(b => b.style.borderColor = 'rgba(212, 175, 55, 0.35)');
+        btn.style.borderColor = 'var(--gold-bright)';
+      }
+      loadVisitors(range);
+    }
+
+    
     function loadAllData() {
       loadStats();
       loadBookings();
