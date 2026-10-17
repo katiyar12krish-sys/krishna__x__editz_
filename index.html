@@ -5205,6 +5205,366 @@
       border-bottom: 1px solid rgba(212, 175, 55, 0.2);
     }
 
+
+
+    /* ==========================================================================
+       LUXURY CINEMA VAULT & HOMEPAGE BANNER STYLING
+       ========================================================================== */
+    .vault-cta-banner {
+      margin-top: 40px;
+      padding: 32px 30px;
+      background: linear-gradient(135deg, rgba(32, 24, 17, 0.96), rgba(16, 12, 9, 0.98));
+      border: 1px solid rgba(212, 175, 55, 0.45);
+      border-radius: 20px;
+      box-shadow: 0 16px 45px rgba(0, 0, 0, 0.7), 0 0 30px rgba(212, 175, 55, 0.15);
+      position: relative;
+      overflow: hidden;
+    }
+
+    .vault-cta-banner::before {
+      content: '';
+      position: absolute;
+      top: 0; left: 0; right: 0; height: 3px;
+      background: linear-gradient(90deg, transparent, var(--gold-neon), transparent);
+    }
+
+    .vault-cta-badge {
+      font-size: 11px;
+      font-weight: 800;
+      letter-spacing: 1px;
+      color: var(--gold-neon);
+      text-transform: uppercase;
+      margin-bottom: 8px;
+    }
+
+    .vault-cta-title {
+      font-family: var(--display);
+      font-size: 24px;
+      font-weight: 800;
+      color: #fff;
+      margin: 0 0 10px;
+      letter-spacing: 0.3px;
+    }
+
+    .vault-cta-desc {
+      font-size: 14.5px;
+      color: rgba(255, 255, 255, 0.75);
+      line-height: 1.55;
+      margin: 0 0 24px;
+      max-width: 820px;
+    }
+
+    .vault-cta-action-row {
+      display: flex;
+      align-items: center;
+      gap: 18px;
+      flex-wrap: wrap;
+      margin-bottom: 20px;
+    }
+
+    .btn-open-vault {
+      display: inline-flex;
+      align-items: center;
+      gap: 12px;
+      padding: 14px 28px;
+      background: linear-gradient(135deg, var(--gold), #b89326);
+      border: 1px solid #ffe58f;
+      border-radius: 12px;
+      color: #120e09;
+      font-size: 15px;
+      font-weight: 800;
+      letter-spacing: 0.3px;
+      cursor: pointer;
+      box-shadow: 0 8px 24px rgba(212, 175, 55, 0.35);
+      transition: transform 250ms ease, box-shadow 250ms ease, background 250ms ease;
+    }
+
+    .btn-open-vault:hover {
+      transform: translateY(-3px) scale(1.02);
+      box-shadow: 0 14px 32px rgba(212, 175, 55, 0.5), 0 0 25px rgba(255, 242, 198, 0.4);
+      background: linear-gradient(135deg, #ffd700, #d4af37);
+    }
+
+    .vault-cta-hint {
+      font-size: 13px;
+      color: rgba(255, 255, 255, 0.55);
+      font-weight: 500;
+    }
+
+    .vault-quick-pills {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 10px;
+      padding-top: 18px;
+      border-top: 1px solid rgba(255, 255, 255, 0.1);
+    }
+
+    .vault-quick-pill {
+      background: rgba(255, 255, 255, 0.05);
+      border: 1px solid rgba(212, 175, 55, 0.3);
+      color: rgba(255, 255, 255, 0.85);
+      padding: 7px 14px;
+      border-radius: 999px;
+      font-size: 12.5px;
+      font-weight: 600;
+      cursor: pointer;
+      transition: all 200ms ease;
+    }
+
+    .vault-quick-pill:hover {
+      background: rgba(212, 175, 55, 0.18);
+      border-color: var(--gold-neon);
+      color: #fff;
+      transform: translateY(-2px);
+    }
+
+    /* FULLSCREEN CINEMA VAULT OVERLAY */
+    .cinema-vault-overlay {
+      position: fixed;
+      top: 0; left: 0; right: 0; bottom: 0;
+      z-index: 999999;
+      background: rgba(10, 8, 6, 0.97);
+      backdrop-filter: blur(28px);
+      -webkit-backdrop-filter: blur(28px);
+      overflow-y: auto;
+      padding: 0;
+      animation: vaultFadeIn 250ms ease-out;
+    }
+
+    @keyframes vaultFadeIn {
+      from { opacity: 0; transform: scale(0.985); }
+      to { opacity: 1; transform: scale(1); }
+    }
+
+    .cinema-vault-wrapper {
+      max-width: 1400px;
+      margin: 0 auto;
+      padding: 0 24px 60px;
+      min-height: 100vh;
+      display: flex;
+      flex-direction: column;
+    }
+
+    /* STICKY TOPBAR */
+    .cinema-vault-topbar {
+      position: sticky;
+      top: 0;
+      z-index: 100;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      flex-wrap: wrap;
+      gap: 14px;
+      padding: 18px 0;
+      background: rgba(10, 8, 6, 0.94);
+      backdrop-filter: blur(20px);
+      border-bottom: 1px solid rgba(212, 175, 55, 0.25);
+    }
+
+    .cinema-vault-brand {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      flex-wrap: wrap;
+    }
+
+    .vault-brand-badge {
+      font-size: 11px;
+      font-weight: 900;
+      letter-spacing: 1.5px;
+      padding: 4px 10px;
+      border-radius: 6px;
+      background: linear-gradient(135deg, var(--gold), #99731b);
+      color: #000;
+    }
+
+    .vault-brand-sep {
+      color: rgba(255, 255, 255, 0.3);
+    }
+
+    .vault-brand-title {
+      font-family: var(--display);
+      font-size: 17px;
+      font-weight: 800;
+      color: #fff;
+      letter-spacing: 0.5px;
+    }
+
+    .vault-brand-count {
+      font-size: 11px;
+      font-weight: 700;
+      padding: 3px 10px;
+      border-radius: 999px;
+      background: rgba(212, 175, 55, 0.15);
+      border: 1px solid rgba(212, 175, 55, 0.4);
+      color: var(--gold-bright);
+    }
+
+    .cinema-vault-close-btn {
+      display: inline-flex;
+      align-items: center;
+      gap: 10px;
+      padding: 9px 18px;
+      background: rgba(244, 63, 94, 0.15);
+      border: 1px solid rgba(244, 63, 94, 0.45);
+      color: #fff;
+      font-size: 13.5px;
+      font-weight: 700;
+      border-radius: 10px;
+      cursor: pointer;
+      transition: all 200ms ease;
+    }
+
+    .cinema-vault-close-btn:hover {
+      background: rgba(244, 63, 94, 0.3);
+      border-color: #fb7185;
+      transform: translateY(-2px);
+      box-shadow: 0 0 18px rgba(244, 63, 94, 0.4);
+    }
+
+    .cinema-vault-close-btn .esc-badge {
+      font-size: 10px;
+      font-weight: 900;
+      padding: 2px 6px;
+      border-radius: 4px;
+      background: rgba(255, 255, 255, 0.15);
+      border: 1px solid rgba(255, 255, 255, 0.25);
+    }
+
+    /* 1-CLICK INSTANT CATEGORY TABS */
+    .cinema-vault-tabs-wrapper {
+      position: sticky;
+      top: 68px;
+      z-index: 90;
+      padding: 14px 0;
+      background: rgba(10, 8, 6, 0.94);
+      backdrop-filter: blur(16px);
+      border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+      margin-bottom: 22px;
+    }
+
+    .cinema-vault-tabs-scroll {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      overflow-x: auto;
+      scrollbar-width: thin;
+      padding-bottom: 4px;
+    }
+
+    .cinema-vault-tabs-scroll::-webkit-scrollbar {
+      height: 4px;
+    }
+    .cinema-vault-tabs-scroll::-webkit-scrollbar-thumb {
+      background: rgba(212, 175, 55, 0.3);
+      border-radius: 999px;
+    }
+
+    .vault-tab-btn {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      padding: 9px 16px;
+      background: rgba(255, 255, 255, 0.05);
+      border: 1px solid rgba(255, 255, 255, 0.14);
+      color: rgba(255, 255, 255, 0.78);
+      font-size: 13px;
+      font-weight: 700;
+      border-radius: 999px;
+      cursor: pointer;
+      white-space: nowrap;
+      transition: all 200ms ease;
+    }
+
+    .vault-tab-btn:hover {
+      background: rgba(212, 175, 55, 0.15);
+      border-color: rgba(212, 175, 55, 0.5);
+      color: #fff;
+    }
+
+    .vault-tab-btn.active {
+      background: linear-gradient(135deg, rgba(212, 175, 55, 0.28), rgba(184, 147, 38, 0.18));
+      border-color: var(--gold-neon);
+      color: #fff;
+      box-shadow: 0 0 16px rgba(245, 158, 11, 0.35);
+    }
+
+    .vault-tab-btn .tab-count {
+      font-size: 11px;
+      opacity: 0.65;
+    }
+
+    /* HEADING STRIP */
+    .cinema-vault-heading-strip {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      flex-wrap: wrap;
+      gap: 14px;
+      padding: 12px 0 20px;
+      border-bottom: 1px solid rgba(212, 175, 55, 0.18);
+      margin-bottom: 24px;
+    }
+
+    .vault-category-headline {
+      font-family: var(--display);
+      font-size: 22px;
+      font-weight: 800;
+      color: #fff;
+      margin: 0 0 4px;
+    }
+
+    .vault-category-desc {
+      font-size: 13.5px;
+      color: rgba(255, 255, 255, 0.65);
+      margin: 0;
+    }
+
+    .vault-active-counter {
+      font-size: 12px;
+      font-weight: 800;
+      letter-spacing: 0.5px;
+      padding: 5px 12px;
+      border-radius: 999px;
+      background: rgba(212, 175, 55, 0.12);
+      border: 1px solid rgba(212, 175, 55, 0.4);
+      color: var(--gold-bright);
+    }
+
+    /* VAULT GRID */
+    .cinema-vault-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+      gap: 22px;
+      margin-bottom: 40px;
+    }
+
+    .cinema-vault-footer {
+      display: flex;
+      justify-content: center;
+      padding: 30px 0;
+      border-top: 1px solid rgba(255, 255, 255, 0.08);
+      margin-top: auto;
+    }
+
+    .btn-return-home {
+      padding: 12px 26px;
+      background: rgba(255, 255, 255, 0.08);
+      border: 1px solid rgba(212, 175, 55, 0.4);
+      color: #fff;
+      font-size: 14px;
+      font-weight: 700;
+      border-radius: 10px;
+      cursor: pointer;
+      transition: all 200ms ease;
+    }
+
+    .btn-return-home:hover {
+      background: rgba(212, 175, 55, 0.2);
+      border-color: var(--gold-neon);
+      transform: translateY(-2px);
+    }
+
 </style>
 </head>
 <body data-mode="gallery" data-menu="closed">
@@ -5787,283 +6147,21 @@
     <!-- SECTION 2.8: CATEGORIZED CLIENT WORK & MASTER SHOWCASE -->
     
     <!-- SECTION 2.8: CATEGORIZED CLIENT WORK & MASTER SHOWCASE (FOLDER/EXPLORER UI) -->
+    
+    <!-- SECTION 2.8: FEATURED CLIENT SHOWCASE & MASTER CINEMA VAULT -->
     <section class="section" id="works-section">
       <div class="container">
         <div class="section-header reveal-elem">
-          <span class="section-eyebrow">✦ Portfolio &amp; Master Video Archives ✦</span>
-          <h2 class="section-title">Client Video Showcase &amp; Categories</h2>
+          <span class="section-eyebrow">✦ Signature Client Proofs ✦</span>
+          <h2 class="section-title">Featured Video Showcase &amp; Master Vault</h2>
           <p class="section-desc">
-            Explore our high-retention video portfolio organized across dedicated cinema, viral reel, commercial, and multi-genre edit categories. Select any category below to open its private video collection.
+            A handpicked preview of our signature edits across high-altitude 4K cinema, dark drill attitude, and raw brotherhood reels. Open the Master Cinema Vault to stream all 20+ projects in full-screen cinema mode.
           </p>
         </div>
 
-        <!-- =========================================================================
-             VIEW 1: PRIMARY CATEGORY EXPLORER TILES (DEFAULT INITIAL VIEW)
-             VIDEOS ARE HIDDEN HERE - ONLY RICH CATEGORY TILES SHOWN AS INSTRUCTED!
-             ========================================================================= -->
-        <div class="works-explorer-view" id="worksCategoriesView">
-          <div class="works-folder-grid">
-            
-            <!-- 1. 4K CINEMATICS -->
-            <div class="works-folder-card theme-cyan" onclick="openWorksCategory('cinematic')">
-              <div class="works-folder-top">
-                <div class="works-folder-icon-circle" style="background: rgba(6, 182, 212, 0.16); color: #22d3ee;">🎬</div>
-                <span class="works-folder-pill" style="color: #22d3ee; border-color: rgba(6, 182, 212, 0.4); background: rgba(6, 182, 212, 0.1);">✦ 4 Masterpieces • 4K UHD ✦</span>
-              </div>
-              <h3 class="works-folder-title">4K Cinematics</h3>
-              <p class="works-folder-desc">Poetic camera movement, Himalayan mountain lakes, golden-hour light symmetry, and Hollywood color grading. Features the iconic Nazar-e-Khaas master film.</p>
-              <div class="works-folder-footer">
-                <span>Open Collection (4 Videos)</span>
-                <span class="cta-arrow">➔</span>
-              </div>
-            </div>
-
-            <!-- 2. NARRATIVE FILMS -->
-            <div class="works-folder-card theme-purple" onclick="openWorksCategory('films')">
-              <div class="works-folder-top">
-                <div class="works-folder-icon-circle" style="background: rgba(168, 85, 247, 0.16); color: #c084fc;">🎞️</div>
-                <span class="works-folder-pill" style="color: #c084fc; border-color: rgba(168, 85, 247, 0.4); background: rgba(168, 85, 247, 0.1);">✦ 2 Films • Story &amp; Music ✦</span>
-              </div>
-              <h3 class="works-folder-title">Narrative Films</h3>
-              <p class="works-folder-desc">Soulful music video direction, deep character narratives, high-fidelity color grading, and emotionally paced cinematic cuts (Sahiba &amp; Raanjhanaa).</p>
-              <div class="works-folder-footer">
-                <span>Open Collection (2 Films)</span>
-                <span class="cta-arrow">➔</span>
-              </div>
-            </div>
-
-            <!-- 3. EDITS HUB (WITH SUB-CATEGORIES INSIDE!) -->
-            <div class="works-folder-card theme-gold" onclick="showWorksEditsHub()">
-              <div class="works-folder-top">
-                <div class="works-folder-icon-circle" style="background: rgba(212, 175, 55, 0.18); color: #fde047;">🔥</div>
-                <span class="works-folder-pill" style="color: #fde047; border-color: rgba(212, 175, 55, 0.5); background: rgba(212, 175, 55, 0.15); font-weight: 900;">👑 7 Sub-Genres Inside ✦</span>
-              </div>
-              <h3 class="works-folder-title">Edits Hub</h3>
-              <p class="works-folder-desc">Dedicated multi-genre edit styles: Gangster &amp; Attitude, Friends &amp; Brotherhood, Mountain Therapy, Birthday, Viral Instagram Rhythms, Gym Motivation &amp; Festivals.</p>
-              <div class="works-folder-footer">
-                <span style="color: #f59e0b;">Explore 7 Edit Genres ➔</span>
-                <span class="cta-arrow">⚡</span>
-              </div>
-            </div>
-
-            <!-- 4. VIRAL REELS -->
-            <div class="works-folder-card theme-emerald" onclick="openWorksCategory('reels')">
-              <div class="works-folder-top">
-                <div class="works-folder-icon-circle" style="background: rgba(16, 185, 129, 0.16); color: #34d399;">📱</div>
-                <span class="works-folder-pill" style="color: #34d399; border-color: rgba(16, 185, 129, 0.4); background: rgba(16, 185, 129, 0.1);">✦ 5 Trending Reels ✦</span>
-              </div>
-              <h3 class="works-folder-title">Viral Reels</h3>
-              <p class="works-folder-desc">9:16 vertical short-form mastery engineered for Instagram algorithms. High retention hooks, sound sync transitions, and velocity speed ramps.</p>
-              <div class="works-folder-footer">
-                <span>Open Collection (5 Reels)</span>
-                <span class="cta-arrow">➔</span>
-              </div>
-            </div>
-
-            <!-- 5. BRAND ADS & COMMERCIALS -->
-            <div class="works-folder-card theme-gold" onclick="openWorksCategory('commercials')">
-              <div class="works-folder-top">
-                <div class="works-folder-icon-circle" style="background: rgba(245, 158, 11, 0.16); color: #fbbf24;">💼</div>
-                <span class="works-folder-pill" style="color: #fbbf24; border-color: rgba(245, 158, 11, 0.4); background: rgba(245, 158, 11, 0.1);">✦ 2 Productions ✦</span>
-              </div>
-              <h3 class="works-folder-title">Brand Ads &amp; Commercials</h3>
-              <p class="works-folder-desc">High-conversion commercial storytelling, corporate branding reels, and humanitarian documentary cause campaigns with broadcast audio design.</p>
-              <div class="works-folder-footer">
-                <span>Open Collection (2 Projects)</span>
-                <span class="cta-arrow">➔</span>
-              </div>
-            </div>
-
-            <!-- 6. LONG-FORM YOUTUBE -->
-            <div class="works-folder-card theme-crimson" onclick="openWorksCategory('longform')">
-              <div class="works-folder-top">
-                <div class="works-folder-icon-circle" style="background: rgba(244, 63, 94, 0.16); color: #fb7185;">📺</div>
-                <span class="works-folder-pill" style="color: #fb7185; border-color: rgba(244, 63, 94, 0.4); background: rgba(244, 63, 94, 0.1);">✦ 1 Master Cut • 60FPS ✦</span>
-              </div>
-              <h3 class="works-folder-title">Long-Form YouTube</h3>
-              <p class="works-folder-desc">High-retention episodic YouTube editing: multi-angle cuts, dynamic zoom punches, chapter markers, and continuous engagement pacing.</p>
-              <div class="works-folder-footer">
-                <span>Open Collection (1 Master Video)</span>
-                <span class="cta-arrow">➔</span>
-              </div>
-            </div>
-
-            <!-- 7. SHOOTS & BEHIND THE SCENES -->
-            <div class="works-folder-card theme-cyan" onclick="openWorksCategory('shoots')">
-              <div class="works-folder-top">
-                <div class="works-folder-icon-circle" style="background: rgba(6, 182, 212, 0.16); color: #22d3ee;">🎥</div>
-                <span class="works-folder-pill" style="color: #22d3ee; border-color: rgba(6, 182, 212, 0.4); background: rgba(6, 182, 212, 0.1);">✦ 2 Directorial Showcases ✦</span>
-              </div>
-              <h3 class="works-folder-title">Shoots &amp; BTS</h3>
-              <p class="works-folder-desc">Behind-the-scenes camera production rigs, 4K gimbal stabilization, aerial drone direction, and field cinematography capabilities.</p>
-              <div class="works-folder-footer">
-                <span>Open Collection (2 Showcases)</span>
-                <span class="cta-arrow">➔</span>
-              </div>
-            </div>
-
-          </div>
-        </div>
-
-
-        <!-- =========================================================================
-             VIEW 2: EDITS HUB SUB-GENRE SELECTOR (SHOWN WHEN 'EDITS HUB' IS CLICKED)
-             ========================================================================= -->
-        <div class="works-edits-hub-view" id="worksEditsHubView" style="display: none;">
-          <div class="works-nav-header-bar">
-            <button type="button" class="works-back-btn" onclick="showWorksCategoryGrid()">
-              <span>←</span> Back to All Categories
-            </button>
-            <div class="works-view-breadcrumb">
-              <span class="crumb-link" onclick="showWorksCategoryGrid()">Works Showcase</span>
-              <span class="crumb-sep">›</span>
-              <span class="crumb-current">🔥 Edits Hub (Choose Style)</span>
-            </div>
-          </div>
-
-          <div class="works-shelf-headline">
-            <div style="display: flex; align-items: center; justify-content: space-between; flex-wrap: wrap; gap: 12px;">
-              <h3 style="font-family: var(--display); font-size: 24px; color: #fff; margin: 0;">🔥 Edits Hub — Select Category / Genre</h3>
-              <span class="works-folder-pill" style="color: #f59e0b; border-color: rgba(245, 158, 11, 0.5); background: rgba(245, 158, 11, 0.15);">✦ 7 Specialized Edit Styles ✦</span>
-            </div>
-            <p style="font-size: 14px; color: rgba(255, 255, 255, 0.7); margin: 8px 0 0;">
-              Pick an edit genre below to watch projects rendered specifically in that style and aesthetic:
-            </p>
-          </div>
-
-          <div class="works-subfolder-grid">
-            
-            <!-- Sub-Genre 1: Gangster & Attitude -->
-            <div class="works-subfolder-card theme-crimson" onclick="openWorksCategory('edit-gangster', true)">
-              <div style="display: flex; align-items: center; gap: 12px; margin-bottom: 12px;">
-                <span style="font-size: 28px;">⚡</span>
-                <span class="works-folder-pill" style="color: #fb7185; border-color: rgba(244, 63, 94, 0.4); background: rgba(244, 63, 94, 0.1);">2 Edits • Drill &amp; Attitude</span>
-              </div>
-              <h4 style="font-family: var(--display); color: #fff; font-size: 18px; margin: 0 0 6px;">Gangster &amp; Attitude Edits</h4>
-              <p style="font-size: 13px; color: rgba(255, 255, 255, 0.7); line-height: 1.5; margin: 0 0 16px; flex-grow: 1;">Dark drill velocity speed ramps, underworld dialogue cuts, and aggressive bass transitions.</p>
-              <div style="font-size: 12.5px; font-weight: 700; color: #fb7185; display: flex; justify-content: space-between;">
-                <span>Watch Gangster Edits</span>
-                <span>➔</span>
-              </div>
-            </div>
-
-            <!-- Sub-Genre 2: Brotherhood & Friends Banter -->
-            <div class="works-subfolder-card theme-gold" onclick="openWorksCategory('edit-friends', true)">
-              <div style="display: flex; align-items: center; gap: 12px; margin-bottom: 12px;">
-                <span style="font-size: 28px;">🍻</span>
-                <span class="works-folder-pill" style="color: #fde047; border-color: rgba(212, 175, 55, 0.4); background: rgba(212, 175, 55, 0.1);">1 Edit • Raw Energy</span>
-              </div>
-              <h4 style="font-family: var(--display); color: #fff; font-size: 18px; margin: 0 0 6px;">Brotherhood &amp; Friends Banter</h4>
-              <p style="font-size: 13px; color: rgba(255, 255, 255, 0.7); line-height: 1.5; margin: 0 0 16px; flex-grow: 1;">Unfiltered authentic moments, college gang banter, comedy audio clips, and hyper-dynamic pacing.</p>
-              <div style="font-size: 12.5px; font-weight: 700; color: #fde047; display: flex; justify-content: space-between;">
-                <span>Watch Friends Edit</span>
-                <span>➔</span>
-              </div>
-            </div>
-
-            <!-- Sub-Genre 3: Mountain & Nature Therapy -->
-            <div class="works-subfolder-card theme-cyan" onclick="openWorksCategory('edit-mountain', true)">
-              <div style="display: flex; align-items: center; gap: 12px; margin-bottom: 12px;">
-                <span style="font-size: 28px;">🏔️</span>
-                <span class="works-folder-pill" style="color: #22d3ee; border-color: rgba(6, 182, 212, 0.4); background: rgba(6, 182, 212, 0.1);">1 Edit • Soulful Nature</span>
-              </div>
-              <h4 style="font-family: var(--display); color: #fff; font-size: 18px; margin: 0 0 6px;">Mountain &amp; Nature Therapy</h4>
-              <p style="font-size: 13px; color: rgba(255, 255, 255, 0.7); line-height: 1.5; margin: 0 0 16px; flex-grow: 1;">Atmospheric mountain highways, golden sunset vistas, soulful lofi beats, and soothing optical flow slowmotion.</p>
-              <div style="font-size: 12.5px; font-weight: 700; color: #22d3ee; display: flex; justify-content: space-between;">
-                <span>Watch Mountain Edit</span>
-                <span>➔</span>
-              </div>
-            </div>
-
-            <!-- Sub-Genre 4: Birthday & Neon Celebrations -->
-            <div class="works-subfolder-card theme-purple" onclick="openWorksCategory('edit-birthday', true)">
-              <div style="display: flex; align-items: center; gap: 12px; margin-bottom: 12px;">
-                <span style="font-size: 28px;">🎂</span>
-                <span class="works-folder-pill" style="color: #c084fc; border-color: rgba(168, 85, 247, 0.4); background: rgba(168, 85, 247, 0.1);">1 Edit • Party Glow</span>
-              </div>
-              <h4 style="font-family: var(--display); color: #fff; font-size: 18px; margin: 0 0 6px;">Birthday &amp; Neon Celebrations</h4>
-              <p style="font-size: 13px; color: rgba(255, 255, 255, 0.7); line-height: 1.5; margin: 0 0 16px; flex-grow: 1;">Neon night party vibes, birthday cake pop transitions, kinetic glow overlays, and celebration energy.</p>
-              <div style="font-size: 12.5px; font-weight: 700; color: #c084fc; display: flex; justify-content: space-between;">
-                <span>Watch Birthday Edit</span>
-                <span>➔</span>
-              </div>
-            </div>
-
-            <!-- Sub-Genre 5: Instagram Viral Rhythms -->
-            <div class="works-subfolder-card theme-emerald" onclick="openWorksCategory('edit-instagram', true)">
-              <div style="display: flex; align-items: center; gap: 12px; margin-bottom: 12px;">
-                <span style="font-size: 28px;">👑</span>
-                <span class="works-folder-pill" style="color: #34d399; border-color: rgba(16, 185, 129, 0.4); background: rgba(16, 185, 129, 0.1);">3 Edits • Velocity Flow</span>
-              </div>
-              <h4 style="font-family: var(--display); color: #fff; font-size: 18px; margin: 0 0 6px;">Instagram Viral Rhythms</h4>
-              <p style="font-size: 13px; color: rgba(255, 255, 255, 0.7); line-height: 1.5; margin: 0 0 16px; flex-grow: 1;">Aesthetic motion blur, fast beat matching (Khamoshiyan), dynamic speed ramps (American Dream) &amp; trending audio sync.</p>
-              <div style="font-size: 12.5px; font-weight: 700; color: #34d399; display: flex; justify-content: space-between;">
-                <span>Watch Viral Rhythms</span>
-                <span>➔</span>
-              </div>
-            </div>
-
-            <!-- Sub-Genre 6: Gym & Alpha Motivation -->
-            <div class="works-subfolder-card theme-crimson" onclick="openWorksCategory('edit-gym', true)">
-              <div style="display: flex; align-items: center; gap: 12px; margin-bottom: 12px;">
-                <span style="font-size: 28px;">💪</span>
-                <span class="works-folder-pill" style="color: #fb7185; border-color: rgba(244, 63, 94, 0.4); background: rgba(244, 63, 94, 0.1);">1 Edit • High Intensity</span>
-              </div>
-              <h4 style="font-family: var(--display); color: #fff; font-size: 18px; margin: 0 0 6px;">Gym &amp; Alpha Motivation</h4>
-              <p style="font-size: 13px; color: rgba(255, 255, 255, 0.7); line-height: 1.5; margin: 0 0 16px; flex-grow: 1;">High-intensity workout cuts, muscle contraction flashes, dark gym grading, and chest-thumping bass sync.</p>
-              <div style="font-size: 12.5px; font-weight: 700; color: #fb7185; display: flex; justify-content: space-between;">
-                <span>Watch Gym Motivation</span>
-                <span>➔</span>
-              </div>
-            </div>
-
-            <!-- Sub-Genre 7: Cultural & Festival Celebrations -->
-            <div class="works-subfolder-card theme-gold" onclick="openWorksCategory('edit-festival', true)">
-              <div style="display: flex; align-items: center; gap: 12px; margin-bottom: 12px;">
-                <span style="font-size: 28px;">🪔</span>
-                <span class="works-folder-pill" style="color: #fde047; border-color: rgba(212, 175, 55, 0.4); background: rgba(212, 175, 55, 0.1);">1 Edit • Cultural Beats</span>
-              </div>
-              <h4 style="font-family: var(--display); color: #fff; font-size: 18px; margin: 0 0 6px;">Cultural &amp; Festival Celebrations</h4>
-              <p style="font-size: 13px; color: rgba(255, 255, 255, 0.7); line-height: 1.5; margin: 0 0 16px; flex-grow: 1;">Vibrant Ganesh Chaturthi festival edits, heavy dhol rhythm cuts, color bursts, and collective spiritual energy.</p>
-              <div style="font-size: 12.5px; font-weight: 700; color: #fde047; display: flex; justify-content: space-between;">
-                <span>Watch Festival Edit</span>
-                <span>➔</span>
-              </div>
-            </div>
-
-          </div>
-        </div>
-
-
-        <!-- =========================================================================
-             VIEW 3: VIDEO COLLECTION SHELF (SHOWN ONLY WHEN A CATEGORY/SUB-CATEGORY IS OPENED)
-             ========================================================================= -->
-        <div class="works-video-shelf-view" id="worksVideoShelfView" style="display: none;">
-          
-          <!-- NAVIGATION TOP BAR WITH DYNAMIC BACK BUTTON & BREADCRUMB -->
-          <div class="works-nav-header-bar">
-            <button type="button" class="works-back-btn" id="worksShelfBackBtn" onclick="handleShelfBackClick()">
-              <span id="shelfBackBtnArrow">←</span> <span id="shelfBackBtnLabel">Back to Categories</span>
-            </button>
-            <div class="works-view-breadcrumb" id="worksShelfBreadcrumbs">
-              <!-- Dynamically populated -->
-            </div>
-          </div>
-
-          <!-- COLLECTION HEADLINE & BADGE -->
-          <div class="works-shelf-headline">
-            <div style="display: flex; align-items: center; justify-content: space-between; flex-wrap: wrap; gap: 12px;">
-              <h3 style="font-family: var(--display); font-size: 24px; color: #fff; margin: 0;" id="shelfActiveTitle">🎬 4K Cinematics</h3>
-              <span class="works-folder-pill" id="shelfActivePill" style="color: #22d3ee; border-color: rgba(6, 182, 212, 0.4); background: rgba(6, 182, 212, 0.1);">✦ 4 Masterpieces • 4K UHD ✦</span>
-            </div>
-            <p style="font-size: 14px; color: rgba(255, 255, 255, 0.7); margin: 8px 0 0;" id="shelfActiveDesc">
-              Collection description...
-            </p>
-          </div>
-
-          <!-- ALL FILTERED VIDEO CARDS RENDERED HERE -->
-          <div class="works-videos-grid" id="worksActiveVideosGrid">
-            <div class="work-video-card theme-cyan work-video-card-item" data-cats="cinematic">
+        <!-- 4 SIGNATURE HERO SPOTLIGHT CARDS (CLEAN & BALANCED ON HOMEPAGE) -->
+        <div class="works-videos-grid" style="margin-top: 24px;">
+          <div class="work-video-card theme-cyan homepage-hero-card">
               <div class="work-video-wrapper ratio-landscape">
                 <span class="work-video-badge-top" style="background: linear-gradient(135deg, rgba(6, 182, 212, 0.95), rgba(14, 116, 144, 0.95)); color: #fff; font-weight: 900;">👑 FEATURED SPOTLIGHT • 4K Cinema ✦</span>
                 <span class="work-video-aspect-tag">16:9 4K UHD 60FPS</span>
@@ -6097,177 +6195,7 @@
               </div>
             </div>
 
-<div class="work-video-card theme-cyan work-video-card-item" data-cats="cinematic">
-              <div class="work-video-wrapper ratio-landscape">
-                <span class="work-video-badge-top">✦ 4K UHD Lake Masterpiece ✦</span>
-                <span class="work-video-aspect-tag">16:9 4K UHD</span>
-                <video 
-                  class="work-video-elem" 
-                  controls 
-                  playsinline 
-                  preload="none" 
-                  poster="assets/thumb_work_bhimtal.jpg"
-                  data-video-id="work_bhimtal" 
-                  data-src="assets/work_bhimtal_1080p.mp4"
-                  onplay="handleSingleVideoPlayback(this)"
-                >
-                  Your browser does not support HTML5 video.
-                </video>
-              </div>
-              <div class="work-video-content">
-                <h4 class="work-video-title">Bhimtal Lake Odyssey — 4K UHD Cinematic Shoot &amp; Color Master</h4>
-                <p class="work-video-desc">Shot on location and master-graded by Krishna at Bhimtal Lake, Uttarakhand. Featuring tranquil lake reflections, cinematic aerial framing, advanced color grading, and pristine 4K 60FPS clarity.</p>
-                <div class="work-highlights-list">
-                  <span class="work-highlight-pill">Shot &amp; Directed by Krishna</span>
-                  <span class="work-highlight-pill">3840x2160 4K UHD 60FPS</span>
-                  <span class="work-highlight-pill">Atmospheric Foley Sound</span>
-                </div>
-                <div class="work-card-footer">
-                  <span class="work-card-category">Location Shoot &amp; Master Edit</span>
-                  <button type="button" class="btn-work-commission" onclick="openBookingModal('Commercials &amp; Ads')">
-                    Book Similar Edit &rarr;
-                  </button>
-                </div>
-              </div>
-            </div>
-
-<div class="work-video-card theme-emerald work-video-card-item" data-cats="cinematic">
-              <div class="work-video-wrapper ratio-landscape">
-                <span class="work-video-badge-top">✦ 4K UHD Nature Masterpiece ✦</span>
-                <span class="work-video-aspect-tag">16:9 4K UHD</span>
-                <video 
-                  class="work-video-elem" 
-                  controls 
-                  playsinline 
-                  preload="none" 
-                  poster="assets/thumb_work_kalyani.jpg"
-                  data-video-id="work_kalyani" 
-                  data-src="assets/work_kalyani_1080p.mp4"
-                  onplay="handleSingleVideoPlayback(this)"
-                >
-                  Your browser does not support HTML5 video.
-                </video>
-              </div>
-              <div class="work-video-content">
-                <h4 class="work-video-title">Kalyani Nature Symphony — Cinematic Shoot &amp; Slowmotion Flow</h4>
-                <p class="work-video-desc">Shot and edited entirely by Krishna, this cinematic nature edit synchronizes lush green landscapes and crystal water drops to the rhythm of Kalyani Remix. Featuring silk-smooth 60FPS optical slowmotion in true 4K UHD.</p>
-                <div class="work-highlights-list">
-                  <span class="work-highlight-pill">Shot &amp; Directed by Krishna</span>
-                  <span class="work-highlight-pill">3840x2160 4K UHD 60FPS</span>
-                  <span class="work-highlight-pill">Kalyani Remix Audio Sync</span>
-                </div>
-                <div class="work-card-footer">
-                  <span class="work-card-category">Nature Shoot &amp; Color Grading</span>
-                  <button type="button" class="btn-work-commission" onclick="openBookingModal('Music Videos &amp; Films')">
-                    Book Similar Edit &rarr;
-                  </button>
-                </div>
-              </div>
-            </div>
-
-<div class="work-video-card theme-cyan work-video-card-item" data-cats="cinematic">
-              <div class="work-video-wrapper ratio-landscape">
-                <span class="work-video-badge-top">✦ Cinematic Nature Odyssey ✦</span>
-                <span class="work-video-aspect-tag">16:9 4K UHD</span>
-                <video 
-                  class="work-video-elem" 
-                  controls 
-                  playsinline 
-                  preload="none" 
-                  poster="assets/thumb_work_shyamlatal.jpg"
-                  data-video-id="work_shyamlatal" 
-                  data-src="assets/work_shyamlatal_1080p.mp4"
-                  onplay="handleSingleVideoPlayback(this)"
-                >
-                  Your browser does not support HTML5 video.
-                </video>
-              </div>
-              <div class="work-video-content">
-                <h4 class="work-video-title">Shyamlatal Serenity — 4K Cinematic Travel &amp; Nature Film</h4>
-                <p class="work-video-desc">Shot on location and color-graded to perfection at pristine Shyamlatal lake. Breathtaking landscape framing, tranquil pacing, atmospheric sound foley, and rich natural earth grading.</p>
-                <div class="work-highlights-list">
-                  <span class="work-highlight-pill">Location Direction &amp; Shoot</span>
-                  <span class="work-highlight-pill">Cinematic Color Mastery</span>
-                  <span class="work-highlight-pill">Immersive Sound Foley</span>
-                </div>
-                <div class="work-card-footer">
-                  <span class="work-card-category">Travel &amp; Cinematic Shoot</span>
-                  <button type="button" class="btn-work-commission" onclick="openBookingModal('Commercials &amp; Ads')">
-                    Book Similar Edit &rarr;
-                  </button>
-                </div>
-              </div>
-            </div>
-
-<div class="work-video-card theme-crimson work-video-card-item" data-cats="films">
-              <div class="work-video-wrapper ratio-landscape">
-                <span class="work-video-badge-top">✦ 4K Cinematic Master ✦</span>
-                <span class="work-video-aspect-tag">16:9 4K UHD</span>
-                <video 
-                  class="work-video-elem" 
-                  controls 
-                  playsinline 
-                  preload="none" 
-                  poster="assets/thumb_work_sahiba.jpg"
-                  data-video-id="work_sahiba" 
-                  data-src="assets/work_sahiba_1080p.mp4"
-                  onplay="handleSingleVideoPlayback(this)"
-                >
-                  Your browser does not support HTML5 video.
-                </video>
-              </div>
-              <div class="work-video-content">
-                <h4 class="work-video-title">Sahiba — Cinematic Shoot &amp; Narrative Music Edit</h4>
-                <p class="work-video-desc">A soulful, cinema-grade music video shoot and edit set to Sahiba. Featuring delicate poetic pacing, natural lighting cinematography, warm film emulation tones, and emotional resonance.</p>
-                <div class="work-highlights-list">
-                  <span class="work-highlight-pill">Cinematic Camera Direction</span>
-                  <span class="work-highlight-pill">Film Emulation LUT</span>
-                  <span class="work-highlight-pill">3840x2160 4K UHD</span>
-                </div>
-                <div class="work-card-footer">
-                  <span class="work-card-category">Music Video &amp; Direction</span>
-                  <button type="button" class="btn-work-commission" onclick="openBookingModal('Music Videos &amp; Films')">
-                    Book Similar Edit &rarr;
-                  </button>
-                </div>
-              </div>
-            </div>
-
-<div class="work-video-card theme-purple work-video-card-item" data-cats="films">
-              <div class="work-video-wrapper ratio-landscape">
-                <span class="work-video-badge-top">✦ 4K 60FPS Masterpiece ✦</span>
-                <span class="work-video-aspect-tag">16:9 4K UHD</span>
-                <video 
-                  class="work-video-elem" 
-                  controls 
-                  playsinline 
-                  preload="none" 
-                  poster="assets/thumb_work_ranjhana.jpg"
-                  data-video-id="work_ranjhana" 
-                  data-src="assets/work_ranjhana_1080p.mp4"
-                  onplay="handleSingleVideoPlayback(this)"
-                >
-                  Your browser does not support HTML5 video.
-                </video>
-              </div>
-              <div class="work-video-content">
-                <h4 class="work-video-title">Raanjhanaa — Cinematic 4K Film Master</h4>
-                <p class="work-video-desc">A breathtaking cinematic film edit set to Raanjhanaa in pristine 3840x2160 4K UHD at ultra-smooth 60FPS. Featuring atmospheric film emulation, emotive color grading, rhythmically timed motion dynamics, and deeply immersive audio.</p>
-                <div class="work-highlights-list">
-                  <span class="work-highlight-pill">3840x2160 4K UHD</span>
-                  <span class="work-highlight-pill">Ultra-Smooth 60 FPS</span>
-                  <span class="work-highlight-pill">Film Color Science</span>
-                </div>
-                <div class="work-card-footer">
-                  <span class="work-card-category">Cinematic Film Edit</span>
-                  <button type="button" class="btn-work-commission" onclick="openBookingModal('Music Videos &amp; Films')">
-                    Book Similar Edit &rarr;
-                  </button>
-                </div>
-              </div>
-            </div>
-
-<div class="work-video-card theme-gold work-video-card-item" data-cats="edit-friends edits reels">
+<div class="work-video-card theme-gold homepage-hero-card">
               <div class="work-video-wrapper ratio-vertical">
                 <span class="work-video-badge-top" style="background: linear-gradient(135deg, rgba(245, 158, 11, 0.95), rgba(234, 88, 12, 0.95)); color: #120e0a; font-weight: 900;">🔥 VIRAL • Friends &amp; Banter ✦</span>
                 <span class="work-video-aspect-tag">9:16 4K UHD 60FPS</span>
@@ -6301,143 +6229,7 @@
               </div>
             </div>
 
-<div class="work-video-card theme-gold work-video-card-item" data-cats="edit-mountain edits">
-              <div class="work-video-wrapper ratio-vertical">
-                <span class="work-video-badge-top">✦ Visual Therapy &amp; Slowmo ✦</span>
-                <span class="work-video-aspect-tag">9:16 Ultra HD</span>
-                <video 
-                  class="work-video-elem" 
-                  controls 
-                  playsinline 
-                  preload="none" 
-                  poster="assets/thumb_work_therapy.jpg"
-                  data-video-id="work_therapy" 
-                  data-src="assets/work_therapy_1080p.mp4"
-                  onplay="handleSingleVideoPlayback(this)"
-                >
-                  Your browser does not support HTML5 video.
-                </video>
-              </div>
-              <div class="work-video-content">
-                <h4 class="work-video-title">Mountain Therapy — Soulful Slowmotion &amp; Sunset Moods</h4>
-                <p class="work-video-desc">A deeply calming cinematic therapy reel set against majestic misty mountain peaks with friends. Featuring soothing optical flow slowmotion at ultra-smooth 60FPS, rich earthy film color grade, and peaceful acoustic harmony.</p>
-                <div class="work-highlights-list">
-                  <span class="work-highlight-pill">60FPS Optical Slowmo</span>
-                  <span class="work-highlight-pill">Earthy Mountain Grade</span>
-                  <span class="work-highlight-pill">Cinematic Vibe Edit</span>
-                </div>
-                <div class="work-card-footer">
-                  <span class="work-card-category">Mountain Therapy &amp; Vibe</span>
-                  <button type="button" class="btn-work-commission" onclick="openBookingModal('Viral Reels &amp; Shorts')">
-                    Book Similar Edit &rarr;
-                  </button>
-                </div>
-              </div>
-            </div>
-
-<div class="work-video-card theme-violet work-video-card-item" data-cats="edit-instagram edits reels">
-              <div class="work-video-wrapper ratio-vertical">
-                <span class="work-video-badge-top" style="background: linear-gradient(135deg, rgba(225, 29, 72, 0.95), rgba(249, 115, 22, 0.95)); color: #fff;">🔥 TRENDING • Clean Master Edit ✦</span>
-                <span class="work-video-aspect-tag">4K 60FPS Velocity</span>
-                <video 
-                  class="work-video-elem" 
-                  controls 
-                  playsinline 
-                  preload="none" 
-                  poster="assets/thumb_work_unamerican_girls.jpg"
-                  data-video-id="work_unamerican_girls" 
-                  data-src="assets/work_unamerican_girls_1080p.mp4"
-                  onplay="handleSingleVideoPlayback(this)"
-                >
-                  Your browser does not support HTML5 video.
-                </video>
-              </div>
-              <div class="work-video-content">
-                <h4 class="work-video-title">American Dream / Unamerican Girls — Ultra-Clean Dynamic Velocity Edit</h4>
-                <p class="work-video-desc">A high-impact and ultra-clean master showcase edit set to the infectious upbeat groove of American Dream / Unamerican Girls. Crafted with razor-sharp frame transitions, rhythmic whip pans, punchy bass sync, crystal cinematic color grade, and flawless visual retention.</p>
-                <div class="work-highlights-list">
-                  <span class="work-highlight-pill">American Dream Beat Sync</span>
-                  <span class="work-highlight-pill">Ultra-Clean 60FPS Polish</span>
-                  <span class="work-highlight-pill">High Retention Dynamic Flow</span>
-                </div>
-                <div class="work-card-footer">
-                  <span class="work-card-category">Viral Reels &amp; Music Edits</span>
-                  <button type="button" class="btn-work-commission" onclick="openBookingModal('Viral Reels &amp; Shorts')">
-                    Book Similar Edit &rarr;
-                  </button>
-                </div>
-              </div>
-            </div>
-
-<div class="work-video-card theme-gold work-video-card-item" data-cats="edit-instagram edits reels">
-              <div class="work-video-wrapper ratio-vertical">
-                <span class="work-video-badge-top" style="background: linear-gradient(135deg, rgba(245, 158, 11, 0.95), rgba(212, 175, 55, 0.95)); color: #120e0a; font-weight: 900;">👑 TRENDING • Viral Instagram Edit ✦</span>
-                <span class="work-video-aspect-tag">9:16 4K UHD 60FPS</span>
-                <video 
-                  class="work-video-elem" 
-                  controls 
-                  playsinline 
-                  preload="none" 
-                  poster="assets/thumb_work_grind_viral.jpg"
-                  data-video-id="work_grind_viral" 
-                  data-src="assets/work_grind_viral_1080p.mp4"
-                  onplay="handleSingleVideoPlayback(this)"
-                >
-                  Your browser does not support HTML5 video.
-                </video>
-              </div>
-              <div class="work-video-content">
-                <h4 class="work-video-title">Grind With Me — Viral Instagram Aesthetic Motion Blur Edit</h4>
-                <p class="work-video-desc">A viral Instagram sensation edit set to the trending sound Grind With Me by Pretty Ricky. Engineered with seductive optical-flow slow-motion ramps, atmospheric motion blur whip transitions, deep bass drops, and an unmatched hypnotic visual aesthetic designed to stop the scroll.</p>
-                <div class="work-highlights-list">
-                  <span class="work-highlight-pill">Viral Trend Audio (Pretty Ricky)</span>
-                  <span class="work-highlight-pill">Optical Flow Speed Ramps</span>
-                  <span class="work-highlight-pill">4K 60FPS Vertical Master</span>
-                </div>
-                <div class="work-card-footer">
-                  <span class="work-card-category">Trending Instagram Reel</span>
-                  <button type="button" class="btn-work-commission" onclick="openBookingModal('Viral Reels &amp; Shorts')">
-                    Book Similar Edit &rarr;
-                  </button>
-                </div>
-              </div>
-            </div>
-
-<div class="work-video-card theme-crimson work-video-card-item" data-cats="edit-instagram edits reels">
-              <div class="work-video-wrapper ratio-vertical">
-                <span class="work-video-badge-top">✦ 4K 60FPS Hyper Velocity ✦</span>
-                <span class="work-video-aspect-tag">9:16 4K Reel</span>
-                <video 
-                  class="work-video-elem" 
-                  controls 
-                  playsinline 
-                  preload="none" 
-                  poster="assets/thumb_work_khamoshi.jpg"
-                  data-video-id="work_khamoshi" 
-                  data-src="assets/work_khamoshi_1080p.mp4"
-                  onplay="handleSingleVideoPlayback(this)"
-                >
-                  Your browser does not support HTML5 video.
-                </video>
-              </div>
-              <div class="work-video-content">
-                <h4 class="work-video-title">Khamoshiyan — High-Octane Fast Beat Sync &amp; Velocity Transitions</h4>
-                <p class="work-video-desc">An electrifying, high-energy transition reel set to Khamoshiyan. Engineered with precision beat-matched velocity ramps, seamless whip pans, aggressive motion blurs, punchy color pops, and high retention pacing.</p>
-                <div class="work-highlights-list">
-                  <span class="work-highlight-pill">Beat-Synced Velocity Cuts</span>
-                  <span class="work-highlight-pill">Hyper Dynamic Motion Blur</span>
-                  <span class="work-highlight-pill">4K 60FPS Vertical Reel</span>
-                </div>
-                <div class="work-card-footer">
-                  <span class="work-card-category">Fast Beat Transitions</span>
-                  <button type="button" class="btn-work-commission" onclick="openBookingModal('Viral Reels &amp; Shorts')">
-                    Book Similar Edit &rarr;
-                  </button>
-                </div>
-              </div>
-            </div>
-
-<div class="work-video-card theme-crimson work-video-card-item" data-cats="edit-gangster edits">
+<div class="work-video-card theme-crimson homepage-hero-card">
               <div class="work-video-wrapper ratio-vertical">
                 <span class="work-video-badge-top" style="background: linear-gradient(135deg, rgba(225, 29, 72, 0.95), rgba(159, 18, 57, 0.95)); color: #fff; font-weight: 900;">⚡ DOMINANCE • Gangster Drill ✦</span>
                 <span class="work-video-aspect-tag">9:16 4K UHD 60FPS</span>
@@ -6471,143 +6263,7 @@
               </div>
             </div>
 
-<div class="work-video-card theme-gold work-video-card-item" data-cats="edit-gangster edits">
-              <div class="work-video-wrapper ratio-vertical">
-                <span class="work-video-badge-top" style="background: linear-gradient(135deg, rgba(245, 158, 11, 0.95), rgba(212, 175, 55, 0.95)); color: #120e0a; font-weight: 900;">👑 MAFIA • Underworld Energy ✦</span>
-                <span class="work-video-aspect-tag">9:16 4K UHD 60FPS</span>
-                <video 
-                  class="work-video-elem" 
-                  controls 
-                  playsinline 
-                  preload="none" 
-                  poster="assets/thumb_work_gangster_mafia.jpg"
-                  data-video-id="work_gangster_mafia" 
-                  data-src="assets/work_gangster_mafia_1080p.mp4"
-                  onplay="handleSingleVideoPlayback(this)"
-                >
-                  Your browser does not support HTML5 video.
-                </video>
-              </div>
-              <div class="work-video-content">
-                <h4 class="work-video-title">The Syndicate Trade — Gritty Underworld Dialogue &amp; Bass Impact</h4>
-                <p class="work-video-desc">A raw, heavy-hitting gangster reel centered on intense underworld dialogue delivery. Synced with rapid velocity speed ramps, aggressive bass kicks, and high-contrast neo-noir color grading.</p>
-                <div class="work-highlights-list">
-                  <span class="work-highlight-pill">Raw Weapon Mafia Dialogue</span>
-                  <span class="work-highlight-pill">Hard-Hitting Bass Drops</span>
-                  <span class="work-highlight-pill">4K 60FPS Neo-Noir Grade</span>
-                </div>
-                <div class="work-card-footer">
-                  <span class="work-card-category">Underworld Dialogue Reel</span>
-                  <button type="button" class="btn-work-commission" onclick="openBookingModal('Viral Reels &amp; Shorts')">
-                    Book Similar Edit &rarr;
-                  </button>
-                </div>
-              </div>
-            </div>
-
-<div class="work-video-card theme-gold work-video-card-item" data-cats="edit-birthday edits">
-              <div class="work-video-wrapper ratio-vertical">
-                <span class="work-video-badge-top">Speed Ramp &amp; VFX</span>
-                <span class="work-video-aspect-tag">9:16 Vertical Reel</span>
-                <video 
-                  class="work-video-elem" 
-                  controls 
-                  playsinline 
-                  preload="none" 
-                  poster="assets/thumb_work_birthday.jpg"
-                  data-video-id="work_birthday" 
-                  data-src="assets/work_birthday_1080p.mp4"
-                  onplay="handleSingleVideoPlayback(this)"
-                >
-                  Your browser does not support HTML5 video.
-                </video>
-              </div>
-              <div class="work-video-content">
-                <h4 class="work-video-title">Neon Vibe — Cinematic Birthday Celebration</h4>
-                <p class="work-video-desc">High-energy celebration reel featuring seamless speed ramps, vibrant neon glows, beat-matched transitions, and infectious cinematic rhythm that captures every electric moment.</p>
-                <div class="work-highlights-list">
-                  <span class="work-highlight-pill">Beat-Synced Transitions</span>
-                  <span class="work-highlight-pill">Vibrant Color Grading</span>
-                  <span class="work-highlight-pill">Ultra HD 9:16 Reel</span>
-                </div>
-                <div class="work-card-footer">
-                  <span class="work-card-category">Cinematic Birthday</span>
-                  <button type="button" class="btn-work-commission" onclick="openBookingModal('Viral Reels &amp; Shorts')">
-                    Book Similar Edit &rarr;
-                  </button>
-                </div>
-              </div>
-            </div>
-
-<div class="work-video-card theme-gold work-video-card-item" data-cats="edit-festival edits">
-              <div class="work-video-wrapper ratio-vertical">
-                <span class="work-video-badge-top">Festive Energy</span>
-                <span class="work-video-aspect-tag">9:16 Vertical Reel</span>
-                <video 
-                  class="work-video-elem" 
-                  controls 
-                  playsinline 
-                  preload="none" 
-                  poster="assets/thumb_work_ganesh.jpg"
-                  data-video-id="work_ganesh" 
-                  data-src="assets/work_ganesh_1080p.mp4"
-                  onplay="handleSingleVideoPlayback(this)"
-                >
-                  Your browser does not support HTML5 video.
-                </video>
-              </div>
-              <div class="work-video-content">
-                <h4 class="work-video-title">Ganesh Chaturthi — High-Energy Festival Celebration Reel</h4>
-                <p class="work-video-desc">High-energy festive celebration reel featuring energetic beat-matched transitions, vibrant colors, festive music synchronization, and dynamic crowd moments.</p>
-                <div class="work-highlights-list">
-                  <span class="work-highlight-pill">Beat-Synced Cuts</span>
-                  <span class="work-highlight-pill">Festive Color Grade</span>
-                  <span class="work-highlight-pill">Ultra HD 9:16 Reel</span>
-                </div>
-                <div class="work-card-footer">
-                  <span class="work-card-category">Festival Celebration Reel</span>
-                  <button type="button" class="btn-work-commission" onclick="openBookingModal('Viral Reels &amp; Shorts')">
-                    Book Similar Edit &rarr;
-                  </button>
-                </div>
-              </div>
-            </div>
-
-<div class="work-video-card theme-cyan work-video-card-item" data-cats="edit-gym edits reels">
-              <div class="work-video-wrapper ratio-vertical">
-                <span class="work-video-badge-top">High-Octane Retention</span>
-                <span class="work-video-aspect-tag">9:16 Vertical Reel</span>
-                <video 
-                  class="work-video-elem" 
-                  controls 
-                  playsinline 
-                  preload="none" 
-                  poster="assets/thumb_work_gym.jpg"
-                  data-video-id="work_gym" 
-                  data-src="assets/work_gym_1080p.mp4"
-                  onplay="handleSingleVideoPlayback(this)"
-                >
-                  Your browser does not support HTML5 video.
-                </video>
-              </div>
-              <div class="work-video-content">
-                <h4 class="work-video-title">Relentless Beast — Gym Motivation Edit</h4>
-                <p class="work-video-desc">Aggressive, high-octane workout edit engineered with hard-hitting bass drops, dynamic punch-ins, motion blur whip pans, and intense film grain aesthetics to ignite unstoppable energy.</p>
-                <div class="work-highlights-list">
-                  <span class="work-highlight-pill">Explosive Bass Drops</span>
-                  <span class="work-highlight-pill">Retention-Engineered Cuts</span>
-                  <span class="work-highlight-pill">Dynamic Zoom Transitions</span>
-                </div>
-                <div class="work-card-footer">
-                  <span class="work-card-category">Gym Motivation</span>
-                  <button type="button" class="btn-work-commission" onclick="openBookingModal('Viral Reels &amp; Shorts')">
-                    Book Similar Edit &rarr;
-                  </button>
-                </div>
-              </div>
-            </div>
-
-<div class="work-video-card theme-crimson work-video-card-item" data-cats="commercials">
+<div class="work-video-card theme-crimson homepage-hero-card">
               <div class="work-video-wrapper ratio-vertical">
                 <span class="work-video-badge-top">Signature Reel</span>
                 <span class="work-video-aspect-tag">9:16 Vertical Reel</span>
@@ -6640,120 +6296,56 @@
                 </div>
               </div>
             </div>
+        </div>
 
-<div class="work-video-card theme-emerald work-video-card-item" data-cats="commercials">
-              <div class="work-video-wrapper ratio-vertical">
-                <span class="work-video-badge-top">Heartfelt Storytelling</span>
-                <span class="work-video-aspect-tag">9:16 Vertical Story</span>
-                <video 
-                  class="work-video-elem" 
-                  controls 
-                  playsinline 
-                  preload="none" 
-                  poster="assets/thumb_work_charity.jpg"
-                  data-video-id="work_charity" 
-                  data-src="assets/work_charity_1080p.mp4"
-                  onplay="handleSingleVideoPlayback(this)"
-                >
-                  Your browser does not support HTML5 video.
-                </video>
-              </div>
-              <div class="work-video-content">
-                <h4 class="work-video-title">Compassion in Motion — Feeding the Needy &amp; Rescuing Stray Lives</h4>
-                <p class="work-video-desc">A deeply moving and heartfelt social documentary story capturing a young girl distributing warm meals to the homeless and feeding hungry stray animals on the streets. Crafted with uplifting warm tones, emotional narrative rhythm, and soul-stirring audio atmosphere.</p>
-                <div class="work-highlights-list">
-                  <span class="work-highlight-pill">Emotional Story Pacing</span>
-                  <span class="work-highlight-pill">Social Impact Documentary</span>
-                  <span class="work-highlight-pill">Warm Atmospheric Audio</span>
-                </div>
-                <div class="work-card-footer">
-                  <span class="work-card-category">Social Impact Story</span>
-                  <button type="button" class="btn-work-commission" onclick="openBookingModal('Commercials &amp; Ads')">
-                    Book Similar Edit &rarr;
-                  </button>
-                </div>
-              </div>
-            </div>
-
-<div class="work-video-card theme-emerald work-video-card-item" data-cats="longform">
-              <div class="work-video-wrapper ratio-landscape">
-                <span class="work-video-badge-top">✦ Long Video Edit Sample ✦</span>
-                <span class="work-video-aspect-tag">16:9 Landscape Video</span>
-                <video 
-                  class="work-video-elem" 
-                  controls 
-                  playsinline 
-                  preload="none" 
-                  poster="assets/thumb_work_long_sample.jpg"
-                  data-video-id="work_long_sample" 
-                  data-src="assets/work_long_sample_1080p.mp4"
-                  onplay="handleSingleVideoPlayback(this)"
-                >
-                  Your browser does not support HTML5 video.
-                </video>
-              </div>
-              <div class="work-video-content">
-                <h4 class="work-video-title">Sample for Long Video Edits — Pacing &amp; B-Roll Structure</h4>
-                <p class="work-video-desc">A sample demonstration edit specifically crafted for long videos and YouTube content. Showcases clean narrative pacing, smooth B-roll integration, high viewer retention cuts, and balanced audio mixing.</p>
-                <div class="work-highlights-list">
-                  <span class="work-highlight-pill">Long Video Edit Sample</span>
-                  <span class="work-highlight-pill">B-Roll Pacing &amp; Cuts</span>
-                  <span class="work-highlight-pill">YouTube Video Flow</span>
-                </div>
-                <div class="work-card-footer">
-                  <span class="work-card-category">YouTube Long-Form</span>
-                  <button type="button" class="btn-work-commission" onclick="openBookingModal('YouTube Documentaries')">
-                    Book Similar Edit &rarr;
-                  </button>
-                </div>
-              </div>
-            </div>
-
-<div class="work-video-card theme-gold work-video-card-item" data-cats="shoots">
-              <div class="work-video-wrapper ratio-landscape" style="background: linear-gradient(135deg, #1b150c, #2b1f10); display: flex; flex-direction: column; justify-content: center; padding: 24px;">
-                <div style="font-size: 42px; margin-bottom: 8px;">📷 🚁 🎙️</div>
-                <span class="work-video-aspect-tag">Cinema Field Gear</span>
-                <h4 style="font-family: var(--display); color: #fff; font-size: 17px; margin: 0 0 6px;">Cinema Production Rig Arsenal</h4>
-                <p style="font-size: 12px; color: #d4af37; margin: 0;">4K 60FPS Native Field Recording</p>
-              </div>
-              <div class="work-video-content">
-                <h4 class="work-video-title">Field Production &amp; On-Location Direction Capabilities</h4>
-                <p class="work-video-desc">Equipped for professional on-location filming across Uttarakhand lakes, cityscapes, events, and outdoor commercial shoots with 4K UHD stabilized aerials, multi-axis gimbals, and broadcast audio.</p>
-                <div class="work-highlights-list">
-                  <span class="work-highlight-pill">4K UHD Cinema Cameras</span>
-                  <span class="work-highlight-pill">DJI Ronin 3-Axis Gimbal</span>
-                  <span class="work-highlight-pill">4K Drone Aerial Framing</span>
-                </div>
-                <div class="work-card-footer">
-                  <span class="work-card-category">On-Location Shoots &amp; BTS</span>
-                  <button type="button" class="btn-work-commission" onclick="openBookingModal('Custom Project (Shoot &amp; Edit)')">
-                    Book On-Location Shoot &rarr;
-                  </button>
-                </div>
-              </div>
-            </div>
-
-
-            <div class="work-video-card theme-gold work-video-card-item" data-cats="shoots">
-              <div class="work-video-wrapper ratio-landscape" style="background: linear-gradient(135deg, #1b150c, #2b1f10); display: flex; flex-direction: column; justify-content: center; padding: 24px; text-align: center;">
-                <div style="font-size: 42px; margin-bottom: 8px;">📷 🚁 🎙️</div>
-                <span class="work-video-aspect-tag">Cinema Field Gear</span>
-                <h4 style="font-family: var(--display); color: #fff; font-size: 17px; margin: 0 0 6px;">Cinema Production Rig Arsenal</h4>
-                <p style="font-size: 12px; color: #d4af37; margin: 0;">4K 60FPS Native Field Recording</p>
-              </div>
-              <div class="work-video-content">
-                <h4 class="work-video-title">Field Production &amp; On-Location Direction Capabilities</h4>
-                <p class="work-video-desc">Equipped for professional on-location filming across Uttarakhand lakes, cityscapes, events, and outdoor commercial shoots with 4K UHD stabilized aerials, multi-axis gimbals, and broadcast audio.</p>
-                <div class="work-highlights-list">
-                  <div class="work-highlight-item"><span class="highlight-bullet">✦</span> 4K UHD 60FPS Cinema Cameras &amp; Fast Primes</div>
-                  <div class="work-highlight-item"><span class="highlight-bullet">✦</span> 3-Axis Electronic Motorized Gimbal Stabilizer</div>
-                  <div class="work-highlight-item"><span class="highlight-bullet">✦</span> 4K High-Wind Aerial Drone Cinematography</div>
-                  <div class="work-highlight-item"><span class="highlight-bullet">✦</span> Wireless Lavalier &amp; Directional Shotgun Foley Mics</div>
-                </div>
-              </div>
-            </div>
+        <!-- MASTER CINEMA VAULT CTA BANNER -->
+        <div class="vault-cta-banner reveal-elem">
+          <div class="vault-cta-top">
+            <div class="vault-cta-badge">✦ THE COMPLETE 20+ VIDEO ARCHIVE ✦</div>
+            <h3 class="vault-cta-title">Explore All 20+ Masterpieces in Cinema Theater Mode</h3>
+            <p class="vault-cta-desc">
+              Watch every film and viral reel in a dedicated cinema theater with instant 1-click filter tabs. No complicated folders, no reloading, and zero page clutter.
+            </p>
           </div>
 
+          <div class="vault-cta-action-row">
+            <button type="button" class="btn-open-vault" onclick="openCinemaVault('all')">
+              <span class="btn-vault-icon">🎬</span>
+              <span>Open Cinema Video Vault (20+ Videos)</span>
+              <span class="btn-vault-arrow">➔</span>
+            </button>
+            <span class="vault-cta-hint">Or jump directly to a category below:</span>
+          </div>
+
+          <div class="vault-quick-pills">
+            <button type="button" class="vault-quick-pill" onclick="openCinemaVault('cinematic')">
+              <span>🎬 4K Cinematics &amp; Films (6)</span>
+            </button>
+            <button type="button" class="vault-quick-pill" onclick="openCinemaVault('gangster')">
+              <span>⚡ Gangster &amp; Attitude (2)</span>
+            </button>
+            <button type="button" class="vault-quick-pill" onclick="openCinemaVault('friends')">
+              <span>🍻 Brotherhood &amp; Friends (1)</span>
+            </button>
+            <button type="button" class="vault-quick-pill" onclick="openCinemaVault('reels')">
+              <span>👑 Viral Reels &amp; Velocity (5)</span>
+            </button>
+            <button type="button" class="vault-quick-pill" onclick="openCinemaVault('mountain')">
+              <span>🏔️ Mountain Therapy (1)</span>
+            </button>
+            <button type="button" class="vault-quick-pill" onclick="openCinemaVault('celebrations')">
+              <span>🎂 Birthday &amp; Festival (2)</span>
+            </button>
+            <button type="button" class="vault-quick-pill" onclick="openCinemaVault('gym')">
+              <span>💪 Gym Motivation (1)</span>
+            </button>
+            <button type="button" class="vault-quick-pill" onclick="openCinemaVault('commercials')">
+              <span>💼 Brand Commercials &amp; YouTube (3)</span>
+            </button>
+            <button type="button" class="vault-quick-pill" onclick="openCinemaVault('shoots')">
+              <span>🎥 Shoots &amp; BTS Gear (2)</span>
+            </button>
+          </div>
         </div>
 
       </div>
@@ -9433,216 +9025,901 @@ ${payload.project_brief || 'None specified'}
   </script>
 
 
-    <!-- JAVASCRIPT CONTROLLERS FOR WORKS FOLDER EXPLORER & TRACKING -->
-    <script>
-      let currentActiveShelfSource = 'categories'; // 'categories' or 'edits-hub'
+    
 
-      const worksCategoryMetadata = {
-        'cinematic': {
-          title: '🎬 4K UHD Cinematics',
-          pill: '✦ 4 Masterpieces • 4K 60FPS Cinema ✦',
-          pillColor: '#22d3ee',
-          pillBorder: 'rgba(6, 182, 212, 0.4)',
-          pillBg: 'rgba(6, 182, 212, 0.1)',
-          desc: 'High-altitude mountain lakes, golden hour symmetries, and cinematic color grades. Featuring the iconic Nazar-e-Khaas master film.'
+
+    <!-- =========================================================================
+         FULLSCREEN MASTER CINEMA VAULT (MODAL OVERLAY)
+         OPENS IN AN INDEPENDENT CINEMA THEATER VIEW - NO HOMEPAGE DISTORTION!
+         ========================================================================= -->
+    <div id="cinemaVaultModal" class="cinema-vault-overlay" style="display: none;" role="dialog" aria-modal="true" aria-label="Krishna X Editz Cinema Vault">
+      <div class="cinema-vault-wrapper">
+        
+        <!-- STICKY TOP BAR -->
+        <div class="cinema-vault-topbar">
+          <div class="cinema-vault-brand">
+            <span class="vault-brand-badge">KRISHNA X EDITZ</span>
+            <span class="vault-brand-sep">•</span>
+            <span class="vault-brand-title">🎬 MASTER CINEMA VAULT</span>
+            <span class="vault-brand-count" id="vaultTotalBadge">21 Masterpieces</span>
+          </div>
+          
+          <button type="button" class="cinema-vault-close-btn" onclick="closeCinemaVault()" title="Close Vault (ESC)">
+            <span class="close-icon">✕</span>
+            <span>Close / Back to Website</span>
+            <span class="esc-badge">ESC</span>
+          </button>
+        </div>
+
+        <!-- 1-CLICK INSTANT CATEGORY FILTER TABS (ZERO NESTING, SINGLE CLICK DISCOVERY!) -->
+        <div class="cinema-vault-tabs-wrapper">
+          <div class="cinema-vault-tabs-scroll">
+            <button type="button" class="vault-tab-btn active" data-cat="all" onclick="filterCinemaVault('all', this)">
+              <span>🌟 All Showcases</span>
+              <span class="tab-count">(21)</span>
+            </button>
+            <button type="button" class="vault-tab-btn" data-cat="cinematic" onclick="filterCinemaVault('cinematic', this)">
+              <span>🎬 4K Cinematics &amp; Films</span>
+              <span class="tab-count">(6)</span>
+            </button>
+            <button type="button" class="vault-tab-btn" data-cat="gangster" onclick="filterCinemaVault('gangster', this)">
+              <span>⚡ Gangster &amp; Attitude</span>
+              <span class="tab-count">(2)</span>
+            </button>
+            <button type="button" class="vault-tab-btn" data-cat="friends" onclick="filterCinemaVault('friends', this)">
+              <span>🍻 Brotherhood &amp; Friends</span>
+              <span class="tab-count">(1)</span>
+            </button>
+            <button type="button" class="vault-tab-btn" data-cat="reels" onclick="filterCinemaVault('reels', this)">
+              <span>👑 Viral Reels &amp; Velocity</span>
+              <span class="tab-count">(5)</span>
+            </button>
+            <button type="button" class="vault-tab-btn" data-cat="mountain" onclick="filterCinemaVault('mountain', this)">
+              <span>🏔️ Mountain Therapy</span>
+              <span class="tab-count">(1)</span>
+            </button>
+            <button type="button" class="vault-tab-btn" data-cat="celebrations" onclick="filterCinemaVault('celebrations', this)">
+              <span>🎂 Birthday &amp; Festival</span>
+              <span class="tab-count">(2)</span>
+            </button>
+            <button type="button" class="vault-tab-btn" data-cat="gym" onclick="filterCinemaVault('gym', this)">
+              <span>💪 Gym Motivation</span>
+              <span class="tab-count">(1)</span>
+            </button>
+            <button type="button" class="vault-tab-btn" data-cat="commercials" onclick="filterCinemaVault('commercials', this)">
+              <span>💼 Commercials &amp; YouTube</span>
+              <span class="tab-count">(3)</span>
+            </button>
+            <button type="button" class="vault-tab-btn" data-cat="shoots" onclick="filterCinemaVault('shoots', this)">
+              <span>🎥 Shoots &amp; BTS Gear</span>
+              <span class="tab-count">(2)</span>
+            </button>
+          </div>
+        </div>
+
+        <!-- CATEGORY TITLE & DESCRIPTION STRIP -->
+        <div class="cinema-vault-heading-strip">
+          <div class="heading-left">
+            <h3 class="vault-category-headline" id="vaultCategoryHeadline">🌟 All Video Showcases</h3>
+            <p class="vault-category-desc" id="vaultCategoryDesc">Browse all commercial films, viral reels, attitude edits, and 4K cinema productions.</p>
+          </div>
+          <span class="vault-active-counter" id="vaultActiveCount">Showing 21 Videos</span>
+        </div>
+
+        <!-- THE VAULT VIDEOS GRID -->
+        <div class="cinema-vault-grid" id="vaultVideosGrid">
+          <div class="work-video-card theme-cyan vault-card-item" data-vault-cats="cinematic all">
+              <div class="work-video-wrapper ratio-landscape">
+                <span class="work-video-badge-top" style="background: linear-gradient(135deg, rgba(6, 182, 212, 0.95), rgba(14, 116, 144, 0.95)); color: #fff; font-weight: 900;">👑 FEATURED SPOTLIGHT • 4K Cinema ✦</span>
+                <span class="work-video-aspect-tag">16:9 4K UHD 60FPS</span>
+                <video 
+                  class="work-video-elem" 
+                  controls 
+                  playsinline 
+                  preload="none" 
+                  poster="assets/thumb_work_nazar_cinematic.jpg"
+                  data-video-id="work_nazar_cinematic" 
+                  data-src="assets/work_nazar_cinematic_1080p.mp4"
+                  onplay="handleSingleVideoPlayback(this)"
+                >
+                  Your browser does not support HTML5 video.
+                </video>
+              </div>
+              <div class="work-video-content">
+                <h4 class="work-video-title">Nazar-e-Khaas — 4K UHD Poetic Cinematography &amp; Color Symphony</h4>
+                <p class="work-video-desc">A cinematic widescreen masterpiece blending delicate film emulation LUTs, natural landscape framing, paper-foley acoustic design, and heart-tugging melody pacing. Mastered in full 4K 60FPS clarity.</p>
+                <div class="work-highlights-list">
+                  <span class="work-highlight-pill">4K 60FPS Widescreen</span>
+                  <span class="work-highlight-pill">Poetic Film Emulation</span>
+                  <span class="work-highlight-pill">Atmospheric Foley Sound</span>
+                </div>
+                <div class="work-card-footer">
+                  <span class="work-card-category">Cinematic Film &amp; Color Master</span>
+                  <button type="button" class="btn-work-commission" onclick="openBookingModal('Music Videos &amp; Films')">
+                    Book Similar Edit &rarr;
+                  </button>
+                </div>
+              </div>
+            </div>
+
+<div class="work-video-card theme-cyan vault-card-item" data-vault-cats="cinematic all">
+              <div class="work-video-wrapper ratio-landscape">
+                <span class="work-video-badge-top">✦ 4K UHD Lake Masterpiece ✦</span>
+                <span class="work-video-aspect-tag">16:9 4K UHD</span>
+                <video 
+                  class="work-video-elem" 
+                  controls 
+                  playsinline 
+                  preload="none" 
+                  poster="assets/thumb_work_bhimtal.jpg"
+                  data-video-id="work_bhimtal" 
+                  data-src="assets/work_bhimtal_1080p.mp4"
+                  onplay="handleSingleVideoPlayback(this)"
+                >
+                  Your browser does not support HTML5 video.
+                </video>
+              </div>
+              <div class="work-video-content">
+                <h4 class="work-video-title">Bhimtal Lake Odyssey — 4K UHD Cinematic Shoot &amp; Color Master</h4>
+                <p class="work-video-desc">Shot on location and master-graded by Krishna at Bhimtal Lake, Uttarakhand. Featuring tranquil lake reflections, cinematic aerial framing, advanced color grading, and pristine 4K 60FPS clarity.</p>
+                <div class="work-highlights-list">
+                  <span class="work-highlight-pill">Shot &amp; Directed by Krishna</span>
+                  <span class="work-highlight-pill">3840x2160 4K UHD 60FPS</span>
+                  <span class="work-highlight-pill">Atmospheric Foley Sound</span>
+                </div>
+                <div class="work-card-footer">
+                  <span class="work-card-category">Location Shoot &amp; Master Edit</span>
+                  <button type="button" class="btn-work-commission" onclick="openBookingModal('Commercials &amp; Ads')">
+                    Book Similar Edit &rarr;
+                  </button>
+                </div>
+              </div>
+            </div>
+
+<div class="work-video-card theme-emerald vault-card-item" data-vault-cats="cinematic all">
+              <div class="work-video-wrapper ratio-landscape">
+                <span class="work-video-badge-top">✦ 4K UHD Nature Masterpiece ✦</span>
+                <span class="work-video-aspect-tag">16:9 4K UHD</span>
+                <video 
+                  class="work-video-elem" 
+                  controls 
+                  playsinline 
+                  preload="none" 
+                  poster="assets/thumb_work_kalyani.jpg"
+                  data-video-id="work_kalyani" 
+                  data-src="assets/work_kalyani_1080p.mp4"
+                  onplay="handleSingleVideoPlayback(this)"
+                >
+                  Your browser does not support HTML5 video.
+                </video>
+              </div>
+              <div class="work-video-content">
+                <h4 class="work-video-title">Kalyani Nature Symphony — Cinematic Shoot &amp; Slowmotion Flow</h4>
+                <p class="work-video-desc">Shot and edited entirely by Krishna, this cinematic nature edit synchronizes lush green landscapes and crystal water drops to the rhythm of Kalyani Remix. Featuring silk-smooth 60FPS optical slowmotion in true 4K UHD.</p>
+                <div class="work-highlights-list">
+                  <span class="work-highlight-pill">Shot &amp; Directed by Krishna</span>
+                  <span class="work-highlight-pill">3840x2160 4K UHD 60FPS</span>
+                  <span class="work-highlight-pill">Kalyani Remix Audio Sync</span>
+                </div>
+                <div class="work-card-footer">
+                  <span class="work-card-category">Nature Shoot &amp; Color Grading</span>
+                  <button type="button" class="btn-work-commission" onclick="openBookingModal('Music Videos &amp; Films')">
+                    Book Similar Edit &rarr;
+                  </button>
+                </div>
+              </div>
+            </div>
+
+<div class="work-video-card theme-cyan vault-card-item" data-vault-cats="cinematic all">
+              <div class="work-video-wrapper ratio-landscape">
+                <span class="work-video-badge-top">✦ Cinematic Nature Odyssey ✦</span>
+                <span class="work-video-aspect-tag">16:9 4K UHD</span>
+                <video 
+                  class="work-video-elem" 
+                  controls 
+                  playsinline 
+                  preload="none" 
+                  poster="assets/thumb_work_shyamlatal.jpg"
+                  data-video-id="work_shyamlatal" 
+                  data-src="assets/work_shyamlatal_1080p.mp4"
+                  onplay="handleSingleVideoPlayback(this)"
+                >
+                  Your browser does not support HTML5 video.
+                </video>
+              </div>
+              <div class="work-video-content">
+                <h4 class="work-video-title">Shyamlatal Serenity — 4K Cinematic Travel &amp; Nature Film</h4>
+                <p class="work-video-desc">Shot on location and color-graded to perfection at pristine Shyamlatal lake. Breathtaking landscape framing, tranquil pacing, atmospheric sound foley, and rich natural earth grading.</p>
+                <div class="work-highlights-list">
+                  <span class="work-highlight-pill">Location Direction &amp; Shoot</span>
+                  <span class="work-highlight-pill">Cinematic Color Mastery</span>
+                  <span class="work-highlight-pill">Immersive Sound Foley</span>
+                </div>
+                <div class="work-card-footer">
+                  <span class="work-card-category">Travel &amp; Cinematic Shoot</span>
+                  <button type="button" class="btn-work-commission" onclick="openBookingModal('Commercials &amp; Ads')">
+                    Book Similar Edit &rarr;
+                  </button>
+                </div>
+              </div>
+            </div>
+
+<div class="work-video-card theme-crimson vault-card-item" data-vault-cats="cinematic all">
+              <div class="work-video-wrapper ratio-landscape">
+                <span class="work-video-badge-top">✦ 4K Cinematic Master ✦</span>
+                <span class="work-video-aspect-tag">16:9 4K UHD</span>
+                <video 
+                  class="work-video-elem" 
+                  controls 
+                  playsinline 
+                  preload="none" 
+                  poster="assets/thumb_work_sahiba.jpg"
+                  data-video-id="work_sahiba" 
+                  data-src="assets/work_sahiba_1080p.mp4"
+                  onplay="handleSingleVideoPlayback(this)"
+                >
+                  Your browser does not support HTML5 video.
+                </video>
+              </div>
+              <div class="work-video-content">
+                <h4 class="work-video-title">Sahiba — Cinematic Shoot &amp; Narrative Music Edit</h4>
+                <p class="work-video-desc">A soulful, cinema-grade music video shoot and edit set to Sahiba. Featuring delicate poetic pacing, natural lighting cinematography, warm film emulation tones, and emotional resonance.</p>
+                <div class="work-highlights-list">
+                  <span class="work-highlight-pill">Cinematic Camera Direction</span>
+                  <span class="work-highlight-pill">Film Emulation LUT</span>
+                  <span class="work-highlight-pill">3840x2160 4K UHD</span>
+                </div>
+                <div class="work-card-footer">
+                  <span class="work-card-category">Music Video &amp; Direction</span>
+                  <button type="button" class="btn-work-commission" onclick="openBookingModal('Music Videos &amp; Films')">
+                    Book Similar Edit &rarr;
+                  </button>
+                </div>
+              </div>
+            </div>
+
+<div class="work-video-card theme-purple vault-card-item" data-vault-cats="cinematic all">
+              <div class="work-video-wrapper ratio-landscape">
+                <span class="work-video-badge-top">✦ 4K 60FPS Masterpiece ✦</span>
+                <span class="work-video-aspect-tag">16:9 4K UHD</span>
+                <video 
+                  class="work-video-elem" 
+                  controls 
+                  playsinline 
+                  preload="none" 
+                  poster="assets/thumb_work_ranjhana.jpg"
+                  data-video-id="work_ranjhana" 
+                  data-src="assets/work_ranjhana_1080p.mp4"
+                  onplay="handleSingleVideoPlayback(this)"
+                >
+                  Your browser does not support HTML5 video.
+                </video>
+              </div>
+              <div class="work-video-content">
+                <h4 class="work-video-title">Raanjhanaa — Cinematic 4K Film Master</h4>
+                <p class="work-video-desc">A breathtaking cinematic film edit set to Raanjhanaa in pristine 3840x2160 4K UHD at ultra-smooth 60FPS. Featuring atmospheric film emulation, emotive color grading, rhythmically timed motion dynamics, and deeply immersive audio.</p>
+                <div class="work-highlights-list">
+                  <span class="work-highlight-pill">3840x2160 4K UHD</span>
+                  <span class="work-highlight-pill">Ultra-Smooth 60 FPS</span>
+                  <span class="work-highlight-pill">Film Color Science</span>
+                </div>
+                <div class="work-card-footer">
+                  <span class="work-card-category">Cinematic Film Edit</span>
+                  <button type="button" class="btn-work-commission" onclick="openBookingModal('Music Videos &amp; Films')">
+                    Book Similar Edit &rarr;
+                  </button>
+                </div>
+              </div>
+            </div>
+
+<div class="work-video-card theme-gold vault-card-item" data-vault-cats="friends reels all">
+              <div class="work-video-wrapper ratio-vertical">
+                <span class="work-video-badge-top" style="background: linear-gradient(135deg, rgba(245, 158, 11, 0.95), rgba(234, 88, 12, 0.95)); color: #120e0a; font-weight: 900;">🔥 VIRAL • Friends &amp; Banter ✦</span>
+                <span class="work-video-aspect-tag">9:16 4K UHD 60FPS</span>
+                <video 
+                  class="work-video-elem" 
+                  controls 
+                  playsinline 
+                  preload="none" 
+                  poster="assets/thumb_work_friends_chaos.jpg"
+                  data-video-id="work_friends_chaos" 
+                  data-src="assets/work_friends_chaos_1080p.mp4"
+                  onplay="handleSingleVideoPlayback(this)"
+                >
+                  Your browser does not support HTML5 video.
+                </video>
+              </div>
+              <div class="work-video-content">
+                <h4 class="work-video-title">Unfiltered Chaos &amp; Brotherhood — High-Retention Dynamic Reel</h4>
+                <p class="work-video-desc">A fast-paced, high-retention lifestyle reel celebrating raw camaraderie and spontaneous brotherhood. Engineered with punchy comedic timing, rhythmic beat cuts, crystal-clear 4K vertical grading, and relatable narrative pacing.</p>
+                <div class="work-highlights-list">
+                  <span class="work-highlight-pill">Relatable Comedy Audio</span>
+                  <span class="work-highlight-pill">Rapid Beat Cuts &amp; Timing</span>
+                  <span class="work-highlight-pill">4K 60FPS Vertical Reel</span>
+                </div>
+                <div class="work-card-footer">
+                  <span class="work-card-category">Relatable Lifestyle Reel</span>
+                  <button type="button" class="btn-work-commission" onclick="openBookingModal('Viral Reels &amp; Shorts')">
+                    Book Similar Edit &rarr;
+                  </button>
+                </div>
+              </div>
+            </div>
+
+<div class="work-video-card theme-gold vault-card-item" data-vault-cats="mountain all">
+              <div class="work-video-wrapper ratio-vertical">
+                <span class="work-video-badge-top">✦ Visual Therapy &amp; Slowmo ✦</span>
+                <span class="work-video-aspect-tag">9:16 Ultra HD</span>
+                <video 
+                  class="work-video-elem" 
+                  controls 
+                  playsinline 
+                  preload="none" 
+                  poster="assets/thumb_work_therapy.jpg"
+                  data-video-id="work_therapy" 
+                  data-src="assets/work_therapy_1080p.mp4"
+                  onplay="handleSingleVideoPlayback(this)"
+                >
+                  Your browser does not support HTML5 video.
+                </video>
+              </div>
+              <div class="work-video-content">
+                <h4 class="work-video-title">Mountain Therapy — Soulful Slowmotion &amp; Sunset Moods</h4>
+                <p class="work-video-desc">A deeply calming cinematic therapy reel set against majestic misty mountain peaks with friends. Featuring soothing optical flow slowmotion at ultra-smooth 60FPS, rich earthy film color grade, and peaceful acoustic harmony.</p>
+                <div class="work-highlights-list">
+                  <span class="work-highlight-pill">60FPS Optical Slowmo</span>
+                  <span class="work-highlight-pill">Earthy Mountain Grade</span>
+                  <span class="work-highlight-pill">Cinematic Vibe Edit</span>
+                </div>
+                <div class="work-card-footer">
+                  <span class="work-card-category">Mountain Therapy &amp; Vibe</span>
+                  <button type="button" class="btn-work-commission" onclick="openBookingModal('Viral Reels &amp; Shorts')">
+                    Book Similar Edit &rarr;
+                  </button>
+                </div>
+              </div>
+            </div>
+
+<div class="work-video-card theme-violet vault-card-item" data-vault-cats="reels all">
+              <div class="work-video-wrapper ratio-vertical">
+                <span class="work-video-badge-top" style="background: linear-gradient(135deg, rgba(225, 29, 72, 0.95), rgba(249, 115, 22, 0.95)); color: #fff;">🔥 TRENDING • Clean Master Edit ✦</span>
+                <span class="work-video-aspect-tag">4K 60FPS Velocity</span>
+                <video 
+                  class="work-video-elem" 
+                  controls 
+                  playsinline 
+                  preload="none" 
+                  poster="assets/thumb_work_unamerican_girls.jpg"
+                  data-video-id="work_unamerican_girls" 
+                  data-src="assets/work_unamerican_girls_1080p.mp4"
+                  onplay="handleSingleVideoPlayback(this)"
+                >
+                  Your browser does not support HTML5 video.
+                </video>
+              </div>
+              <div class="work-video-content">
+                <h4 class="work-video-title">American Dream / Unamerican Girls — Ultra-Clean Dynamic Velocity Edit</h4>
+                <p class="work-video-desc">A high-impact and ultra-clean master showcase edit set to the infectious upbeat groove of American Dream / Unamerican Girls. Crafted with razor-sharp frame transitions, rhythmic whip pans, punchy bass sync, crystal cinematic color grade, and flawless visual retention.</p>
+                <div class="work-highlights-list">
+                  <span class="work-highlight-pill">American Dream Beat Sync</span>
+                  <span class="work-highlight-pill">Ultra-Clean 60FPS Polish</span>
+                  <span class="work-highlight-pill">High Retention Dynamic Flow</span>
+                </div>
+                <div class="work-card-footer">
+                  <span class="work-card-category">Viral Reels &amp; Music Edits</span>
+                  <button type="button" class="btn-work-commission" onclick="openBookingModal('Viral Reels &amp; Shorts')">
+                    Book Similar Edit &rarr;
+                  </button>
+                </div>
+              </div>
+            </div>
+
+<div class="work-video-card theme-gold vault-card-item" data-vault-cats="reels all">
+              <div class="work-video-wrapper ratio-vertical">
+                <span class="work-video-badge-top" style="background: linear-gradient(135deg, rgba(245, 158, 11, 0.95), rgba(212, 175, 55, 0.95)); color: #120e0a; font-weight: 900;">👑 TRENDING • Viral Instagram Edit ✦</span>
+                <span class="work-video-aspect-tag">9:16 4K UHD 60FPS</span>
+                <video 
+                  class="work-video-elem" 
+                  controls 
+                  playsinline 
+                  preload="none" 
+                  poster="assets/thumb_work_grind_viral.jpg"
+                  data-video-id="work_grind_viral" 
+                  data-src="assets/work_grind_viral_1080p.mp4"
+                  onplay="handleSingleVideoPlayback(this)"
+                >
+                  Your browser does not support HTML5 video.
+                </video>
+              </div>
+              <div class="work-video-content">
+                <h4 class="work-video-title">Grind With Me — Viral Instagram Aesthetic Motion Blur Edit</h4>
+                <p class="work-video-desc">A viral Instagram sensation edit set to the trending sound Grind With Me by Pretty Ricky. Engineered with seductive optical-flow slow-motion ramps, atmospheric motion blur whip transitions, deep bass drops, and an unmatched hypnotic visual aesthetic designed to stop the scroll.</p>
+                <div class="work-highlights-list">
+                  <span class="work-highlight-pill">Viral Trend Audio (Pretty Ricky)</span>
+                  <span class="work-highlight-pill">Optical Flow Speed Ramps</span>
+                  <span class="work-highlight-pill">4K 60FPS Vertical Master</span>
+                </div>
+                <div class="work-card-footer">
+                  <span class="work-card-category">Trending Instagram Reel</span>
+                  <button type="button" class="btn-work-commission" onclick="openBookingModal('Viral Reels &amp; Shorts')">
+                    Book Similar Edit &rarr;
+                  </button>
+                </div>
+              </div>
+            </div>
+
+<div class="work-video-card theme-crimson vault-card-item" data-vault-cats="reels all">
+              <div class="work-video-wrapper ratio-vertical">
+                <span class="work-video-badge-top">✦ 4K 60FPS Hyper Velocity ✦</span>
+                <span class="work-video-aspect-tag">9:16 4K Reel</span>
+                <video 
+                  class="work-video-elem" 
+                  controls 
+                  playsinline 
+                  preload="none" 
+                  poster="assets/thumb_work_khamoshi.jpg"
+                  data-video-id="work_khamoshi" 
+                  data-src="assets/work_khamoshi_1080p.mp4"
+                  onplay="handleSingleVideoPlayback(this)"
+                >
+                  Your browser does not support HTML5 video.
+                </video>
+              </div>
+              <div class="work-video-content">
+                <h4 class="work-video-title">Khamoshiyan — High-Octane Fast Beat Sync &amp; Velocity Transitions</h4>
+                <p class="work-video-desc">An electrifying, high-energy transition reel set to Khamoshiyan. Engineered with precision beat-matched velocity ramps, seamless whip pans, aggressive motion blurs, punchy color pops, and high retention pacing.</p>
+                <div class="work-highlights-list">
+                  <span class="work-highlight-pill">Beat-Synced Velocity Cuts</span>
+                  <span class="work-highlight-pill">Hyper Dynamic Motion Blur</span>
+                  <span class="work-highlight-pill">4K 60FPS Vertical Reel</span>
+                </div>
+                <div class="work-card-footer">
+                  <span class="work-card-category">Fast Beat Transitions</span>
+                  <button type="button" class="btn-work-commission" onclick="openBookingModal('Viral Reels &amp; Shorts')">
+                    Book Similar Edit &rarr;
+                  </button>
+                </div>
+              </div>
+            </div>
+
+<div class="work-video-card theme-crimson vault-card-item" data-vault-cats="gangster all">
+              <div class="work-video-wrapper ratio-vertical">
+                <span class="work-video-badge-top" style="background: linear-gradient(135deg, rgba(225, 29, 72, 0.95), rgba(159, 18, 57, 0.95)); color: #fff; font-weight: 900;">⚡ DOMINANCE • Gangster Drill ✦</span>
+                <span class="work-video-aspect-tag">9:16 4K UHD 60FPS</span>
+                <video 
+                  class="work-video-elem" 
+                  controls 
+                  playsinline 
+                  preload="none" 
+                  poster="assets/thumb_work_gangster_attitude.jpg"
+                  data-video-id="work_gangster_attitude" 
+                  data-src="assets/work_gangster_attitude_1080p.mp4"
+                  onplay="handleSingleVideoPlayback(this)"
+                >
+                  Your browser does not support HTML5 video.
+                </video>
+              </div>
+              <div class="work-video-content">
+                <h4 class="work-video-title">The Sovereign Stride — Dark Cinematic Attitude &amp; Drill Velocity</h4>
+                <p class="work-video-desc">A razor-sharp gangster aesthetic master edit featuring bold typography overlays, aggressive frame-snapping transitions, analog camera shutter SFX, and a crushing dark bassline tailored for maximum alpha energy.</p>
+                <div class="work-highlights-list">
+                  <span class="work-highlight-pill">Iconic Attitude Dialogue</span>
+                  <span class="work-highlight-pill">Aggressive Velocity Snaps</span>
+                  <span class="work-highlight-pill">Camera Shutter &amp; Dark SFX</span>
+                </div>
+                <div class="work-card-footer">
+                  <span class="work-card-category">Dark Gangster Attitude</span>
+                  <button type="button" class="btn-work-commission" onclick="openBookingModal('Viral Reels &amp; Shorts')">
+                    Book Similar Edit &rarr;
+                  </button>
+                </div>
+              </div>
+            </div>
+
+<div class="work-video-card theme-gold vault-card-item" data-vault-cats="gangster all">
+              <div class="work-video-wrapper ratio-vertical">
+                <span class="work-video-badge-top" style="background: linear-gradient(135deg, rgba(245, 158, 11, 0.95), rgba(212, 175, 55, 0.95)); color: #120e0a; font-weight: 900;">👑 MAFIA • Underworld Energy ✦</span>
+                <span class="work-video-aspect-tag">9:16 4K UHD 60FPS</span>
+                <video 
+                  class="work-video-elem" 
+                  controls 
+                  playsinline 
+                  preload="none" 
+                  poster="assets/thumb_work_gangster_mafia.jpg"
+                  data-video-id="work_gangster_mafia" 
+                  data-src="assets/work_gangster_mafia_1080p.mp4"
+                  onplay="handleSingleVideoPlayback(this)"
+                >
+                  Your browser does not support HTML5 video.
+                </video>
+              </div>
+              <div class="work-video-content">
+                <h4 class="work-video-title">The Syndicate Trade — Gritty Underworld Dialogue &amp; Bass Impact</h4>
+                <p class="work-video-desc">A raw, heavy-hitting gangster reel centered on intense underworld dialogue delivery. Synced with rapid velocity speed ramps, aggressive bass kicks, and high-contrast neo-noir color grading.</p>
+                <div class="work-highlights-list">
+                  <span class="work-highlight-pill">Raw Weapon Mafia Dialogue</span>
+                  <span class="work-highlight-pill">Hard-Hitting Bass Drops</span>
+                  <span class="work-highlight-pill">4K 60FPS Neo-Noir Grade</span>
+                </div>
+                <div class="work-card-footer">
+                  <span class="work-card-category">Underworld Dialogue Reel</span>
+                  <button type="button" class="btn-work-commission" onclick="openBookingModal('Viral Reels &amp; Shorts')">
+                    Book Similar Edit &rarr;
+                  </button>
+                </div>
+              </div>
+            </div>
+
+<div class="work-video-card theme-gold vault-card-item" data-vault-cats="celebrations all">
+              <div class="work-video-wrapper ratio-vertical">
+                <span class="work-video-badge-top">Speed Ramp &amp; VFX</span>
+                <span class="work-video-aspect-tag">9:16 Vertical Reel</span>
+                <video 
+                  class="work-video-elem" 
+                  controls 
+                  playsinline 
+                  preload="none" 
+                  poster="assets/thumb_work_birthday.jpg"
+                  data-video-id="work_birthday" 
+                  data-src="assets/work_birthday_1080p.mp4"
+                  onplay="handleSingleVideoPlayback(this)"
+                >
+                  Your browser does not support HTML5 video.
+                </video>
+              </div>
+              <div class="work-video-content">
+                <h4 class="work-video-title">Neon Vibe — Cinematic Birthday Celebration</h4>
+                <p class="work-video-desc">High-energy celebration reel featuring seamless speed ramps, vibrant neon glows, beat-matched transitions, and infectious cinematic rhythm that captures every electric moment.</p>
+                <div class="work-highlights-list">
+                  <span class="work-highlight-pill">Beat-Synced Transitions</span>
+                  <span class="work-highlight-pill">Vibrant Color Grading</span>
+                  <span class="work-highlight-pill">Ultra HD 9:16 Reel</span>
+                </div>
+                <div class="work-card-footer">
+                  <span class="work-card-category">Cinematic Birthday</span>
+                  <button type="button" class="btn-work-commission" onclick="openBookingModal('Viral Reels &amp; Shorts')">
+                    Book Similar Edit &rarr;
+                  </button>
+                </div>
+              </div>
+            </div>
+
+<div class="work-video-card theme-gold vault-card-item" data-vault-cats="celebrations all">
+              <div class="work-video-wrapper ratio-vertical">
+                <span class="work-video-badge-top">Festive Energy</span>
+                <span class="work-video-aspect-tag">9:16 Vertical Reel</span>
+                <video 
+                  class="work-video-elem" 
+                  controls 
+                  playsinline 
+                  preload="none" 
+                  poster="assets/thumb_work_ganesh.jpg"
+                  data-video-id="work_ganesh" 
+                  data-src="assets/work_ganesh_1080p.mp4"
+                  onplay="handleSingleVideoPlayback(this)"
+                >
+                  Your browser does not support HTML5 video.
+                </video>
+              </div>
+              <div class="work-video-content">
+                <h4 class="work-video-title">Ganesh Chaturthi — High-Energy Festival Celebration Reel</h4>
+                <p class="work-video-desc">High-energy festive celebration reel featuring energetic beat-matched transitions, vibrant colors, festive music synchronization, and dynamic crowd moments.</p>
+                <div class="work-highlights-list">
+                  <span class="work-highlight-pill">Beat-Synced Cuts</span>
+                  <span class="work-highlight-pill">Festive Color Grade</span>
+                  <span class="work-highlight-pill">Ultra HD 9:16 Reel</span>
+                </div>
+                <div class="work-card-footer">
+                  <span class="work-card-category">Festival Celebration Reel</span>
+                  <button type="button" class="btn-work-commission" onclick="openBookingModal('Viral Reels &amp; Shorts')">
+                    Book Similar Edit &rarr;
+                  </button>
+                </div>
+              </div>
+            </div>
+
+<div class="work-video-card theme-cyan vault-card-item" data-vault-cats="gym reels all">
+              <div class="work-video-wrapper ratio-vertical">
+                <span class="work-video-badge-top">High-Octane Retention</span>
+                <span class="work-video-aspect-tag">9:16 Vertical Reel</span>
+                <video 
+                  class="work-video-elem" 
+                  controls 
+                  playsinline 
+                  preload="none" 
+                  poster="assets/thumb_work_gym.jpg"
+                  data-video-id="work_gym" 
+                  data-src="assets/work_gym_1080p.mp4"
+                  onplay="handleSingleVideoPlayback(this)"
+                >
+                  Your browser does not support HTML5 video.
+                </video>
+              </div>
+              <div class="work-video-content">
+                <h4 class="work-video-title">Relentless Beast — Gym Motivation Edit</h4>
+                <p class="work-video-desc">Aggressive, high-octane workout edit engineered with hard-hitting bass drops, dynamic punch-ins, motion blur whip pans, and intense film grain aesthetics to ignite unstoppable energy.</p>
+                <div class="work-highlights-list">
+                  <span class="work-highlight-pill">Explosive Bass Drops</span>
+                  <span class="work-highlight-pill">Retention-Engineered Cuts</span>
+                  <span class="work-highlight-pill">Dynamic Zoom Transitions</span>
+                </div>
+                <div class="work-card-footer">
+                  <span class="work-card-category">Gym Motivation</span>
+                  <button type="button" class="btn-work-commission" onclick="openBookingModal('Viral Reels &amp; Shorts')">
+                    Book Similar Edit &rarr;
+                  </button>
+                </div>
+              </div>
+            </div>
+
+<div class="work-video-card theme-crimson vault-card-item" data-vault-cats="commercials all">
+              <div class="work-video-wrapper ratio-vertical">
+                <span class="work-video-badge-top">Signature Reel</span>
+                <span class="work-video-aspect-tag">9:16 Vertical Reel</span>
+                <video 
+                  class="work-video-elem" 
+                  controls 
+                  playsinline 
+                  preload="none" 
+                  poster="assets/thumb_work_company.jpg"
+                  data-video-id="work_company" 
+                  data-src="assets/work_company_1080p.mp4"
+                  onplay="handleSingleVideoPlayback(this)"
+                >
+                  Your browser does not support HTML5 video.
+                </video>
+              </div>
+              <div class="work-video-content">
+                <h4 class="work-video-title">Apex Corporate Brand Showcase</h4>
+                <p class="work-video-desc">A sleek, authoritative company brand commercial edit featuring precision pacing, cinematic title cards, enterprise-grade color grading, and razor-sharp sound design built for maximum brand credibility.</p>
+                <div class="work-highlights-list">
+                  <span class="work-highlight-pill">Enterprise Grade Motion</span>
+                  <span class="work-highlight-pill">Cinematic Sound Mastering</span>
+                  <span class="work-highlight-pill">Ultra HD 9:16 Master</span>
+                </div>
+                <div class="work-card-footer">
+                  <span class="work-card-category">Commercial / Corporate</span>
+                  <button type="button" class="btn-work-commission" onclick="openBookingModal('Commercials &amp; Ads')">
+                    Book Similar Edit &rarr;
+                  </button>
+                </div>
+              </div>
+            </div>
+
+<div class="work-video-card theme-emerald vault-card-item" data-vault-cats="commercials all">
+              <div class="work-video-wrapper ratio-vertical">
+                <span class="work-video-badge-top">Heartfelt Storytelling</span>
+                <span class="work-video-aspect-tag">9:16 Vertical Story</span>
+                <video 
+                  class="work-video-elem" 
+                  controls 
+                  playsinline 
+                  preload="none" 
+                  poster="assets/thumb_work_charity.jpg"
+                  data-video-id="work_charity" 
+                  data-src="assets/work_charity_1080p.mp4"
+                  onplay="handleSingleVideoPlayback(this)"
+                >
+                  Your browser does not support HTML5 video.
+                </video>
+              </div>
+              <div class="work-video-content">
+                <h4 class="work-video-title">Compassion in Motion — Feeding the Needy &amp; Rescuing Stray Lives</h4>
+                <p class="work-video-desc">A deeply moving and heartfelt social documentary story capturing a young girl distributing warm meals to the homeless and feeding hungry stray animals on the streets. Crafted with uplifting warm tones, emotional narrative rhythm, and soul-stirring audio atmosphere.</p>
+                <div class="work-highlights-list">
+                  <span class="work-highlight-pill">Emotional Story Pacing</span>
+                  <span class="work-highlight-pill">Social Impact Documentary</span>
+                  <span class="work-highlight-pill">Warm Atmospheric Audio</span>
+                </div>
+                <div class="work-card-footer">
+                  <span class="work-card-category">Social Impact Story</span>
+                  <button type="button" class="btn-work-commission" onclick="openBookingModal('Commercials &amp; Ads')">
+                    Book Similar Edit &rarr;
+                  </button>
+                </div>
+              </div>
+            </div>
+
+<div class="work-video-card theme-emerald vault-card-item" data-vault-cats="commercials all">
+              <div class="work-video-wrapper ratio-landscape">
+                <span class="work-video-badge-top">✦ Long Video Edit Sample ✦</span>
+                <span class="work-video-aspect-tag">16:9 Landscape Video</span>
+                <video 
+                  class="work-video-elem" 
+                  controls 
+                  playsinline 
+                  preload="none" 
+                  poster="assets/thumb_work_long_sample.jpg"
+                  data-video-id="work_long_sample" 
+                  data-src="assets/work_long_sample_1080p.mp4"
+                  onplay="handleSingleVideoPlayback(this)"
+                >
+                  Your browser does not support HTML5 video.
+                </video>
+              </div>
+              <div class="work-video-content">
+                <h4 class="work-video-title">Sample for Long Video Edits — Pacing &amp; B-Roll Structure</h4>
+                <p class="work-video-desc">A sample demonstration edit specifically crafted for long videos and YouTube content. Showcases clean narrative pacing, smooth B-roll integration, high viewer retention cuts, and balanced audio mixing.</p>
+                <div class="work-highlights-list">
+                  <span class="work-highlight-pill">Long Video Edit Sample</span>
+                  <span class="work-highlight-pill">B-Roll Pacing &amp; Cuts</span>
+                  <span class="work-highlight-pill">YouTube Video Flow</span>
+                </div>
+                <div class="work-card-footer">
+                  <span class="work-card-category">YouTube Long-Form</span>
+                  <button type="button" class="btn-work-commission" onclick="openBookingModal('YouTube Documentaries')">
+                    Book Similar Edit &rarr;
+                  </button>
+                </div>
+              </div>
+            </div>
+
+<div class="work-video-card theme-gold vault-card-item" data-vault-cats="shoots all">
+              <div class="work-video-wrapper ratio-landscape" style="background: linear-gradient(135deg, #1b150c, #2b1f10); display: flex; flex-direction: column; justify-content: center; padding: 24px;">
+                <div style="font-size: 42px; margin-bottom: 8px;">📷 🚁 🎙️</div>
+                <span class="work-video-aspect-tag">Cinema Field Gear</span>
+                <h4 style="font-family: var(--display); color: #fff; font-size: 17px; margin: 0 0 6px;">Cinema Production Rig Arsenal</h4>
+                <p style="font-size: 12px; color: #d4af37; margin: 0;">4K 60FPS Native Field Recording</p>
+              </div>
+              <div class="work-video-content">
+                <h4 class="work-video-title">Field Production &amp; On-Location Direction Capabilities</h4>
+                <p class="work-video-desc">Equipped for professional on-location filming across Uttarakhand lakes, cityscapes, events, and outdoor commercial shoots with 4K UHD stabilized aerials, multi-axis gimbals, and broadcast audio.</p>
+                <div class="work-highlights-list">
+                  <span class="work-highlight-pill">4K UHD Cinema Cameras</span>
+                  <span class="work-highlight-pill">DJI Ronin 3-Axis Gimbal</span>
+                  <span class="work-highlight-pill">4K Drone Aerial Framing</span>
+                </div>
+                <div class="work-card-footer">
+                  <span class="work-card-category">On-Location Shoots &amp; BTS</span>
+                  <button type="button" class="btn-work-commission" onclick="openBookingModal('Custom Project (Shoot &amp; Edit)')">
+                    Book On-Location Shoot &rarr;
+                  </button>
+                </div>
+              </div>
+            </div>
+
+
+            <div class="work-video-card theme-gold vault-card-item" data-vault-cats="shoots all">
+              <div class="work-video-wrapper ratio-landscape" style="background: linear-gradient(135deg, #1b150c, #2b1f10); display: flex; flex-direction: column; justify-content: center; padding: 24px; text-align: center;">
+                <div style="font-size: 42px; margin-bottom: 8px;">📷 🚁 🎙️</div>
+                <span class="work-video-aspect-tag">Cinema Field Gear</span>
+                <h4 style="font-family: var(--display); color: #fff; font-size: 17px; margin: 0 0 6px;">Cinema Production Rig Arsenal</h4>
+                <p style="font-size: 12px; color: #d4af37; margin: 0;">4K 60FPS Native Field Recording</p>
+              </div>
+              <div class="work-video-content">
+                <h4 class="work-video-title">Field Production &amp; On-Location Direction Capabilities</h4>
+                <p class="work-video-desc">Equipped for professional on-location filming across Uttarakhand lakes, cityscapes, events, and outdoor commercial shoots with 4K UHD stabilized aerials, multi-axis gimbals, and broadcast audio.</p>
+                <div class="work-highlights-list">
+                  <div class="work-highlight-item"><span class="highlight-bullet">✦</span> 4K UHD 60FPS Cinema Cameras &amp; Fast Primes</div>
+                  <div class="work-highlight-item"><span class="highlight-bullet">✦</span> 3-Axis Electronic Motorized Gimbal Stabilizer</div>
+                  <div class="work-highlight-item"><span class="highlight-bullet">✦</span> 4K High-Wind Aerial Drone Cinematography</div>
+                  <div class="work-highlight-item"><span class="highlight-bullet">✦</span> Wireless Lavalier &amp; Directional Shotgun Foley Mics</div>
+                </div>
+              </div>
+            </div>
+        </div>
+
+        <!-- FOOTER WITH RETURN BUTTON -->
+        <div class="cinema-vault-footer">
+          <button type="button" class="btn-return-home" onclick="closeCinemaVault()">
+            <span>↑ Back to Portfolio Website</span>
+          </button>
+        </div>
+
+      </div>
+    </div>
+
+
+
+    <!-- JAVASCRIPT CONTROLLER: FULLSCREEN MASTER CINEMA VAULT -->
+    <script>
+      const vaultMetaMap = {
+        'all': { 
+          title: '🌟 All Video Showcases', 
+          desc: 'Complete portfolio of 21 projects across 4K cinema, dark gangster attitude, viral reels, and commercial productions.' 
         },
-        'films': {
-          title: '🎞️ Narrative Cinema Films',
-          pill: '✦ 2 Films • Story & Music ✦',
-          pillColor: '#c084fc',
-          pillBorder: 'rgba(168, 85, 247, 0.4)',
-          pillBg: 'rgba(168, 85, 247, 0.1)',
-          desc: 'Soulful music video direction, deep character narratives, and emotionally paced cinematic cuts (Sahiba & Raanjhanaa).'
+        'cinematic': { 
+          title: '🎬 4K Cinematics & Films', 
+          desc: 'High-altitude mountain lakes, golden-hour light symmetry, and Hollywood color grading (Featuring Nazar-e-Khaas Spotlight #1).' 
         },
-        'reels': {
-          title: '📱 Viral Instagram Reels',
-          pill: '✦ 5 Trending Reels • 9:16 Velocity ✦',
-          pillColor: '#34d399',
-          pillBorder: 'rgba(16, 185, 129, 0.4)',
-          pillBg: 'rgba(16, 185, 129, 0.1)',
-          desc: 'High-retention 9:16 short-form reels engineered for Instagram algorithms, speed ramps, and instant viewer retention.'
+        'gangster': { 
+          title: '⚡ Gangster & Attitude Edits', 
+          desc: 'Dark drill velocity transitions, mafia attitude pacing, and underworld dialogue bass sync (The Sovereign Stride & The Syndicate Trade).' 
         },
-        'commercials': {
-          title: '💼 Brand Ads & Commercials',
-          pill: '✦ 2 Productions • 4K UHD ✦',
-          pillColor: '#fbbf24',
-          pillBorder: 'rgba(245, 158, 11, 0.4)',
-          pillBg: 'rgba(245, 158, 11, 0.1)',
-          desc: 'High-conversion corporate brand identity showcases and humanitarian cause documentary films with broadcast sound.'
+        'friends': { 
+          title: '🍻 Brotherhood & Friends Banter', 
+          desc: 'Unfiltered authentic moments, college gang banter, comedy audio clips, and hyper-dynamic pacing (Unfiltered Chaos & Brotherhood).' 
         },
-        'longform': {
-          title: '📺 Long-Form YouTube Editing',
-          pill: '✦ 1 Master Cut • 60FPS ✦',
-          pillColor: '#fb7185',
-          pillBorder: 'rgba(244, 63, 94, 0.4)',
-          pillBg: 'rgba(244, 63, 94, 0.1)',
-          desc: 'High-retention episodic YouTube editing: multi-angle cuts, dynamic zoom punches, chapter markers, and continuous engagement pacing.'
+        'reels': { 
+          title: '👑 Viral Reels & Velocity Transitions', 
+          desc: '9:16 vertical short-form mastery: American Dream velocity, Grind With Me motion blur & Khamoshiyan beat sync.' 
         },
-        'shoots': {
-          title: '🎥 Shoots & Behind The Scenes (BTS)',
-          pill: '✦ 2 Directorial Showcases ✦',
-          pillColor: '#22d3ee',
-          pillBorder: 'rgba(6, 182, 212, 0.4)',
-          pillBg: 'rgba(6, 182, 212, 0.1)',
-          desc: 'Behind-the-scenes camera production rigs, 4K gimbal stabilization, aerial drone direction, and field cinematography capabilities.'
+        'mountain': { 
+          title: '🏔️ Mountain & Nature Therapy', 
+          desc: 'Atmospheric mountain highways, golden sunset vistas, soulful lofi beats, and soothing optical flow slowmotion.' 
         },
-        'edit-gangster': {
-          title: '⚡ Gangster & Attitude Edits',
-          pill: '✦ 2 Edits • Drill & Attitude ✦',
-          pillColor: '#fb7185',
-          pillBorder: 'rgba(244, 63, 94, 0.4)',
-          pillBg: 'rgba(244, 63, 94, 0.1)',
-          desc: 'Dark drill velocity speed ramps, underworld dialogue cuts, and aggressive bass transitions (The Sovereign Stride & The Syndicate Trade).'
+        'celebrations': { 
+          title: '🎂 Birthday & Festival Celebrations', 
+          desc: 'Neon party glow transitions (Neon Vibe) and high-energy Ganesh Chaturthi cultural dhol rhythm edits.' 
         },
-        'edit-friends': {
-          title: '🍻 Brotherhood & Friends Banter',
-          pill: '✦ 1 Edit • Raw Unfiltered Energy ✦',
-          pillColor: '#fde047',
-          pillBorder: 'rgba(212, 175, 55, 0.4)',
-          pillBg: 'rgba(212, 175, 55, 0.1)',
-          desc: 'Unfiltered authentic moments, college gang banter, comedy audio clips, and hyper-dynamic pacing (Unfiltered Chaos & Brotherhood).'
+        'gym': { 
+          title: '💪 Gym & Alpha Motivation', 
+          desc: 'High-intensity workout cuts, muscle contraction flashes, dark gym grading, and chest-thumping bass sync.' 
         },
-        'edit-mountain': {
-          title: '🏔️ Mountain & Nature Therapy',
-          pill: '✦ 1 Edit • Soulful Slowmotion ✦',
-          pillColor: '#22d3ee',
-          pillBorder: 'rgba(6, 182, 212, 0.4)',
-          pillBg: 'rgba(6, 182, 212, 0.1)',
-          desc: 'Atmospheric mountain highways, golden sunset vistas, soulful lofi beats, and soothing optical flow slowmotion.'
+        'commercials': { 
+          title: '💼 Brand Commercials & YouTube', 
+          desc: 'Commercial brand identity showcases (Apex Corporate), humanitarian documentary cause films, and high-retention YouTube editing.' 
         },
-        'edit-birthday': {
-          title: '🎂 Birthday & Neon Celebrations',
-          pill: '✦ 1 Edit • Party & Glow ✦',
-          pillColor: '#c084fc',
-          pillBorder: 'rgba(168, 85, 247, 0.4)',
-          pillBg: 'rgba(168, 85, 247, 0.1)',
-          desc: 'Neon night party vibes, birthday cake pop transitions, kinetic glow overlays, and celebration energy.'
-        },
-        'edit-instagram': {
-          title: '👑 Instagram Viral Rhythms',
-          pill: '✦ 3 Edits • Motion Blur & Velocity ✦',
-          pillColor: '#34d399',
-          pillBorder: 'rgba(16, 185, 129, 0.4)',
-          pillBg: 'rgba(16, 185, 129, 0.1)',
-          desc: 'Aesthetic motion blur, fast beat matching (Khamoshiyan), dynamic speed ramps (American Dream) & trending audio sync.'
-        },
-        'edit-gym': {
-          title: '💪 Gym & Alpha Motivation',
-          pill: '✦ 1 Edit • High Intensity ✦',
-          pillColor: '#fb7185',
-          pillBorder: 'rgba(244, 63, 94, 0.4)',
-          pillBg: 'rgba(244, 63, 94, 0.1)',
-          desc: 'High-intensity workout cuts, muscle contraction flashes, dark gym grading, and chest-thumping bass sync.'
-        },
-        'edit-festival': {
-          title: '🪔 Cultural & Festival Celebrations',
-          pill: '✦ 1 Edit • Festive Energy ✦',
-          pillColor: '#fde047',
-          pillBorder: 'rgba(212, 175, 55, 0.4)',
-          pillBg: 'rgba(212, 175, 55, 0.1)',
-          desc: 'Vibrant Ganesh Chaturthi festival edits, heavy dhol rhythm cuts, color bursts, and collective spiritual energy.'
+        'shoots': { 
+          title: '🎥 Shoots & Behind The Scenes (BTS)', 
+          desc: 'Field production direction capabilities, 4K camera rigs, 3-axis motorized gimbals, and aerial drone recording.' 
         }
       };
 
-      function pauseAllWorksVideos() {
+      function openCinemaVault(category = 'all') {
+        // Pause any homepage videos
         document.querySelectorAll('.work-video-elem').forEach(v => {
+          if (!v.paused) v.pause();
+        });
+
+        const modal = document.getElementById('cinemaVaultModal');
+        if (!modal) return;
+        modal.style.display = 'block';
+        document.body.style.overflow = 'hidden'; // lock homepage scrolling
+
+        // Find matching tab button
+        const tabBtn = document.querySelector(`.vault-tab-btn[data-cat="${category}"]`) || document.querySelector('.vault-tab-btn[data-cat="all"]');
+        filterCinemaVault(category, tabBtn);
+        modal.scrollTop = 0;
+      }
+
+      function closeCinemaVault() {
+        const modal = document.getElementById('cinemaVaultModal');
+        if (!modal) return;
+        modal.style.display = 'none';
+        document.body.style.overflow = ''; // unlock homepage scrolling
+        
+        // Pause all vault videos
+        modal.querySelectorAll('.work-video-elem').forEach(v => {
           if (!v.paused) v.pause();
         });
       }
 
-      function showWorksCategoryGrid() {
-        pauseAllWorksVideos();
-        document.getElementById('worksCategoriesView').style.display = 'block';
-        document.getElementById('worksEditsHubView').style.display = 'none';
-        document.getElementById('worksVideoShelfView').style.display = 'none';
-        const section = document.getElementById('works-section');
-        if (section) section.scrollIntoView({ behavior: 'smooth', block: 'start' });
-      }
-
-      function showWorksEditsHub() {
-        pauseAllWorksVideos();
-        document.getElementById('worksCategoriesView').style.display = 'none';
-        document.getElementById('worksEditsHubView').style.display = 'block';
-        document.getElementById('worksVideoShelfView').style.display = 'none';
-        const section = document.getElementById('works-section');
-        if (section) section.scrollIntoView({ behavior: 'smooth', block: 'start' });
-      }
-
-      function openWorksCategory(catKey, isSubEdit = false) {
-        pauseAllWorksVideos();
-        currentActiveShelfSource = isSubEdit ? 'edits-hub' : 'categories';
-
-        const meta = worksCategoryMetadata[catKey] || {
-          title: '🎬 Video Collection',
-          pill: '✦ Video Projects ✦',
-          pillColor: '#d4af37',
-          pillBorder: 'rgba(212, 175, 55, 0.4)',
-          pillBg: 'rgba(212, 175, 55, 0.1)',
-          desc: 'Selected video projects from Krishna X Editz portfolio.'
-        };
-
-        // Update shelf elements
-        document.getElementById('shelfActiveTitle').innerText = meta.title;
-        const pillElem = document.getElementById('shelfActivePill');
-        pillElem.innerText = meta.pill;
-        pillElem.style.color = meta.pillColor;
-        pillElem.style.borderColor = meta.pillBorder;
-        pillElem.style.background = meta.pillBg;
-        document.getElementById('shelfActiveDesc').innerText = meta.desc;
-
-        // Update back button and breadcrumb
-        const backBtnLabel = document.getElementById('shelfBackBtnLabel');
-        const breadcrumbElem = document.getElementById('worksShelfBreadcrumbs');
-
-        if (isSubEdit) {
-          backBtnLabel.innerText = 'Back to Edits Hub';
-          breadcrumbElem.innerHTML = `
-            <span class="crumb-link" onclick="showWorksCategoryGrid()">Works</span>
-            <span class="crumb-sep">›</span>
-            <span class="crumb-link" onclick="showWorksEditsHub()">🔥 Edits Hub</span>
-            <span class="crumb-sep">›</span>
-            <span class="crumb-current">${meta.title}</span>
-          `;
-        } else {
-          backBtnLabel.innerText = 'Back to All Categories';
-          breadcrumbElem.innerHTML = `
-            <span class="crumb-link" onclick="showWorksCategoryGrid()">Works Showcase</span>
-            <span class="crumb-sep">›</span>
-            <span class="crumb-current">${meta.title}</span>
-          `;
+      // Close on ESC key
+      window.addEventListener('keydown', function(e) {
+        if (e.key === 'Escape') {
+          const modal = document.getElementById('cinemaVaultModal');
+          if (modal && modal.style.display !== 'none') {
+            closeCinemaVault();
+          }
         }
+      });
 
-        // Filter video cards inside shelf
-        const allCards = document.querySelectorAll('.work-video-card-item');
-        let matchCount = 0;
-        allCards.forEach(card => {
-          const tags = (card.getAttribute('data-cats') || '').split(' ');
-          if (tags.includes(catKey)) {
+      // 1-Click Instant Tab Filter in Vault
+      function filterCinemaVault(catKey, btn) {
+        document.querySelectorAll('.vault-tab-btn').forEach(b => b.classList.remove('active'));
+        if (btn) btn.classList.add('active');
+
+        const meta = vaultMetaMap[catKey] || vaultMetaMap['all'];
+        document.getElementById('vaultCategoryHeadline').textContent = meta.title;
+        document.getElementById('vaultCategoryDesc').textContent = meta.desc;
+
+        const cards = document.querySelectorAll('.vault-card-item');
+        let count = 0;
+        cards.forEach(card => {
+          const cats = (card.getAttribute('data-vault-cats') || '').split(' ');
+          if (catKey === 'all' || cats.includes(catKey)) {
             card.style.display = 'flex';
-            matchCount++;
+            count++;
           } else {
             card.style.display = 'none';
           }
         });
 
-        // Toggle views
-        document.getElementById('worksCategoriesView').style.display = 'none';
-        document.getElementById('worksEditsHubView').style.display = 'none';
-        document.getElementById('worksVideoShelfView').style.display = 'block';
-
-        const section = document.getElementById('works-section');
-        if (section) section.scrollIntoView({ behavior: 'smooth', block: 'start' });
+        document.getElementById('vaultActiveCount').textContent = `Showing ${count} Videos`;
       }
 
-      function handleShelfBackClick() {
-        if (currentActiveShelfSource === 'edits-hub') {
-          showWorksEditsHub();
-        } else {
-          showWorksCategoryGrid();
-        }
-      }
-
-      // Single Video Playback: pause any other video when one starts
+      // Single Video Playback: pause other videos when one is played
       function handleSingleVideoPlayback(activeVideo) {
         document.querySelectorAll('.work-video-elem').forEach(v => {
           if (v !== activeVideo && !v.paused) {
