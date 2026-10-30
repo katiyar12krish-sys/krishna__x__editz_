@@ -3417,16 +3417,16 @@
       position: relative;
     }
 
-    /* SCROLL TRIGGERED REVEAL ANIMATIONS */
+    /* SCROLL TRIGGERED REVEAL ANIMATIONS - RESILIENT NEVER BLANK */
     .reveal-elem {
-      opacity: 0;
-      transform: translateY(40px) scale(0.98);
-      transition: opacity 850ms var(--ease), transform 850ms var(--ease);
+      opacity: 1 !important;
+      transform: translateY(0) scale(1) !important;
+      transition: opacity 600ms var(--ease), transform 600ms var(--ease);
     }
 
     .reveal-elem.in-view {
-      opacity: 1;
-      transform: translateY(0) scale(1);
+      opacity: 1 !important;
+      transform: translateY(0) scale(1) !important;
     }
 
     .stagger-1 { transition-delay: 80ms; }
@@ -9927,13 +9927,16 @@ ${payload.project_brief || 'None specified'}
       });
     });
 
-    // Topbar Book Now -> Open Modal
-    collectionBtn.addEventListener('click', () => {
-      openBookingModal();
-    });
+    // Topbar Book Now -> Open Modal (Safe Guarded)
+    if (collectionBtn) {
+      collectionBtn.addEventListener('click', () => {
+        openBookingModal();
+      });
+    }
 
     // Detail Panel Action Button
-    readBtn.addEventListener('click', () => {
+    if (readBtn) {
+      readBtn.addEventListener('click', () => {
       if (currentSelected === 'services') {
         openBookingModal('Viral Reels & Shorts');
       } else if (currentSelected === 'works') {
@@ -9942,8 +9945,10 @@ ${payload.project_brief || 'None specified'}
         openBookingModal('Custom Project');
       }
     });
+    }
 
-    likeBtn.addEventListener('click', () => {
+    if (likeBtn) {
+      likeBtn.addEventListener('click', () => {
       const isLiked = likeBtn.getAttribute('aria-pressed') === 'true';
       likeBtn.setAttribute('aria-pressed', !isLiked);
       const svg = likeBtn.querySelector('svg');
@@ -9952,12 +9957,15 @@ ${payload.project_brief || 'None specified'}
       showToast(!isLiked ? "Saved to your Favorite Projects!" : "Removed from Favorites");
       trackEvent('project_liked', currentSelected);
     });
+    }
 
-    shareBtn.addEventListener('click', () => {
+    if (shareBtn) {
+      shareBtn.addEventListener('click', () => {
       navigator.clipboard.writeText(window.location.href).catch(() => {});
       showToast("KRISHNA X EDITZ link copied to clipboard!");
       trackEvent('portfolio_shared', currentSelected);
     });
+    }
 
     // ========================================================
     // INTERSECTION OBSERVER & NUMBER COUNT-UP ANIMATIONS
