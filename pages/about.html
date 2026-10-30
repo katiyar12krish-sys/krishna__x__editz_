@@ -566,65 +566,44 @@
       .partner-content-row { flex-direction: column; align-items: flex-start; }
     }
   </style>
+  <link rel="stylesheet" href="../assets/studio-interactive.css">
 </head>
 <body>
 
   <!-- TOPBAR -->
-  <header class="topbar" id="topbar">
-    <div class="brand-wrap">
-      <a class="brand" href="/" aria-label="KRISHNA X EDITZ">
-        <img src="../assets/logo.svg" alt="KXE Logo" class="brand-logo-img">
-        KRISHNA <span>X</span> EDITZ
-      </a>
-    </div>
-
-    <nav class="main-nav" aria-label="Main Navigation">
-      <a href="/" class="nav-link">Home</a>
-      <a href="/services" class="nav-link">Services</a>
-      <a href="/portfolio" class="nav-link">Portfolio</a>
-      <a href="/my-work" class="nav-link">My Work</a>
-      <a href="/pricing" class="nav-link">Pricing</a>
-      <a href="/about" class="nav-link">About</a>
-      <a href="/testimonials" class="nav-link">Reviews</a>
-      <a href="/contact" class="nav-link">Contact</a>
-      <a href="/faq" class="nav-link">FAQ</a>
-    </nav>
-
-    <div class="nav-actions">
-      <a href="https://wa.me/918449495147?text=Hi%20Krishna!%20I%20want%20to%20discuss%20a%20video%20project." target="_blank" rel="noopener noreferrer" class="wa-top-btn" title="Chat on WhatsApp">
-        <svg viewBox="0 0 24 24" width="20" height="20" fill="currentColor">
-          <path d="M.057 24l1.687-6.163c-1.041-1.804-1.588-3.849-1.587-5.946.003-6.556 5.338-11.891 11.893-11.891 3.181.001 6.167 1.24 8.413 3.488 2.245 2.248 3.481 5.236 3.48 8.414-.003 6.557-5.338 11.892-11.893 11.892-1.99-.001-3.951-.5-5.688-1.448l-6.305 1.654zm6.597-3.807c1.676.995 3.276 1.591 5.392 1.592 5.448 0 9.886-4.434 9.889-9.885.002-5.462-4.415-9.89-9.881-9.892-5.452 0-9.887 4.434-9.889 9.884-.001 2.225.651 3.891 1.746 5.634l-.999 3.648 3.742-.981zm11.387-5.464c-.074-.124-.272-.198-.57-.347-.297-.149-1.758-.868-2.031-.967-.272-.099-.47-.149-.669.149-.198.297-.768.967-.941 1.165-.173.198-.347.223-.644.074-.297-.149-1.255-.462-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.297-.347.446-.521.151-.172.2-.296.3-.495.099-.198.05-.372-.025-.521-.075-.148-.669-1.611-.916-2.206-.242-.579-.487-.501-.669-.51l-.57-.01c-.198 0-.52.074-.792.372s-1.04 1.016-1.04 2.479 1.065 2.876 1.213 3.074c.149.198 2.095 3.2 5.076 4.487.709.306 1.263.489 1.694.626.712.226 1.36.194 1.872.118.571-.085 1.758-.719 2.006-1.413.248-.695.248-1.29.173-1.414z"/>
-        </svg>
-      </a>
-      <a href="/contact" class="btn-book-top">Book Now</a>
-      <button class="hamburger-btn" id="hamburgerBtn" aria-label="Open Navigation">☰</button>
-    </div>
-
-    <!-- Mobile Drawer -->
-    <div class="mobile-drawer" id="mobileDrawer">
-      <div class="drawer-header">
-        <a class="brand" href="/">
-          <img src="../assets/logo.svg" alt="KXE Logo" class="brand-logo-img">
-          KRISHNA <span>X</span> EDITZ
+  <header class="topbar studio-header" id="topbar">
+    <div class="studio-header-inner">
+      <div class="brand-wrap">
+        <a class="studio-brand-link" href="/" aria-label="KRISHNA X EDITZ home">
+          <img src="../assets/logo.svg" alt="KXE Logo" class="studio-brand-logo" width="38" height="38">
+          <div class="studio-brand-titles">
+            <span class="studio-brand-name">KRISHNA <span>X</span> EDITZ</span>
+            <span class="studio-brand-tag">CREATIVE STUDIO</span>
+          </div>
         </a>
-        <button class="drawer-close-btn" id="drawerCloseBtn">✕</button>
       </div>
-      <nav class="drawer-nav">
-        <a href="/" class="drawer-link">Home</a>
-        <a href="/services" class="drawer-link">Services</a>
-        <a href="/portfolio" class="drawer-link">Portfolio</a>
-        <a href="/my-work" class="drawer-link">My Work</a>
-        <a href="/pricing" class="drawer-link">Pricing &amp; Packages</a>
-        <a href="/about" class="drawer-link">About Krishna</a>
-        <a href="/founder" class="drawer-link">Founder Profile</a>
-        <a href="/skills" class="drawer-link">Editing Capabilities</a>
-        <a href="/testimonials" class="drawer-link">Client Reviews</a>
-        <a href="/contact" class="drawer-link">Contact &amp; Bookings</a>
-        <a href="/faq" class="drawer-link">Frequently Asked Questions</a>
+
+      <!-- SOREXA-INSPIRED SEAMLESS DESKTOP NAVIGATION -->
+      <nav class="studio-nav" aria-label="Main Navigation">
+        <a href="/" class="studio-nav-item">Home</a>
+        <a href="/services" class="studio-nav-item ">Services</a>
+        <a href="/portfolio" class="studio-nav-item ">Portfolio</a>
+        <a href="/my-work" class="studio-nav-item ">My Work</a>
+        <a href="/pricing" class="studio-nav-item ">Pricing</a>
+        <a href="/about" class="studio-nav-item active">About</a>
+        <a href="/testimonials" class="studio-nav-item ">Reviews</a>
+        <a href="/contact" class="studio-nav-item ">Contact</a>
       </nav>
-      <div class="drawer-cta">
-        <a href="https://wa.me/918449495147" target="_blank" rel="noopener noreferrer" style="background:#25D366; color:#fff; padding:13px; text-align:center; border-radius:999px; text-decoration:none; font-weight:800; font-size:14px;">Chat on WhatsApp (+91 8449495147)</a>
-        <a href="/contact" style="background:var(--gold-neon); color:#000; padding:13px; text-align:center; border-radius:999px; text-decoration:none; font-weight:800; font-size:14px;">Book a Video Project</a>
+
+      <!-- SOREXA-STYLE RIGHT ACTIONS -->
+      <div class="studio-actions-wrap" style="display: flex; align-items: center; gap: 14px;">
+        <a href="/contact" class="studio-header-cta">
+          <span>Start Project</span>
+          <svg viewBox="0 0 24 24" width="13" height="13" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+            <line x1="7" y1="17" x2="17" y2="7"></line>
+            <polyline points="7 7 17 7 17 17"></polyline>
+          </svg>
+        </a>
       </div>
     </div>
   </header>
@@ -830,5 +809,6 @@
       }
     });
   </script>
+  <script src="../assets/studio-interactive.js"></script>
 </body>
 </html>
