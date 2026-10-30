@@ -637,6 +637,60 @@
       text-shadow: 0 0 20px rgba(212, 175, 55, 0.9), 0 0 35px rgba(245, 158, 11, 0.5);
     }
 
+    /* SOREXA-INSPIRED DESKTOP NAVIGATION BAR */
+    .topbar-nav {
+      display: flex;
+      align-items: center;
+      gap: clamp(8px, 1.4vw, 20px);
+      background: rgba(22, 17, 12, 0.75);
+      border: 1px solid rgba(212, 175, 55, 0.28);
+      border-radius: 999px;
+      padding: 6px 18px;
+      backdrop-filter: blur(16px);
+      -webkit-backdrop-filter: blur(16px);
+      box-shadow: 0 8px 24px rgba(0, 0, 0, 0.55);
+      pointer-events: auto;
+    }
+
+    .topbar-nav .top-link {
+      color: rgba(253, 250, 243, 0.78);
+      text-decoration: none;
+      font-family: var(--sans);
+      font-size: 12.5px;
+      font-weight: 700;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      padding: 4px 8px;
+      border-radius: 999px;
+      transition: all 220ms ease;
+      position: relative;
+    }
+
+    .topbar-nav .top-link:hover,
+    .topbar-nav .top-link.active {
+      color: #FFFFFF;
+      background: rgba(212, 175, 55, 0.18);
+      text-shadow: 0 0 10px rgba(245, 158, 11, 0.6);
+    }
+
+    .topbar-nav .top-link.active::after {
+      content: "";
+      position: absolute;
+      bottom: 1px;
+      left: 10px;
+      right: 10px;
+      height: 2px;
+      background: var(--gold-neon);
+      border-radius: 2px;
+      box-shadow: 0 0 8px var(--gold-neon);
+    }
+
+    @media (max-width: 960px) {
+      .topbar-nav {
+        display: none !important;
+      }
+    }
+
     /* TOP-LEFT UNIVERSAL LUXURY BACK BUTTON */
     .top-back-btn {
       display: inline-flex;
@@ -6553,6 +6607,19 @@
         <span>Back</span>
       </button>
     </div>
+
+    <!-- SOREXA-INSPIRED DESKTOP NAVIGATION -->
+    <nav class="topbar-nav" aria-label="Main Navigation">
+      <a href="/" class="top-link active">Home</a>
+      <a href="/services" class="top-link">Services</a>
+      <a href="/portfolio" class="top-link">Portfolio</a>
+      <a href="/my-work" class="top-link">My Work</a>
+      <a href="/pricing" class="top-link">Pricing</a>
+      <a href="/about" class="top-link">About</a>
+      <a href="/testimonials" class="top-link">Reviews</a>
+      <a href="/contact" class="top-link">Contact</a>
+    </nav>
+
     <div class="nav-actions">
       <a href="https://wa.me/918449495147?text=Hi%20Krishna!%20I%20came%20from%20your%20website%20portfolio%20and%20want%20to%20discuss%20a%20video%20project." target="_blank" class="wa-top-link" title="Direct WhatsApp Chat (+91 8449495147)" rel="noopener noreferrer">
         <svg viewBox="0 0 24 24" width="20" height="20" fill="currentColor">
