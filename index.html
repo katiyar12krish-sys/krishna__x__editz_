@@ -6337,105 +6337,197 @@
       box-shadow: 0 12px 36px rgba(244, 217, 160, 0.7);
     }
 
-    /* FLAWLESS MOBILE RESPONSIVENESS */
+    /* FLAWLESS MOBILE RESPONSIVENESS & 60FPS ENGINE */
     @media (max-width: 900px) {
-      .stage {
-        padding: 72px 16px 20px !important;
-        height: auto !important;
-        min-height: 100vh !important;
-        min-height: 100svh !important;
+      /* Keep doll shifted to the right, opening up the left negative space */
+      #heroDollVideo,
+      #heroDollFallbackImg {
+        object-position: 80% center !important;
       }
+
+      .stage {
+        padding: clamp(60px, 8vh, 72px) 16px 14px !important;
+        height: 100svh !important;
+        min-height: 560px !important;
+        max-height: 100svh !important;
+        overflow: hidden !important;
+        display: flex !important;
+        flex-direction: column !important;
+        justify-content: space-between !important;
+        box-sizing: border-box !important;
+      }
+
       .inner-peace-canvas {
         flex-direction: column !important;
         align-items: flex-start !important;
-        justify-content: flex-end !important;
+        justify-content: space-between !important;
         padding: 0 !important;
-        gap: 16px !important;
-        min-height: calc(100vh - 100px) !important;
-        min-height: calc(100svh - 100px) !important;
+        gap: 0 !important;
+        width: 100% !important;
+        height: 100% !important;
+        min-height: calc(100svh - 85px) !important;
+        max-height: 100% !important;
+        box-sizing: border-box !important;
       }
+
+      /* Heading positioned right in front of Doll's chest in the empty golden space */
       .inner-left-col {
-        max-width: 100% !important;
-        gap: 12px !important;
+        max-width: 58% !important;
+        margin-top: clamp(20px, 9vh, 65px) !important;
+        margin-bottom: auto !important;
+        gap: 8px !important;
+        z-index: 10 !important;
+        pointer-events: auto !important;
       }
+
+      .hero-kicker-badge {
+        font-size: 8.5px !important;
+        letter-spacing: 0.18em !important;
+        padding: 3px 8px !important;
+        margin-bottom: 2px !important;
+        background: rgba(18, 14, 10, 0.75) !important;
+        border: 1px solid rgba(244, 217, 160, 0.35) !important;
+      }
+
       .title-row-krishna {
-        font-size: clamp(38px, 10vw, 54px) !important;
-        line-height: 0.95 !important;
+        font-size: clamp(30px, 8.8vw, 42px) !important;
+        line-height: 0.92 !important;
+        letter-spacing: 0.04em !important;
+        text-shadow: 0 4px 18px rgba(0, 0, 0, 0.85) !important;
       }
+
+      .title-row-bottom {
+        gap: 6px !important;
+        margin-top: 2px !important;
+      }
+
+      .title-x-box {
+        width: clamp(28px, 8vw, 36px) !important;
+        height: clamp(28px, 8vw, 36px) !important;
+      }
+
       .title-x-glyph {
-        font-size: clamp(30px, 8.2vw, 44px) !important;
+        font-size: clamp(24px, 7vw, 32px) !important;
       }
+
       .title-editz-text {
-        font-size: clamp(30px, 8.2vw, 44px) !important;
+        font-size: clamp(24px, 7vw, 32px) !important;
+        text-shadow: 0 4px 18px rgba(0, 0, 0, 0.85) !important;
       }
+
+      .title-sparkle-star {
+        font-size: 16px !important;
+      }
+
+      .manifesto-tag {
+        font-size: 9px !important;
+        letter-spacing: 0.16em !important;
+        color: #F4D9A0 !important;
+      }
+
+      .manifesto-body {
+        font-size: 11px !important;
+        line-height: 1.35 !important;
+        max-width: 220px !important;
+        color: rgba(245, 235, 220, 0.9) !important;
+        text-shadow: 0 2px 10px rgba(0, 0, 0, 0.85) !important;
+      }
+
+      .inner-btn-explore {
+        padding: 7px 16px !important;
+        font-size: 10px !important;
+        margin-top: 4px !important;
+        background: rgba(22, 17, 12, 0.85) !important;
+      }
+
+      /* 4 Studio Action Pills docked neatly at the bottom of hero */
       .hero-right-actions {
         display: grid !important;
         grid-template-columns: 1fr 1fr !important;
-        gap: 8px !important;
+        gap: 7px !important;
         width: 100% !important;
-        margin-top: 10px !important;
+        margin-top: auto !important;
+        padding-bottom: 6px !important;
+        z-index: 10 !important;
       }
+
       .hero-action-pill {
-        padding: 11px 12px !important;
-        font-size: 12px !important;
-        border-radius: 12px !important;
+        padding: 10px 10px !important;
+        font-size: 11px !important;
+        border-radius: 999px !important;
         justify-content: center !important;
+        gap: 6px !important;
+        background: rgba(22, 17, 12, 0.88) !important;
       }
+
       .hero-action-pill.hero-action-highlight {
         grid-column: span 2 !important;
+        padding: 11px 12px !important;
       }
+
       .action-pill-arrow {
         display: none !important;
       }
+
       .hero-bottom-dock {
         display: none !important;
+      }
+
+      /* 60FPS SMOOTH SCROLLING ENGINE ON MOBILE (ELIMINATES LAG & ATTAKNA) */
+      .section {
+        content-visibility: auto;
+        contain-intrinsic-size: 1px 700px;
+      }
+
+      .service-box,
+      .stat-card,
+      .work-video-card,
+      .pipeline-step,
+      .pricing-card,
+      .pricing-hero-banner,
+      .review-card,
+      .doc-section {
+        backdrop-filter: none !important;
+        -webkit-backdrop-filter: none !important;
+        background: rgba(20, 15, 11, 0.96) !important;
+        box-shadow: 0 4px 16px rgba(0, 0, 0, 0.45) !important;
+      }
+
+      .ambient-orb {
+        display: none !important;
+      }
+
+      .reveal-elem {
+        transform: translateY(16px) !important;
+        transition: opacity 350ms ease, transform 350ms ease !important;
       }
     }
 
     @media (max-width: 480px) {
       .stage {
-        padding: 68px 12px 16px !important;
+        padding: 64px 12px 12px !important;
       }
       .inner-left-col {
-        gap: 8px !important;
-      }
-      .hero-kicker-badge {
-        font-size: 9px !important;
-        letter-spacing: 0.22em !important;
-      }
-      .title-row-krishna {
-        font-size: clamp(32px, 9.4vw, 42px) !important;
-      }
-      .title-row-bottom {
-        gap: 8px !important;
-      }
-      .title-x-glyph {
-        font-size: clamp(26px, 7.8vw, 34px) !important;
-      }
-      .title-editz-text {
-        font-size: clamp(26px, 7.8vw, 34px) !important;
-      }
-      .title-sparkle-star {
-        font-size: 18px !important;
-      }
-      .manifesto-tag {
-        font-size: 10px !important;
-      }
-      .manifesto-body {
-        font-size: 12px !important;
-        line-height: 1.45 !important;
-      }
-      .inner-btn-explore {
-        padding: 8px 18px !important;
-        font-size: 10.5px !important;
-      }
-      .hero-right-actions {
-        grid-template-columns: 1fr 1fr !important;
+        max-width: 60% !important;
+        margin-top: clamp(16px, 8vh, 50px) !important;
         gap: 6px !important;
       }
+      .title-row-krishna {
+        font-size: clamp(26px, 8.4vw, 36px) !important;
+      }
+      .title-x-glyph {
+        font-size: clamp(20px, 6.5vw, 28px) !important;
+      }
+      .title-editz-text {
+        font-size: clamp(20px, 6.5vw, 28px) !important;
+      }
+      .hero-right-actions {
+        gap: 6px !important;
+        padding-bottom: 4px !important;
+      }
       .hero-action-pill {
-        padding: 10px 10px !important;
-        font-size: 11px !important;
+        padding: 9px 8px !important;
+        font-size: 10.5px !important;
       }
     }
 
@@ -8856,7 +8948,19 @@ ${payload.project_brief || 'None specified'}
       video.play().catch(() => {});
     });
 
-    // Track hero intersection to stop parallax completely and PAUSE cover videos when scrolled down
+    // Smart Adaptive Video Resolution Engine:
+    // Mobile devices (<= 768px) get ultra-fast 2.2MB video for instant playback without buffer
+    // Desktops/laptops get pristine 1080p master video
+    const heroDollVid = document.getElementById('heroDollVideo');
+    if (heroDollVid) {
+      const isMobile = window.innerWidth <= 768;
+      const targetVideoSrc = isMobile ? 'assets/hero_doll_cinematic.mp4' : 'assets/hero_doll_cinematic_1080p.mp4';
+      if (heroDollVid.getAttribute('src') !== targetVideoSrc) {
+        heroDollVid.src = targetVideoSrc;
+      }
+    }
+
+    // Track hero intersection to stop parallax completely and PAUSE cover videos & hero doll loop when scrolled down
     const heroObserver = new IntersectionObserver((entries) => {
       entries.forEach(entry => {
         isHeroInView = entry.isIntersecting;
@@ -8871,6 +8975,15 @@ ${payload.project_brief || 'None specified'}
             v.pause();
           }
         });
+
+        // Pause heavy hero doll loop when user scrolls down to eliminate mobile scroll lag
+        if (heroDollVid) {
+          if (isHeroInView) {
+            if (heroDollVid.paused) heroDollVid.play().catch(() => {});
+          } else {
+            if (!heroDollVid.paused) heroDollVid.pause();
+          }
+        }
       });
     }, { threshold: 0.05 });
     if (heroStage) heroObserver.observe(heroStage);
@@ -8993,29 +9106,31 @@ ${payload.project_brief || 'None specified'}
 
     // 3D CARD INTERACTIVE TILT EFFECT ON CONTENT SECTIONS (CACHED RECT)
     const tiltCards = document.querySelectorAll('.tilt-card');
-    tiltCards.forEach(card => {
-      let rect = null;
-      card.addEventListener('mouseenter', () => {
-        rect = card.getBoundingClientRect();
-      }, { passive: true });
+    if (!window.matchMedia('(pointer: coarse)').matches) {
+      tiltCards.forEach(card => {
+        let rect = null;
+        card.addEventListener('mouseenter', () => {
+          rect = card.getBoundingClientRect();
+        }, { passive: true });
 
-      card.addEventListener('mousemove', (e) => {
-        if (!rect) return;
-        const x = e.clientX - rect.left;
-        const y = e.clientY - rect.top;
-        const centerX = rect.width / 2;
-        const centerY = rect.height / 2;
-        const rotateX = ((y - centerY) / centerY) * -8;
-        const rotateY = ((x - centerX) / centerX) * 8;
+        card.addEventListener('mousemove', (e) => {
+          if (!rect) return;
+          const x = e.clientX - rect.left;
+          const y = e.clientY - rect.top;
+          const centerX = rect.width / 2;
+          const centerY = rect.height / 2;
+          const rotateX = ((y - centerY) / centerY) * -8;
+          const rotateY = ((x - centerX) / centerX) * 8;
 
-        card.style.transform = `perspective(1000px) rotateX(${rotateX.toFixed(2)}deg) rotateY(${rotateY.toFixed(2)}deg) translateY(-6px) scale(1.02)`;
-      }, { passive: true });
+          card.style.transform = `perspective(1000px) rotateX(${rotateX.toFixed(2)}deg) rotateY(${rotateY.toFixed(2)}deg) translateY(-6px) scale(1.02)`;
+        }, { passive: true });
 
-      card.addEventListener('mouseleave', () => {
-        rect = null;
-        card.style.transform = '';
-      }, { passive: true });
-    });
+        card.addEventListener('mouseleave', () => {
+          rect = null;
+          card.style.transform = '';
+        }, { passive: true });
+      });
+    }
 
     // ========================================================
     // BOOK INTERIOR QUICK CATEGORY TABS & SCROLL ENGINE
