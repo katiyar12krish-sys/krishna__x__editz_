@@ -1,0 +1,879 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+  <meta name="theme-color" content="#14100c">
+  <meta name="description" content="Frequently Asked Questions about video editing services, rates, delivery timelines, and revisions at KRISHNA X EDITZ.">
+  <title>FAQ — KRISHNA X EDITZ</title>
+  
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Italiana&family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;0,600;0,700;1,400;1,600&family=Cinzel+Decorative:wght@700;900&family=Cinzel:wght@600;700;800;900&family=Playfair+Display:ital,wght@0,500;0,600;0,700;1,400;1,500;1,600;1,700&family=Plus+Jakarta+Sans:ital,wght@0,300;0,400;0,500;0,600;0,700;0,800;1,400;1,600;1,700&display=swap" rel="stylesheet">
+  
+  <style>
+    :root {
+      --ink: #14100c;
+      --ink-deep: #0a0806;
+      --ink-soft: #201a14;
+      --ink-card: #1b1611;
+      
+      --gold: #d4af37;
+      --gold-bright: #fff2c6;
+      --gold-foil: #f3d484;
+      --gold-neon: #f59e0b;
+      
+      --emerald: #10b981;
+      --emerald-neon: #34d399;
+      --emerald-glow: rgba(16, 185, 129, 0.45);
+      
+      --crimson: #e11d48;
+      --crimson-neon: #fb7185;
+      --crimson-glow: rgba(225, 29, 72, 0.45);
+      
+      --violet: #8b5cf6;
+      --violet-neon: #a78bfa;
+      --violet-glow: rgba(139, 92, 246, 0.45);
+      
+      --cyan: #06b6d4;
+      --cyan-neon: #38bdf8;
+      --cyan-glow: rgba(6, 182, 212, 0.45);
+      
+      --amber: #f97316;
+      --amber-neon: #fb923c;
+      --amber-glow: rgba(249, 115, 22, 0.45);
+
+      --text: #fdfaf3;
+      --muted: #cfc3ac;
+      --muted-dark: #9e917d;
+      --serif: "Playfair Display", Georgia, serif;
+      --display: "Cinzel Decorative", "Cinzel", serif;
+      --sans: "Plus Jakarta Sans", -apple-system, sans-serif;
+      --ease: cubic-bezier(0.16, 1, 0.3, 1);
+      --ease-bounce: cubic-bezier(0.34, 1.56, 0.64, 1);
+    }
+
+    *, *::before, *::after {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    html {
+      width: 100%;
+      background: var(--ink);
+      scroll-behavior: smooth;
+    }
+
+    body {
+      width: 100%;
+      min-height: 100vh;
+      background: var(--ink);
+      color: var(--text);
+      font-family: var(--sans);
+      -webkit-font-smoothing: antialiased;
+      overflow-x: hidden;
+      overflow-y: auto;
+    }
+
+    /* GLOBAL HEADER / TOPBAR */
+    .topbar {
+      position: fixed;
+      z-index: 100;
+      top: 0;
+      left: 0;
+      right: 0;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 16px 4vw;
+      transition: background 300ms ease, padding 200ms ease, border-color 300ms ease;
+      background: rgba(18, 14, 10, 0.85);
+      backdrop-filter: blur(14px);
+      border-bottom: 1px solid rgba(212, 175, 55, 0.18);
+    }
+
+    .topbar.scrolled {
+      background: rgba(14, 10, 7, 0.96);
+      padding: 12px 4vw;
+      border-bottom: 1px solid rgba(212, 175, 55, 0.28);
+      box-shadow: 0 10px 30px rgba(0, 0, 0, 0.7);
+    }
+
+    .brand-wrap {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+    }
+
+    .brand-logo-img {
+      width: 36px;
+      height: 36px;
+      object-fit: contain;
+      filter: drop-shadow(0 0 10px rgba(245, 158, 11, 0.4));
+    }
+
+    .brand {
+      font-family: var(--display);
+      font-size: clamp(17px, 2.2vw, 22px);
+      font-weight: 800;
+      color: var(--text);
+      text-decoration: none;
+      letter-spacing: 0.1em;
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+    }
+
+    .brand span {
+      color: var(--gold-neon);
+      font-style: italic;
+      font-family: var(--serif);
+    }
+
+    /* DESKTOP NAVIGATION */
+    .main-nav {
+      display: flex;
+      align-items: center;
+      gap: clamp(14px, 1.8vw, 26px);
+    }
+
+    .nav-link {
+      color: rgba(244, 217, 160, 0.75);
+      text-decoration: none;
+      font-size: 13px;
+      font-weight: 700;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      font-family: var(--sans);
+      transition: color 200ms ease;
+      position: relative;
+      padding: 4px 0;
+    }
+
+    .nav-link:hover, .nav-link.active {
+      color: #FFFFFF;
+    }
+
+    .nav-link.active::after {
+      content: "";
+      position: absolute;
+      bottom: -2px;
+      left: 0;
+      right: 0;
+      height: 2px;
+      background: var(--gold-neon);
+      border-radius: 999px;
+      box-shadow: 0 0 8px var(--gold-neon);
+    }
+
+    .nav-actions {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+    }
+
+    .wa-top-btn {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      width: 38px;
+      height: 38px;
+      border-radius: 50%;
+      background: rgba(37, 211, 102, 0.15);
+      border: 1px solid rgba(37, 211, 102, 0.4);
+      color: #25D366;
+      text-decoration: none;
+      transition: transform 200ms ease, background 200ms ease;
+    }
+
+    .wa-top-btn:hover {
+      transform: scale(1.08);
+      background: rgba(37, 211, 102, 0.28);
+    }
+
+    .btn-book-top {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      padding: 10px 22px;
+      border-radius: 999px;
+      background: linear-gradient(135deg, var(--gold-neon) 0%, #d97706 100%);
+      color: #0b0805;
+      font-weight: 800;
+      font-size: 13px;
+      letter-spacing: 0.06em;
+      text-transform: uppercase;
+      text-decoration: none;
+      box-shadow: 0 4px 18px rgba(245, 158, 11, 0.4);
+      transition: all 250ms var(--ease);
+    }
+
+    .btn-book-top:hover {
+      background: linear-gradient(135deg, #FFF2C6 0%, var(--gold-foil) 100%);
+      transform: translateY(-2px);
+      box-shadow: 0 8px 24px rgba(245, 158, 11, 0.6);
+    }
+
+    .hamburger-btn {
+      display: none;
+      background: none;
+      border: none;
+      color: var(--gold-foil);
+      font-size: 24px;
+      cursor: pointer;
+      padding: 6px;
+    }
+
+    /* MOBILE DRAWER */
+    .mobile-drawer {
+      display: none;
+      position: fixed;
+      inset: 0;
+      background: rgba(14, 10, 7, 0.98);
+      z-index: 200;
+      flex-direction: column;
+      padding: 30px 24px;
+      overflow-y: auto;
+    }
+
+    .mobile-drawer.open {
+      display: flex;
+    }
+
+    .drawer-header {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding-bottom: 20px;
+      border-bottom: 1px solid rgba(212, 175, 55, 0.2);
+    }
+
+    .drawer-close-btn {
+      background: none;
+      border: none;
+      color: var(--gold-bright);
+      font-size: 28px;
+      cursor: pointer;
+    }
+
+    .drawer-nav {
+      display: flex;
+      flex-direction: column;
+      gap: 18px;
+      margin-top: 24px;
+    }
+
+    .drawer-link {
+      color: var(--text);
+      text-decoration: none;
+      font-family: var(--display);
+      font-size: 20px;
+      font-weight: 700;
+      padding: 8px 0;
+      border-bottom: 1px solid rgba(255, 255, 255, 0.06);
+      transition: color 200ms;
+    }
+
+    .drawer-link.active, .drawer-link:hover {
+      color: var(--gold-neon);
+    }
+
+    .drawer-cta {
+      margin-top: auto;
+      padding-top: 24px;
+      display: flex;
+      flex-direction: column;
+      gap: 12px;
+    }
+
+    /* CONTENT WRAPPER & GLOW ORBS */
+    .content-wrapper {
+      position: relative;
+      z-index: 20;
+      width: 100%;
+      background:
+        radial-gradient(circle at 10% 15%, rgba(16,185,129,0.12), transparent 45%),
+        radial-gradient(circle at 90% 40%, rgba(225,29,72,0.12), transparent 45%),
+        radial-gradient(circle at 20% 75%, rgba(139,92,246,0.12), transparent 45%),
+        radial-gradient(circle at 80% 90%, rgba(6,182,212,0.12), transparent 45%),
+        linear-gradient(180deg, #1d150e 0%, #241a12 8%, #1c140e 100%);
+      padding-top: 90px;
+      min-height: 100vh;
+    }
+
+    .ambient-orb {
+      position: absolute;
+      border-radius: 50%;
+      filter: blur(55px);
+      pointer-events: none;
+      opacity: 0.22;
+      will-change: transform;
+      animation: orbFloat 14s ease-in-out infinite alternate;
+    }
+    .orb-1 { top: 10%; left: -5%; width: 450px; height: 450px; background: rgba(16, 185, 129, 0.4); animation-delay: 0s; }
+    .orb-2 { top: 40%; right: -10%; width: 500px; height: 500px; background: rgba(225, 29, 72, 0.35); animation-delay: 3s; }
+    .orb-3 { top: 70%; left: 5%; width: 420px; height: 420px; background: rgba(139, 92, 246, 0.35); animation-delay: 6s; }
+    @keyframes orbFloat {
+      0% { transform: translate(0, 0) scale(1); }
+      50% { transform: translate(40px, -60px) scale(1.08); }
+      100% { transform: translate(-20px, 30px) scale(0.95); }
+    }
+
+    .container {
+      max-width: 1260px;
+      margin: 0 auto;
+      padding: 0 4vw;
+      position: relative;
+      z-index: 5;
+    }
+
+    .section {
+      padding: 70px 0;
+      border-bottom: 1px solid rgba(212, 175, 55, 0.12);
+      position: relative;
+    }
+
+    .section-header {
+      text-align: center;
+      margin-bottom: 48px;
+    }
+
+    .section-eyebrow {
+      display: inline-block;
+      font-family: var(--sans);
+      font-size: 12px;
+      font-weight: 800;
+      letter-spacing: 0.22em;
+      text-transform: uppercase;
+      color: var(--gold-neon);
+      margin-bottom: 12px;
+    }
+
+    .section-title {
+      font-family: var(--serif);
+      font-size: clamp(28px, 4.2vw, 46px);
+      font-weight: 700;
+      line-height: 1.15;
+      color: var(--text);
+      margin-bottom: 14px;
+    }
+
+    .section-desc {
+      font-family: var(--sans);
+      font-size: 15px;
+      color: var(--muted);
+      line-height: 1.65;
+      max-width: 680px;
+      margin: 0 auto;
+    }
+
+    /* PAGE HERO SECTION */
+    .page-hero {
+      padding: 60px 0 40px;
+      text-align: center;
+      position: relative;
+    }
+
+    .page-hero-title {
+      font-family: var(--display);
+      font-size: clamp(34px, 5.5vw, 58px);
+      font-weight: 900;
+      line-height: 1.1;
+      margin-bottom: 16px;
+      background: linear-gradient(135deg, #FFFFFF 0%, #F4D9A0 60%, #D4AF37 100%);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+    }
+
+    /* SOREXA TECH PARTNER CARD */
+    .partner-spotlight-card {
+      background: linear-gradient(135deg, rgba(28, 20, 14, 0.95) 0%, rgba(18, 14, 10, 0.98) 100%);
+      border: 1.5px solid rgba(212, 175, 55, 0.35);
+      border-radius: 20px;
+      padding: 32px 36px;
+      margin-bottom: 48px;
+      box-shadow: 0 14px 40px rgba(0, 0, 0, 0.6);
+      display: flex;
+      flex-direction: column;
+      gap: 16px;
+    }
+
+    .partner-badge {
+      display: inline-block;
+      align-self: flex-start;
+      font-size: 11px;
+      font-weight: 800;
+      letter-spacing: 0.16em;
+      text-transform: uppercase;
+      color: var(--gold-neon);
+      background: rgba(245, 158, 11, 0.12);
+      border: 1px solid rgba(245, 158, 11, 0.35);
+      padding: 4px 12px;
+      border-radius: 999px;
+    }
+
+    .partner-content-row {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 24px;
+      flex-wrap: wrap;
+    }
+
+    .partner-info h3 {
+      font-family: var(--serif);
+      font-size: 26px;
+      color: #FFFFFF;
+      margin-bottom: 8px;
+    }
+
+    .partner-info p {
+      color: var(--muted);
+      font-size: 14.5px;
+      line-height: 1.6;
+      max-width: 680px;
+      margin-bottom: 10px;
+    }
+
+    .partner-verified-badge {
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      font-size: 12px;
+      font-weight: 700;
+      color: var(--emerald-neon);
+    }
+
+    .btn-partner-visit {
+      display: inline-flex;
+      align-items: center;
+      gap: 10px;
+      padding: 13px 26px;
+      border-radius: 999px;
+      background: rgba(212, 175, 55, 0.15);
+      border: 1.5px solid var(--gold-foil);
+      color: var(--gold-bright);
+      text-decoration: none;
+      font-weight: 800;
+      font-size: 13.5px;
+      letter-spacing: 0.06em;
+      transition: all 250ms ease;
+    }
+
+    .btn-partner-visit:hover {
+      background: var(--gold-foil);
+      color: #120D08;
+      transform: translateY(-2px);
+      box-shadow: 0 10px 28px rgba(212, 175, 55, 0.4);
+    }
+
+    /* GLOBAL SITE FOOTER */
+    .site-footer {
+      background: #0d0a07;
+      border-top: 1px solid rgba(212, 175, 55, 0.18);
+      padding: 60px 4vw 30px;
+      margin-top: 60px;
+    }
+
+    .footer-inner {
+      max-width: 1260px;
+      margin: 0 auto;
+      display: grid;
+      grid-template-columns: 2fr 1fr 1fr 1fr;
+      gap: 40px;
+    }
+
+    .footer-brand {
+      display: flex;
+      flex-direction: column;
+      gap: 14px;
+    }
+
+    .footer-logo {
+      display: inline-flex;
+      align-items: center;
+      gap: 10px;
+      font-family: var(--display);
+      font-size: 22px;
+      font-weight: 800;
+      color: var(--text);
+      text-decoration: none;
+    }
+
+    .footer-logo span {
+      color: var(--gold-neon);
+      font-style: italic;
+    }
+
+    .footer-tagline {
+      color: var(--muted);
+      font-size: 13.5px;
+      line-height: 1.6;
+      max-width: 320px;
+    }
+
+    .footer-title {
+      font-family: var(--sans);
+      font-size: 12px;
+      font-weight: 800;
+      letter-spacing: 0.16em;
+      text-transform: uppercase;
+      color: var(--gold-bright);
+      margin-bottom: 16px;
+    }
+
+    .footer-links {
+      display: flex;
+      flex-direction: column;
+      gap: 10px;
+    }
+
+    .footer-links a {
+      color: rgba(244, 217, 160, 0.7);
+      text-decoration: none;
+      font-size: 13.5px;
+      transition: color 200ms;
+    }
+
+    .footer-links a:hover {
+      color: #FFFFFF;
+    }
+
+    .footer-bottom {
+      max-width: 1260px;
+      margin: 36px auto 0;
+      padding-top: 24px;
+      border-top: 1px solid rgba(255, 255, 255, 0.08);
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      flex-wrap: wrap;
+      gap: 14px;
+      color: rgba(244, 217, 160, 0.5);
+      font-size: 12.5px;
+    }
+
+    /* MEDIA QUERIES FOR CLEAN RESPONSIVENESS */
+    @media (max-width: 960px) {
+      .main-nav { display: none; }
+      .hamburger-btn { display: block; }
+      .footer-inner { grid-template-columns: 1fr 1fr; }
+    }
+
+    @media (max-width: 600px) {
+      .footer-inner { grid-template-columns: 1fr; }
+      .partner-content-row { flex-direction: column; align-items: flex-start; }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- TOPBAR -->
+  <header class="topbar" id="topbar">
+    <div class="brand-wrap">
+      <a class="brand" href="/" aria-label="KRISHNA X EDITZ">
+        <img src="../assets/logo.svg" alt="KXE Logo" class="brand-logo-img">
+        KRISHNA <span>X</span> EDITZ
+      </a>
+    </div>
+
+    <nav class="main-nav" aria-label="Main Navigation">
+      <a href="/" class="nav-link">Home</a>
+      <a href="/services" class="nav-link">Services</a>
+      <a href="/portfolio" class="nav-link">Portfolio</a>
+      <a href="/my-work" class="nav-link">My Work</a>
+      <a href="/pricing" class="nav-link">Pricing</a>
+      <a href="/about" class="nav-link">About</a>
+      <a href="/testimonials" class="nav-link">Reviews</a>
+      <a href="/contact" class="nav-link">Contact</a>
+      <a href="/faq" class="nav-link">FAQ</a>
+    </nav>
+
+    <div class="nav-actions">
+      <a href="https://wa.me/918449495147?text=Hi%20Krishna!%20I%20want%20to%20discuss%20a%20video%20project." target="_blank" rel="noopener noreferrer" class="wa-top-btn" title="Chat on WhatsApp">
+        <svg viewBox="0 0 24 24" width="20" height="20" fill="currentColor">
+          <path d="M.057 24l1.687-6.163c-1.041-1.804-1.588-3.849-1.587-5.946.003-6.556 5.338-11.891 11.893-11.891 3.181.001 6.167 1.24 8.413 3.488 2.245 2.248 3.481 5.236 3.48 8.414-.003 6.557-5.338 11.892-11.893 11.892-1.99-.001-3.951-.5-5.688-1.448l-6.305 1.654zm6.597-3.807c1.676.995 3.276 1.591 5.392 1.592 5.448 0 9.886-4.434 9.889-9.885.002-5.462-4.415-9.89-9.881-9.892-5.452 0-9.887 4.434-9.889 9.884-.001 2.225.651 3.891 1.746 5.634l-.999 3.648 3.742-.981zm11.387-5.464c-.074-.124-.272-.198-.57-.347-.297-.149-1.758-.868-2.031-.967-.272-.099-.47-.149-.669.149-.198.297-.768.967-.941 1.165-.173.198-.347.223-.644.074-.297-.149-1.255-.462-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.297-.347.446-.521.151-.172.2-.296.3-.495.099-.198.05-.372-.025-.521-.075-.148-.669-1.611-.916-2.206-.242-.579-.487-.501-.669-.51l-.57-.01c-.198 0-.52.074-.792.372s-1.04 1.016-1.04 2.479 1.065 2.876 1.213 3.074c.149.198 2.095 3.2 5.076 4.487.709.306 1.263.489 1.694.626.712.226 1.36.194 1.872.118.571-.085 1.758-.719 2.006-1.413.248-.695.248-1.29.173-1.414z"/>
+        </svg>
+      </a>
+      <a href="/contact" class="btn-book-top">Book Now</a>
+      <button class="hamburger-btn" id="hamburgerBtn" aria-label="Open Navigation">☰</button>
+    </div>
+
+    <!-- Mobile Drawer -->
+    <div class="mobile-drawer" id="mobileDrawer">
+      <div class="drawer-header">
+        <a class="brand" href="/">
+          <img src="../assets/logo.svg" alt="KXE Logo" class="brand-logo-img">
+          KRISHNA <span>X</span> EDITZ
+        </a>
+        <button class="drawer-close-btn" id="drawerCloseBtn">✕</button>
+      </div>
+      <nav class="drawer-nav">
+        <a href="/" class="drawer-link">Home</a>
+        <a href="/services" class="drawer-link">Services</a>
+        <a href="/portfolio" class="drawer-link">Portfolio</a>
+        <a href="/my-work" class="drawer-link">My Work</a>
+        <a href="/pricing" class="drawer-link">Pricing &amp; Packages</a>
+        <a href="/about" class="drawer-link">About Krishna</a>
+        <a href="/founder" class="drawer-link">Founder Profile</a>
+        <a href="/skills" class="drawer-link">Editing Capabilities</a>
+        <a href="/testimonials" class="drawer-link">Client Reviews</a>
+        <a href="/contact" class="drawer-link">Contact &amp; Bookings</a>
+        <a href="/faq" class="drawer-link">Frequently Asked Questions</a>
+      </nav>
+      <div class="drawer-cta">
+        <a href="https://wa.me/918449495147" target="_blank" rel="noopener noreferrer" style="background:#25D366; color:#fff; padding:13px; text-align:center; border-radius:999px; text-decoration:none; font-weight:800; font-size:14px;">Chat on WhatsApp (+91 8449495147)</a>
+        <a href="/contact" style="background:var(--gold-neon); color:#000; padding:13px; text-align:center; border-radius:999px; text-decoration:none; font-weight:800; font-size:14px;">Book a Video Project</a>
+      </div>
+    </div>
+  </header>
+
+  <!-- CONTENT WRAPPER -->
+  <div class="content-wrapper">
+    <div class="ambient-orb orb-1" aria-hidden="true"></div>
+    <div class="ambient-orb orb-2" aria-hidden="true"></div>
+    <div class="ambient-orb orb-3" aria-hidden="true"></div>
+
+    <section class="page-hero">
+      <div class="container">
+        <span class="section-eyebrow">✦ CLARITY &amp; POLICIES ✦</span>
+        <h1 class="page-hero-title">Frequently Asked Questions</h1>
+        <p class="section-desc">
+          Everything you need to know about our video editing process, pricing, turnaround times, and file delivery.
+        </p>
+      </div>
+    </section>
+
+    <style>
+      .faq-item {
+        background: rgba(22, 17, 12, 0.95);
+        border: 1.5px solid rgba(212, 175, 55, 0.22);
+        border-radius: 16px;
+        margin-bottom: 14px;
+        overflow: hidden;
+      }
+      .faq-question {
+        padding: 20px 24px;
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        font-family: var(--serif);
+        font-size: 18px;
+        color: #fff;
+        cursor: pointer;
+        user-select: none;
+      }
+      .faq-icon {
+        color: var(--gold-neon);
+        font-size: 20px;
+        transition: transform 200ms ease;
+      }
+      .faq-item.open .faq-icon {
+        transform: rotate(45deg);
+      }
+      .faq-answer {
+        display: none;
+        padding: 0 24px 20px;
+        color: var(--muted);
+        font-size: 14px;
+        line-height: 1.65;
+        border-top: 1px solid rgba(255, 255, 255, 0.06);
+        padding-top: 14px;
+      }
+      .faq-item.open .faq-answer {
+        display: block;
+      }
+    </style>
+
+    <section class="section" style="padding-top: 10px;">
+      <div class="container" style="max-width: 860px;">
+        
+        <div class="faq-item open">
+          <div class="faq-question" onclick="toggleFaq(this)">
+            <span>What types of videos do you edit?</span>
+            <span class="faq-icon">+</span>
+          </div>
+          <div class="faq-answer">
+            We edit short-form content (Instagram Reels, YouTube Shorts), long-form YouTube talking head and documentary videos, 4K cinematic travel films, emotional lyrical music videos, and commercial brand showreels (such as our work for Sorexa Tech).
+          </div>
+        </div>
+
+        <div class="faq-item">
+          <div class="faq-question" onclick="toggleFaq(this)">
+            <span>How do I send you my raw footage?</span>
+            <span class="faq-icon">+</span>
+          </div>
+          <div class="faq-answer">
+            You can upload your raw camera clips and audio files to Google Drive, Dropbox, WeTransfer, or OneDrive, and send the shared link via WhatsApp (+91 8449495147) or our booking form.
+          </div>
+        </div>
+
+        <div class="faq-item">
+          <div class="faq-question" onclick="toggleFaq(this)">
+            <span>What is your standard turnaround time?</span>
+            <span class="faq-icon">+</span>
+          </div>
+          <div class="faq-answer">
+            Standard Reels and Shorts are delivered in 24 to 48 hours. Long-form YouTube edits and 5-10 minute videos take approximately 2 to 4 days depending on timeline complexity.
+          </div>
+        </div>
+
+        <div class="faq-item">
+          <div class="faq-question" onclick="toggleFaq(this)">
+            <span>Are rates flexible / negotiable?</span>
+            <span class="faq-icon">+</span>
+          </div>
+          <div class="faq-answer">
+            Yes, rates are flexible (halka upar-neeche ho sakta hai) depending on the volume of videos, complexity, and ongoing retainer requirements. We also offer a flat 20% discount on your first order.
+          </div>
+        </div>
+
+        <div class="faq-item">
+          <div class="faq-question" onclick="toggleFaq(this)">
+            <span>How many revisions are included?</span>
+            <span class="faq-icon">+</span>
+          </div>
+          <div class="faq-answer">
+            All packages include up to 2 revision rounds free of charge to adjust cut pacing, text captions, or music selection until you are completely satisfied.
+          </div>
+        </div>
+
+        <div class="faq-item">
+          <div class="faq-question" onclick="toggleFaq(this)">
+            <span>What software do you edit in?</span>
+            <span class="faq-icon">+</span>
+          </div>
+          <div class="faq-answer">
+            We work across CapCut (for viral short-form hooks), Adobe Premiere Pro (for master timeline assembly), DaVinci Resolve (for film color grading), After Effects (for motion graphics), and Adobe Audition (for sound Foley and cleanup).
+          </div>
+        </div>
+
+        <div class="faq-item">
+          <div class="faq-question" onclick="toggleFaq(this)">
+            <span>Do you offer monthly creator retainers?</span>
+            <span class="faq-icon">+</span>
+          </div>
+          <div class="faq-answer">
+            Yes! For creators and businesses needing regular weekly or daily uploads, we offer monthly retainers with guaranteed priority turnaround and dedicated WhatsApp communication.
+          </div>
+        </div>
+
+      </div>
+    </section>
+
+    <script>
+      function toggleFaq(elem) {
+        elem.parentElement.classList.toggle('open');
+      }
+    </script>
+    
+    <!-- SOREXA TECH PARTNER BANNER -->
+    <section class="section" style="padding-top: 30px; padding-bottom: 20px;">
+      <div class="container">
+        <div class="partner-spotlight-card">
+          <span class="partner-badge">✦ OFFICIAL TECHNOLOGY CLIENT &amp; VIDEO EDITING PARTNER ✦</span>
+          <div class="partner-content-row">
+            <div class="partner-info">
+              <h3>Sorexa Tech</h3>
+              <p>
+                Official Video Editing &amp; Cinematic Media Partner. We engineer high-retention product showreels, technological brand presentations, and modern visual identities for Sorexa Tech.
+              </p>
+              <span class="partner-verified-badge">✓ Verified Creative Client &amp; Tech Collaboration</span>
+            </div>
+            <div class="partner-action">
+              <a href="https://www.sorexatech.com/" target="_blank" rel="noopener noreferrer" class="btn-partner-visit">
+                <span>Visit Sorexa Tech Official Website ↗</span>
+              </a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+  </div><!-- /content-wrapper -->
+
+  <!-- FOOTER -->
+  <footer class="site-footer">
+    <div class="footer-inner">
+      <div class="footer-brand">
+        <a href="/" class="footer-logo">
+          <img src="../assets/logo.svg" alt="KXE Logo" width="30" height="30">
+          KRISHNA <span>X</span> EDITZ
+        </a>
+        <p class="footer-tagline">
+          Turning raw footage into extraordinary cinematic art, viral pacing, and bespoke high-retention video narratives.
+        </p>
+      </div>
+
+      <div>
+        <h4 class="footer-title">Navigation</h4>
+        <div class="footer-links">
+          <a href="/">Home</a>
+          <a href="/services">Services</a>
+          <a href="/portfolio">Portfolio</a>
+          <a href="/my-work">My Work</a>
+          <a href="/pricing">Pricing</a>
+          <a href="/testimonials">Reviews</a>
+        </div>
+      </div>
+
+      <div>
+        <h4 class="footer-title">Studio &amp; Info</h4>
+        <div class="footer-links">
+          <a href="/about">About Krishna</a>
+          <a href="/founder">Founder Profile</a>
+          <a href="/skills">Editing Tools</a>
+          <a href="/faq">FAQ</a>
+          <a href="/contact">Contact</a>
+          <a href="https://www.sorexatech.com/" target="_blank" rel="noopener noreferrer">Sorexa Tech ↗</a>
+        </div>
+      </div>
+
+      <div>
+        <h4 class="footer-title">Connect Direct</h4>
+        <div class="footer-links">
+          <a href="https://wa.me/918449495147" target="_blank" rel="noopener noreferrer">💬 WhatsApp (+91 8449495147)</a>
+          <a href="https://instagram.com/krishna__x__editz_" target="_blank" rel="noopener noreferrer">📸 Instagram (@krishna__x__editz_)</a>
+          <a href="/contact">📩 Inquire Project</a>
+        </div>
+      </div>
+    </div>
+
+    <div class="footer-bottom">
+      <div>© <span id="footerYear"></span> KRISHNA X EDITZ. All rights reserved.</div>
+      <div>Designed with Cinematic Craft for Creators &amp; Brands.</div>
+    </div>
+  </footer>
+
+  <script>
+    // Set dynamic year
+    document.getElementById('footerYear').textContent = new Date().getFullYear();
+
+    // Topbar scroll effect
+    const topbar = document.getElementById('topbar');
+    window.addEventListener('scroll', () => {
+      if (window.scrollY > 40) topbar.classList.add('scrolled');
+      else topbar.classList.remove('scrolled');
+    }, { passive: true });
+
+    // Mobile drawer toggle
+    const hamburgerBtn = document.getElementById('hamburgerBtn');
+    const mobileDrawer = document.getElementById('mobileDrawer');
+    const drawerCloseBtn = document.getElementById('drawerCloseBtn');
+    if (hamburgerBtn && mobileDrawer) {
+      hamburgerBtn.addEventListener('click', () => mobileDrawer.classList.add('open'));
+      drawerCloseBtn.addEventListener('click', () => mobileDrawer.classList.remove('open'));
+    }
+
+    // Set active link
+    const path = window.location.pathname;
+    document.querySelectorAll('.nav-link, .drawer-link').forEach(link => {
+      const href = link.getAttribute('href');
+      if (href === path || (href !== '/' && path.startsWith(href))) {
+        link.classList.add('active');
+      }
+    });
+  </script>
+</body>
+</html>

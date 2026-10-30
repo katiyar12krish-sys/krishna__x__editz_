@@ -64,9 +64,41 @@
       "browser": "Edge",
       "screen_res": "1536x864",
       "referrer": "Direct Visit",
-      "pageviews": 2,
+      "pageviews": 3,
       "first_visit": "2026-10-30T13:42:39.696Z",
-      "last_visit": "2026-10-30T13:42:51.913Z"
+      "last_visit": "2026-10-30T15:49:37.510Z"
+    }
+  ],
+  "reviews": [
+    {
+      "id": 1,
+      "client_name": "Sorexa Tech",
+      "role_or_brand": "Software & Digital Innovation Firm",
+      "client_website": "https://www.sorexatech.com/",
+      "rating": 5,
+      "review_text": "Krishna's cinematic visual storytelling and high-retention pacing gave our brand showreels and promo videos an elite edge. Outstanding creative direction and lightning-fast turnaround!",
+      "service_type": "Brand Commercials & Tech Showreels",
+      "created_at": "2026-10-28T16:20:00.000Z"
+    },
+    {
+      "id": 2,
+      "client_name": "Rahul Sharma",
+      "role_or_brand": "Creative Director, Apex Media",
+      "client_website": "",
+      "rating": 5,
+      "review_text": "Krishna completely revolutionized our brand's reel engagement. Our average retention doubled and our first reel crossed 1.2M views in 48 hours!",
+      "service_type": "Viral Reels & Shorts",
+      "created_at": "2026-10-22T12:00:00.000Z"
+    },
+    {
+      "id": 3,
+      "client_name": "Aarav Mehta",
+      "role_or_brand": "Automotive & Luxury Creator",
+      "client_website": "",
+      "rating": 5,
+      "review_text": "The color grading and sound design is on another level. You can immediately spot a Krishna X Editz video by its unmatched aesthetic polish.",
+      "service_type": "Cinematic Video Editing",
+      "created_at": "2026-10-18T10:30:00.000Z"
     }
   ]
 }

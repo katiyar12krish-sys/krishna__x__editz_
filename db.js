@@ -9,7 +9,8 @@ let data = {
   newsletter_subscribers: [],
   contact_messages: [],
   analytics_events: [],
-  visitors: []
+  visitors: [],
+  reviews: []
 };
 
 // Load persisted data if file exists
@@ -104,6 +105,27 @@ const db = {
           name,
           contact_info,
           message,
+          created_at: new Date().toISOString()
+        });
+        self.lastID = id;
+        self.changes = 1;
+        save();
+        return callback.call(self, null);
+      }
+
+      // 3b. INSERT INTO reviews
+      if (/^INSERT\s+INTO\s+reviews/i.test(query)) {
+        if (!data.reviews) data.reviews = [];
+        const id = (data.reviews.length ? Math.max(...data.reviews.map(r => r.id || 0)) : 0) + 1;
+        const [client_name, role_or_brand, rating, review_text, service_type, client_website] = p;
+        data.reviews.push({
+          id,
+          client_name: client_name || 'Anonymous Client',
+          role_or_brand: role_or_brand || 'Creator / Brand',
+          rating: Number(rating) || 5,
+          review_text: review_text || '',
+          service_type: service_type || 'Video Editing',
+          client_website: client_website || '',
           created_at: new Date().toISOString()
         });
         self.lastID = id;
@@ -222,6 +244,12 @@ const db = {
 
       if (/FROM\s+contact_messages/i.test(query)) {
         let list = [...data.contact_messages];
+        list.sort((a, b) => new Date(b.created_at) - new Date(a.created_at));
+        return callback(null, list);
+      }
+
+      if (/FROM\s+reviews/i.test(query)) {
+        let list = [...(data.reviews || [])];
         list.sort((a, b) => new Date(b.created_at) - new Date(a.created_at));
         return callback(null, list);
       }

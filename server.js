@@ -427,6 +427,72 @@ app.get('/api/admin/stats', async (req, res) => {
   }
 });
 
+// ==========================================
+// 6. CLIENT REVIEWS & TESTIMONIALS API (REAL-TIME DB)
+// ==========================================
+
+// Get all reviews (sorted latest first)
+app.get('/api/reviews', async (req, res) => {
+  try {
+    const rows = await dbAll('SELECT * FROM reviews ORDER BY created_at DESC');
+    res.json({ success: true, count: rows.length, data: rows });
+  } catch (err) {
+    console.error('Error fetching reviews:', err);
+    res.status(500).json({ success: false, error: err.message });
+  }
+});
+
+// Submit a new client review in real time
+app.post('/api/reviews', async (req, res) => {
+  try {
+    const { client_name, role_or_brand, rating, review_text, service_type, client_website } = req.body;
+
+    if (!client_name || !review_text) {
+      return res.status(400).json({
+        success: false,
+        message: 'Please provide both your name and review text.'
+      });
+    }
+
+    const starRating = Math.max(1, Math.min(5, parseInt(rating, 10) || 5));
+
+    const result = await dbRun(
+      'INSERT INTO reviews (client_name, role_or_brand, rating, review_text, service_type, client_website) VALUES (?, ?, ?, ?, ?, ?)',
+      [
+        client_name.trim(),
+        (role_or_brand || 'Verified Client').trim(),
+        starRating,
+        review_text.trim(),
+        (service_type || 'Custom Video Edit').trim(),
+        (client_website || '').trim()
+      ]
+    );
+
+    // Track analytics event
+    dbRun(`INSERT INTO analytics_events (event_type, event_data) VALUES ('review_submitted', ?)`, [client_name]).catch(() => {});
+
+    const newReview = {
+      id: result.lastID,
+      client_name: client_name.trim(),
+      role_or_brand: (role_or_brand || 'Verified Client').trim(),
+      rating: starRating,
+      review_text: review_text.trim(),
+      service_type: (service_type || 'Custom Video Edit').trim(),
+      client_website: (client_website || '').trim(),
+      created_at: new Date().toISOString()
+    };
+
+    res.status(201).json({
+      success: true,
+      message: '🎉 Thank you! Your review has been recorded in real-time.',
+      data: newReview
+    });
+  } catch (err) {
+    console.error('Error posting review:', err);
+    res.status(500).json({ success: false, message: 'Server database error. Please try again.' });
+  }
+});
+
 // Static Files and Views with HLS & Video Streaming Headers
 app.use(express.static(__dirname, {
   setHeaders: (res, filePath) => {
@@ -446,6 +512,43 @@ app.get('/', (req, res) => {
 
 app.get('/admin', (req, res) => {
   res.sendFile(path.join(__dirname, 'admin.html'));
+});
+
+// ==========================================
+// 7. MULTI-PAGE CLEAN ROUTES (FULL-PAGE EXPERIENCES)
+// ==========================================
+const fs = require('fs');
+const servePage = (pageName) => (req, res) => {
+  const filePath = path.join(__dirname, 'pages', pageName);
+  if (fs.existsSync(filePath)) {
+    res.sendFile(filePath);
+  } else {
+    res.sendFile(path.join(__dirname, 'index.html'));
+  }
+};
+
+app.get('/services', servePage('services.html'));
+app.get('/services/:slug', servePage('services.html'));
+app.get('/portfolio', servePage('portfolio.html'));
+app.get('/my-work', servePage('my-work.html'));
+app.get('/pricing', servePage('pricing.html'));
+app.get('/about', servePage('about.html'));
+app.get('/founder', servePage('founder.html'));
+app.get('/skills', servePage('skills.html'));
+app.get('/testimonials', servePage('testimonials.html'));
+app.get('/reviews', servePage('testimonials.html'));
+app.get('/contact', servePage('contact.html'));
+app.get('/faq', servePage('faq.html'));
+
+// 404 Fallback
+app.use((req, res, next) => {
+  if (req.method !== 'GET') return next();
+  const p404 = path.join(__dirname, '404.html');
+  if (fs.existsSync(p404)) {
+    res.status(404).sendFile(p404);
+  } else {
+    res.status(404).sendFile(path.join(__dirname, 'index.html'));
+  }
 });
 
 // Keep process active in background

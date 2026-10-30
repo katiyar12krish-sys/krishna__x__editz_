@@ -6541,7 +6541,8 @@
   <!-- TOPBAR NAVIGATION -->
   <header class="topbar" id="topbar">
     <div class="brand-wrap">
-      <a class="brand" href="#" aria-label="KRISHNA X EDITZ home">
+      <a class="brand" href="/" aria-label="KRISHNA X EDITZ home">
+        <img src="assets/logo.svg" alt="KXE Logo" class="brand-logo-img" width="36" height="36" style="vertical-align: middle; margin-right: 8px; filter: drop-shadow(0 0 10px rgba(245,158,11,0.4));">
         KRISHNA <span>X</span> EDITZ
       </a>
       <button class="top-back-btn" id="topBackBtn" type="button" aria-label="Go Back" onclick="handleGlobalBack()">
@@ -7351,15 +7352,41 @@
     <!-- SECTION 4: CLIENT REVIEWS -->
     <section class="section" id="reviews-section">
       <div class="container">
-        <div class="section-header reveal-elem">
-          <span class="section-eyebrow">✦ Client Endorsements ✦</span>
-          <h2 class="section-title">Trusted By Creators & Luxury Brands</h2>
-          <p class="section-desc">
-            Real feedback from creators, agencies, and brand founders worldwide.
-          </p>
+        
+        <!-- SOREXA TECH OFFICIAL CLIENT & PARTNER SHOWCASE CARD -->
+        <div class="partner-spotlight-card reveal-elem" style="background: linear-gradient(135deg, rgba(28, 20, 14, 0.95) 0%, rgba(18, 14, 10, 0.98) 100%); border: 1.5px solid rgba(212, 175, 55, 0.35); border-radius: 20px; padding: 32px 36px; margin-bottom: 48px; box-shadow: 0 14px 40px rgba(0, 0, 0, 0.6); display: flex; flex-direction: column; gap: 16px;">
+          <span style="display: inline-block; align-self: flex-start; font-size: 11px; font-weight: 800; letter-spacing: 0.16em; text-transform: uppercase; color: var(--gold-neon); background: rgba(245, 158, 11, 0.12); border: 1px solid rgba(245, 158, 11, 0.35); padding: 4px 12px; border-radius: 999px;">✦ OFFICIAL TECHNOLOGY CLIENT &amp; VIDEO EDITING PARTNER ✦</span>
+          <div style="display: flex; align-items: center; justify-content: space-between; gap: 24px; flex-wrap: wrap;">
+            <div>
+              <h3 style="font-family: var(--serif); font-size: 26px; color: #FFFFFF; margin-bottom: 8px;">Sorexa Tech</h3>
+              <p style="color: var(--muted); font-size: 14.5px; line-height: 1.6; max-width: 680px; margin-bottom: 10px;">
+                Official Video Editing &amp; Cinematic Media Partner. We engineer high-retention product showreels, technological brand presentations, and modern visual identities for Sorexa Tech.
+              </p>
+              <span style="display: inline-flex; align-items: center; gap: 6px; font-size: 12px; font-weight: 700; color: var(--emerald-neon);">✓ Verified Creative Client &amp; Tech Collaboration</span>
+            </div>
+            <div>
+              <a href="https://www.sorexatech.com/" target="_blank" rel="noopener noreferrer" style="display: inline-flex; align-items: center; gap: 10px; padding: 13px 26px; border-radius: 999px; background: rgba(212, 175, 55, 0.15); border: 1.5px solid var(--gold-foil); color: var(--gold-bright); text-decoration: none; font-weight: 800; font-size: 13.5px; letter-spacing: 0.06em; transition: all 250ms ease;">
+                <span>Visit Sorexa Tech Official Website ↗</span>
+              </a>
+            </div>
+          </div>
         </div>
 
-        <div class="testimonials-grid">
+        <div class="section-header reveal-elem">
+          <span class="section-eyebrow">✦ REAL-TIME DATABASE VERIFIED ✦</span>
+          <h2 class="section-title">Client Reviews &amp; Endorsements</h2>
+          <p class="section-desc">
+            Real feedback from creators, agencies, and brand founders worldwide. Saved live to database.
+          </p>
+          <div style="margin-top: 20px;">
+            <button type="button" onclick="openHomeReviewModal()" style="display: inline-flex; align-items: center; gap: 8px; padding: 12px 26px; border-radius: 999px; background: var(--gold-neon); color: #0c0805; font-weight: 900; font-size: 13px; border: none; cursor: pointer; box-shadow: 0 4px 16px rgba(245,158,11,0.4);">
+              ✍️ Write a Client Review (Apna Review Dein)
+            </button>
+          </div>
+        </div>
+
+        <!-- Live Real-Time Reviews Grid -->
+        <div class="testimonials-grid" id="homeTestimonialsGrid">
           
           <div class="testimonial-card reveal-elem stagger-1 tilt-card">
             <div class="t-stars">&#9733;&#9733;&#9733;&#9733;<span style="opacity:0.65;">&#9733;</span> <span style="font-size: 12px; color: var(--gold-bright); font-weight: 800; margin-left: 6px;">4.5</span></div>
@@ -7803,10 +7830,17 @@
   <!-- Fullscreen Menu Layer -->
   <nav class="menu-layer" id="menuLayer" aria-label="Primary Navigation">
     <ul class="menu-list">
-      <li><a class="menu-link" href="#" data-action="services">Our Services</a></li>
-      <li><a class="menu-link" href="#" data-action="works">Our Works</a></li>
-      <li><a class="menu-link" href="#" data-action="contact">Contact Us</a></li>
-      <li><a class="menu-link" href="#" onclick="openAdminPortal();" style="color: #ffd700; font-size: clamp(24px, 3.2vw, 42px);">👑 Admin Command Portal</a></li>
+      <li><a class="menu-link" href="/services">Our Services</a></li>
+      <li><a class="menu-link" href="/portfolio">Portfolio</a></li>
+      <li><a class="menu-link" href="/pricing">Pricing &amp; Packages</a></li>
+      <li><a class="menu-link" href="/about">About Krishna</a></li>
+      <li><a class="menu-link" href="/founder">Founder Profile</a></li>
+      <li><a class="menu-link" href="/skills">Editing Capabilities</a></li>
+      <li><a class="menu-link" href="/testimonials">Client Reviews</a></li>
+      <li><a class="menu-link" href="/contact">Contact &amp; Bookings</a></li>
+      <li><a class="menu-link" href="/faq">FAQ</a></li>
+      <li><a class="menu-link" href="https://www.sorexatech.com/" target="_blank" rel="noopener noreferrer" style="color:var(--cyan-neon); font-size: clamp(22px, 3vw, 38px);">Sorexa Tech Official ↗</a></li>
+      <li><a class="menu-link" href="#" onclick="openAdminPortal();" style="color: #ffd700; font-size: clamp(20px, 2.6vw, 32px);">👑 Admin Command Portal</a></li>
     </ul>
   </nav>
 
@@ -11031,5 +11065,191 @@ ${payload.project_brief || 'None specified'}
 
 
   
+
+  <!-- REAL-TIME CLIENT REVIEW SUBMISSION MODAL -->
+  <div id="homeReviewModal" style="display:none; position:fixed; inset:0; z-index:300; background:rgba(0,0,0,0.85); backdrop-filter:blur(14px); align-items:center; justify-content:center; padding:20px;">
+    <div style="position:relative; width:100%; max-width:540px; background:rgba(24, 18, 12, 0.98); border:1.5px solid var(--gold-neon); border-radius:20px; padding:32px; box-shadow:0 20px 60px rgba(0,0,0,0.9); max-height:90vh; overflow-y:auto;">
+      <button onclick="closeHomeReviewModal()" style="position:absolute; top:18px; right:20px; background:none; border:none; color:#fff; font-size:24px; cursor:pointer;">✕</button>
+      
+      <span class="section-eyebrow" style="font-size:11px;">✦ REAL-TIME DATABASE ✦</span>
+      <h3 style="font-family:var(--serif); font-size:24px; color:#fff; margin-bottom:6px;">Share Your Review</h3>
+      <p style="color:var(--muted); font-size:13px; line-height:1.5; margin-bottom:20px;">Your feedback will be saved instantly into the database and shown on this website.</p>
+
+      <form id="homeReviewForm" onsubmit="submitHomeReview(event)">
+        <div style="margin-bottom:14px;">
+          <label style="display:block; font-size:12.5px; font-weight:700; color:var(--gold-bright); margin-bottom:6px;">Your Name *</label>
+          <input type="text" id="hRevName" required placeholder="e.g. Aman Sharma" style="width:100%; padding:11px 14px; border-radius:10px; background:rgba(12,9,6,0.9); border:1px solid rgba(212,175,55,0.3); color:#fff; font-family:var(--sans); font-size:14px;">
+        </div>
+
+        <div style="margin-bottom:14px;">
+          <label style="display:block; font-size:12.5px; font-weight:700; color:var(--gold-bright); margin-bottom:6px;">Role, Channel, or Brand *</label>
+          <input type="text" id="hRevRole" required placeholder="e.g. YouTube Creator / Founder" style="width:100%; padding:11px 14px; border-radius:10px; background:rgba(12,9,6,0.9); border:1px solid rgba(212,175,55,0.3); color:#fff; font-family:var(--sans); font-size:14px;">
+        </div>
+
+        <div style="margin-bottom:14px;">
+          <label style="display:block; font-size:12.5px; font-weight:700; color:var(--gold-bright); margin-bottom:6px;">Website / Channel Link (Optional)</label>
+          <input type="url" id="hRevWeb" placeholder="https://..." style="width:100%; padding:11px 14px; border-radius:10px; background:rgba(12,9,6,0.9); border:1px solid rgba(212,175,55,0.3); color:#fff; font-family:var(--sans); font-size:14px;">
+        </div>
+
+        <div style="display:grid; grid-template-columns:1fr 1fr; gap:12px; margin-bottom:14px;">
+          <div>
+            <label style="display:block; font-size:12.5px; font-weight:700; color:var(--gold-bright); margin-bottom:6px;">Rating</label>
+            <select id="hRevRating" style="width:100%; padding:11px; border-radius:10px; background:rgba(12,9,6,0.9); border:1px solid rgba(212,175,55,0.3); color:#fff; font-family:var(--sans); font-size:13.5px;">
+              <option value="5" selected>★★★★★ 5 Stars</option>
+              <option value="4">★★★★☆ 4 Stars</option>
+              <option value="3">★★★☆☆ 3 Stars</option>
+              <option value="2">★★☆☆☆ 2 Stars</option>
+              <option value="1">★☆☆☆☆ 1 Star</option>
+            </select>
+          </div>
+          <div>
+            <label style="display:block; font-size:12.5px; font-weight:700; color:var(--gold-bright); margin-bottom:6px;">Service Done</label>
+            <select id="hRevService" style="width:100%; padding:11px; border-radius:10px; background:rgba(12,9,6,0.9); border:1px solid rgba(212,175,55,0.3); color:#fff; font-family:var(--sans); font-size:13.5px;">
+              <option value="Viral Reels & Shorts">Viral Reels &amp; Shorts</option>
+              <option value="YouTube Long-Form Edit">YouTube Long-Form Edit</option>
+              <option value="Cinematic Video Editing">Cinematic Video Editing</option>
+              <option value="Brand Commercial">Brand Commercial</option>
+              <option value="Color Grading & Sound">Color Grading &amp; Sound</option>
+              <option value="Custom Project">Custom Project</option>
+            </select>
+          </div>
+        </div>
+
+        <div style="margin-bottom:18px;">
+          <label style="display:block; font-size:12.5px; font-weight:700; color:var(--gold-bright); margin-bottom:6px;">Your Review Message *</label>
+          <textarea id="hRevMsg" rows="4" required placeholder="Write honest feedback about video pacing, color grading, turnaround time, communication, etc." style="width:100%; padding:11px 14px; border-radius:10px; background:rgba(12,9,6,0.9); border:1px solid rgba(212,175,55,0.3); color:#fff; font-family:var(--sans); font-size:14px; line-height:1.5;"></textarea>
+        </div>
+
+        <div id="hRevNotice" style="display:none; padding:10px; border-radius:8px; margin-bottom:14px; font-size:13px;"></div>
+
+        <button type="submit" id="hRevBtn" style="width:100%; padding:14px; border-radius:999px; background:var(--gold-neon); color:#000; font-weight:900; font-size:14px; border:none; cursor:pointer;">
+          Publish Review Instantly &rarr;
+        </button>
+      </form>
+    </div>
+  </div>
+
+  <script>
+    function openHomeReviewModal() {
+      document.getElementById('homeReviewModal').style.display = 'flex';
+    }
+    function closeHomeReviewModal() {
+      document.getElementById('homeReviewModal').style.display = 'none';
+    }
+
+    function renderReviewStars(r) {
+      let s = '';
+      for (let i = 1; i <= 5; i++) {
+        s += (i <= r) ? '★' : '<span style="opacity:0.35;">★</span>';
+      }
+      return s;
+    }
+
+    function buildHomeReviewCard(rev) {
+      const card = document.createElement('div');
+      card.className = 'testimonial-card reveal-elem in-view';
+      card.style.background = 'rgba(22, 17, 12, 0.95)';
+      card.style.border = '1.5px solid rgba(212, 175, 55, 0.28)';
+      card.style.borderRadius = '18px';
+      card.style.padding = '28px 24px';
+      card.style.display = 'flex';
+      card.style.flexDirection = 'column';
+      card.style.justifyContent = 'space-between';
+
+      const initial = (rev.client_name || 'A')[0].toUpperCase();
+      const web = rev.client_website ? `<a href="${rev.client_website}" target="_blank" rel="noopener noreferrer" style="color:var(--gold-bright); font-size:12px; margin-left:6px; text-decoration:none;">↗ Website</a>` : '';
+
+      card.innerHTML = `
+        <div>
+          <div style="display:flex; align-items:center; justify-content:space-between; margin-bottom:12px;">
+            <div style="color:var(--gold-neon); font-size:18px; letter-spacing:2px;">${renderReviewStars(rev.rating)}</div>
+            <span style="font-size:11px; color:var(--muted);">${new Date(rev.created_at || Date.now()).toLocaleDateString()}</span>
+          </div>
+          <p class="t-quote" style="margin-bottom:16px;">"${rev.review_text}"</p>
+        </div>
+        <div class="t-author" style="border-top:1px solid rgba(255,255,255,0.08); padding-top:14px; margin-top:10px;">
+          <div class="t-avatar">${initial}</div>
+          <div>
+            <div class="t-name">${rev.client_name} ${web}</div>
+            <div class="t-role">${rev.role_or_brand} • ${rev.service_type || 'Video Edit'}</div>
+          </div>
+        </div>
+      `;
+      return card;
+    }
+
+    async function loadHomeReviews() {
+      const grid = document.getElementById('homeTestimonialsGrid');
+      if (!grid) return;
+      try {
+        const res = await fetch('/api/reviews');
+        const data = await res.json();
+        if (data.success && data.data && data.data.length > 0) {
+          grid.innerHTML = '';
+          data.data.forEach(rev => {
+            grid.appendChild(buildHomeReviewCard(rev));
+          });
+        }
+      } catch (err) {
+        console.error('Failed to load reviews:', err);
+      }
+    }
+
+    async function submitHomeReview(e) {
+      e.preventDefault();
+      const btn = document.getElementById('hRevBtn');
+      const notice = document.getElementById('hRevNotice');
+      btn.disabled = true;
+      btn.textContent = 'Saving to Database...';
+
+      const payload = {
+        client_name: document.getElementById('hRevName').value,
+        role_or_brand: document.getElementById('hRevRole').value,
+        client_website: document.getElementById('hRevWeb').value,
+        rating: document.getElementById('hRevRating').value,
+        service_type: document.getElementById('hRevService').value,
+        review_text: document.getElementById('hRevMsg').value
+      };
+
+      try {
+        const res = await fetch('/api/reviews', {
+          method: 'POST',
+          headers: { 'Content-Type': 'application/json' },
+          body: JSON.stringify(payload)
+        });
+        const result = await res.json();
+        if (result.success) {
+          notice.style.display = 'block';
+          notice.style.background = 'rgba(16,185,129,0.2)';
+          notice.style.color = '#34d399';
+          notice.textContent = '🎉 Review published instantly! Adding to website...';
+
+          const grid = document.getElementById('homeTestimonialsGrid');
+          if (grid) {
+            grid.insertBefore(buildHomeReviewCard(result.data), grid.firstChild);
+          }
+
+          setTimeout(() => {
+            closeHomeReviewModal();
+            document.getElementById('homeReviewForm').reset();
+            notice.style.display = 'none';
+            btn.disabled = false;
+            btn.textContent = 'Publish Review Instantly →';
+          }, 1200);
+        } else {
+          throw new Error(result.message || 'Submission error');
+        }
+      } catch (err) {
+        notice.style.display = 'block';
+        notice.style.background = 'rgba(225,29,72,0.2)';
+        notice.style.color = '#fb7185';
+        notice.textContent = err.message || 'Error saving review.';
+        btn.disabled = false;
+        btn.textContent = 'Publish Review Instantly →';
+      }
+    }
+
+    document.addEventListener('DOMContentLoaded', loadHomeReviews);
+  </script>
 </body>
 </html>
