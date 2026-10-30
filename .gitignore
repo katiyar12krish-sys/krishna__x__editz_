@@ -24,10 +24,12 @@ assets/work_gangster_attitude.mp4
 assets/work_gangster_mafia.mp4
 assets/work_nazar_cinematic.mp4
 
-
-# Temporary & Database
+# Temporary & Database & Backups
 index.html.bak
+index.html.backup*
+*.backup*
 database.sqlite
 scratch/
+ezgif-7e548b2858c7d4dd-png-split/
 
 *.bak

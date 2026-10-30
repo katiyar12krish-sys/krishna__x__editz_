@@ -53,6 +53,20 @@
       "pageviews": 13,
       "first_visit": "2026-10-17T10:05:47.991Z",
       "last_visit": "2026-10-17T12:09:46.031Z"
+    },
+    {
+      "id": 2,
+      "visitor_token": "kx_8ybi07p3_mvca94tj",
+      "date": "2026-10-30",
+      "ip": "127.0.0.1",
+      "user_agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/156.0.0.0 Safari/537.36 Edg/156.0.0.0",
+      "device_type": "💻 Desktop (Windows)",
+      "browser": "Edge",
+      "screen_res": "1536x864",
+      "referrer": "Direct Visit",
+      "pageviews": 2,
+      "first_visit": "2026-10-30T13:42:39.696Z",
+      "last_visit": "2026-10-30T13:42:51.913Z"
     }
   ]
 }

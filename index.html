@@ -12,7 +12,7 @@
   
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Cinzel+Decorative:wght@700;900&family=Cinzel:wght@600;700;800;900&family=Playfair+Display:ital,wght@0,500;0,600;0,700;1,400;1,500;1,600;1,700&family=Plus+Jakarta+Sans:ital,wght@0,400;0,500;0,600;0,700;0,800;1,400;1,600;1,700&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Italiana&family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;0,600;0,700;1,400;1,600&family=Cinzel+Decorative:wght@700;900&family=Cinzel:wght@600;700;800;900&family=Playfair+Display:ital,wght@0,500;0,600;0,700;1,400;1,500;1,600;1,700&family=Plus+Jakarta+Sans:ital,wght@0,300;0,400;0,500;0,600;0,700;0,800;1,400;1,600;1,700&display=swap" rel="stylesheet">
   
   <!-- HLS.js for YouTube-Style Adaptive Bitrate Streaming (Auto/4K/1080p/720p) -->
   <script src="https://cdn.jsdelivr.net/npm/hls.js@1.5.8/dist/hls.min.js"></script>
@@ -112,7 +112,8 @@
     }
 
     /* ========================================================
-       HERO 3D SHOWCASE SECTION
+       INNER PEACE / LUXURY EDITORIAL HERO STAGE
+       Edge-to-Edge Full-Bleed Artwork | Real Wind Dress Flutter | Streaming Sunbeams | Bold X Typography
        ======================================================== */
     .stage {
       position: relative;
@@ -120,28 +121,466 @@
       width: 100vw;
       min-height: 100vh;
       min-height: 100svh;
+      height: 100vh;
+      height: 100svh;
       overflow: hidden;
       contain: layout style;
-      background:
-        radial-gradient(circle at 50% 92%, rgba(212, 175, 55, .35), transparent 45%),
-        radial-gradient(circle at 12% 15%, rgba(16, 185, 129, .22), transparent 35%),
-        radial-gradient(circle at 88% 15%, rgba(225, 29, 72, .22), transparent 35%),
-        radial-gradient(circle at 50% 10%, rgba(139, 92, 246, .18), transparent 45%),
-        linear-gradient(180deg, #1f1810 0%, var(--ink) 50%, #0a0806 100%);
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+      padding: clamp(65px, 8vh, 85px) clamp(24px, 4vw, 64px) clamp(16px, 2.5vh, 26px);
+      background-color: #35251a;
+      box-sizing: border-box;
     }
 
+    /* EDGE-TO-EDGE FULL-BLEED ARTWORK (NO BOX LINES, ZERO MARGIN SEAMS) */
+    .inner-artwork-bg {
+      position: absolute;
+      inset: 0;
+      top: 0;
+      left: 0;
+      right: 0;
+      bottom: 0;
+      width: 100%;
+      height: 100%;
+      z-index: 1;
+      pointer-events: none;
+      overflow: hidden;
+    }
+
+    .inner-artwork-cloth-canvas {
+      position: absolute;
+      inset: 0;
+      width: 100%;
+      height: 100%;
+      display: block;
+      pointer-events: none;
+      z-index: 2;
+    }
+
+    
+    /* Animated Doll Canvas — cover fit like the original img */
+    #heroDollAnimCanvas {
+      position: absolute;
+      inset: 0;
+      width: 100% !important;
+      height: 100% !important;
+      object-fit: cover;
+    }
+    .inner-artwork-img-base {
+      position: absolute;
+      inset: 0;
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      object-position: 86% center;
+      filter: contrast(1.05) brightness(1.02);
+      /* Left fade so text sits on rich mocha */
+      mask-image: linear-gradient(to right, transparent 0%, rgba(0,0,0,0.85) 28%, #000 45%, #000 100%);
+      -webkit-mask-image: linear-gradient(to right, transparent 0%, rgba(0,0,0,0.85) 28%, #000 45%, #000 100%);
+      z-index: 1;
+      transition: opacity 0.5s ease;
+    }
+
+    /* ACTIVELY STREAMING SUNBEAMS (REAL MOVING VOLUMETRIC GOD-RAYS) */
+    .volumetric-sunbeams {
+      display: none !important;   /* Removed per user — straight lines hidden */
+      position: absolute;
+      inset: 0;
+      pointer-events: none;
+      z-index: 2;
+      overflow: hidden;
+    }
+
+    .sunbeam-stream-shaft {
+      position: absolute;
+      top: -45%;
+      right: -25%;
+      width: 160%;
+      height: 160%;
+      pointer-events: none;
+      background: repeating-linear-gradient(
+        -44deg,
+        rgba(255, 250, 230, 0.32) 0px,
+        rgba(255, 250, 230, 0.32) 45px,
+        rgba(244, 217, 160, 0.16) 90px,
+        rgba(198, 121, 44, 0.05) 150px,
+        transparent 210px
+      );
+      filter: blur(20px);
+      animation: sunbeamStreamMotion 7s ease-in-out infinite alternate;
+      transform-origin: 85% 10%;
+    }
+
+    .sunbeam-stream-shaft-2 {
+      position: absolute;
+      top: -35%;
+      right: -15%;
+      width: 140%;
+      height: 140%;
+      pointer-events: none;
+      background: linear-gradient(
+        -47deg,
+        rgba(255, 245, 215, 0.36) 0%,
+        rgba(244, 217, 160, 0.18) 25%,
+        rgba(198, 121, 44, 0.08) 50%,
+        transparent 72%
+      );
+      filter: blur(14px);
+      animation: sunbeamStreamMotion2 9s ease-in-out infinite alternate;
+      transform-origin: 82% 12%;
+    }
+
+    @keyframes sunbeamStreamMotion {
+      0% {
+        transform: translate3d(35px, -35px, 0) rotate(-44deg);
+        opacity: 0.35;
+      }
+      50% {
+        transform: translate3d(-30px, 30px, 0) rotate(-42deg);
+        opacity: 0.72;
+      }
+      100% {
+        transform: translate3d(35px, -35px, 0) rotate(-44deg);
+        opacity: 0.35;
+      }
+    }
+
+    @keyframes sunbeamStreamMotion2 {
+      0% {
+        transform: translate3d(-25px, 25px, 0) rotate(-47.5deg);
+        opacity: 0.55;
+      }
+      50% {
+        transform: translate3d(30px, -30px, 0) rotate(-45.5deg);
+        opacity: 0.28;
+      }
+      100% {
+        transform: translate3d(-25px, 25px, 0) rotate(-47.5deg);
+        opacity: 0.55;
+      }
+    }
+
+    /* Ambient Warm Haze at Base */
     .stage::after {
       content: "";
       position: absolute;
-      z-index: 0;
+      z-index: 2;
       inset: 0;
       pointer-events: none;
-      opacity: .12;
       background:
-        radial-gradient(circle at 50% 50%, rgba(255, 215, 0, 0.04) 0%, transparent 60%),
-        repeating-radial-gradient(circle at 50% 50%, rgba(212, 175, 55, 0.015) 0, rgba(212, 175, 55, 0.015) 1px, transparent 1px, transparent 4px);
-      pointer-events: none;
+        radial-gradient(ellipse 65% 55% at 80% 80%, rgba(198, 121, 44, 0.18) 0%, transparent 60%),
+        radial-gradient(circle at 15% 50%, rgba(53, 37, 26, 0.85) 0%, transparent 60%);
     }
+
+    /* MAIN HERO CANVAS WRAPPER */
+    .inner-peace-canvas {
+      position: relative;
+      z-index: 5;
+      max-width: 1560px;
+      margin: 0 auto;
+      width: 100%;
+      flex: 1;
+      display: flex;
+      align-items: center;
+      justify-content: flex-start;
+      height: 100%;
+      max-height: calc(100vh - 140px);
+      box-sizing: border-box;
+    }
+
+    /* LEFT EDITORIAL COLUMN */
+    .inner-left-col {
+      position: relative;
+      z-index: 10;
+      max-width: 640px;
+      display: flex;
+      flex-direction: column;
+      align-items: flex-start;
+      gap: clamp(14px, 2.2vh, 22px);
+      padding: 10px 0;
+      pointer-events: auto;
+    }
+
+    .hero-kicker-badge {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      font-family: var(--sans);
+      font-size: clamp(10px, 0.85vw, 12px);
+      font-weight: 800;
+      letter-spacing: 0.32em;
+      text-transform: uppercase;
+      color: #F4D9A0;
+      text-shadow: 0 2px 14px rgba(0, 0, 0, 0.9), 0 0 18px rgba(244, 217, 160, 0.5);
+    }
+
+    /* ========================================================
+       PROMINENT MULTI-FONT BRAND TITLE: "KRISHNA X EDITZ ✦"
+       Clear, Majestic, Bold 'X' Integration
+       ======================================================== */
+    .brand-title-lockup {
+      display: flex;
+      flex-direction: column;
+      line-height: 0.93;
+      margin: 2px 0 8px;
+    }
+
+    .title-row-krishna {
+      font-family: var(--display), "Cinzel", Georgia, serif;
+      font-size: clamp(54px, 7.2vw, 102px);
+      font-weight: 900;
+      letter-spacing: 0.05em;
+      color: #fff9eb;
+      background: linear-gradient(135deg, #ffffff 0%, #FFF2D2 40%, #F4D9A0 75%, #C6792C 100%);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      filter: drop-shadow(0 4px 26px rgba(0, 0, 0, 0.85));
+      margin: 0;
+    }
+
+    .title-row-bottom {
+      display: inline-flex;
+      align-items: baseline;
+      gap: clamp(10px, 1.4vw, 20px);
+      margin-top: 4px;
+    }
+
+    /* BOLD, PROMINENT, UNMISSABLE 'X' */
+    .title-x-box {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      line-height: 1;
+    }
+
+    .title-x-glyph {
+      font-family: var(--display), "Cinzel", Georgia, serif;
+      font-size: clamp(48px, 6.2vw, 88px);
+      font-weight: 900;
+      color: #F4D9A0;
+      background: linear-gradient(135deg, #FFF9EA 0%, #F4D9A0 50%, #D4AF37 100%);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      filter: drop-shadow(0 0 24px rgba(244, 217, 160, 0.8)) drop-shadow(0 4px 18px rgba(0, 0, 0, 0.9));
+      display: inline-block;
+    }
+
+    .title-editz-text {
+      font-family: var(--serif), "Playfair Display", Georgia, serif;
+      font-size: clamp(48px, 6.2vw, 88px);
+      font-weight: 700;
+      letter-spacing: 0.14em;
+      color: #ffffff;
+      background: linear-gradient(135deg, #ffffff 0%, #FFF2D6 45%, #F4D9A0 90%);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      filter: drop-shadow(0 4px 22px rgba(0, 0, 0, 0.85));
+    }
+
+    .title-sparkle-star {
+      font-size: clamp(20px, 2.5vw, 36px);
+      color: #F4D9A0;
+      -webkit-text-fill-color: #F4D9A0;
+      filter: drop-shadow(0 0 18px rgba(244, 217, 160, 0.95));
+      display: inline-block;
+      vertical-align: middle;
+      animation: starSparkleSpin 4s ease-in-out infinite alternate;
+      margin-left: 2px;
+    }
+
+    @keyframes starSparkleSpin {
+      0% { transform: scale(1) rotate(0deg); opacity: 0.85; }
+      100% { transform: scale(1.22) rotate(45deg); opacity: 1; }
+    }
+
+    .brand-manifesto {
+      display: flex;
+      flex-direction: column;
+      gap: 6px;
+      max-width: 490px;
+    }
+
+    .manifesto-tag {
+      font-family: var(--sans);
+      font-size: 11.5px;
+      font-weight: 800;
+      letter-spacing: 0.16em;
+      text-transform: uppercase;
+      color: #ffffff;
+      text-shadow: 0 2px 12px rgba(0, 0, 0, 0.9);
+    }
+
+    .manifesto-body {
+      font-family: var(--sans);
+      font-size: clamp(12.5px, 1.05vw, 15px);
+      line-height: 1.6;
+      color: rgba(244, 217, 160, 0.88);
+      margin: 0;
+      text-shadow: 0 2px 14px rgba(0, 0, 0, 0.9);
+      font-weight: 400;
+    }
+
+    /* ELEGANT OUTLINED PILL CTA */
+    .inner-btn-explore {
+      display: inline-flex;
+      align-items: center;
+      gap: 12px;
+      padding: 11px 30px;
+      border-radius: 999px;
+      border: 1.5px solid rgba(244, 217, 160, 0.7);
+      background: rgba(42, 30, 20, 0.75);
+      backdrop-filter: blur(14px);
+      color: #F4D9A0;
+      font-family: var(--sans);
+      font-size: 12px;
+      font-weight: 800;
+      letter-spacing: 0.22em;
+      text-transform: uppercase;
+      cursor: pointer;
+      box-shadow: 0 6px 22px rgba(0, 0, 0, 0.6), 0 0 16px rgba(198, 121, 44, 0.3);
+      transition: all 260ms ease;
+    }
+
+    .inner-btn-explore:hover {
+      background: rgba(244, 217, 160, 0.22);
+      border-color: #ffffff;
+      color: #ffffff;
+      transform: translateY(-2px);
+      box-shadow: 0 10px 32px rgba(198, 121, 44, 0.55);
+    }
+
+    .inner-btn-explore svg {
+      transition: transform 220ms ease;
+    }
+
+    .inner-btn-explore:hover svg {
+      transform: translateX(5px);
+    }
+
+    /* REFINED BOTTOM DOCK: 4 PROMINENT BUTTONS */
+    .hero-bottom-dock { display: none !important; 
+      position: relative;
+      z-index: 10;
+      width: 100%;
+      max-width: 1560px;
+      margin: 0 auto;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      padding-top: 14px;
+      border-top: none;
+      box-sizing: border-box;
+    }
+
+    .hero-dock-actions {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: clamp(10px, 1.4vw, 18px);
+      flex-wrap: wrap;
+      width: 100%;
+    }
+
+    .dock-btn {
+      display: inline-flex;
+      align-items: center;
+      gap: 10px;
+      padding: clamp(10px, 1.3vh, 13px) clamp(18px, 1.8vw, 28px);
+      border-radius: 999px;
+      background: rgba(38, 27, 19, 0.82);
+      border: 1.5px solid rgba(244, 217, 160, 0.35);
+      color: #ffffff;
+      font-family: var(--sans);
+      font-size: clamp(12px, 0.95vw, 13.5px);
+      font-weight: 700;
+      letter-spacing: 0.04em;
+      cursor: pointer;
+      backdrop-filter: blur(14px);
+      box-shadow: 0 6px 20px rgba(0, 0, 0, 0.5);
+      transition: all 240ms cubic-bezier(0.16, 1, 0.3, 1);
+    }
+
+    .dock-btn-icon {
+      font-size: 14px;
+      color: #F4D9A0;
+    }
+
+    .dock-btn:hover {
+      background: rgba(244, 217, 160, 0.2);
+      border-color: #F4D9A0;
+      color: #ffffff;
+      transform: translateY(-3px);
+      box-shadow: 0 10px 28px rgba(198, 121, 44, 0.4);
+    }
+
+    .dock-btn-highlight {
+      background: linear-gradient(135deg, #F4D9A0 0%, #E5BA73 50%, #C6792C 100%);
+      color: #171008;
+      border-color: rgba(255, 255, 255, 0.35);
+      font-weight: 800;
+      box-shadow: 0 8px 24px rgba(198, 121, 44, 0.55);
+    }
+
+    .dock-btn-highlight .dock-btn-icon {
+      color: #171008;
+    }
+
+    .dock-btn-highlight:hover {
+      transform: translateY(-3px);
+      filter: brightness(1.12);
+      box-shadow: 0 12px 34px rgba(198, 121, 44, 0.75);
+      color: #000;
+    }
+
+    /* RESPONSIVE HERO BREAKPOINTS */
+    @media (max-width: 900px) {
+      .stage {
+        padding: clamp(65px, 8vh, 75px) 20px 18px;
+        height: auto;
+        min-height: 100vh;
+      }
+      .inner-peace-canvas {
+        flex-direction: column;
+        align-items: flex-start;
+        justify-content: flex-end;
+        padding-bottom: 20px;
+        min-height: calc(100vh - 150px);
+      }
+      .hero-dock-actions {
+        display: grid;
+        grid-template-columns: repeat(2, 1fr);
+        gap: 10px;
+      }
+      .dock-btn {
+        justify-content: center;
+        padding: 10px 14px;
+        font-size: 12px;
+      }
+    }
+
+    @media (max-width: 520px) {
+      .stage {
+        padding: 65px 14px 14px;
+      }
+      .title-row-krishna {
+        font-size: clamp(40px, 11vw, 56px);
+      }
+      .title-x-glyph {
+        font-size: clamp(34px, 9vw, 48px);
+      }
+      .title-editz-text {
+        font-size: clamp(34px, 9vw, 48px);
+      }
+      .hero-dock-actions {
+        grid-template-columns: 1fr;
+        gap: 8px;
+      }
+      .dock-btn {
+        padding: 11px 16px;
+      }
+    }
+
 
     /* TOPBAR / STICKY NAVIGATION */
     .topbar {
@@ -334,21 +773,21 @@
       filter: brightness(1.1);
     }
 
-    /* GRAND BACKDROP TYPOGRAPHY */
+    /* GRAND BACKDROP TYPOGRAPHY: KRISHNA X EDITZ */
     .hero-container {
-      position: absolute;
-      z-index: 1;
-      top: clamp(62px, 8.5vh, 88px);
-      left: 50%;
+      position: relative;
+      z-index: 10;
       display: flex;
       flex-direction: column;
       align-items: center;
       justify-content: center;
-      transform: translate3d(calc(-50% + var(--mx) * -.04), calc(var(--my) * -.04), 0);
+      transform: translate3d(calc(var(--mx) * -.02), calc(var(--my) * -.02), 0);
       transition: opacity 600ms ease, filter 600ms ease, transform 600ms var(--ease);
-      pointer-events: none;
+      pointer-events: auto;
       white-space: nowrap;
       text-align: center;
+      width: 100%;
+      margin: 0 auto;
     }
 
     .hero-eyebrow {
@@ -372,7 +811,7 @@
     .hero-word {
       margin: 0;
       font-family: var(--display);
-      font-size: clamp(38px, 6.6vw, 96px);
+      font-size: clamp(34px, 5.2vw, 76px);
       font-weight: 900;
       letter-spacing: .03em;
       line-height: .92;
@@ -949,151 +1388,358 @@
       50% { transform: translateY(5px); }
     }
 
-    /* DETAIL VIEW - OPEN LUXURY EDITORIAL SPREAD (UNBOXED ACROSS ALL 3 BOOKS) */
+    /* ========================================================
+       IMMERSIVE FULLSCREEN DETAIL VIEW (RICH VELVET MOCHA BACKDROP)
+       Warm Champagne Aura, Golden Glass Cards, Zero Muddy/Dark Look
+       ======================================================== */
     .detail-panel {
       position: fixed;
-      z-index: 60;
-      top: 50%;
-      right: clamp(16px, 3vw, 42px);
-      transform: translateY(-50%);
-      width: min(53vw, 760px);
-      max-height: min(90vh, 840px);
+      inset: 0;
+      top: 0;
+      left: 0;
+      right: 0;
+      bottom: 0;
+      width: 100vw;
+      height: 100vh;
+      max-height: 100vh;
+      z-index: 99999;
+      opacity: 0;
+      pointer-events: none;
+      background:
+        /* Top-Right Golden Sunbeam Glow */
+        radial-gradient(circle at 85% 12%, rgba(244, 217, 160, 0.22) 0%, rgba(198, 121, 44, 0.12) 35%, transparent 65%),
+        /* Center Warm Amber Haze */
+        radial-gradient(ellipse 70% 60% at 50% 50%, rgba(198, 121, 44, 0.1) 0%, transparent 60%),
+        /* Bottom-Left Warm Velvet Glow */
+        radial-gradient(circle at 15% 85%, rgba(244, 217, 160, 0.1) 0%, transparent 55%),
+        /* Rich Velvet Mocha Gradient Base */
+        linear-gradient(180deg, #2b1f16 0%, #201710 45%, #18110b 100%);
+      backdrop-filter: blur(36px);
+      -webkit-backdrop-filter: blur(36px);
       display: flex;
       flex-direction: column;
-      opacity: 0;
-      transition: opacity 350ms ease 100ms, transform 350ms var(--ease);
-      pointer-events: none;
-      background: transparent;
-      border: none;
-      border-radius: 0;
-      padding: 14px 18px 24px 22px;
-      box-shadow: none;
-      backdrop-filter: none;
-      will-change: transform, opacity;
+      overflow: hidden;
+      transform: scale(0.985);
+      transition: opacity 300ms ease, transform 300ms var(--ease);
+      padding: 0;
+      box-sizing: border-box;
     }
 
     [data-mode="detail"] .detail-panel {
-      pointer-events: auto;
       opacity: 1;
-      transform: translateY(-50%) translateX(0);
+      pointer-events: auto;
+      transform: scale(1);
     }
 
-    .detail-header-row {
+    /* FULLSCREEN TOPBAR NAVIGATION */
+    .fullscreen-detail-topbar {
       display: flex;
-      align-items: flex-start;
+      align-items: center;
       justify-content: space-between;
-      gap: 12px;
-      margin-bottom: 6px;
+      width: 100%;
+      padding: 16px clamp(20px, 4vw, 48px);
+      background: rgba(36, 26, 18, 0.92);
+      border-bottom: 1.5px solid rgba(244, 217, 160, 0.32);
+      backdrop-filter: blur(20px);
       flex-shrink: 0;
+      z-index: 20;
     }
 
-    .detail-title {
-      margin: 0;
-      color: var(--gold-bright);
-      font-family: var(--display);
-      font-size: clamp(24px, 3vw, 40px);
+    .btn-detail-back-pill {
+      display: inline-flex;
+      align-items: center;
+      gap: 10px;
+      padding: 9px 22px;
+      border-radius: 999px;
+      background: rgba(48, 35, 24, 0.88);
+      border: 1.5px solid rgba(244, 217, 160, 0.5);
+      color: #F4D9A0;
+      font-family: var(--sans);
+      font-size: 12.5px;
       font-weight: 800;
-      letter-spacing: -.02em;
-      line-height: 1.05;
-      text-shadow: 0 4px 16px rgba(0,0,0,0.6);
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      cursor: pointer;
+      box-shadow: 0 4px 18px rgba(0, 0, 0, 0.5);
+      transition: all 220ms ease;
+    }
+
+    .btn-detail-back-pill:hover {
+      background: linear-gradient(135deg, rgba(244, 217, 160, 0.28) 0%, rgba(198, 121, 44, 0.4) 100%);
+      border-color: #ffffff;
+      color: #ffffff;
+      transform: translateX(-3px);
+      box-shadow: 0 6px 24px rgba(198, 121, 44, 0.45);
+    }
+
+    .detail-brand-badge {
+      font-family: var(--display);
+      font-size: clamp(14px, 1.4vw, 18px);
+      font-weight: 800;
+      letter-spacing: 0.12em;
+      color: #F4D9A0;
+      text-transform: uppercase;
+      text-shadow: 0 0 16px rgba(244, 217, 160, 0.5);
+    }
+
+    .detail-top-actions {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+    }
+
+    .btn-detail-wa {
+      display: inline-flex;
+      align-items: center;
+      gap: 7px;
+      padding: 8px 18px;
+      border-radius: 999px;
+      background: rgba(37, 211, 102, 0.18);
+      border: 1px solid rgba(37, 211, 102, 0.5);
+      color: #25d366;
+      font-family: var(--sans);
+      font-size: 11.5px;
+      font-weight: 800;
+      text-decoration: none;
+      transition: all 200ms ease;
+    }
+
+    .btn-detail-wa:hover {
+      background: #25d366;
+      color: #fff;
     }
 
     .btn-close-detail {
       display: inline-flex;
       align-items: center;
       justify-content: center;
-      width: 32px;
-      height: 32px;
+      width: 36px;
+      height: 36px;
       border-radius: 50%;
-      background: rgba(255, 255, 255, 0.08);
-      border: 1px solid rgba(212, 175, 55, 0.3);
-      color: var(--gold-bright);
-      font-size: 18px;
+      background: rgba(255, 255, 255, 0.1);
+      border: 1px solid rgba(244, 217, 160, 0.4);
+      color: #F4D9A0;
+      font-size: 20px;
       line-height: 1;
       cursor: pointer;
       transition: all 200ms ease;
-      flex-shrink: 0;
     }
 
     .btn-close-detail:hover {
-      background: rgba(225, 29, 72, 0.35);
+      background: rgba(225, 29, 72, 0.4);
       border-color: var(--crimson-neon);
       color: #fff;
-      transform: scale(1.08);
+      transform: rotate(90deg);
+    }
+
+    /* FULLSCREEN CONTENT WRAPPER */
+    .detail-fullscreen-body {
+      flex: 1 1 auto;
+      overflow-y: auto;
+      overscroll-behavior: contain;
+      padding: clamp(24px, 3.5vh, 40px) clamp(20px, 4vw, 60px) 130px;
+      max-width: 1260px;
+      margin: 0 auto;
+      width: 100%;
+      box-sizing: border-box;
+      scrollbar-width: thin;
+      scrollbar-color: rgba(244, 217, 160, 0.6) rgba(40, 28, 19, 0.5);
+    }
+
+    .detail-fullscreen-body::-webkit-scrollbar { width: 6px; }
+    .detail-fullscreen-body::-webkit-scrollbar-track { background: rgba(40, 28, 19, 0.5); }
+    .detail-fullscreen-body::-webkit-scrollbar-thumb { border-radius: 999px; background: linear-gradient(180deg, #F4D9A0 0%, #C6792C 100%); }
+
+    .detail-header-row {
+      margin-bottom: 8px;
+    }
+
+    .detail-title {
+      margin: 0 0 10px;
+      color: #fff;
+      background: linear-gradient(135deg, #ffffff 0%, #F4D9A0 50%, #C6792C 100%);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      font-family: var(--serif), "Playfair Display", Georgia, serif;
+      font-size: clamp(34px, 4.4vw, 56px);
+      font-weight: 700;
+      letter-spacing: -0.01em;
+      line-height: 1.05;
     }
 
     .detail-description {
-      max-width: 580px;
-      margin: 0 0 10px;
-      color: var(--muted);
-      font-size: clamp(12px, 0.95vw, 13.5px);
-      line-height: 1.5;
-      flex-shrink: 0;
+      max-width: 780px;
+      margin: 0 0 18px;
+      color: rgba(244, 217, 160, 0.85);
+      font-size: clamp(13px, 1.05vw, 15px);
+      line-height: 1.6;
     }
 
     /* QUICK CATEGORY NAVIGATION SCROLLABLE PILLS */
     .book-nav-tabs {
+      position: sticky;
+      top: -10px;
+      z-index: 10;
       display: flex;
       align-items: center;
-      gap: 8px;
+      gap: 10px;
       overflow-x: auto;
-      padding: 2px 2px 10px;
-      margin-bottom: 8px;
-      scrollbar-width: none;
-      -webkit-overflow-scrolling: touch;
-      flex-shrink: 0;
-    }
-
-    .book-nav-tabs::-webkit-scrollbar {
-      display: none;
+      padding: 12px 0 16px;
+      margin-bottom: 18px;
+      background: rgba(36, 26, 18, 0.95);
+      backdrop-filter: blur(14px);
+      border-bottom: 1px solid rgba(244, 217, 160, 0.25);
     }
 
     .book-nav-tab {
       white-space: nowrap;
-      font-size: 11px;
+      font-size: 12px;
       font-weight: 800;
-      letter-spacing: 0.04em;
+      letter-spacing: 0.05em;
       text-transform: uppercase;
-      padding: 6px 14px;
+      padding: 8px 18px;
       border-radius: 999px;
-      background: rgba(32, 25, 18, 0.85);
-      border: 1px solid rgba(212, 175, 55, 0.25);
-      color: var(--muted);
+      background: rgba(48, 35, 24, 0.9);
+      border: 1px solid rgba(244, 217, 160, 0.35);
+      color: rgba(244, 217, 160, 0.8);
       cursor: pointer;
       transition: all 200ms ease;
-      flex-shrink: 0;
     }
 
     .book-nav-tab:hover,
     .book-nav-tab.active {
-      background: linear-gradient(135deg, rgba(212, 175, 55, 0.3) 0%, rgba(245, 158, 11, 0.2) 100%);
-      border-color: var(--gold);
+      background: linear-gradient(135deg, rgba(244, 217, 160, 0.35) 0%, rgba(198, 121, 44, 0.45) 100%);
+      border-color: #F4D9A0;
       color: #ffffff;
-      box-shadow: 0 2px 10px rgba(212, 175, 55, 0.25);
+      box-shadow: 0 3px 14px rgba(198, 121, 44, 0.4);
     }
 
     .detail-scroll {
-      flex: 1 1 auto;
-      overflow-y: auto;
-      overscroll-behavior: contain;
-      padding-right: 12px;
-      padding-bottom: 110px;
-      scrollbar-color: rgba(212, 175, 55, .8) rgba(40, 32, 22, .2);
-      scrollbar-width: thin;
       display: flex;
       flex-direction: column;
-      gap: 16px;
-      -webkit-overflow-scrolling: touch;
-      touch-action: pan-y;
-      scroll-behavior: smooth;
+      gap: 24px;
     }
 
-    .detail-scroll::-webkit-scrollbar { width: 5px; }
-    .detail-scroll::-webkit-scrollbar-track { background: rgba(30, 24, 18, 0.3); border-radius: 999px; }
-    .detail-scroll::-webkit-scrollbar-thumb { border-radius: 999px; background: linear-gradient(180deg, var(--gold-bright) 0%, var(--gold) 100%); }
+    /* WARM RICH LUXURY CARDS IN FULLSCREEN */
+    .doc-steps li {
+      display: grid;
+      grid-template-columns: 28px 1fr;
+      gap: 14px;
+      counter-increment: guide-step;
+      background: linear-gradient(135deg, rgba(50, 36, 25, 0.78) 0%, rgba(32, 23, 16, 0.88) 100%);
+      padding: 14px 18px;
+      border-radius: 14px;
+      border: 1px solid rgba(244, 217, 160, 0.25);
+      box-shadow: 0 8px 24px rgba(0, 0, 0, 0.45);
+      transition: transform 200ms ease, border-color 200ms ease;
+    }
 
-    /* OPEN EDITORIAL SECTIONS WITHOUT RESTRICTIVE BOX FRAMES */
-    .doc-section {
+    .doc-steps li:hover {
+      transform: translateX(4px);
+      border-color: #F4D9A0;
+    }
+
+    /* FULLSCREEN DOCKED BOTTOM BAR */
+    .bottom-dock {
+      position: fixed;
+      z-index: 100000;
+      left: 50%;
+      right: auto;
+      transform: translateX(-50%);
+      bottom: 16px;
+      width: min(94vw, 860px);
+      opacity: 0;
+      pointer-events: none;
+      transition: opacity 300ms ease;
+    }
+
+    [data-mode="detail"] .bottom-dock {
+      opacity: 1;
+      pointer-events: auto;
+    }
+
+    .meta-row {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 16px;
+      margin-bottom: 8px;
+      color: #F4D9A0;
+      background: rgba(36, 26, 18, 0.92);
+      padding: 7px 18px;
+      border-radius: 999px;
+      border: 1px solid rgba(244, 217, 160, 0.3);
+      backdrop-filter: blur(12px);
+    }
+
+    .stars {
+      display: flex;
+      gap: 3px;
+      font-size: 15px;
+      color: #f59e0b;
+    }
+
+    .review-source, .year {
+      color: rgba(244, 217, 160, 0.85);
+      font-size: 12.5px;
+      font-style: italic;
+      font-weight: 600;
+    }
+
+    .action-rail {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      width: 100%;
+      padding: 8px;
+      border: 1.5px solid rgba(244, 217, 160, 0.4);
+      border-radius: 36px;
+      background: rgba(42, 30, 20, 0.95);
+      box-shadow: 0 16px 40px rgba(0, 0, 0, 0.8), 0 0 25px rgba(198, 121, 44, 0.3);
+      backdrop-filter: blur(20px);
+    }
+
+    .action-rail .pill {
+      flex: 1;
+      min-height: 44px;
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      padding: 0 20px;
+      border-radius: 999px;
+      font-family: var(--sans);
+      font-size: 13px;
+      font-weight: 800;
+      letter-spacing: 0.05em;
+      cursor: pointer;
+      text-decoration: none;
+      transition: all 200ms ease;
+    }
+
+    .action-rail .pill.primary {
+      background: linear-gradient(135deg, #F4D9A0 0%, #C6792C 100%);
+      color: #171008;
+      box-shadow: 0 4px 18px rgba(198, 121, 44, 0.45);
+    }
+
+    .action-rail .pill.primary:hover {
+      filter: brightness(1.12);
+      transform: translateY(-2px);
+    }
+
+    .action-rail .pill.secondary {
+      background: rgba(255, 255, 255, 0.08);
+      border: 1px solid rgba(244, 217, 160, 0.3);
+      color: #fff;
+    }
+
+    .action-rail .pill.secondary:hover {
+      background: rgba(244, 217, 160, 0.18);
+      border-color: #F4D9A0;
+    }
+
+
+        .doc-section {
       padding: 16px 2px 22px;
       border-radius: 0;
       background: transparent;
@@ -2639,29 +3285,33 @@
     /* ========================================================
        VIBRANT COLORFUL SCROLLABLE SECTIONS WITH ANIMATIONS
        ======================================================== */
+    /* ========================================================
+       SEAMLESS BLENDED CONTENT WRAPPER
+       Harmonized with Hero: Mocha Brown, Champagne Gold & Burnt Amber
+       ======================================================== */
     .content-wrapper {
       position: relative;
       z-index: 20;
       width: 100%;
       background:
-        radial-gradient(circle at 10% 15%, rgba(16, 185, 129, 0.12), transparent 45%),
-        radial-gradient(circle at 90% 40%, rgba(225, 29, 72, 0.12), transparent 45%),
-        radial-gradient(circle at 20% 75%, rgba(139, 92, 246, 0.12), transparent 45%),
-        radial-gradient(circle at 80% 90%, rgba(6, 182, 212, 0.12), transparent 45%),
-        linear-gradient(180deg, #090705 0%, #14100c 8%, #19140f 50%, #0d0a08 100%);
+        radial-gradient(circle at 10% 15%, rgba(16,185,129,0.12), transparent 45%),
+        radial-gradient(circle at 90% 40%, rgba(225,29,72,0.12), transparent 45%),
+        radial-gradient(circle at 20% 75%, rgba(139,92,246,0.12), transparent 45%),
+        radial-gradient(circle at 80% 90%, rgba(6,182,212,0.12), transparent 45%),
+        linear-gradient(180deg, #1d150e 0%, #241a12 8%, #1c140e 50%, #140e0a 100%);
       padding: 0;
-      border-top: 1px solid rgba(212, 175, 55, 0.35);
-      box-shadow: 0 -25px 50px rgba(0, 0, 0, 0.9);
+      border-top: 1.5px solid rgba(244, 217, 160, 0.25);
+      box-shadow: 0 -25px 60px rgba(0, 0, 0, 0.9);
       overflow: hidden;
     }
 
-    /* FLOATING AMBIENT GLOW ORBS */
+    /* FLOATING AMBIENT GLOW ORBS (WARM CHAMPAGNE & AMBER HARMONY) */
     .ambient-orb {
       position: absolute;
       border-radius: 50%;
-      filter: blur(45px);
+      filter: blur(55px);
       pointer-events: none;
-      opacity: 0.25;
+      opacity: 0.22;
       will-change: transform;
       contain: strict;
       transform: translate3d(0, 0, 0);
@@ -2672,7 +3322,7 @@
     .orb-2 { top: 40%; right: -10%; width: 500px; height: 500px; background: rgba(225, 29, 72, 0.35); animation-delay: 3s; }
     .orb-3 { top: 70%; left: 5%; width: 420px; height: 420px; background: rgba(139, 92, 246, 0.35); animation-delay: 6s; }
 
-    @keyframes orbFloat {
+        @keyframes orbFloat {
       0% { transform: translate(0, 0) scale(1); }
       50% { transform: translate(40px, -60px) scale(1.15); }
       100% { transform: translate(-30px, 40px) scale(0.9); }
@@ -2798,56 +3448,56 @@
     .stat-card.emerald {
       --card-accent: var(--emerald-neon);
       --card-glow: var(--emerald-glow);
-      --card-shadow: rgba(16, 185, 129, 0.35);
+      --card-shadow: rgba(16,185,129,0.35);
       border-top: 2px solid var(--emerald);
     }
     .stat-card.emerald .stat-number {
       background: linear-gradient(135deg, #ffffff 0%, #34d399 50%, #059669 100%);
       -webkit-background-clip: text;
       -webkit-text-fill-color: transparent;
-      filter: drop-shadow(0 0 14px rgba(16, 185, 129, 0.5));
+      filter: drop-shadow(0 0 14px rgba(16,185,129,0.5));
     }
 
-    /* Stat 2: Solar Gold */
+        /* Stat 2: Solar Gold */
     .stat-card.gold {
       --card-accent: var(--gold-foil);
-      --card-glow: rgba(245, 158, 11, 0.4);
-      --card-shadow: rgba(245, 158, 11, 0.35);
+      --card-glow: rgba(245,158,11,0.4);
+      --card-shadow: rgba(245,158,11,0.35);
       border-top: 2px solid var(--gold-neon);
     }
     .stat-card.gold .stat-number {
       background: linear-gradient(135deg, #ffffff 0%, #fbbf24 50%, #d97706 100%);
       -webkit-background-clip: text;
       -webkit-text-fill-color: transparent;
-      filter: drop-shadow(0 0 14px rgba(245, 158, 11, 0.5));
+      filter: drop-shadow(0 0 14px rgba(245,158,11,0.5));
     }
 
-    /* Stat 3: Cyber Violet */
+        /* Stat 3: Cyber Violet */
     .stat-card.violet {
       --card-accent: var(--violet-neon);
       --card-glow: var(--violet-glow);
-      --card-shadow: rgba(139, 92, 246, 0.35);
+      --card-shadow: rgba(139,92,246,0.35);
       border-top: 2px solid var(--violet);
     }
     .stat-card.violet .stat-number {
       background: linear-gradient(135deg, #ffffff 0%, #c084fc 50%, #7c3aed 100%);
       -webkit-background-clip: text;
       -webkit-text-fill-color: transparent;
-      filter: drop-shadow(0 0 14px rgba(139, 92, 246, 0.5));
+      filter: drop-shadow(0 0 14px rgba(139,92,246,0.5));
     }
 
-    /* Stat 4: Electric Cyan */
+        /* Stat 4: Electric Cyan */
     .stat-card.cyan {
       --card-accent: var(--cyan-neon);
       --card-glow: var(--cyan-glow);
-      --card-shadow: rgba(6, 182, 212, 0.35);
+      --card-shadow: rgba(6,182,212,0.35);
       border-top: 2px solid var(--cyan);
     }
     .stat-card.cyan .stat-number {
       background: linear-gradient(135deg, #ffffff 0%, #38bdf8 50%, #0284c7 100%);
       -webkit-background-clip: text;
       -webkit-text-fill-color: transparent;
-      filter: drop-shadow(0 0 14px rgba(6, 182, 212, 0.5));
+      filter: drop-shadow(0 0 14px rgba(6,182,212,0.5));
     }
 
     .stat-number {
@@ -5576,7 +6226,220 @@
       }
     }
 
-</style>
+
+    
+    /* ========================================================
+       REFINED HERO STAGE — TIGHT SIDES, RIGHT ACTION PILLS, FLAWLESS MOBILE
+       ======================================================== */
+    .inner-peace-canvas {
+      position: relative;
+      z-index: 5;
+      width: 100%;
+      max-width: 100%;
+      margin: 0;
+      flex: 1;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      height: 100%;
+      max-height: calc(100vh - 100px);
+      padding: 0 clamp(16px, 3.2vw, 48px);
+      box-sizing: border-box;
+    }
+
+    .inner-left-col {
+      position: relative;
+      z-index: 10;
+      max-width: 580px;
+      display: flex;
+      flex-direction: column;
+      align-items: flex-start;
+      gap: clamp(14px, 2.2vh, 22px);
+      pointer-events: auto;
+    }
+
+    /* RIGHT SIDE 4 ACTION PILLS (DESKTOP) */
+    .hero-right-actions {
+      position: relative;
+      z-index: 10;
+      display: flex;
+      flex-direction: column;
+      align-items: stretch;
+      gap: 12px;
+      width: 250px;
+      pointer-events: auto;
+    }
+
+    .hero-action-pill {
+      display: inline-flex;
+      align-items: center;
+      justify-content: flex-start;
+      gap: 12px;
+      padding: 13px 20px;
+      border-radius: 999px;
+      border: 1px solid rgba(244, 217, 160, 0.35);
+      background: rgba(28, 20, 14, 0.65);
+      backdrop-filter: blur(14px);
+      -webkit-backdrop-filter: blur(14px);
+      color: #F4D9A0;
+      font-family: var(--sans);
+      font-size: 13px;
+      font-weight: 700;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      cursor: pointer;
+      box-shadow: 0 8px 24px rgba(0, 0, 0, 0.45);
+      transition: all 260ms cubic-bezier(0.16, 1, 0.3, 1);
+      width: 100%;
+      box-sizing: border-box;
+    }
+
+    .hero-action-pill:hover {
+      background: rgba(244, 217, 160, 0.22);
+      border-color: #FFFFFF;
+      color: #FFFFFF;
+      transform: translateX(-4px);
+      box-shadow: 0 10px 30px rgba(198, 121, 44, 0.5);
+    }
+
+    .action-pill-icon {
+      font-size: 16px;
+      line-height: 1;
+    }
+
+    .action-pill-text {
+      flex: 1;
+      text-align: left;
+    }
+
+    .action-pill-arrow {
+      font-size: 14px;
+      opacity: 0.6;
+      transition: transform 260ms ease, opacity 260ms ease;
+    }
+
+    .hero-action-pill:hover .action-pill-arrow {
+      transform: translateX(4px);
+      opacity: 1;
+    }
+
+    .hero-action-pill.hero-action-highlight {
+      border-color: #F4D9A0;
+      background: linear-gradient(135deg, rgba(198, 121, 44, 0.95) 0%, rgba(138, 75, 20, 0.95) 100%);
+      color: #FFFFFF;
+      box-shadow: 0 8px 28px rgba(198, 121, 44, 0.6);
+    }
+
+    .hero-action-pill.hero-action-highlight:hover {
+      background: linear-gradient(135deg, #F4D9A0 0%, #C6792C 100%);
+      color: #000000;
+      transform: translateX(-4px) scale(1.02);
+      box-shadow: 0 12px 36px rgba(244, 217, 160, 0.7);
+    }
+
+    /* FLAWLESS MOBILE RESPONSIVENESS */
+    @media (max-width: 900px) {
+      .stage {
+        padding: 72px 16px 20px !important;
+        height: auto !important;
+        min-height: 100vh !important;
+        min-height: 100svh !important;
+      }
+      .inner-peace-canvas {
+        flex-direction: column !important;
+        align-items: flex-start !important;
+        justify-content: flex-end !important;
+        padding: 0 !important;
+        gap: 16px !important;
+        min-height: calc(100vh - 100px) !important;
+        min-height: calc(100svh - 100px) !important;
+      }
+      .inner-left-col {
+        max-width: 100% !important;
+        gap: 12px !important;
+      }
+      .title-row-krishna {
+        font-size: clamp(38px, 10vw, 54px) !important;
+        line-height: 0.95 !important;
+      }
+      .title-x-glyph {
+        font-size: clamp(30px, 8.2vw, 44px) !important;
+      }
+      .title-editz-text {
+        font-size: clamp(30px, 8.2vw, 44px) !important;
+      }
+      .hero-right-actions {
+        display: grid !important;
+        grid-template-columns: 1fr 1fr !important;
+        gap: 8px !important;
+        width: 100% !important;
+        margin-top: 10px !important;
+      }
+      .hero-action-pill {
+        padding: 11px 12px !important;
+        font-size: 12px !important;
+        border-radius: 12px !important;
+        justify-content: center !important;
+      }
+      .hero-action-pill.hero-action-highlight {
+        grid-column: span 2 !important;
+      }
+      .action-pill-arrow {
+        display: none !important;
+      }
+      .hero-bottom-dock {
+        display: none !important;
+      }
+    }
+
+    @media (max-width: 480px) {
+      .stage {
+        padding: 68px 12px 16px !important;
+      }
+      .inner-left-col {
+        gap: 8px !important;
+      }
+      .hero-kicker-badge {
+        font-size: 9px !important;
+        letter-spacing: 0.22em !important;
+      }
+      .title-row-krishna {
+        font-size: clamp(32px, 9.4vw, 42px) !important;
+      }
+      .title-row-bottom {
+        gap: 8px !important;
+      }
+      .title-x-glyph {
+        font-size: clamp(26px, 7.8vw, 34px) !important;
+      }
+      .title-editz-text {
+        font-size: clamp(26px, 7.8vw, 34px) !important;
+      }
+      .title-sparkle-star {
+        font-size: 18px !important;
+      }
+      .manifesto-tag {
+        font-size: 10px !important;
+      }
+      .manifesto-body {
+        font-size: 12px !important;
+        line-height: 1.45 !important;
+      }
+      .inner-btn-explore {
+        padding: 8px 18px !important;
+        font-size: 10.5px !important;
+      }
+      .hero-right-actions {
+        grid-template-columns: 1fr 1fr !important;
+        gap: 6px !important;
+      }
+      .hero-action-pill {
+        padding: 10px 10px !important;
+        font-size: 11px !important;
+      }
+    }
+
+  </style>
 </head>
 <body data-mode="gallery" data-menu="closed">
   
@@ -5616,173 +6479,106 @@
     </div>
   </header>
 
-  <!-- 3D HERO SHOWCASE STAGE -->
-  <main class="stage" id="heroStage" aria-label="KRISHNA X EDITZ Interactive 3D Showcase">
+  <!-- INNER PEACE EDITORIAL HERO STAGE -->
+  <main class="stage" id="heroStage" aria-label="KRISHNA X EDITZ Luxury Portfolio Showcase">
     
-    <!-- GRAND BACKDROP TYPOGRAPHY -->
-    <div class="hero-container" aria-hidden="true">
-      <span class="hero-eyebrow">✦ Elite Video Editing & Direction ✦</span>
-      <h1 class="hero-word">KRISHNA X EDITZ</h1>
-      <span class="hero-subtitle">— High-Retention Reels, YouTube & Commercial Video Editing —</span>
+    <!-- EDGE-TO-EDGE FULL-BLEED ARTWORK — LIVE ANIMATED DOLL (Frame Sprite) -->
+    <div class="inner-artwork-bg" aria-hidden="true">
+      <!-- Animated Canvas: 60-frame sprite from origami doll sequence -->
+      <video 
+        src="assets/hero_doll_cinematic_1080p.mp4" 
+        autoplay 
+        loop 
+        muted 
+        playsinline 
+        class="inner-artwork-img-base"
+        id="heroDollVideo"
+        style="width:100%;height:100%;object-fit:cover;object-position:72% center;position:absolute;inset:0;"
+      ></video>
+      <!-- Fallback if canvas fails -->
+      <img 
+        src="assets/hero_origami_masterpiece.jpg" 
+        alt="Krishna X Editz High Fashion Origami Papercraft Masterpiece" 
+        class="inner-artwork-img-base"
+        id="heroDollFallbackImg"
+        loading="eager"
+        style="display:none;"
+      >
     </div>
 
-    <!-- 3D BOOKS GALLERY -->
-    <section class="gallery" aria-label="Krishna X Editz 3D showcase">
+    <!-- LIVING VOLUMETRIC GOD-RAYS (ACTIVELY STREAMING SUNBEAMS FROM TOP-RIGHT) -->
+    <div class="volumetric-sunbeams" aria-hidden="true">
+      <div class="sunbeam-stream-shaft"></div>
+      <div class="sunbeam-stream-shaft-2"></div>
+    </div>
+
+    <!-- MAIN HERO CANVAS (Original Multi-Font + Right-Side 4 Actions) -->
+    <div class="inner-peace-canvas">
       
-      <!-- Book 1: OUR SERVICES (EMERALD & GOLD / ASTROLABE MOTION) -->
-      <button
-        class="book-card"
-        type="button"
-        data-book="services"
-        aria-label="Open Our Services"
-        style="
-          --cover-color: #363126;
-          --cover: url('assets/book1_cover.jpg');
-        "
-      >
-        <div class="book-halo"></div>
-        <div class="book-float">
-          <div class="book-shadow"></div>
-          <div class="book">
-            <div class="book-back"></div>
-            <div class="page-block"></div>
-            <div class="page-fan">
-              <i></i><i></i><i></i><i></i>
-            </div>
-            <div class="front-cover">
-              <!-- Live Video Texture on Book Cover -->
-              <video class="cover-motion" autoplay muted loop playsinline preload="auto">
-                <source src="assets/book1_live.mp4" type="video/mp4">
-              </video>
-              <div class="foil-sheen"></div>
-              <div class="cover-frame"></div>
-              <div class="corner-plate tl"></div>
-              <div class="corner-plate tr"></div>
-              <div class="corner-plate bl"></div>
-              <div class="corner-plate br"></div>
-              <div class="cover-copy">
-                <span class="cover-kicker-badge">✦ FIELD MANUAL · I ✦</span>
-                <div class="cover-title-group">
-                  <h2 class="cover-title">Services</h2>
-                  <p class="cover-subtitle">Reels, Shorts & Commercials</p>
-                </div>
-                <div></div>
-                <div class="cover-footer-badge">
-                  <span>REELS</span>&bull;<span>SHORTS</span>&bull;<span>COMMERCIALS</span>
-                </div>
-              </div>
-            </div>
-            <div class="open-badge">EXPLORE</div>
+      <!-- LEFT COLUMN: ORIGINAL LUXURY MULTI-FONT BRAND TITLE -->
+      <div class="inner-left-col">
+        <span class="hero-kicker-badge">✦ THE CINEMATOGRAPHIC STANDARD ✦</span>
+        
+        <!-- Multi-Font Luxury Title Lockup (Cinzel 900 + Playfair 700 + Gold X) -->
+        <div class="brand-title-lockup">
+          <h1 class="title-row-krishna">KRISHNA</h1>
+          <div class="title-row-bottom">
+            <span class="title-x-box">
+              <span class="title-x-glyph">X</span>
+            </span>
+            <span class="title-editz-text">EDITZ</span>
+            <span class="title-sparkle-star">✦</span>
           </div>
         </div>
-      </button>
 
-      <!-- Book 2: OUR WORKS (BURGUNDY RED & 24K GOLD / NEURAL ARCHWAY MOTION) -->
-      <button
-        class="book-card"
-        type="button"
-        data-book="works"
-        aria-label="Open Our Works Portfolio"
-        style="
-          --cover-color: #945a3e;
-          --cover: url('assets/book2_cover.jpg');
-        "
-      >
-        <div class="book-halo"></div>
-        <div class="book-float">
-          <div class="book-shadow"></div>
-          <div class="book">
-            <div class="book-back"></div>
-            <div class="page-block"></div>
-            <div class="page-fan">
-              <i></i><i></i><i></i><i></i>
-            </div>
-            <div class="front-cover">
-              <!-- Live Video Texture on Book Cover -->
-              <video class="cover-motion" autoplay muted loop playsinline preload="auto">
-                <source src="assets/book2_live.mp4" type="video/mp4">
-              </video>
-              <div class="foil-sheen"></div>
-              <div class="cover-frame"></div>
-              <div class="corner-plate tl"></div>
-              <div class="corner-plate tr"></div>
-              <div class="corner-plate bl"></div>
-              <div class="corner-plate br"></div>
-              <div class="cover-copy">
-                <span class="cover-kicker-badge">✦ FIELD MANUAL · II ✦</span>
-                <div class="cover-title-group">
-                  <h2 class="cover-title">Our Works</h2>
-                  <p class="cover-subtitle">Showreels & Portfolio</p>
-                </div>
-                <div></div>
-                <div class="cover-footer-badge">
-                  <span>SHOWREELS</span>&bull;<span>ADS</span>&bull;<span>VIRAL</span>
-                </div>
-              </div>
-            </div>
-            <div class="open-badge">EXPLORE</div>
-          </div>
+        <div class="brand-manifesto">
+          <span class="manifesto-tag">A MORE POWERFUL TOMORROW</span>
+          <p class="manifesto-body">
+            Where raw footage transcends into high-retention cinematic art, viral pacing, and bespoke sound design.
+          </p>
         </div>
-      </button>
 
-      <!-- Book 3: CONTACT US (ROYAL NAVY BLUE & GOLD / RADIANT CURSOR MOTION) -->
-      <button
-        class="book-card"
-        type="button"
-        data-book="contact"
-        aria-label="Open Contact Us"
-        style="
-          --cover-color: #566044;
-          --cover: url('assets/book3_cover.jpg');
-        "
-      >
-        <div class="book-halo"></div>
-        <div class="book-float">
-          <div class="book-shadow"></div>
-          <div class="book">
-            <div class="book-back"></div>
-            <div class="page-block"></div>
-            <div class="page-fan">
-              <i></i><i></i><i></i><i></i>
-            </div>
-            <div class="front-cover">
-              <!-- Live Video Texture on Book Cover -->
-              <video class="cover-motion" autoplay muted loop playsinline preload="auto">
-                <source src="assets/book3_live.mp4" type="video/mp4">
-              </video>
-              <div class="foil-sheen"></div>
-              <div class="cover-frame"></div>
-              <div class="corner-plate tl"></div>
-              <div class="corner-plate tr"></div>
-              <div class="corner-plate bl"></div>
-              <div class="corner-plate br"></div>
-              <div class="cover-copy">
-                <span class="cover-kicker-badge">✦ FIELD MANUAL · III ✦</span>
-                <div class="cover-title-group">
-                  <h2 class="cover-title">Contact</h2>
-                  <p class="cover-subtitle">Direct Bookings & Collabs</p>
-                </div>
-                <div></div>
-                <div class="cover-footer-badge">
-                  <span>WHATSAPP</span>&bull;<span>INSTA</span>&bull;<span>CALL</span>
-                </div>
-              </div>
-            </div>
-            <div class="open-badge">EXPLORE</div>
-          </div>
-        </div>
-      </button>
-    </section>
-
-    <!-- SCROLL DOWN EXPLORER CUE -->
-    <a href="#about-section" class="scroll-cue" aria-label="Scroll down to services">
-      <span>Explore Services & Works</span>
-      <div class="scroll-cue-arrow">
-        <svg viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2.5">
-          <path d="M7 10l5 5 5-5" stroke-linecap="round" stroke-linejoin="round"/>
-        </svg>
+        <button type="button" class="inner-btn-explore" onclick="selectBook('services')" aria-label="Explore Services">
+          <span>EXPLORE ARCHIVE</span>
+          <svg viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2.5">
+            <path d="M5 12h14M12 5l7 7-7 7"/>
+          </svg>
+        </button>
       </div>
-    </a>
+
+      <!-- RIGHT COLUMN: 4 STUDIO ACTION OPTIONS (Moved from bottom dock) -->
+      <div class="hero-right-actions" role="navigation" aria-label="Main Studio Navigation">
+        
+        <button type="button" class="hero-action-pill" onclick="selectBook('services')">
+          <span class="action-pill-icon">✦</span>
+          <span class="action-pill-text">Our Services</span>
+          <span class="action-pill-arrow">→</span>
+        </button>
+
+        <button type="button" class="hero-action-pill" onclick="selectBook('works')">
+          <span class="action-pill-icon">🎬</span>
+          <span class="action-pill-text">Master Works</span>
+          <span class="action-pill-arrow">→</span>
+        </button>
+
+        <button type="button" class="hero-action-pill" onclick="selectBook('contact')">
+          <span class="action-pill-icon">📩</span>
+          <span class="action-pill-text">Contact Us</span>
+          <span class="action-pill-arrow">→</span>
+        </button>
+
+        <button type="button" class="hero-action-pill hero-action-highlight" onclick="openBookingModal('Viral Reels & Shorts')">
+          <span class="action-pill-icon">🔥</span>
+          <span class="action-pill-text">Book Video Project</span>
+          <span class="action-pill-arrow">→</span>
+        </button>
+
+      </div>
+
+    </div>
+
+
+
   </main>
 
   <!-- ========================================================
@@ -6835,24 +7631,53 @@
   <!-- ========================================================
        DETAIL MODAL DRAWER (RICH SCROLLABLE BOOK INTERIOR)
        ======================================================== -->
+  <!-- ========================================================
+       IMMERSIVE FULLSCREEN DETAIL PANEL
+       ======================================================== -->
   <aside class="detail-panel" id="detailPanel" aria-live="polite">
-    <div class="detail-header-row">
-      <h2 class="detail-title" id="detailTitle">Our Services</h2>
-      <button type="button" class="btn-close-detail" onclick="closeDetail()" aria-label="Close details" title="Close details panel">&times;</button>
-    </div>
-    <p class="detail-description" id="detailDesc">
-      End-to-end cinematic video editing, viral short-form reels, and long-form YouTube edits designed for explosive retention and aesthetic mastery.
-    </p>
     
-    <!-- Quick Jump Scrollable Category Tabs -->
-    <div class="book-nav-tabs" id="bookNavTabs">
-      <button type="button" class="book-nav-tab active" data-target="sec-services" onclick="scrollToBookSection('sec-services')">✦ Core Services</button>
-      <button type="button" class="book-nav-tab" data-target="sec-pricing" onclick="scrollToBookSection('sec-pricing')">💎 Packages in ₹</button>
-      <button type="button" class="book-nav-tab" data-target="sec-specs" onclick="scrollToBookSection('sec-specs')">⚡ Editing Stack</button>
-      <button type="button" class="book-nav-tab" data-target="sec-faqs" onclick="scrollToBookSection('sec-faqs')">❓ FAQs</button>
+    <!-- STICKY TOPBAR WITH BACK BUTTON -->
+    <div class="fullscreen-detail-topbar">
+      <button type="button" class="btn-detail-back-pill" onclick="closeDetail()" aria-label="Back to showcase">
+        <svg viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2.5">
+          <path d="M19 12H5M12 19l-7-7 7-7"/>
+        </svg>
+        <span>Back to Showcase</span>
+      </button>
+
+      <div class="detail-brand-badge">KRISHNA X EDITZ · STUDIO ARCHIVE</div>
+
+      <div class="detail-top-actions">
+        <a href="https://wa.me/918449495147?text=Hi%20Krishna!%20I%20am%20viewing%20your%20services%20and%20want%20to%20collaborate." target="_blank" rel="noopener noreferrer" class="btn-detail-wa">
+          <svg viewBox="0 0 24 24" width="14" height="14" fill="currentColor">
+            <path d="M.057 24l1.687-6.163c-1.041-1.804-1.588-3.849-1.587-5.946.003-6.556 5.338-11.891 11.893-11.891 3.181.001 6.167 1.24 8.413 3.488 2.245 2.248 3.481 5.236 3.48 8.414-.003 6.557-5.338 11.892-11.893 11.892-1.99-.001-3.951-.5-5.688-1.448l-6.305 1.654zm6.597-3.807c1.676.995 3.276 1.591 5.392 1.592 5.448 0 9.886-4.434 9.889-9.885.002-5.462-4.415-9.89-9.881-9.892-5.452 0-9.887 4.434-9.889 9.884-.001 2.225.651 3.891 1.746 5.634l-.999 3.648 3.742-.981zm11.387-5.464c-.074-.124-.272-.198-.57-.347-.297-.149-1.758-.868-2.031-.967-.272-.099-.47-.149-.669.149-.198.297-.768.967-.941 1.165-.173.198-.347.223-.644.074-.297-.149-1.255-.462-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.297-.347.446-.521.151-.172.2-.296.3-.495.099-.198.05-.372-.025-.521-.075-.148-.669-1.611-.916-2.206-.242-.579-.487-.501-.669-.51l-.57-.01c-.198 0-.52.074-.792.372s-1.04 1.016-1.04 2.479 1.065 2.876 1.213 3.074c.149.198 2.095 3.2 5.076 4.487.709.306 1.263.489 1.694.626.712.226 1.36.194 1.872.118.571-.085 1.758-.719 2.006-1.413.248-.695.248-1.29.173-1.414z"/>
+          </svg>
+          <span>WhatsApp</span>
+        </a>
+        <button type="button" class="btn-close-detail" onclick="closeDetail()" aria-label="Close details" title="Close details panel">&times;</button>
+      </div>
     </div>
 
-    <div class="detail-scroll" id="detailScroll"></div>
+    <!-- FULLSCREEN BODY CONTENT -->
+    <div class="detail-fullscreen-body">
+      <div class="detail-header-row">
+        <h2 class="detail-title" id="detailTitle">Our Services</h2>
+      </div>
+      <p class="detail-description" id="detailDesc">
+        End-to-end cinematic video editing, viral short-form reels, and long-form YouTube edits designed for explosive retention and aesthetic mastery.
+      </p>
+      
+      <!-- Quick Jump Scrollable Category Tabs -->
+      <div class="book-nav-tabs" id="bookNavTabs">
+        <button type="button" class="book-nav-tab active" data-target="sec-services" onclick="scrollToBookSection('sec-services')">✦ Core Services</button>
+        <button type="button" class="book-nav-tab" data-target="sec-pricing" onclick="scrollToBookSection('sec-pricing')">💎 Packages in ₹</button>
+        <button type="button" class="book-nav-tab" data-target="sec-specs" onclick="scrollToBookSection('sec-specs')">⚡ Editing Stack</button>
+        <button type="button" class="book-nav-tab" data-target="sec-faqs" onclick="scrollToBookSection('sec-faqs')">❓ FAQs</button>
+      </div>
+
+      <div class="detail-scroll" id="detailScroll"></div>
+    </div>
+
   </aside>
 
   <!-- Bottom Dock Bar -->
@@ -7566,7 +8391,7 @@
     // ========================================================
     // BACKEND API CONFIGURATION & CLIENT INTEGRATIONS
     // ========================================================
-    const API_BASE = (window.location.origin && window.location.origin.includes(':3000')) ? '' : 'http://localhost:3000';
+    const API_BASE = (window.location.hostname === 'localhost' && window.location.port !== '3000' && window.location.port !== '') ? 'http://localhost:3000' : '';
 
     // 1. Newsletter Subscription (POST /api/subscribe)
     async function handleNewsletter(e) {
@@ -8196,11 +9021,9 @@ ${payload.project_brief || 'None specified'}
     // BOOK INTERIOR QUICK CATEGORY TABS & SCROLL ENGINE
     // ========================================================
     function scrollToBookSection(secId) {
-      const scrollContainer = document.getElementById('detailScroll');
       const targetSec = document.getElementById(secId);
-      if (scrollContainer && targetSec) {
-        const topPos = targetSec.offsetTop - scrollContainer.offsetTop;
-        scrollContainer.scrollTo({ top: topPos, behavior: 'smooth' });
+      if (targetSec) {
+        targetSec.scrollIntoView({ behavior: 'smooth', block: 'start' });
       }
 
       // Update active nav tab
@@ -8575,7 +9398,7 @@ ${payload.project_brief || 'None specified'}
       detailTitle.textContent = data.title;
       detailDesc.textContent = data.desc;
       reviewCount.textContent = data.reviews;
-      heroWord.textContent = data.hero;
+      if (heroWord) heroWord.textContent = data.hero;
       readBtn.querySelector('span').textContent = data.btnText;
 
       const navTabs = document.getElementById('bookNavTabs');
@@ -8863,7 +9686,7 @@ ${payload.project_brief || 'None specified'}
       body.setAttribute('data-mode', 'gallery');
       cards.forEach(c => c.classList.remove('selected'));
       currentSelected = null;
-      heroWord.textContent = "KRISHNA X EDITZ";
+      if (heroWord) heroWord.textContent = "KRISHNA X EDITZ";
       playTone(200, 'sine', 0.15, 0.03);
       updateBackBtnVisibility();
     }
@@ -9808,5 +10631,290 @@ ${payload.project_brief || 'None specified'}
       })();
     </script>
 
+    <!-- =========================================================================
+         KRISHNA X EDITZ: REALISTIC PHYSICAL WIND CLOTH SIMULATION (WEBGL 60FPS)
+         Simulates realistic wind gusts hitting the origami gown:
+         - Solid Upper Body: Hat, head & torso stay 100% rock-solid and razor-sharp
+         - Traveling Fold Ripples: Wind impulses propagate along the diagonal pleats
+         - Micro-Flutter: Flared hem tips flutter dynamically in the breeze
+         - Shifting Sunlight: Folds catch shifting golden god-rays as they ripple
+         ========================================================================= -->
+    <script>
+      (function initHeroClothWindSimulation() {
+        const canvas = document.getElementById('heroClothCanvas');
+        const fallbackImg = document.getElementById('heroDollFallbackImg');
+        const heroStage = document.getElementById('heroStage');
+        if (!canvas) return;
+
+        let gl = null;
+        try {
+          gl = canvas.getContext('webgl', { alpha: true, antialias: true, premultipliedAlpha: false }) ||
+               canvas.getContext('experimental-webgl', { alpha: true, antialias: true, premultipliedAlpha: false });
+        } catch (e) {}
+
+        if (!gl) {
+          console.warn('[KXE Hero] WebGL not supported, using high-resolution static artwork fallback.');
+          return;
+        }
+
+        const vsSource = `
+          attribute vec2 a_position;
+          varying vec2 v_uv;
+          void main() {
+            v_uv = (a_position + 1.0) * 0.5;
+            v_uv.y = 1.0 - v_uv.y;
+            gl_Position = vec4(a_position, 0.0, 1.0);
+          }
+        `;
+
+        const fsSource = `
+          precision highp float;
+          varying vec2 v_uv;
+          uniform sampler2D u_image;
+          uniform vec2 u_resolution;
+          uniform vec2 u_imageResolution;
+          uniform float u_time;
+
+          float hash(vec2 p) {
+            return fract(sin(dot(p, vec2(127.1, 311.7))) * 43758.5453123);
+          }
+
+          float noise(vec2 p) {
+            vec2 i = floor(p);
+            vec2 f = fract(p);
+            f = f * f * (3.0 - 2.0 * f);
+            float a = hash(i);
+            float b = hash(i + vec2(1.0, 0.0));
+            float c = hash(i + vec2(0.0, 1.0));
+            float d = hash(i + vec2(1.0, 1.0));
+            return mix(mix(a, b, f.x), mix(c, d, f.x), f.y);
+          }
+
+          void main() {
+            // Full-bleed cover matching object-fit: cover; object-position: 86% center;
+            float S = max(u_resolution.x / u_imageResolution.x, u_resolution.y / u_imageResolution.y);
+            vec2 renderSize = u_imageResolution * S;
+            vec2 offset = (renderSize - u_resolution) * vec2(0.86, 0.5);
+            vec2 screenPix = v_uv * u_resolution;
+            vec2 uv = (screenPix + offset) / renderSize;
+            uv = clamp(uv, 0.0, 1.0);
+
+            // ANATOMICAL CLOTH WEIGHT MASK:
+            // Absolute 0 on hat, head, face, upper body (v < 0.49).
+            // Smoothly ramps up on dress folds & skirt flare.
+            float verticalWeight = smoothstep(0.48, 0.70, uv.y);
+            float horizWeight = smoothstep(0.36, 0.54, uv.x) * (1.0 - smoothstep(0.88, 0.96, uv.x));
+            
+            // Extended loose flap on the left (x: 0.42 to 0.65, y: 0.60 to 0.95)
+            float flapFreedom = smoothstep(0.58, 0.90, uv.y) * smoothstep(0.76, 0.44, uv.x);
+            
+            float clothWeight = verticalWeight * horizWeight;
+            clothWeight = clamp(clothWeight + flapFreedom * 0.60, 0.0, 1.0);
+            clothWeight = pow(clothWeight, 1.35);
+
+            // Rock-solid upper body rendering with zero distortion
+            if (clothWeight <= 0.001) {
+              vec4 baseCol = texture2D(u_image, uv);
+              float leftFade = smoothstep(0.10, 0.40, v_uv.x);
+              baseCol.a *= leftFade;
+              gl_FragColor = baseCol;
+              return;
+            }
+
+            // PHYSICAL WIND HIT & TRAVELING FLUTTER EQUATIONS:
+            // Wind travels from top-right down along the diagonal fold angle.
+            vec2 windDir = normalize(vec2(-0.88, 0.47));
+            vec2 windPerp = vec2(-windDir.y, windDir.x);
+
+            float t = u_time * 1.7;
+
+            // Periodic Wind Gust: hits every ~2.8s with realistic surge & decay
+            float gustCycle = t * 0.75;
+            float gustHit = pow(max(0.0, sin(gustCycle) + 0.4 * sin(gustCycle * 2.2 + 0.8)), 1.8);
+            float gustPower = 0.60 + 0.90 * gustHit;
+
+            // Coordinate along the wind flow vector
+            float streamDist = dot(uv, -windDir) * 8.0;
+
+            // 1. Primary Wind Hit & Billow (Surge pushing the gown fold forward)
+            float billowPhase = streamDist * 1.6 - t * 2.6;
+            float billowWave = sin(billowPhase) * 0.018 * gustPower;
+
+            // 2. Progressive Traveling Ripples (Waves rolling down the folds from impact)
+            float ripplePhase = streamDist * 4.2 - t * 5.0 + billowWave * 6.0;
+            float rippleWave = sin(ripplePhase) * 0.012 * (0.65 + 0.7 * flapFreedom) * gustPower;
+
+            // 3. Fast Edge Flutter (Natural fluttering of free papercraft tips)
+            float flutterPhase = streamDist * 9.5 - t * 10.0;
+            float microFlutter = sin(flutterPhase) * 0.006 * flapFreedom * (0.8 + 0.5 * gustHit);
+
+            // 4. Subtle aerodynamic air eddy turbulence
+            float eddyTurbulence = (noise(uv * 9.0 + vec2(-t * 1.2, t * 0.8)) - 0.5) * 0.009 * gustPower;
+
+            // Total Displacement
+            vec2 disp = vec2(0.0);
+            disp += windDir * (billowWave * 1.3 + rippleWave * 0.8 + eddyTurbulence) * clothWeight;
+            disp += windPerp * (rippleWave * 1.2 + microFlutter) * clothWeight;
+
+            // Dynamic Sunlight Shading Response
+            float foldSlope = (billowWave * 2.8 + rippleWave * 4.5 + microFlutter * 5.5) * clothWeight;
+
+            vec2 sampleUV = clamp(uv + disp, 0.0, 1.0);
+            vec4 color = texture2D(u_image, sampleUV);
+
+            vec3 goldHighlight = vec3(1.0, 0.92, 0.78);
+            vec3 shadowMocha = vec3(0.14, 0.09, 0.06);
+
+            if (foldSlope > 0.0) {
+              color.rgb += goldHighlight * clamp(foldSlope * 5.0, 0.0, 0.38);
+            } else {
+              color.rgb -= shadowMocha * clamp(-foldSlope * 3.8, 0.0, 0.25);
+            }
+
+            // Left fade mask matching the hero stage
+            float leftFade = smoothstep(0.10, 0.40, v_uv.x);
+            color.a *= leftFade;
+
+            gl_FragColor = color;
+          }
+        `;
+
+        function compileShader(gl, type, source) {
+          const shader = gl.createShader(type);
+          gl.shaderSource(shader, source);
+          gl.compileShader(shader);
+          if (!gl.getShaderParameter(shader, gl.COMPILE_STATUS)) {
+            console.error('[KXE WebGL] Shader error:', gl.getShaderInfoLog(shader));
+            gl.deleteShader(shader);
+            return null;
+          }
+          return shader;
+        }
+
+        const vs = compileShader(gl, gl.VERTEX_SHADER, vsSource);
+        const fs = compileShader(gl, gl.FRAGMENT_SHADER, fsSource);
+        if (!vs || !fs) return;
+
+        const program = gl.createProgram();
+        gl.attachShader(program, vs);
+        gl.attachShader(program, fs);
+        gl.linkProgram(program);
+        if (!gl.getProgramParameter(program, gl.LINK_STATUS)) {
+          console.error('[KXE WebGL] Program error:', gl.getProgramInfoLog(program));
+          return;
+        }
+
+        const posBuffer = gl.createBuffer();
+        gl.bindBuffer(gl.ARRAY_BUFFER, posBuffer);
+        gl.bufferData(gl.ARRAY_BUFFER, new Float32Array([
+          -1, -1,  1, -1, -1,  1,
+          -1,  1,  1, -1,  1,  1,
+        ]), gl.STATIC_DRAW);
+
+        const aPosLoc = gl.getAttribLocation(program, 'a_position');
+        const uResLoc = gl.getUniformLocation(program, 'u_resolution');
+        const uImgResLoc = gl.getUniformLocation(program, 'u_imageResolution');
+        const uTimeLoc = gl.getUniformLocation(program, 'u_time');
+        const uImgLoc = gl.getUniformLocation(program, 'u_image');
+
+        const texture = gl.createTexture();
+        const image = new Image();
+        image.src = 'assets/hero_origami_masterpiece.jpg';
+
+        let isRunning = false;
+        let isVisible = true;
+        let animFrameId = null;
+        let startTime = performance.now();
+
+        image.onload = () => {
+          gl.bindTexture(gl.TEXTURE_2D, texture);
+          gl.texParameteri(gl.TEXTURE_2D, gl.TEXTURE_WRAP_S, gl.CLAMP_TO_EDGE);
+          gl.texParameteri(gl.TEXTURE_2D, gl.TEXTURE_WRAP_T, gl.CLAMP_TO_EDGE);
+          gl.texParameteri(gl.TEXTURE_2D, gl.TEXTURE_MIN_FILTER, gl.LINEAR);
+          gl.texParameteri(gl.TEXTURE_2D, gl.TEXTURE_MAG_FILTER, gl.LINEAR);
+          gl.texImage2D(gl.TEXTURE_2D, 0, gl.RGBA, gl.RGBA, gl.UNSIGNED_BYTE, image);
+
+          if (fallbackImg) {
+            fallbackImg.style.opacity = '0';
+          }
+
+          isRunning = true;
+          startLoop();
+        };
+
+        function resize() {
+          const dpr = Math.min(window.devicePixelRatio || 1, 2);
+          const displayWidth = Math.round(canvas.clientWidth * dpr);
+          const displayHeight = Math.round(canvas.clientHeight * dpr);
+          if (canvas.width !== displayWidth || canvas.height !== displayHeight) {
+            canvas.width = displayWidth;
+            canvas.height = displayHeight;
+          }
+          gl.viewport(0, 0, canvas.width, canvas.height);
+        }
+        window.addEventListener('resize', resize, { passive: true });
+
+        function render(currentTime) {
+          if (!isRunning || !isVisible) return;
+          resize();
+
+          const elapsedTime = (currentTime - startTime) * 0.001;
+
+          gl.useProgram(program);
+          gl.enableVertexAttribArray(aPosLoc);
+          gl.bindBuffer(gl.ARRAY_BUFFER, posBuffer);
+          gl.vertexAttribPointer(aPosLoc, 2, gl.FLOAT, false, 0, 0);
+
+          gl.uniform2f(uResLoc, canvas.width, canvas.height);
+          gl.uniform2f(uImgResLoc, image.naturalWidth || 1376, image.naturalHeight || 768);
+          gl.uniform1f(uTimeLoc, elapsedTime);
+
+          gl.activeTexture(gl.TEXTURE0);
+          gl.bindTexture(gl.TEXTURE_2D, texture);
+          gl.uniform1i(uImgLoc, 0);
+
+          gl.drawArrays(gl.TRIANGLES, 0, 6);
+
+          animFrameId = requestAnimationFrame(render);
+        }
+
+        function startLoop() {
+          if (!animFrameId && isRunning && isVisible) {
+            animFrameId = requestAnimationFrame(render);
+          }
+        }
+
+        function stopLoop() {
+          if (animFrameId) {
+            cancelAnimationFrame(animFrameId);
+            animFrameId = null;
+          }
+        }
+
+        // Pause simulation when hero stage is scrolled offscreen or tab is hidden
+        if ('IntersectionObserver' in window && heroStage) {
+          const observer = new IntersectionObserver((entries) => {
+            const entry = entries[0];
+            isVisible = entry.isIntersecting && !document.hidden;
+            if (isVisible) startLoop();
+            else stopLoop();
+          }, { threshold: 0.05 });
+          observer.observe(heroStage);
+        }
+
+        document.addEventListener('visibilitychange', () => {
+          isVisible = !document.hidden;
+          if (isVisible) startLoop();
+          else stopLoop();
+        });
+      })();
+    </script>
+
+
+
+
+
+
+  
 </body>
 </html>
