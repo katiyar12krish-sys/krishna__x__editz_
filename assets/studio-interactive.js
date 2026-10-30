@@ -1,28 +1,26 @@
 /**
- * KRISHNA X EDITZ — STUDIO INTERACTIVE ENGINE
- * High-end interactions, animations, and deep-dive modal logic
+ * KRISHNA X EDITZ — LUXURY STUDIO INTERACTIVE ENGINE
+ * Full-screen theater view, mouse spotlight, and real-time interactions
  */
 
 (function () {
   'use strict';
 
-  // 1. SCROLL REVEAL ENGINE (IntersectionObserver)
-  function initScrollReveal() {
-    const revealElems = document.querySelectorAll('.reveal-on-scroll, [data-reveal]');
-    if (!revealElems.length) return;
+  // 1. MOUSE SPOTLIGHT (HOMEPAGE LUXURY PARITY)
+  function initMouseSpotlight() {
+    let spotlight = document.getElementById('mouseSpotlight');
+    if (!spotlight) {
+      spotlight = document.createElement('div');
+      spotlight.id = 'mouseSpotlight';
+      spotlight.className = 'mouse-spotlight';
+      spotlight.setAttribute('aria-hidden', 'true');
+      document.body.appendChild(spotlight);
+    }
 
-    const observer = new IntersectionObserver(
-      (entries) => {
-        entries.forEach((entry) => {
-          if (entry.isIntersecting) {
-            entry.target.classList.add('revealed');
-          }
-        });
-      },
-      { threshold: 0.12, rootMargin: '0px 0px -40px 0px' }
-    );
-
-    revealElems.forEach((el) => observer.observe(el));
+    window.addEventListener('pointermove', (e) => {
+      document.documentElement.style.setProperty('--cursor-x', `${e.clientX}px`);
+      document.documentElement.style.setProperty('--cursor-y', `${e.clientY}px`);
+    }, { passive: true });
   }
 
   // 2. LIVE METRIC COUNTERS
@@ -50,7 +48,7 @@
 
       function step(now) {
         const progress = Math.min((now - start) / duration, 1);
-        const ease = 1 - Math.pow(1 - progress, 3); // cubic ease-out
+        const ease = 1 - Math.pow(1 - progress, 3);
         const current = target * ease;
         el.innerText = prefix + (target % 1 === 0 ? Math.floor(current) : current.toFixed(1)) + suffix;
         if (progress < 1) {
@@ -63,132 +61,65 @@
     }
   }
 
-  // 3. BEFORE/AFTER COLOR GRADING COMPARISON SLIDER
-  function initGradingSlider() {
-    const containers = document.querySelectorAll('.grading-slider-container');
-    containers.forEach((container) => {
-      const handle = container.querySelector('.grading-handle');
-      const afterLayer = container.querySelector('.grading-after');
-      if (!handle || !afterLayer) return;
-
-      let isDragging = false;
-
-      function updateSlider(clientX) {
-        const rect = container.getBoundingClientRect();
-        let posX = clientX - rect.left;
-        posX = Math.max(0, Math.min(posX, rect.width));
-        const percent = (posX / rect.width) * 100;
-
-        handle.style.left = `${percent}%`;
-        afterLayer.style.width = `${percent}%`;
-      }
-
-      function onPointerDown(e) {
-        isDragging = true;
-        updateSlider(e.clientX || (e.touches && e.touches[0].clientX));
-        window.addEventListener('pointermove', onPointerMove);
-        window.addEventListener('pointerup', onPointerUp);
-        window.addEventListener('touchmove', onTouchMove);
-        window.addEventListener('touchend', onPointerUp);
-      }
-
-      function onPointerMove(e) {
-        if (!isDragging) return;
-        updateSlider(e.clientX);
-      }
-
-      function onTouchMove(e) {
-        if (!isDragging || !e.touches.length) return;
-        updateSlider(e.touches[0].clientX);
-      }
-
-      function onPointerUp() {
-        isDragging = false;
-        window.removeEventListener('pointermove', onPointerMove);
-        window.removeEventListener('pointerup', onPointerUp);
-        window.removeEventListener('touchmove', onTouchMove);
-        window.removeEventListener('touchend', onPointerUp);
-      }
-
-      container.addEventListener('pointerdown', onPointerDown);
-    });
-  }
-
-  // 4. 3D CARD TILT ON MOUSEMOVE
-  function initTiltEffect() {
-    const tiltCards = document.querySelectorAll('[data-tilt]');
-    tiltCards.forEach((card) => {
-      card.addEventListener('mousemove', (e) => {
-        const rect = card.getBoundingClientRect();
-        const x = e.clientX - rect.left - rect.width / 2;
-        const y = e.clientY - rect.top - rect.height / 2;
-        const rotateX = -(y / rect.height) * 10;
-        const rotateY = (x / rect.width) * 10;
-        card.style.transform = `perspective(1000px) rotateX(${rotateX.toFixed(2)}deg) rotateY(${rotateY.toFixed(2)}deg) translateY(-6px)`;
-      });
-
-      card.addEventListener('mouseleave', () => {
-        card.style.transform = 'perspective(1000px) rotateX(0deg) rotateY(0deg) translateY(0px)';
-      });
-    });
-  }
-
-  // 5. IN-DEPTH SERVICE BREAKDOWN DATABASE & MODAL
+  // 3. FULL-SCREEN DEDICATED SERVICE BREAKDOWN (NO POPUP!)
   const SERVICES_DATA = {
     'reels': {
-      title: 'Instagram Reels, YouTube Shorts & Viral Hooks',
-      tag: 'Volume 01 • Short-Form Explosive Growth',
+      vol: 'Volume 01',
+      title: 'Instagram Reels, YouTube Shorts & Viral Retention',
+      tag: 'Short-Form Explosive Reach',
       color: '#10B981',
-      summary: 'Engineered specifically for hyper-retention and maximum watch time on modern vertical video algorithms. We analyze your raw footage, identify the single most arresting visual hook, and sculpt a rhythm-matched narrative with punchy sound design and kinetic captions.',
+      summary: 'Engineered specifically for hyper-retention and maximum watch time on modern vertical video algorithms. We analyze your raw footage, identify the single most arresting visual hook, and sculpt a rhythm-matched narrative with punchy sound design, motion tracking, and kinetic captions.',
       metrics: '+340% Avg Retention • 82% Completion Rate • 24-48h Delivery',
       pipeline: [
-        { phase: '01', title: 'Viral Hook Scouting', desc: 'Isolating the top 3-second psychological trigger and opening audio impact.' },
-        { phase: '02', title: 'High-Pacing Assembly Cut', desc: 'Zero dead air. Trimming micro-breaths, pacing speed-ramps, and beat-snapping.' },
-        { phase: '03', title: 'Kinetic Motion Typography', desc: 'Custom stylized captions, emojis, motion tracking, and keyword highlight effects.' },
-        { phase: '04', title: 'Sound Design & Foley Layering', desc: 'Whooshes, risers, paper textures, sub-bass drops, and balanced vocal LUFS.' },
-        { phase: '05', title: 'Multi-Format Master Export', desc: 'Optimized 1080x1920 (9:16) 60fps ProRes & H.265 tailored for Instagram & TikTok algorithms.' }
+        { phase: '01', title: 'Viral Hook Scouting & Script Sync', desc: 'Isolating the top 3-second psychological trigger and opening audio impact to instantly stop the scroll.' },
+        { phase: '02', title: 'High-Pacing Assembly Cut', desc: 'Zero dead air. Trimming micro-breaths, pacing velocity speed-ramps, and frame-accurate beat-snapping.' },
+        { phase: '03', title: 'Kinetic Motion Typography', desc: 'Custom stylized captions, animated emojis, motion tracking, and keyword highlight luminescence.' },
+        { phase: '04', title: 'Sound Design & Foley Layering', desc: 'Whooshes, paper textures, risers, sub-bass drops, and calibrated vocal leveling to -14 LUFS.' },
+        { phase: '05', title: 'Multi-Format Master Export', desc: 'Optimized 1080x1920 (9:16) 60fps ProRes & H.265 tailored for Instagram, YouTube Shorts & TikTok algorithms.' }
       ],
       deliverables: [
-        '9:16 Ultra-HD Vertical Master Video',
-        'High-Retention Custom Hook Alternative',
-        'Embedded Stylized Subtitles / SRT file',
-        'Clean Textless Version for Ad Testing',
-        'Up to 2 Free Precision Revisions'
+        '9:16 Ultra-HD Vertical Master Video (4K 60FPS)',
+        'High-Retention Alternative Opening Hook Cut',
+        'Stylized Embedded Subtitles + Standalone .SRT file',
+        'Clean Textless Version for International Ad Campaigns',
+        'Up to 2 Precision Revisions Included'
       ],
-      toolkit: 'Adobe Premiere Pro 2026, After Effects, Boris FX Sapphire, Dehancer Pro'
+      toolkit: 'Adobe Premiere Pro 2026, After Effects, Boris FX Sapphire, Dehancer Pro, i9/RTX 4090 Studio'
     },
     'youtube': {
-      title: 'YouTube Master Video Editing & Documentaries',
-      tag: 'Volume 02 • Long-Form Retention Masterclass',
+      vol: 'Volume 02',
+      title: 'YouTube Master Video Editing & Long-Form Documentaries',
+      tag: 'Long-Form Storytelling Masterclass',
       color: '#F59E0B',
-      summary: 'Comprehensive end-to-end post-production for high-tier YouTubers, podcasters, documentarians, and tech channels. We turn hours of multi-cam footage and screen captures into a gripping narrative that keeps viewers glued till the end card.',
-      metrics: 'Over 50M+ Views Driven • 65% End-Screen Click Rate',
+      summary: 'Comprehensive end-to-end post-production for high-tier YouTubers, podcasters, documentarians, and tech creators. We turn hours of multi-cam footage and screen captures into a gripping narrative that keeps viewers glued till the end card.',
+      metrics: 'Over 50M+ Views Driven • 65% End-Screen Clickthrough',
       pipeline: [
-        { phase: '01', title: 'A-Roll Selection & Script Sync', desc: 'Curating the sharpest takes and building a structured 3-act narrative backbone.' },
-        { phase: '02', title: 'Visual Dynamic Pacing', desc: 'Punch-in reframes, B-roll insertions every 4-6 seconds, and smooth J/L-cuts.' },
-        { phase: '03', title: 'Custom 2D/3D Motion Graphics', desc: 'Animated lower-thirds, data graphs, custom maps, and 3D mockups.' },
-        { phase: '04', title: 'Broadcast Audio Mixing', desc: 'Dialogue clarity leveling, dynamic compression, stereo music ducking (-14 LUFS).' },
-        { phase: '05', title: '4K Cinematic Color Delivery', desc: 'DaVinci Resolve color consistency across all cameras and ambient lighting.' }
+        { phase: '01', title: 'A-Roll Selection & Narrative Backbone', desc: 'Curating the sharpest takes and structuring a 3-act storytelling arc with engaging open loops.' },
+        { phase: '02', title: 'Visual Dynamic Pacing & B-Roll', desc: 'Punch-in reframes, B-roll insertions every 4-6 seconds, and smooth seamless J/L-cuts.' },
+        { phase: '03', title: 'Custom 2D/3D Motion Graphics', desc: 'Animated lower-thirds, financial data graphs, custom historical maps, and 3D device mockups.' },
+        { phase: '04', title: 'Broadcast Audio Engineering', desc: 'Dialogue clarity leveling, dynamic multiband compression, and stereo music ducking.' },
+        { phase: '05', title: '4K Cinematic Color Delivery', desc: 'DaVinci Resolve color consistency across multiple camera angles, lighting conditions, and B-roll.' }
       ],
       deliverables: [
         '16:9 4K UHD Master Video File',
-        'YouTube Chapter Markers & Timestamps',
-        '3 Clickable Shorts/Reels Cuts for Promotion',
-        'Stereo Mastered WAV Audio Track',
+        'YouTube Chapter Markers, Timestamps & End-Screen Cuts',
+        '3 Clickable Shorts/Reels Promotional Cutdowns',
+        'Isolated Dialogue, Music & SFX Stems',
         'Up to 2 Complete Creative Revisions'
       ],
       toolkit: 'DaVinci Resolve Studio 19, Adobe Premiere Pro 2026, After Effects'
     },
     'cinematic': {
-      title: 'Cinematic Film, Showreels & Narrative Fiction',
-      tag: 'Volume 03 • Hollywood Visual Craft',
+      vol: 'Volume 03',
+      title: 'Cinematic Films, Narrative Fiction & Showreels',
+      tag: 'Hollywood Visual Craft',
       color: '#E11D48',
-      summary: 'For directors, narrative filmmakers, and creators seeking high-end mood, atmospheric texture, and artistic visual storytelling. Features 2.39:1 anamorphic crop, custom film halation, grain emulation, and bespoke orchestral soundscapes.',
+      summary: 'For directors, narrative filmmakers, and creators seeking high-end mood, atmospheric texture, and artistic visual storytelling. Features 2.39:1 anamorphic crop, custom film halation, analog 35mm grain emulation, and bespoke orchestral soundscapes.',
       metrics: 'Award-Winning Aesthetics • DaVinci Color Science Mastered',
       pipeline: [
-        { phase: '01', title: 'Editorial Assembly & Story Arc', desc: 'Crafting the emotional heartbeat of the film with deliberate pacing.' },
+        { phase: '01', title: 'Editorial Assembly & Story Arc', desc: 'Crafting the emotional heartbeat of the film with deliberate, resonant pacing.' },
         { phase: '02', title: 'Speed Ramping & Match Cutting', desc: 'Seamless optical flow transitions, whip pans, and kinetic energy control.' },
-        { phase: '03', title: 'Atmospheric VFX & Compositing', desc: 'Sky replacements, light leaks, particle overlays, and cinematic grain.' },
+        { phase: '03', title: 'Atmospheric VFX & Compositing', desc: 'Sky replacements, light leaks, particle overlays, and organic film grain.' },
         { phase: '04', title: 'Film LUT Development & Look Dev', desc: 'Kodak 2383 / Fuji film print emulation and custom split-toning.' },
         { phase: '05', title: '5.1 / Stereo Soundscape Mastering', desc: 'Multi-channel ambient textures, sub-harmonic risers, and Foley.' }
       ],
@@ -202,10 +133,11 @@
       toolkit: 'DaVinci Resolve Studio, Dehancer Pro, After Effects, Mocha Pro'
     },
     'commercial': {
+      vol: 'Volume 04',
       title: 'Brand Commercials & Tech Product Showreels',
-      tag: 'Volume 04 • High-Conversion Business Media',
+      tag: 'High-Conversion Commercial Media',
       color: '#06B6D4',
-      summary: 'Designed specifically for tech startups, luxury eCommerce brands, and enterprise software providers like Sorexa Tech. We turn product features into sleek visual spectacles that drive sales, brand authority, and client inquiries.',
+      summary: 'Designed specifically for tech startups, luxury eCommerce brands, and enterprise software providers like Sorexa Technologies. We turn product features into sleek visual spectacles that drive sales, brand authority, and client inquiries.',
       metrics: 'Engineered for Sorexa Tech & Premium B2B Conversion',
       pipeline: [
         { phase: '01', title: 'Brand Identity Alignment', desc: 'Matching brand guidelines, typography, color codes, and target demographics.' },
@@ -224,8 +156,9 @@
       toolkit: 'After Effects, Premiere Pro, DaVinci Resolve, Cinema 4D Assets'
     },
     'music': {
+      vol: 'Volume 05',
       title: 'Music Videos & Beat-Synchronized Visuals',
-      tag: 'Volume 05 • Sonic & Visual Synergy',
+      tag: 'Sonic & Visual Synergy',
       color: '#8B5CF6',
       summary: 'Precision editing matched down to the millisecond of the audio waveform. Bass drops, hi-hat rolls, and vocal melodies dictate every cut, flash, and velocity ramp for music releases, AMVs, and dance performances.',
       metrics: 'Frame-Accurate Beat Snapping • Hypnotic Visual Flow',
@@ -245,8 +178,9 @@
       toolkit: 'Premiere Pro 2026, After Effects, Boris FX Sapphire, Dehancer'
     },
     'color': {
+      vol: 'Volume 06',
       title: 'DaVinci Resolve Color Grading & Look Development',
-      tag: 'Volume 06 • Color Science & Film Emulation',
+      tag: 'Color Science & Film Emulation',
       color: '#F97316',
       summary: 'Transform flat, dull LOG footage from Sony S-Log, Canon C-Log, Arri Log-C, and Blackmagic RAW into vibrant, cinematic film stock with organic film grain, halation, and accurate skin tones.',
       metrics: 'Calibrated Color Pipeline • Custom 3D LUT Delivery',
@@ -269,100 +203,269 @@
 
   window.openServiceDetail = function (serviceKey) {
     const data = SERVICES_DATA[serviceKey] || SERVICES_DATA['reels'];
-    let modalBackdrop = document.getElementById('serviceDetailModal');
+    let fullView = document.getElementById('fullscreenServiceView');
 
-    if (!modalBackdrop) {
-      modalBackdrop = document.createElement('div');
-      modalBackdrop.id = 'serviceDetailModal';
-      modalBackdrop.className = 'service-modal-backdrop';
-      modalBackdrop.innerHTML = `
-        <div class="service-modal-box">
-          <button class="service-modal-close" onclick="closeServiceDetail()" aria-label="Close modal">✕</button>
-          <div id="serviceModalContent"></div>
-        </div>
-      `;
-      document.body.appendChild(modalBackdrop);
-      modalBackdrop.addEventListener('click', (e) => {
-        if (e.target === modalBackdrop) closeServiceDetail();
-      });
+    if (!fullView) {
+      fullView = document.createElement('div');
+      fullView.id = 'fullscreenServiceView';
+      fullView.className = 'fullscreen-stage-view';
+      document.body.appendChild(fullView);
     }
 
     const phasesHtml = data.pipeline.map(p => `
-      <div class="modal-phase-item">
-        <div class="modal-phase-num" style="color:${data.color}">STAGE ${p.phase}</div>
-        <div class="modal-phase-title">${p.title}</div>
-        <p class="modal-phase-desc">${p.desc}</p>
+      <div style="background:rgba(255,255,255,0.04);border:1px solid rgba(255,255,255,0.1);border-radius:16px;padding:22px;">
+        <div style="font-family:monospace;font-size:11px;font-weight:900;color:${data.color};letter-spacing:0.12em;text-transform:uppercase;">STAGE ${p.phase}</div>
+        <div style="font-family:var(--serif, serif);font-size:19px;font-weight:700;color:#FFF;margin:8px 0;">${p.title}</div>
+        <p style="color:var(--muted,#cfc3ac);font-size:13.5px;line-height:1.6;margin:0;">${p.desc}</p>
       </div>
     `).join('');
 
     const deliverablesHtml = data.deliverables.map(d => `
-      <li><span style="color:${data.color};font-weight:900;">✓</span> ${d}</li>
+      <div style="display:flex;align-items:center;gap:12px;background:rgba(16,185,129,0.07);border:1px solid rgba(16,185,129,0.22);border-radius:12px;padding:12px 16px;color:#FFF;font-size:14px;">
+        <span style="color:#10B981;font-weight:900;font-size:16px;">✓</span>
+        <span>${d}</span>
+      </div>
     `).join('');
 
-    const contentEl = document.getElementById('serviceModalContent');
-    contentEl.innerHTML = `
-      <div style="display:flex;align-items:center;gap:10px;margin-bottom:12px;">
-        <span style="display:inline-block;padding:4px 12px;border-radius:999px;background:rgba(255,255,255,0.08);border:1px solid ${data.color};color:${data.color};font-size:11px;font-weight:800;letter-spacing:0.12em;text-transform:uppercase;">
-          ${data.tag}
-        </span>
-      </div>
-      <h2 style="font-family:var(--serif, serif);font-size:clamp(24px, 4vw, 34px);color:#FFF;margin:0 0 14px 0;line-height:1.2;">
-        ${data.title}
-      </h2>
-      <p style="color:var(--muted,#cfc3ac);font-size:14.5px;line-height:1.65;margin-bottom:20px;">
-        ${data.summary}
-      </p>
-
-      <div style="background:rgba(255,255,255,0.04);border-radius:12px;padding:12px 18px;margin-bottom:24px;border-left:3px solid ${data.color};font-size:13px;font-weight:700;color:#FFF;">
-        ⚡ Strategic Benchmark: <span style="color:${data.color}">${data.metrics}</span>
-      </div>
-
-      <h4 style="font-family:var(--sans,sans-serif);font-size:13px;font-weight:900;letter-spacing:0.16em;text-transform:uppercase;color:#FFF;margin:0 0 12px 0;">
-        5-Stage Production Workflow
-      </h4>
-      <div class="modal-phase-grid">${phasesHtml}</div>
-
-      <h4 style="font-family:var(--sans,sans-serif);font-size:13px;font-weight:900;letter-spacing:0.16em;text-transform:uppercase;color:#FFF;margin:24px 0 12px 0;">
-        Included Deliverables Checklist
-      </h4>
-      <ul class="modal-deliverables-list">${deliverablesHtml}</ul>
-
-      <div style="display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:16px;margin-top:30px;padding-top:20px;border-top:1px solid rgba(255,255,255,0.1);">
-        <div style="color:var(--muted);font-size:12.5px;">
-          Software Toolkit: <strong style="color:#FFF;">${data.toolkit}</strong>
-        </div>
-        <div style="display:flex;gap:12px;flex-wrap:wrap;">
+    fullView.innerHTML = `
+      <div class="fullscreen-topbar">
+        <button class="fullscreen-back-btn" onclick="closeServiceDetail()">
+          <svg viewBox="0 0 24 24" width="14" height="14" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+            <line x1="19" y1="12" x2="5" y2="12"></line>
+            <polyline points="12 19 5 12 12 5"></polyline>
+          </svg>
+          <span>Back to All Services</span>
+        </button>
+        <div style="display:flex;align-items:center;gap:12px;">
           <a href="https://wa.me/918449495147?text=Hi%20Krishna!%20I%20want%20to%20book%20the%20${encodeURIComponent(data.title)}%20service." 
              target="_blank" rel="noopener noreferrer"
-             style="display:inline-flex;align-items:center;gap:8px;padding:12px 24px;border-radius:999px;background:#25D366;color:#FFF;font-weight:800;font-size:12.5px;letter-spacing:0.08em;text-decoration:none;text-transform:uppercase;">
-            Book on WhatsApp ↗
+             style="display:inline-flex;align-items:center;gap:8px;padding:10px 22px;border-radius:999px;background:#25D366;color:#FFF;font-family:var(--sans);font-weight:900;font-size:12px;letter-spacing:0.1em;text-decoration:none;text-transform:uppercase;">
+            WhatsApp Chat ↗
           </a>
           <a href="/contact" 
-             style="display:inline-flex;align-items:center;gap:8px;padding:12px 24px;border-radius:999px;background:${data.color};color:#000;font-weight:900;font-size:12.5px;letter-spacing:0.08em;text-decoration:none;text-transform:uppercase;">
-            Submit Creative Brief &rarr;
+             style="display:inline-flex;align-items:center;gap:8px;padding:10px 22px;border-radius:999px;background:#F59E0B;color:#000;font-family:var(--sans);font-weight:900;font-size:12px;letter-spacing:0.1em;text-decoration:none;text-transform:uppercase;">
+            Book This Service &rarr;
+          </a>
+        </div>
+      </div>
+
+      <div class="fullscreen-body-container">
+        <div style="display:flex;align-items:center;gap:10px;margin-bottom:14px;">
+          <span style="display:inline-block;padding:5px 14px;border-radius:999px;background:rgba(255,255,255,0.08);border:1px solid ${data.color};color:${data.color};font-size:11px;font-weight:800;letter-spacing:0.14em;text-transform:uppercase;">
+            ${data.vol} • ${data.tag}
+          </span>
+        </div>
+
+        <h1 style="font-family:var(--serif, serif);font-size:clamp(32px, 5vw, 54px);color:#FFF;margin:0 0 16px 0;line-height:1.15;">
+          ${data.title}
+        </h1>
+
+        <p style="color:var(--muted,#cfc3ac);font-size:clamp(16px, 1.8vw, 19px);line-height:1.7;max-width:980px;margin-bottom:30px;">
+          ${data.summary}
+        </p>
+
+        <div style="background:rgba(255,255,255,0.04);border-radius:14px;padding:18px 24px;margin-bottom:48px;border-left:4px solid ${data.color};font-size:14.5px;font-weight:700;color:#FFF;">
+          ⚡ Strategic Performance Benchmark: <span style="color:${data.color}">${data.metrics}</span>
+        </div>
+
+        <h2 style="font-family:var(--sans,sans-serif);font-size:14px;font-weight:900;letter-spacing:0.2em;text-transform:uppercase;color:#FFF;margin:0 0 20px 0;">
+          5-Stage End-to-End Production Pipeline
+        </h2>
+        <div style="display:grid;grid-template-columns:repeat(auto-fit, minmax(280px, 1fr));gap:20px;margin-bottom:48px;">
+          ${phasesHtml}
+        </div>
+
+        <h2 style="font-family:var(--sans,sans-serif);font-size:14px;font-weight:900;letter-spacing:0.2em;text-transform:uppercase;color:#FFF;margin:0 0 20px 0;">
+          Everything Included In Your Delivery
+        </h2>
+        <div style="display:grid;grid-template-columns:repeat(auto-fit, minmax(280px, 1fr));gap:14px;margin-bottom:48px;">
+          ${deliverablesHtml}
+        </div>
+
+        <div style="background:linear-gradient(145deg, rgba(28,21,14,0.95), rgba(18,13,8,0.98));border:1.5px solid rgba(212,175,55,0.3);border-radius:20px;padding:36px;display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:24px;">
+          <div>
+            <div style="font-size:11px;font-weight:800;letter-spacing:0.16em;text-transform:uppercase;color:#F59E0B;margin-bottom:6px;">Certified Studio Arsenal</div>
+            <div style="color:#FFF;font-size:17px;font-weight:700;">${data.toolkit}</div>
+          </div>
+          <div style="display:flex;gap:14px;flex-wrap:wrap;">
+            <a href="https://wa.me/918449495147" target="_blank" style="padding:14px 28px;border-radius:999px;background:#25D366;color:#FFF;text-decoration:none;font-weight:900;font-size:13px;letter-spacing:0.1em;text-transform:uppercase;">
+              Direct WhatsApp ↗
+            </a>
+            <a href="/contact" style="padding:14px 28px;border-radius:999px;background:#F59E0B;color:#000;text-decoration:none;font-weight:900;font-size:13px;letter-spacing:0.1em;text-transform:uppercase;">
+              Book Creative Brief &rarr;
+            </a>
+          </div>
+        </div>
+      </div>
+    `;
+
+    fullView.classList.add('active');
+    document.body.style.overflow = 'hidden';
+    fullView.scrollTop = 0;
+  };
+
+  window.closeServiceDetail = function () {
+    const fullView = document.getElementById('fullscreenServiceView');
+    if (fullView) {
+      fullView.classList.remove('active');
+      document.body.style.overflow = '';
+    }
+  };
+
+  // 4. FULL-SCREEN DEDICATED VIDEO THEATER VIEW (NO POPUP!)
+  window.openTheaterVideo = function (title, desc, videoSrc, tag, metric) {
+    let theaterView = document.getElementById('fullscreenTheaterView');
+    if (!theaterView) {
+      theaterView = document.createElement('div');
+      theaterView.id = 'fullscreenTheaterView';
+      theaterView.className = 'fullscreen-stage-view';
+      document.body.appendChild(theaterView);
+    }
+
+    theaterView.innerHTML = `
+      <div class="fullscreen-topbar">
+        <button class="fullscreen-back-btn" onclick="closeTheaterVideo()">
+          <svg viewBox="0 0 24 24" width="14" height="14" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+            <line x1="19" y1="12" x2="5" y2="12"></line>
+            <polyline points="12 19 5 12 12 5"></polyline>
+          </svg>
+          <span>Back to Portfolio</span>
+        </button>
+        <a href="/contact" style="display:inline-flex;align-items:center;gap:8px;padding:9px 20px;border-radius:999px;background:#F59E0B;color:#000;font-family:var(--sans);font-weight:900;font-size:12px;letter-spacing:0.1em;text-decoration:none;text-transform:uppercase;">
+          Book an Edit Like This ↗
+        </a>
+      </div>
+
+      <div class="fullscreen-body-container" style="max-width:1100px;">
+        <div style="width:100%;aspect-ratio:16/9;background:#000;border-radius:20px;overflow:hidden;border:1.5px solid rgba(212,175,55,0.4);box-shadow:0 25px 60px rgba(0,0,0,0.9);margin-bottom:30px;">
+          <video id="theaterMainVideo" src="${videoSrc}" controls autoplay playsinline style="width:100%;height:100%;object-fit:contain;background:#000;"></video>
+        </div>
+
+        <div style="display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:16px;margin-bottom:16px;">
+          <span style="display:inline-block;padding:5px 14px;border-radius:999px;background:rgba(212,175,55,0.15);border:1px solid rgba(212,175,55,0.4);color:#FBBF24;font-size:11px;font-weight:800;letter-spacing:0.12em;text-transform:uppercase;">
+            ${tag || 'Featured Work'}
+          </span>
+          <span style="color:#10B981;font-weight:800;font-size:13.5px;">${metric || '✦ Verified Delivered Edit'}</span>
+        </div>
+
+        <h1 style="font-family:var(--serif);font-size:clamp(26px, 4vw, 40px);color:#FFF;margin-bottom:14px;line-height:1.2;">
+          ${title}
+        </h1>
+
+        <p style="color:var(--muted);font-size:16px;line-height:1.7;margin-bottom:36px;">
+          ${desc}
+        </p>
+
+        <div style="background:rgba(255,255,255,0.04);border-radius:16px;padding:24px;border:1px solid rgba(255,255,255,0.1);display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:20px;">
+          <div>
+            <div style="color:#FFF;font-size:15px;font-weight:700;">Interested in creating a video with this style and pacing?</div>
+            <div style="color:var(--muted);font-size:13px;margin-top:4px;">Average delivery is 24-48 hours with 4K mastering and custom sound design.</div>
+          </div>
+          <a href="https://wa.me/918449495147?text=Hi%20Krishna!%20I%20saw%20your%20project%20'${encodeURIComponent(title)}'%20and%20want%20to%20discuss%20a%20similar%20edit." target="_blank" style="padding:12px 24px;border-radius:999px;background:#25D366;color:#FFF;text-decoration:none;font-weight:900;font-size:12.5px;letter-spacing:0.08em;text-transform:uppercase;">
+            WhatsApp Krishna Directly ↗
           </a>
         </div>
       </div>
     `;
 
-    modalBackdrop.classList.add('open');
+    theaterView.classList.add('active');
     document.body.style.overflow = 'hidden';
+    theaterView.scrollTop = 0;
   };
 
-  window.closeServiceDetail = function () {
-    const modalBackdrop = document.getElementById('serviceDetailModal');
-    if (modalBackdrop) {
-      modalBackdrop.classList.remove('open');
+  window.closeTheaterVideo = function () {
+    const theaterView = document.getElementById('fullscreenTheaterView');
+    if (theaterView) {
+      const vid = document.getElementById('theaterMainVideo');
+      if (vid) vid.pause();
+      theaterView.classList.remove('active');
       document.body.style.overflow = '';
     }
   };
 
-  // 6. INITIALIZE ON DOM CONTENT LOADED
+
+  // 6. FULL-SCREEN PRICING EXAMPLE VIDEO SHOWCASE (NO POPUPS!)
+  window.openPricingExampleVideo = function (title, videoSrc, price, desc) {
+    let exampleView = document.getElementById('fullscreenPricingExampleView');
+    if (!exampleView) {
+      exampleView = document.createElement('div');
+      exampleView.id = 'fullscreenPricingExampleView';
+      exampleView.className = 'fullscreen-stage-view';
+      document.body.appendChild(exampleView);
+    }
+
+    exampleView.innerHTML = `
+      <div class="fullscreen-topbar">
+        <button class="fullscreen-back-btn" onclick="closePricingExampleVideo()">
+          <svg viewBox="0 0 24 24" width="14" height="14" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+            <line x1="19" y1="12" x2="5" y2="12"></line>
+            <polyline points="12 19 5 12 12 5"></polyline>
+          </svg>
+          <span>Back to Pricing Packages</span>
+        </button>
+        <a href="https://wa.me/918449495147?text=Hi%20Krishna!%20I%20reviewed%20the%20example%20video%20and%20want%20to%20book%20the%20${encodeURIComponent(title)}%20package%20(${encodeURIComponent(price)})." 
+           target="_blank" style="padding:10px 22px;border-radius:999px;background:#F59E0B;color:#000;font-family:var(--sans);font-weight:900;font-size:12px;letter-spacing:0.1em;text-decoration:none;text-transform:uppercase;">
+          Book This Package (${price}) ↗
+        </a>
+      </div>
+
+      <div class="fullscreen-body-container" style="max-width:1100px;">
+        <div style="display:flex;align-items:center;gap:10px;margin-bottom:12px;">
+          <span style="display:inline-block;padding:5px 14px;border-radius:999px;background:rgba(212,175,55,0.15);border:1px solid rgba(212,175,55,0.4);color:#FBBF24;font-size:11px;font-weight:800;letter-spacing:0.12em;text-transform:uppercase;">
+            ✦ Verified Package Showcase Edit ✦
+          </span>
+          <span style="color:#10B981;font-weight:800;font-size:13px;">${price} Tier</span>
+        </div>
+
+        <h1 style="font-family:var(--serif);font-size:clamp(26px, 4vw, 42px);color:#FFF;margin-bottom:8px;line-height:1.2;">
+          ${title} — Sample Video Edit
+        </h1>
+        <p style="color:var(--muted);font-size:15px;margin-bottom:24px;">
+          ${desc}
+        </p>
+
+        <!-- Big Theater Video Player -->
+        <div style="width:100%;aspect-ratio:16/9;background:#000;border-radius:20px;overflow:hidden;border:1.5px solid rgba(212,175,55,0.4);box-shadow:0 25px 60px rgba(0,0,0,0.9);margin-bottom:24px;">
+          <video id="pricingTheaterVideo" src="${videoSrc}" controls autoplay playsinline style="width:100%;height:100%;object-fit:contain;background:#000;"></video>
+        </div>
+
+        <div style="background:rgba(255,255,255,0.04);border-radius:16px;padding:22px 28px;border:1px solid rgba(255,255,255,0.1);display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:20px;">
+          <div>
+            <div style="color:#F59E0B;font-size:11px;font-weight:800;letter-spacing:0.14em;text-transform:uppercase;margin-bottom:4px;">✦ Krishna's Editing Guarantee</div>
+            <div style="color:#FFF;font-size:15.5px;font-weight:700;">Includes 4K master export, beat sync, kinetic typography &amp; revisions.</div>
+            <div style="color:var(--muted);font-size:12.5px;margin-top:2px;">(Krishna will customize the exact showcase video for this section as requested).</div>
+          </div>
+          <div style="display:flex;gap:12px;flex-wrap:wrap;">
+            <a href="https://wa.me/918449495147" target="_blank" style="padding:12px 24px;border-radius:999px;background:#25D366;color:#FFF;font-weight:900;font-size:12px;letter-spacing:0.08em;text-transform:uppercase;text-decoration:none;">
+              WhatsApp Krishna ↗
+            </a>
+            <a href="/contact" style="padding:12px 24px;border-radius:999px;background:#F59E0B;color:#000;font-weight:900;font-size:12px;letter-spacing:0.08em;text-transform:uppercase;text-decoration:none;">
+              Confirm Project Brief &rarr;
+            </a>
+          </div>
+        </div>
+      </div>
+    `;
+
+    exampleView.classList.add('active');
+    document.body.style.overflow = 'hidden';
+    exampleView.scrollTop = 0;
+  };
+
+  window.closePricingExampleVideo = function () {
+    const exampleView = document.getElementById('fullscreenPricingExampleView');
+    if (exampleView) {
+      const vid = document.getElementById('pricingTheaterVideo');
+      if (vid) vid.pause();
+      exampleView.classList.remove('active');
+      document.body.style.overflow = '';
+    }
+  };
+
+  // 5. INITIALIZE ON DOM CONTENT LOADED
   document.addEventListener('DOMContentLoaded', () => {
-    initScrollReveal();
+    initMouseSpotlight();
     initMetricCounters();
-    initGradingSlider();
-    initTiltEffect();
 
     // Sticky Header Scroll Controller
     const header = document.querySelector('.studio-header') || document.getElementById('topbar');

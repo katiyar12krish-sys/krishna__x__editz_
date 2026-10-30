@@ -1,0 +1,16 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 200 200" width="100%" height="100%" fill="none">
+  <defs>
+    <linearGradient id="c2Gold" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#FFE082" />
+      <stop offset="50%" stop-color="#FFB300" />
+      <stop offset="100%" stop-color="#FF8F00" />
+    </linearGradient>
+  </defs>
+  <!-- Circular Aperture Outline -->
+  <circle cx="100" cy="100" r="82" stroke="url(#c2Gold)" stroke-width="2.5" opacity="0.3" stroke-dasharray="6 4" />
+  <!-- 4 Dynamic Shutter Blades Forming K & X -->
+  <path d="M 46 40 L 68 40 L 68 160 L 46 160 Z" fill="url(#c2Gold)" />
+  <path d="M 78 108 L 134 48 L 156 56 L 96 118 Z" fill="url(#c2Gold)" />
+  <path d="M 78 92 L 134 152 L 156 144 L 96 82 Z" fill="url(#c2Gold)" />
+  <circle cx="100" cy="100" r="8" fill="#FFF2C6" />
+</svg>

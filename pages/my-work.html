@@ -4,7 +4,7 @@
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
   <meta name="theme-color" content="#16130e">
-  <meta name="description" content="KRISHNA X EDITZ — Cinematic Portfolio. Explore our verified delivered video edits across 4K cinema, high-retention viral reels, brand commercials, and music storytelling.">
+  <meta name="description" content="KRISHNA X EDITZ — Verified Delivered Portfolio. Explore Krishna's real delivered video edits across 4K cinema, high-retention viral reels, and music storytelling.">
   <title>My Work &amp; Curated Showcase — KRISHNA X EDITZ</title>
   
   <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -15,8 +15,8 @@
   <style>
     :root {
       --ink: #14100c;
-      --ink-deep: #0a0806;
       --gold: #d4af37;
+      --gold-bright: #fff2c6;
       --gold-neon: #f59e0b;
       --emerald: #10b981;
       --text: #fdfaf3;
@@ -47,16 +47,16 @@
     }
     .section-eyebrow {
       display: inline-block;
-      font-size: 11.5px;
+      font-size: 11px;
       font-weight: 800;
-      letter-spacing: 0.22em;
+      letter-spacing: 0.24em;
       text-transform: uppercase;
       color: var(--gold-neon);
       margin-bottom: 14px;
     }
     .page-hero-title {
       font-family: var(--display);
-      font-size: clamp(32px, 5.5vw, 56px);
+      font-size: clamp(32px, 5.2vw, 54px);
       font-weight: 900;
       color: #FFFFFF;
       letter-spacing: 0.04em;
@@ -73,43 +73,9 @@
       color: var(--muted);
       font-size: clamp(15px, 1.8vw, 17px);
       max-width: 740px;
-      margin: 0 auto 36px;
+      margin: 0 auto 30px;
       line-height: 1.65;
     }
-    
-    /* STATS COUNTER BAR */
-    .portfolio-stats-bar {
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
-      gap: 16px;
-      background: rgba(22, 17, 12, 0.7);
-      border: 1px solid rgba(212, 175, 55, 0.25);
-      border-radius: 18px;
-      padding: 24px;
-      margin: 20px auto 40px;
-      backdrop-filter: blur(14px);
-    }
-    .stat-box {
-      text-align: center;
-      padding: 10px;
-    }
-    .stat-num {
-      font-family: var(--display);
-      font-size: clamp(26px, 3.5vw, 36px);
-      font-weight: 900;
-      color: #F59E0B;
-      letter-spacing: 0.05em;
-    }
-    .stat-label {
-      color: var(--muted);
-      font-size: 12px;
-      font-weight: 700;
-      letter-spacing: 0.1em;
-      text-transform: uppercase;
-      margin-top: 4px;
-    }
-
-    /* FILTER TABS */
     .filter-tabs-row {
       display: flex;
       align-items: center;
@@ -138,70 +104,12 @@
       border-color: #FFD700;
       box-shadow: 0 4px 18px rgba(245, 158, 11, 0.45);
     }
-
-    /* VIDEO MODAL PLAYER */
-    .video-modal-backdrop {
-      position: fixed;
-      inset: 0;
-      background: rgba(6, 4, 3, 0.92);
-      backdrop-filter: blur(18px);
-      z-index: 3000;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      padding: 24px;
-      opacity: 0;
-      visibility: hidden;
-      transition: all 300ms ease;
-    }
-    .video-modal-backdrop.open {
-      opacity: 1;
-      visibility: visible;
-    }
-    .video-modal-box {
-      background: #14100C;
-      border: 1.5px solid rgba(212, 175, 55, 0.4);
-      border-radius: 20px;
-      max-width: 960px;
-      width: 100%;
-      overflow: hidden;
-      box-shadow: 0 25px 60px rgba(0,0,0,0.95);
-      position: relative;
-    }
-    .video-player-container {
-      width: 100%;
-      aspect-ratio: 16 / 9;
-      background: #000;
-    }
-    .video-modal-details {
-      padding: 24px 28px;
-      display: flex;
-      align-items: center;
-      justify-content: space-between;
-      flex-wrap: wrap;
-      gap: 16px;
-    }
-    .modal-close-btn {
-      position: absolute;
-      top: 14px;
-      right: 14px;
-      width: 36px;
-      height: 36px;
-      border-radius: 50%;
-      background: rgba(0,0,0,0.7);
-      border: 1px solid rgba(255,255,255,0.3);
-      color: #fff;
-      font-size: 18px;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      cursor: pointer;
-      z-index: 20;
-    }
-    .modal-close-btn:hover { background: #E11D48; }
   </style>
 </head>
 <body>
+
+  <!-- MOUSE SPOTLIGHT (HOMEPAGE LUXURY AURA) -->
+  <div class="mouse-spotlight" id="mouseSpotlight" aria-hidden="true"></div>
 
   <!-- SOREXA-STYLE BLENDED HEADER -->
   <header class="topbar studio-header" id="topbar">
@@ -243,624 +151,466 @@
 
   <main class="page-hero">
     <div class="container">
-      <span class="section-eyebrow">✦ VERIFIED SHOWCASE &amp; DELIVERED EDITS ✦</span>
+      <span class="section-eyebrow">✦ REAL DELIVERED WORKS &amp; SIGNATURE CUTS ✦</span>
       <h1 class="page-hero-title">Selected Works &amp; <span>Cinematic Proofs</span></h1>
       <p class="section-desc">
-        Explore 24+ delivered projects engineered for hyper-retention, cinematic atmosphere, and commercial client ROI. Every card is pixel-calibrated with uniform aspect ratios and exact metadata.
+        Explore Krishna's 19 real delivered projects. Click any video card to open its dedicated full-screen theater view with high-definition playback, project narrative, and direct booking options.
       </p>
 
-      <!-- LIVE STATISTIC COUNTERS -->
-      <div class="portfolio-stats-bar">
-        <div class="stat-box">
-          <div class="stat-num" data-counter-target="50" data-counter-suffix="M+">50M+</div>
-          <div class="stat-label">Total Organic Views</div>
+      <!-- EDITORIAL STATS BAR (MATCHING HOMEPAGE LUXURY STAGE) -->
+      <div class="editorial-stats-bar">
+        <div class="editorial-stat-card">
+          <div class="editorial-stat-number" data-counter-target="50" data-counter-suffix="M+">50M+</div>
+          <div class="editorial-stat-label">Organic Watch Views</div>
         </div>
-        <div class="stat-box">
-          <div class="stat-num" data-counter-target="500" data-counter-suffix="+">500+</div>
-          <div class="stat-label">Videos Delivered</div>
+        <div class="editorial-stat-card">
+          <div class="editorial-stat-number" data-counter-target="500" data-counter-suffix="+">500+</div>
+          <div class="editorial-stat-label">Delivered Projects</div>
         </div>
-        <div class="stat-box">
-          <div class="stat-num" data-counter-target="99.4" data-counter-suffix="%">99.4%</div>
-          <div class="stat-label">Client Satisfaction</div>
+        <div class="editorial-stat-card">
+          <div class="editorial-stat-number" data-counter-target="99.4" data-counter-suffix="%">99.4%</div>
+          <div class="editorial-stat-label">Client Retention</div>
         </div>
-        <div class="stat-box">
-          <div class="stat-num" data-counter-target="24" data-counter-suffix="h">24h</div>
-          <div class="stat-label">Average Turnaround</div>
+        <div class="editorial-stat-card">
+          <div class="editorial-stat-number" data-counter-target="24" data-counter-suffix="h">24h</div>
+          <div class="editorial-stat-label">Rapid Delivery</div>
         </div>
       </div>
 
       <!-- FILTER TABS -->
       <div class="filter-tabs-row">
-        <button type="button" class="port-tab-btn active" onclick="filterProjects('all', this)">All Projects (24)</button>
-        <button type="button" class="port-tab-btn" onclick="filterProjects('viral', this)">Viral Reels &amp; Shorts</button>
-        <button type="button" class="port-tab-btn" onclick="filterProjects('brand', this)">Brand Commercials</button>
-        <button type="button" class="port-tab-btn" onclick="filterProjects('cinematic', this)">4K Cinematic &amp; Docs</button>
-        <button type="button" class="port-tab-btn" onclick="filterProjects('music', this)">Music &amp; Beat Sync</button>
-        <button type="button" class="port-tab-btn" onclick="filterProjects('travel', this)">Travel &amp; Nature</button>
+        <button type="button" class="port-tab-btn active" onclick="filterRealProjects('all', this)">All Real Projects (19)</button>
+        <button type="button" class="port-tab-btn" onclick="filterRealProjects('viral', this)">Viral Reels &amp; Shorts</button>
+        <button type="button" class="port-tab-btn" onclick="filterRealProjects('cinematic', this)">4K Films &amp; Cinematic</button>
+        <button type="button" class="port-tab-btn" onclick="filterRealProjects('music', this)">Music &amp; Beat Sync</button>
+        <button type="button" class="port-tab-btn" onclick="filterRealProjects('travel', this)">Travel &amp; Nature</button>
+        <button type="button" class="port-tab-btn" onclick="filterRealProjects('commercial', this)">Commercial &amp; Brand</button>
       </div>
 
-      <!-- UNIFORM BALANCED GRID (NO MISMATCHED BOXES) -->
-      <div class="uniform-portfolio-grid" id="portfolioGrid">
-          <div class="uniform-video-card" data-category="brand" data-reveal>
-            <div class="uniform-thumb-container">
-              <img src="https://images.unsplash.com/photo-1551288049-bebda4e38f71?auto=format&fit=crop&w=800&q=80" alt="Sorexa Technologies Official Global Showreel" class="uniform-thumb-img" loading="lazy">
-              <div class="uniform-badge-row">
-                <span class="uniform-tag">Brand Commercial</span>
-                <span class="uniform-duration">01:45</span>
-              </div>
-              <div class="uniform-play-btn" onclick="openPortfolioPlayer('Sorexa Technologies Official Global Showreel', 'High-octane corporate showreel featuring enterprise UI animations, fast kinetic cuts, and tech sound design.', 'assets/hero_doll_cinematic_1080p.mp4', '⚡ Official Enterprise Partner')">
-                <div class="uniform-play-btn-circle">▶</div>
-              </div>
+      <!-- REAL WORKS UNIFORM GRID -->
+      <div class="real-works-grid" id="realWorksGrid">
+        <div class="real-work-card" data-category="music" onclick="openTheaterVideo('Nazar-e-Khaas — 4K UHD Poetic Cinematography & Color Symphony', 'A cinematic widescreen masterpiece blending delicate film emulation LUTs, natural landscape framing, paper-foley acoustic design, and heart-tugging melody pacing. Mastered in full 4K 60FPS clarity.', 'assets/work_nazar_cinematic_1080p.mp4', 'Cinematic Film & Color Master', '✦ 4K UHD POETIC CINEMA ✦')">
+          <div class="real-work-thumb">
+            <video src="assets/work_nazar_cinematic_1080p.mp4" muted loop playsinline preload="metadata" onmouseover="this.play().catch(function(){})" onmouseout="this.pause()"></video>
+            <div style="position:absolute;top:10px;left:10px;padding:4px 10px;border-radius:999px;background:rgba(0,0,0,0.75);border:1px solid rgba(212,175,55,0.4);color:#FBBF24;font-size:10px;font-weight:800;letter-spacing:0.08em;text-transform:uppercase;">
+              ✦ 4K UHD POETIC CINEMA ✦
             </div>
-            <div class="uniform-card-body">
-              <div>
-                <h3 class="uniform-card-title">Sorexa Technologies Official Global Showreel</h3>
-                <p class="uniform-card-desc">High-octane corporate showreel featuring enterprise UI animations, fast kinetic cuts, and tech sound design.</p>
-              </div>
-              <div class="uniform-card-footer">
-                <span class="uniform-metric">⚡ Official Enterprise Partner</span>
-                <button class="uniform-card-cta" onclick="openPortfolioPlayer('Sorexa Technologies Official Global Showreel', 'High-octane corporate showreel featuring enterprise UI animations, fast kinetic cuts, and tech sound design.', 'assets/hero_doll_cinematic_1080p.mp4', '⚡ Official Enterprise Partner')">
-                  Play Video ↗
-                </button>
-              </div>
+            <div style="position:absolute;bottom:10px;right:10px;padding:3px 8px;border-radius:6px;background:rgba(0,0,0,0.85);color:#FFF;font-size:10px;font-weight:700;">
+              16:9 4K UHD Landscape
             </div>
           </div>
-          <div class="uniform-video-card" data-category="brand" data-reveal>
-            <div class="uniform-thumb-container">
-              <img src="https://images.unsplash.com/photo-1460925895917-afdab827c52f?auto=format&fit=crop&w=800&q=80" alt="Sorexa CRM Operating System Product Launch" class="uniform-thumb-img" loading="lazy">
-              <div class="uniform-badge-row">
-                <span class="uniform-tag">SaaS Showcase</span>
-                <span class="uniform-duration">02:10</span>
-              </div>
-              <div class="uniform-play-btn" onclick="openPortfolioPlayer('Sorexa CRM Operating System Product Launch', 'Dynamic software presentation showcasing POS billing, inventory trackers, and AI job sheet desks.', 'assets/hero_doll_cinematic_1080p.mp4', '⭐ 98% Client Conversion')">
-                <div class="uniform-play-btn-circle">▶</div>
-              </div>
+          <div class="real-work-body">
+            <div>
+              <div style="font-size:11px;font-weight:800;color:var(--gold-neon);letter-spacing:0.1em;text-transform:uppercase;margin-bottom:6px;">Cinematic Film & Color Master</div>
+              <h3 class="real-work-title">Nazar-e-Khaas — 4K UHD Poetic Cinematography & Color Symphony</h3>
+              <p class="real-work-desc">A cinematic widescreen masterpiece blending delicate film emulation LUTs, natural landscape framing, paper-foley acoustic design, and heart-tugging melody pacing. Mastered in full 4K 60FPS clarity.</p>
             </div>
-            <div class="uniform-card-body">
-              <div>
-                <h3 class="uniform-card-title">Sorexa CRM Operating System Product Launch</h3>
-                <p class="uniform-card-desc">Dynamic software presentation showcasing POS billing, inventory trackers, and AI job sheet desks.</p>
-              </div>
-              <div class="uniform-card-footer">
-                <span class="uniform-metric">⭐ 98% Client Conversion</span>
-                <button class="uniform-card-cta" onclick="openPortfolioPlayer('Sorexa CRM Operating System Product Launch', 'Dynamic software presentation showcasing POS billing, inventory trackers, and AI job sheet desks.', 'assets/hero_doll_cinematic_1080p.mp4', '⭐ 98% Client Conversion')">
-                  Play Video ↗
-                </button>
-              </div>
+            <div class="real-work-footer">
+              <span style="color:#10B981;font-weight:800;font-size:11.5px;">✓ Krishna Master Edit</span>
+              <span style="color:#F59E0B;font-weight:800;font-size:12px;letter-spacing:0.08em;text-transform:uppercase;">Open Theater ↗</span>
             </div>
           </div>
-          <div class="uniform-video-card" data-category="viral" data-reveal>
-            <div class="uniform-thumb-container">
-              <img src="https://images.unsplash.com/photo-1518770660439-4636190af475?auto=format&fit=crop&w=800&q=80" alt="Cyberpunk Tech Unboxing & B-Roll Masterclass" class="uniform-thumb-img" loading="lazy">
-              <div class="uniform-badge-row">
-                <span class="uniform-tag">Viral Reel 9:16</span>
-                <span class="uniform-duration">00:45</span>
-              </div>
-              <div class="uniform-play-btn" onclick="openPortfolioPlayer('Cyberpunk Tech Unboxing & B-Roll Masterclass', '3-second hook retention edit with kinetic sound layering, micro-speed ramps, and neon color grading.', 'assets/hero_doll_cinematic_1080p.mp4', '🔥 3.8M Instagram Views')">
-                <div class="uniform-play-btn-circle">▶</div>
-              </div>
+        </div>
+        <div class="real-work-card" data-category="viral" onclick="openTheaterVideo('Unfiltered Chaos & Brotherhood — High-Retention Dynamic Reel', 'A fast-paced, high-retention lifestyle reel celebrating raw camaraderie and spontaneous brotherhood. Engineered with punchy comedic timing, rhythmic beat cuts, crystal-clear 4K vertical grading, and relatable narrative pacing.', 'assets/work_friends_chaos_1080p.mp4', 'Relatable Lifestyle Reel', '🔥 VIRAL • Friends & Banter ✦')">
+          <div class="real-work-thumb">
+            <video src="assets/work_friends_chaos_1080p.mp4" muted loop playsinline preload="metadata" onmouseover="this.play().catch(function(){})" onmouseout="this.pause()"></video>
+            <div style="position:absolute;top:10px;left:10px;padding:4px 10px;border-radius:999px;background:rgba(0,0,0,0.75);border:1px solid rgba(212,175,55,0.4);color:#FBBF24;font-size:10px;font-weight:800;letter-spacing:0.08em;text-transform:uppercase;">
+              🔥 VIRAL • Friends & Banter ✦
             </div>
-            <div class="uniform-card-body">
-              <div>
-                <h3 class="uniform-card-title">Cyberpunk Tech Unboxing & B-Roll Masterclass</h3>
-                <p class="uniform-card-desc">3-second hook retention edit with kinetic sound layering, micro-speed ramps, and neon color grading.</p>
-              </div>
-              <div class="uniform-card-footer">
-                <span class="uniform-metric">🔥 3.8M Instagram Views</span>
-                <button class="uniform-card-cta" onclick="openPortfolioPlayer('Cyberpunk Tech Unboxing & B-Roll Masterclass', '3-second hook retention edit with kinetic sound layering, micro-speed ramps, and neon color grading.', 'assets/hero_doll_cinematic_1080p.mp4', '🔥 3.8M Instagram Views')">
-                  Play Video ↗
-                </button>
-              </div>
+            <div style="position:absolute;bottom:10px;right:10px;padding:3px 8px;border-radius:6px;background:rgba(0,0,0,0.85);color:#FFF;font-size:10px;font-weight:700;">
+              9:16 4K UHD 60FPS
             </div>
           </div>
-          <div class="uniform-video-card" data-category="viral" data-reveal>
-            <div class="uniform-thumb-container">
-              <img src="https://images.unsplash.com/photo-1534438327276-14e5300c3a48?auto=format&fit=crop&w=800&q=80" alt="Iron Will: High-Intensity Fitness Motivation Reel" class="uniform-thumb-img" loading="lazy">
-              <div class="uniform-badge-row">
-                <span class="uniform-tag">High Retention Reel</span>
-                <span class="uniform-duration">00:38</span>
-              </div>
-              <div class="uniform-play-btn" onclick="openPortfolioPlayer('Iron Will: High-Intensity Fitness Motivation Reel', 'Aggressive beat-syncing, bass drop impacts, monochrome to golden flare transitions, and typography.', 'assets/hero_doll_cinematic_1080p.mp4', '🔥 2.4M Views • 89% Retention')">
-                <div class="uniform-play-btn-circle">▶</div>
-              </div>
+          <div class="real-work-body">
+            <div>
+              <div style="font-size:11px;font-weight:800;color:var(--gold-neon);letter-spacing:0.1em;text-transform:uppercase;margin-bottom:6px;">Relatable Lifestyle Reel</div>
+              <h3 class="real-work-title">Unfiltered Chaos & Brotherhood — High-Retention Dynamic Reel</h3>
+              <p class="real-work-desc">A fast-paced, high-retention lifestyle reel celebrating raw camaraderie and spontaneous brotherhood. Engineered with punchy comedic timing, rhythmic beat cuts, crystal-clear 4K vertical grading, and relatable narrative pacing.</p>
             </div>
-            <div class="uniform-card-body">
-              <div>
-                <h3 class="uniform-card-title">Iron Will: High-Intensity Fitness Motivation Reel</h3>
-                <p class="uniform-card-desc">Aggressive beat-syncing, bass drop impacts, monochrome to golden flare transitions, and typography.</p>
-              </div>
-              <div class="uniform-card-footer">
-                <span class="uniform-metric">🔥 2.4M Views • 89% Retention</span>
-                <button class="uniform-card-cta" onclick="openPortfolioPlayer('Iron Will: High-Intensity Fitness Motivation Reel', 'Aggressive beat-syncing, bass drop impacts, monochrome to golden flare transitions, and typography.', 'assets/hero_doll_cinematic_1080p.mp4', '🔥 2.4M Views • 89% Retention')">
-                  Play Video ↗
-                </button>
-              </div>
+            <div class="real-work-footer">
+              <span style="color:#10B981;font-weight:800;font-size:11.5px;">✓ Krishna Master Edit</span>
+              <span style="color:#F59E0B;font-weight:800;font-size:12px;letter-spacing:0.08em;text-transform:uppercase;">Open Theater ↗</span>
             </div>
           </div>
-          <div class="uniform-video-card" data-category="cinematic" data-reveal>
-            <div class="uniform-thumb-container">
-              <img src="https://images.unsplash.com/photo-1464822759023-fed622ff2c3b?auto=format&fit=crop&w=800&q=80" alt="Shadows of the Himalayas: Cinematic Documentary" class="uniform-thumb-img" loading="lazy">
-              <div class="uniform-badge-row">
-                <span class="uniform-tag">4K Film</span>
-                <span class="uniform-duration">08:20</span>
-              </div>
-              <div class="uniform-play-btn" onclick="openPortfolioPlayer('Shadows of the Himalayas: Cinematic Documentary', 'Slow-burn cinematic documentary highlighting drone vistas, raw nature, atmospheric tone, and DaVinci color grading.', 'assets/hero_doll_cinematic_1080p.mp4', '🏆 Festival Featured 4K')">
-                <div class="uniform-play-btn-circle">▶</div>
-              </div>
+        </div>
+        <div class="real-work-card" data-category="music" onclick="openTheaterVideo('American Dream / Unamerican Girls — Ultra-Clean Dynamic Velocity Edit', 'A high-impact and ultra-clean master showcase edit set to the infectious upbeat groove of American Dream / Unamerican Girls. Crafted with razor-sharp frame transitions, rhythmic whip pans, punchy bass sync, crystal cinematic color grade, and flawless visual retention.', 'assets/work_unamerican_girls_1080p.mp4', 'Viral Reels & Music Edits', '🔥 NEW • Clean Master Edit ✦')">
+          <div class="real-work-thumb">
+            <video src="assets/work_unamerican_girls_1080p.mp4" muted loop playsinline preload="metadata" onmouseover="this.play().catch(function(){})" onmouseout="this.pause()"></video>
+            <div style="position:absolute;top:10px;left:10px;padding:4px 10px;border-radius:999px;background:rgba(0,0,0,0.75);border:1px solid rgba(212,175,55,0.4);color:#FBBF24;font-size:10px;font-weight:800;letter-spacing:0.08em;text-transform:uppercase;">
+              🔥 NEW • Clean Master Edit ✦
             </div>
-            <div class="uniform-card-body">
-              <div>
-                <h3 class="uniform-card-title">Shadows of the Himalayas: Cinematic Documentary</h3>
-                <p class="uniform-card-desc">Slow-burn cinematic documentary highlighting drone vistas, raw nature, atmospheric tone, and DaVinci color grading.</p>
-              </div>
-              <div class="uniform-card-footer">
-                <span class="uniform-metric">🏆 Festival Featured 4K</span>
-                <button class="uniform-card-cta" onclick="openPortfolioPlayer('Shadows of the Himalayas: Cinematic Documentary', 'Slow-burn cinematic documentary highlighting drone vistas, raw nature, atmospheric tone, and DaVinci color grading.', 'assets/hero_doll_cinematic_1080p.mp4', '🏆 Festival Featured 4K')">
-                  Play Video ↗
-                </button>
-              </div>
+            <div style="position:absolute;bottom:10px;right:10px;padding:3px 8px;border-radius:6px;background:rgba(0,0,0,0.85);color:#FFF;font-size:10px;font-weight:700;">
+              4K 60FPS Velocity
             </div>
           </div>
-          <div class="uniform-video-card" data-category="cinematic" data-reveal>
-            <div class="uniform-thumb-container">
-              <img src="https://images.unsplash.com/photo-1526374965328-7f61d4dc18c5?auto=format&fit=crop&w=800&q=80" alt="The Invisible Web: Tech Documentary Essay" class="uniform-thumb-img" loading="lazy">
-              <div class="uniform-badge-row">
-                <span class="uniform-tag">YouTube Documentary</span>
-                <span class="uniform-duration">14:15</span>
-              </div>
-              <div class="uniform-play-btn" onclick="openPortfolioPlayer('The Invisible Web: Tech Documentary Essay', 'Deep investigative video essay with custom maps, newspaper clippings, motion graphics, and audio pacing.', 'assets/hero_doll_cinematic_1080p.mp4', '⚡ 1.2M YouTube Views')">
-                <div class="uniform-play-btn-circle">▶</div>
-              </div>
+          <div class="real-work-body">
+            <div>
+              <div style="font-size:11px;font-weight:800;color:var(--gold-neon);letter-spacing:0.1em;text-transform:uppercase;margin-bottom:6px;">Viral Reels & Music Edits</div>
+              <h3 class="real-work-title">American Dream / Unamerican Girls — Ultra-Clean Dynamic Velocity Edit</h3>
+              <p class="real-work-desc">A high-impact and ultra-clean master showcase edit set to the infectious upbeat groove of American Dream / Unamerican Girls. Crafted with razor-sharp frame transitions, rhythmic whip pans, punchy bass sync, crystal cinematic color grade, and flawless visual retention.</p>
             </div>
-            <div class="uniform-card-body">
-              <div>
-                <h3 class="uniform-card-title">The Invisible Web: Tech Documentary Essay</h3>
-                <p class="uniform-card-desc">Deep investigative video essay with custom maps, newspaper clippings, motion graphics, and audio pacing.</p>
-              </div>
-              <div class="uniform-card-footer">
-                <span class="uniform-metric">⚡ 1.2M YouTube Views</span>
-                <button class="uniform-card-cta" onclick="openPortfolioPlayer('The Invisible Web: Tech Documentary Essay', 'Deep investigative video essay with custom maps, newspaper clippings, motion graphics, and audio pacing.', 'assets/hero_doll_cinematic_1080p.mp4', '⚡ 1.2M YouTube Views')">
-                  Play Video ↗
-                </button>
-              </div>
+            <div class="real-work-footer">
+              <span style="color:#10B981;font-weight:800;font-size:11.5px;">✓ Krishna Master Edit</span>
+              <span style="color:#F59E0B;font-weight:800;font-size:12px;letter-spacing:0.08em;text-transform:uppercase;">Open Theater ↗</span>
             </div>
           </div>
-          <div class="uniform-video-card" data-category="music" data-reveal>
-            <div class="uniform-thumb-container">
-              <img src="https://images.unsplash.com/photo-1511671782779-c97d3d27a1d4?auto=format&fit=crop&w=800&q=80" alt="Khamoshi: Soulful Indie Music Video Edit" class="uniform-thumb-img" loading="lazy">
-              <div class="uniform-badge-row">
-                <span class="uniform-tag">Music Video</span>
-                <span class="uniform-duration">03:40</span>
-              </div>
-              <div class="uniform-play-btn" onclick="openPortfolioPlayer('Khamoshi: Soulful Indie Music Video Edit', 'Warm vintage film aesthetics, lyric calligraphy sync, gentle velocity curves, and melancholic grade.', 'assets/hero_doll_cinematic_1080p.mp4', '🎵 850K Streams Sync')">
-                <div class="uniform-play-btn-circle">▶</div>
-              </div>
+        </div>
+        <div class="real-work-card" data-category="viral" onclick="openTheaterVideo('Grind With Me — Viral Instagram Aesthetic Motion Blur Edit', 'A viral Instagram sensation edit set to the trending sound Grind With Me by Pretty Ricky. Engineered with seductive optical-flow slow-motion ramps, atmospheric motion blur whip transitions, deep bass drops, and an unmatched hypnotic visual aesthetic designed to stop the scroll.', 'assets/work_grind_viral_1080p.mp4', 'Trending Instagram Reel', '👑 TRENDING • Viral Instagram Edit ✦')">
+          <div class="real-work-thumb">
+            <video src="assets/work_grind_viral_1080p.mp4" muted loop playsinline preload="metadata" onmouseover="this.play().catch(function(){})" onmouseout="this.pause()"></video>
+            <div style="position:absolute;top:10px;left:10px;padding:4px 10px;border-radius:999px;background:rgba(0,0,0,0.75);border:1px solid rgba(212,175,55,0.4);color:#FBBF24;font-size:10px;font-weight:800;letter-spacing:0.08em;text-transform:uppercase;">
+              👑 TRENDING • Viral Instagram Edit ✦
             </div>
-            <div class="uniform-card-body">
-              <div>
-                <h3 class="uniform-card-title">Khamoshi: Soulful Indie Music Video Edit</h3>
-                <p class="uniform-card-desc">Warm vintage film aesthetics, lyric calligraphy sync, gentle velocity curves, and melancholic grade.</p>
-              </div>
-              <div class="uniform-card-footer">
-                <span class="uniform-metric">🎵 850K Streams Sync</span>
-                <button class="uniform-card-cta" onclick="openPortfolioPlayer('Khamoshi: Soulful Indie Music Video Edit', 'Warm vintage film aesthetics, lyric calligraphy sync, gentle velocity curves, and melancholic grade.', 'assets/hero_doll_cinematic_1080p.mp4', '🎵 850K Streams Sync')">
-                  Play Video ↗
-                </button>
-              </div>
+            <div style="position:absolute;bottom:10px;right:10px;padding:3px 8px;border-radius:6px;background:rgba(0,0,0,0.85);color:#FFF;font-size:10px;font-weight:700;">
+              9:16 4K UHD 60FPS
             </div>
           </div>
-          <div class="uniform-video-card" data-category="music" data-reveal>
-            <div class="uniform-thumb-container">
-              <img src="https://images.unsplash.com/photo-1470225620780-dba8ba36b745?auto=format&fit=crop&w=800&q=80" alt="Sahiba: Folk Electronic Fusion & Beat Drops" class="uniform-thumb-img" loading="lazy">
-              <div class="uniform-badge-row">
-                <span class="uniform-tag">Beat-Sync Cut</span>
-                <span class="uniform-duration">02:55</span>
-              </div>
-              <div class="uniform-play-btn" onclick="openPortfolioPlayer('Sahiba: Folk Electronic Fusion & Beat Drops', 'Frame-accurate transient cuts, RGB flash transitions, speed ramping, and vibrant festival grading.', 'assets/hero_doll_cinematic_1080p.mp4', '🎵 1.6M Views Driven')">
-                <div class="uniform-play-btn-circle">▶</div>
-              </div>
+          <div class="real-work-body">
+            <div>
+              <div style="font-size:11px;font-weight:800;color:var(--gold-neon);letter-spacing:0.1em;text-transform:uppercase;margin-bottom:6px;">Trending Instagram Reel</div>
+              <h3 class="real-work-title">Grind With Me — Viral Instagram Aesthetic Motion Blur Edit</h3>
+              <p class="real-work-desc">A viral Instagram sensation edit set to the trending sound Grind With Me by Pretty Ricky. Engineered with seductive optical-flow slow-motion ramps, atmospheric motion blur whip transitions, deep bass drops, and an unmatched hypnotic visual aesthetic designed to stop the scroll.</p>
             </div>
-            <div class="uniform-card-body">
-              <div>
-                <h3 class="uniform-card-title">Sahiba: Folk Electronic Fusion & Beat Drops</h3>
-                <p class="uniform-card-desc">Frame-accurate transient cuts, RGB flash transitions, speed ramping, and vibrant festival grading.</p>
-              </div>
-              <div class="uniform-card-footer">
-                <span class="uniform-metric">🎵 1.6M Views Driven</span>
-                <button class="uniform-card-cta" onclick="openPortfolioPlayer('Sahiba: Folk Electronic Fusion & Beat Drops', 'Frame-accurate transient cuts, RGB flash transitions, speed ramping, and vibrant festival grading.', 'assets/hero_doll_cinematic_1080p.mp4', '🎵 1.6M Views Driven')">
-                  Play Video ↗
-                </button>
-              </div>
+            <div class="real-work-footer">
+              <span style="color:#10B981;font-weight:800;font-size:11.5px;">✓ Krishna Master Edit</span>
+              <span style="color:#F59E0B;font-weight:800;font-size:12px;letter-spacing:0.08em;text-transform:uppercase;">Open Theater ↗</span>
             </div>
           </div>
-          <div class="uniform-video-card" data-category="travel" data-reveal>
-            <div class="uniform-thumb-container">
-              <img src="https://images.unsplash.com/photo-1506744038136-46273834b3fb?auto=format&fit=crop&w=800&q=80" alt="Grand Tanakpur Portal: Smart City & Tourism Anthem" class="uniform-thumb-img" loading="lazy">
-              <div class="uniform-badge-row">
-                <span class="uniform-tag">Regional Showcase</span>
-                <span class="uniform-duration">04:12</span>
-              </div>
-              <div class="uniform-play-btn" onclick="openPortfolioPlayer('Grand Tanakpur Portal: Smart City & Tourism Anthem', 'Official civic overview blending heritage temples, modern infrastructure, drone hyperlapses, and uplifting score.', 'assets/hero_doll_cinematic_1080p.mp4', '⭐ State Portal Showcase')">
-                <div class="uniform-play-btn-circle">▶</div>
-              </div>
+        </div>
+        <div class="real-work-card" data-category="viral" onclick="openTheaterVideo('The Sovereign Stride — Dark Cinematic Attitude & Drill Velocity', 'A razor-sharp gangster aesthetic master edit featuring bold typography overlays, aggressive frame-snapping transitions, analog camera shutter SFX, and a crushing dark bassline tailored for maximum alpha energy.', 'assets/work_gangster_attitude_1080p.mp4', 'Dark Gangster Attitude', '⚡ DOMINANCE • Gangster Drill ✦')">
+          <div class="real-work-thumb">
+            <video src="assets/work_gangster_attitude_1080p.mp4" muted loop playsinline preload="metadata" onmouseover="this.play().catch(function(){})" onmouseout="this.pause()"></video>
+            <div style="position:absolute;top:10px;left:10px;padding:4px 10px;border-radius:999px;background:rgba(0,0,0,0.75);border:1px solid rgba(212,175,55,0.4);color:#FBBF24;font-size:10px;font-weight:800;letter-spacing:0.08em;text-transform:uppercase;">
+              ⚡ DOMINANCE • Gangster Drill ✦
             </div>
-            <div class="uniform-card-body">
-              <div>
-                <h3 class="uniform-card-title">Grand Tanakpur Portal: Smart City & Tourism Anthem</h3>
-                <p class="uniform-card-desc">Official civic overview blending heritage temples, modern infrastructure, drone hyperlapses, and uplifting score.</p>
-              </div>
-              <div class="uniform-card-footer">
-                <span class="uniform-metric">⭐ State Portal Showcase</span>
-                <button class="uniform-card-cta" onclick="openPortfolioPlayer('Grand Tanakpur Portal: Smart City & Tourism Anthem', 'Official civic overview blending heritage temples, modern infrastructure, drone hyperlapses, and uplifting score.', 'assets/hero_doll_cinematic_1080p.mp4', '⭐ State Portal Showcase')">
-                  Play Video ↗
-                </button>
-              </div>
+            <div style="position:absolute;bottom:10px;right:10px;padding:3px 8px;border-radius:6px;background:rgba(0,0,0,0.85);color:#FFF;font-size:10px;font-weight:700;">
+              9:16 4K UHD 60FPS
             </div>
           </div>
-          <div class="uniform-video-card" data-category="brand" data-reveal>
-            <div class="uniform-thumb-container">
-              <img src="https://images.unsplash.com/photo-1617788138017-80ad40651399?auto=format&fit=crop&w=800&q=80" alt="Apex Velocity: Supercar Commercial Ad" class="uniform-thumb-img" loading="lazy">
-              <div class="uniform-badge-row">
-                <span class="uniform-tag">Automotive Ad</span>
-                <span class="uniform-duration">01:00</span>
-              </div>
-              <div class="uniform-play-btn" onclick="openPortfolioPlayer('Apex Velocity: Supercar Commercial Ad', 'Sound design driven commercial featuring exhaust roars, carbon fiber macro shots, and anamorphic flares.', 'assets/hero_doll_cinematic_1080p.mp4', '⚡ +400% Ad Clickthrough')">
-                <div class="uniform-play-btn-circle">▶</div>
-              </div>
+          <div class="real-work-body">
+            <div>
+              <div style="font-size:11px;font-weight:800;color:var(--gold-neon);letter-spacing:0.1em;text-transform:uppercase;margin-bottom:6px;">Dark Gangster Attitude</div>
+              <h3 class="real-work-title">The Sovereign Stride — Dark Cinematic Attitude & Drill Velocity</h3>
+              <p class="real-work-desc">A razor-sharp gangster aesthetic master edit featuring bold typography overlays, aggressive frame-snapping transitions, analog camera shutter SFX, and a crushing dark bassline tailored for maximum alpha energy.</p>
             </div>
-            <div class="uniform-card-body">
-              <div>
-                <h3 class="uniform-card-title">Apex Velocity: Supercar Commercial Ad</h3>
-                <p class="uniform-card-desc">Sound design driven commercial featuring exhaust roars, carbon fiber macro shots, and anamorphic flares.</p>
-              </div>
-              <div class="uniform-card-footer">
-                <span class="uniform-metric">⚡ +400% Ad Clickthrough</span>
-                <button class="uniform-card-cta" onclick="openPortfolioPlayer('Apex Velocity: Supercar Commercial Ad', 'Sound design driven commercial featuring exhaust roars, carbon fiber macro shots, and anamorphic flares.', 'assets/hero_doll_cinematic_1080p.mp4', '⚡ +400% Ad Clickthrough')">
-                  Play Video ↗
-                </button>
-              </div>
+            <div class="real-work-footer">
+              <span style="color:#10B981;font-weight:800;font-size:11.5px;">✓ Krishna Master Edit</span>
+              <span style="color:#F59E0B;font-weight:800;font-size:12px;letter-spacing:0.08em;text-transform:uppercase;">Open Theater ↗</span>
             </div>
           </div>
-          <div class="uniform-video-card" data-category="viral" data-reveal>
-            <div class="uniform-thumb-container">
-              <img src="https://images.unsplash.com/photo-1590602847861-f357a9332bbc?auto=format&fit=crop&w=800&q=80" alt="Billion Dollar Mindset: Multi-Cam Podcast Master" class="uniform-thumb-img" loading="lazy">
-              <div class="uniform-badge-row">
-                <span class="uniform-tag">Podcast Edit</span>
-                <span class="uniform-duration">45:00</span>
-              </div>
-              <div class="uniform-play-btn" onclick="openPortfolioPlayer('Billion Dollar Mindset: Multi-Cam Podcast Master', 'Automated switching, noise reduction, B-roll punch-ins, and viral vertical reel cutdowns.', 'assets/hero_doll_cinematic_1080p.mp4', '🔥 75% Completion Rate')">
-                <div class="uniform-play-btn-circle">▶</div>
-              </div>
+        </div>
+        <div class="real-work-card" data-category="viral" onclick="openTheaterVideo('The Syndicate Trade — Gritty Underworld Dialogue & Bass Impact', 'A raw, heavy-hitting gangster reel centered on intense underworld dialogue delivery. Synced with rapid velocity speed ramps, aggressive bass kicks, and high-contrast neo-noir color grading.', 'assets/work_gangster_mafia_1080p.mp4', 'Underworld Dialogue Reel', '👑 MAFIA • Underworld Energy ✦')">
+          <div class="real-work-thumb">
+            <video src="assets/work_gangster_mafia_1080p.mp4" muted loop playsinline preload="metadata" onmouseover="this.play().catch(function(){})" onmouseout="this.pause()"></video>
+            <div style="position:absolute;top:10px;left:10px;padding:4px 10px;border-radius:999px;background:rgba(0,0,0,0.75);border:1px solid rgba(212,175,55,0.4);color:#FBBF24;font-size:10px;font-weight:800;letter-spacing:0.08em;text-transform:uppercase;">
+              👑 MAFIA • Underworld Energy ✦
             </div>
-            <div class="uniform-card-body">
-              <div>
-                <h3 class="uniform-card-title">Billion Dollar Mindset: Multi-Cam Podcast Master</h3>
-                <p class="uniform-card-desc">Automated switching, noise reduction, B-roll punch-ins, and viral vertical reel cutdowns.</p>
-              </div>
-              <div class="uniform-card-footer">
-                <span class="uniform-metric">🔥 75% Completion Rate</span>
-                <button class="uniform-card-cta" onclick="openPortfolioPlayer('Billion Dollar Mindset: Multi-Cam Podcast Master', 'Automated switching, noise reduction, B-roll punch-ins, and viral vertical reel cutdowns.', 'assets/hero_doll_cinematic_1080p.mp4', '🔥 75% Completion Rate')">
-                  Play Video ↗
-                </button>
-              </div>
+            <div style="position:absolute;bottom:10px;right:10px;padding:3px 8px;border-radius:6px;background:rgba(0,0,0,0.85);color:#FFF;font-size:10px;font-weight:700;">
+              9:16 4K UHD 60FPS
             </div>
           </div>
-          <div class="uniform-video-card" data-category="music" data-reveal>
-            <div class="uniform-thumb-container">
-              <img src="https://images.unsplash.com/photo-1578632767115-351597cf2477?auto=format&fit=crop&w=800&q=80" alt="AOT: The Final Battle Cinematic AMV" class="uniform-thumb-img" loading="lazy">
-              <div class="uniform-badge-row">
-                <span class="uniform-tag">AMV & Sound FX</span>
-                <span class="uniform-duration">02:15</span>
-              </div>
-              <div class="uniform-play-btn" onclick="openPortfolioPlayer('AOT: The Final Battle Cinematic AMV', 'Action anime visualizer with heavy impact frames, camera shake, custom whooshes, and intense color grading.', 'assets/hero_doll_cinematic_1080p.mp4', '⚡ 5M+ Worldwide Plays')">
-                <div class="uniform-play-btn-circle">▶</div>
-              </div>
+          <div class="real-work-body">
+            <div>
+              <div style="font-size:11px;font-weight:800;color:var(--gold-neon);letter-spacing:0.1em;text-transform:uppercase;margin-bottom:6px;">Underworld Dialogue Reel</div>
+              <h3 class="real-work-title">The Syndicate Trade — Gritty Underworld Dialogue & Bass Impact</h3>
+              <p class="real-work-desc">A raw, heavy-hitting gangster reel centered on intense underworld dialogue delivery. Synced with rapid velocity speed ramps, aggressive bass kicks, and high-contrast neo-noir color grading.</p>
             </div>
-            <div class="uniform-card-body">
-              <div>
-                <h3 class="uniform-card-title">AOT: The Final Battle Cinematic AMV</h3>
-                <p class="uniform-card-desc">Action anime visualizer with heavy impact frames, camera shake, custom whooshes, and intense color grading.</p>
-              </div>
-              <div class="uniform-card-footer">
-                <span class="uniform-metric">⚡ 5M+ Worldwide Plays</span>
-                <button class="uniform-card-cta" onclick="openPortfolioPlayer('AOT: The Final Battle Cinematic AMV', 'Action anime visualizer with heavy impact frames, camera shake, custom whooshes, and intense color grading.', 'assets/hero_doll_cinematic_1080p.mp4', '⚡ 5M+ Worldwide Plays')">
-                  Play Video ↗
-                </button>
-              </div>
+            <div class="real-work-footer">
+              <span style="color:#10B981;font-weight:800;font-size:11.5px;">✓ Krishna Master Edit</span>
+              <span style="color:#F59E0B;font-weight:800;font-size:12px;letter-spacing:0.08em;text-transform:uppercase;">Open Theater ↗</span>
             </div>
           </div>
-          <div class="uniform-video-card" data-category="brand" data-reveal>
-            <div class="uniform-thumb-container">
-              <img src="https://images.unsplash.com/photo-1483985988355-763728e1935b?auto=format&fit=crop&w=800&q=80" alt="Obsidian Season 01: Streetwear Film Launch" class="uniform-thumb-img" loading="lazy">
-              <div class="uniform-badge-row">
-                <span class="uniform-tag">Fashion Commercial</span>
-                <span class="uniform-duration">01:15</span>
-              </div>
-              <div class="uniform-play-btn" onclick="openPortfolioPlayer('Obsidian Season 01: Streetwear Film Launch', 'Edgy 16mm grain texture, quick match-cuts, subterranean bass, and high-fashion editorial pacing.', 'assets/hero_doll_cinematic_1080p.mp4', '⭐ Sold Out In 48 Hours')">
-                <div class="uniform-play-btn-circle">▶</div>
-              </div>
+        </div>
+        <div class="real-work-card" data-category="commercial" onclick="openTheaterVideo('Bhimtal Lake Odyssey — 4K UHD Cinematic Shoot & Color Master', 'Shot on location and master-graded by Krishna at Bhimtal Lake, Uttarakhand. Featuring tranquil lake reflections, cinematic aerial framing, advanced color grading, and pristine 4K 60FPS clarity.', 'assets/work_bhimtal_1080p.mp4', 'Location Shoot & Master Edit', '✦ 4K UHD Lake Masterpiece ✦')">
+          <div class="real-work-thumb">
+            <video src="assets/work_bhimtal_1080p.mp4" muted loop playsinline preload="metadata" onmouseover="this.play().catch(function(){})" onmouseout="this.pause()"></video>
+            <div style="position:absolute;top:10px;left:10px;padding:4px 10px;border-radius:999px;background:rgba(0,0,0,0.75);border:1px solid rgba(212,175,55,0.4);color:#FBBF24;font-size:10px;font-weight:800;letter-spacing:0.08em;text-transform:uppercase;">
+              ✦ 4K UHD Lake Masterpiece ✦
             </div>
-            <div class="uniform-card-body">
-              <div>
-                <h3 class="uniform-card-title">Obsidian Season 01: Streetwear Film Launch</h3>
-                <p class="uniform-card-desc">Edgy 16mm grain texture, quick match-cuts, subterranean bass, and high-fashion editorial pacing.</p>
-              </div>
-              <div class="uniform-card-footer">
-                <span class="uniform-metric">⭐ Sold Out In 48 Hours</span>
-                <button class="uniform-card-cta" onclick="openPortfolioPlayer('Obsidian Season 01: Streetwear Film Launch', 'Edgy 16mm grain texture, quick match-cuts, subterranean bass, and high-fashion editorial pacing.', 'assets/hero_doll_cinematic_1080p.mp4', '⭐ Sold Out In 48 Hours')">
-                  Play Video ↗
-                </button>
-              </div>
+            <div style="position:absolute;bottom:10px;right:10px;padding:3px 8px;border-radius:6px;background:rgba(0,0,0,0.85);color:#FFF;font-size:10px;font-weight:700;">
+              16:9 4K UHD Landscape
             </div>
           </div>
-          <div class="uniform-video-card" data-category="cinematic" data-reveal>
-            <div class="uniform-thumb-container">
-              <img src="https://images.unsplash.com/photo-1492691527719-9d1e07e534b4?auto=format&fit=crop&w=800&q=80" alt="RAW S-Log to 35mm Print Film Transformation" class="uniform-thumb-img" loading="lazy">
-              <div class="uniform-badge-row">
-                <span class="uniform-tag">Color Grading</span>
-                <span class="uniform-duration">02:30</span>
-              </div>
-              <div class="uniform-play-btn" onclick="openPortfolioPlayer('RAW S-Log to 35mm Print Film Transformation', 'DaVinci Resolve Studio color science breakdown showcasing exposure recovery, skin tone masks, and print halation.', 'assets/hero_doll_cinematic_1080p.mp4', '🏆 100% Color Calibrated')">
-                <div class="uniform-play-btn-circle">▶</div>
-              </div>
+          <div class="real-work-body">
+            <div>
+              <div style="font-size:11px;font-weight:800;color:var(--gold-neon);letter-spacing:0.1em;text-transform:uppercase;margin-bottom:6px;">Location Shoot & Master Edit</div>
+              <h3 class="real-work-title">Bhimtal Lake Odyssey — 4K UHD Cinematic Shoot & Color Master</h3>
+              <p class="real-work-desc">Shot on location and master-graded by Krishna at Bhimtal Lake, Uttarakhand. Featuring tranquil lake reflections, cinematic aerial framing, advanced color grading, and pristine 4K 60FPS clarity.</p>
             </div>
-            <div class="uniform-card-body">
-              <div>
-                <h3 class="uniform-card-title">RAW S-Log to 35mm Print Film Transformation</h3>
-                <p class="uniform-card-desc">DaVinci Resolve Studio color science breakdown showcasing exposure recovery, skin tone masks, and print halation.</p>
-              </div>
-              <div class="uniform-card-footer">
-                <span class="uniform-metric">🏆 100% Color Calibrated</span>
-                <button class="uniform-card-cta" onclick="openPortfolioPlayer('RAW S-Log to 35mm Print Film Transformation', 'DaVinci Resolve Studio color science breakdown showcasing exposure recovery, skin tone masks, and print halation.', 'assets/hero_doll_cinematic_1080p.mp4', '🏆 100% Color Calibrated')">
-                  Play Video ↗
-                </button>
-              </div>
+            <div class="real-work-footer">
+              <span style="color:#10B981;font-weight:800;font-size:11.5px;">✓ Krishna Master Edit</span>
+              <span style="color:#F59E0B;font-weight:800;font-size:12px;letter-spacing:0.08em;text-transform:uppercase;">Open Theater ↗</span>
             </div>
           </div>
-          <div class="uniform-video-card" data-category="travel" data-reveal>
-            <div class="uniform-thumb-container">
-              <img src="https://images.unsplash.com/photo-1537996194471-e657df975ab4?auto=format&fit=crop&w=800&q=80" alt="Island of Gods: 4K 60FPS Travel Film" class="uniform-thumb-img" loading="lazy">
-              <div class="uniform-badge-row">
-                <span class="uniform-tag">Travel Film</span>
-                <span class="uniform-duration">03:10</span>
-              </div>
-              <div class="uniform-play-btn" onclick="openPortfolioPlayer('Island of Gods: 4K 60FPS Travel Film', 'Seamless speed ramps, sky replacements, lush emerald jungle color grade, and binaural nature audio.', 'assets/hero_doll_cinematic_1080p.mp4', '🔥 1.9M Views • 4K UHD')">
-                <div class="uniform-play-btn-circle">▶</div>
-              </div>
+        </div>
+        <div class="real-work-card" data-category="music" onclick="openTheaterVideo('Kalyani Nature Symphony — Cinematic Shoot & Slowmotion Flow', 'Shot and edited entirely by Krishna, this cinematic nature edit synchronizes lush green landscapes and crystal water drops to the rhythm of Kalyani Remix. Featuring silk-smooth 60FPS optical slowmotion in true 4K UHD.', 'assets/work_kalyani_1080p.mp4', 'Nature Shoot & Color Grading', '✦ 4K UHD Nature Masterpiece ✦')">
+          <div class="real-work-thumb">
+            <video src="assets/work_kalyani_1080p.mp4" muted loop playsinline preload="metadata" onmouseover="this.play().catch(function(){})" onmouseout="this.pause()"></video>
+            <div style="position:absolute;top:10px;left:10px;padding:4px 10px;border-radius:999px;background:rgba(0,0,0,0.75);border:1px solid rgba(212,175,55,0.4);color:#FBBF24;font-size:10px;font-weight:800;letter-spacing:0.08em;text-transform:uppercase;">
+              ✦ 4K UHD Nature Masterpiece ✦
             </div>
-            <div class="uniform-card-body">
-              <div>
-                <h3 class="uniform-card-title">Island of Gods: 4K 60FPS Travel Film</h3>
-                <p class="uniform-card-desc">Seamless speed ramps, sky replacements, lush emerald jungle color grade, and binaural nature audio.</p>
-              </div>
-              <div class="uniform-card-footer">
-                <span class="uniform-metric">🔥 1.9M Views • 4K UHD</span>
-                <button class="uniform-card-cta" onclick="openPortfolioPlayer('Island of Gods: 4K 60FPS Travel Film', 'Seamless speed ramps, sky replacements, lush emerald jungle color grade, and binaural nature audio.', 'assets/hero_doll_cinematic_1080p.mp4', '🔥 1.9M Views • 4K UHD')">
-                  Play Video ↗
-                </button>
-              </div>
+            <div style="position:absolute;bottom:10px;right:10px;padding:3px 8px;border-radius:6px;background:rgba(0,0,0,0.85);color:#FFF;font-size:10px;font-weight:700;">
+              16:9 4K UHD Landscape
             </div>
           </div>
-          <div class="uniform-video-card" data-category="viral" data-reveal>
-            <div class="uniform-thumb-container">
-              <img src="https://images.unsplash.com/photo-1611974789855-9c2a0a7236a3?auto=format&fit=crop&w=800&q=80" alt="Crypto & Algorithmic Trading Breakdowns" class="uniform-thumb-img" loading="lazy">
-              <div class="uniform-badge-row">
-                <span class="uniform-tag">Finance Short</span>
-                <span class="uniform-duration">00:52</span>
-              </div>
-              <div class="uniform-play-btn" onclick="openPortfolioPlayer('Crypto & Algorithmic Trading Breakdowns', 'Fast-paced financial breakdown with 3D charts, glowing candle graphs, and engaging sound design.', 'assets/hero_doll_cinematic_1080p.mp4', '⚡ +450% Engagement Rate')">
-                <div class="uniform-play-btn-circle">▶</div>
-              </div>
+          <div class="real-work-body">
+            <div>
+              <div style="font-size:11px;font-weight:800;color:var(--gold-neon);letter-spacing:0.1em;text-transform:uppercase;margin-bottom:6px;">Nature Shoot & Color Grading</div>
+              <h3 class="real-work-title">Kalyani Nature Symphony — Cinematic Shoot & Slowmotion Flow</h3>
+              <p class="real-work-desc">Shot and edited entirely by Krishna, this cinematic nature edit synchronizes lush green landscapes and crystal water drops to the rhythm of Kalyani Remix. Featuring silk-smooth 60FPS optical slowmotion in true 4K UHD.</p>
             </div>
-            <div class="uniform-card-body">
-              <div>
-                <h3 class="uniform-card-title">Crypto & Algorithmic Trading Breakdowns</h3>
-                <p class="uniform-card-desc">Fast-paced financial breakdown with 3D charts, glowing candle graphs, and engaging sound design.</p>
-              </div>
-              <div class="uniform-card-footer">
-                <span class="uniform-metric">⚡ +450% Engagement Rate</span>
-                <button class="uniform-card-cta" onclick="openPortfolioPlayer('Crypto & Algorithmic Trading Breakdowns', 'Fast-paced financial breakdown with 3D charts, glowing candle graphs, and engaging sound design.', 'assets/hero_doll_cinematic_1080p.mp4', '⚡ +450% Engagement Rate')">
-                  Play Video ↗
-                </button>
-              </div>
+            <div class="real-work-footer">
+              <span style="color:#10B981;font-weight:800;font-size:11.5px;">✓ Krishna Master Edit</span>
+              <span style="color:#F59E0B;font-weight:800;font-size:12px;letter-spacing:0.08em;text-transform:uppercase;">Open Theater ↗</span>
             </div>
           </div>
-          <div class="uniform-video-card" data-category="brand" data-reveal>
-            <div class="uniform-thumb-container">
-              <img src="https://images.unsplash.com/photo-1501339847302-ac426a4a7cbb?auto=format&fit=crop&w=800&q=80" alt="Artisanal Roast: Cinematic Coffee B-Roll Commercial" class="uniform-thumb-img" loading="lazy">
-              <div class="uniform-badge-row">
-                <span class="uniform-tag">Brand Commercial</span>
-                <span class="uniform-duration">00:58</span>
-              </div>
-              <div class="uniform-play-btn" onclick="openPortfolioPlayer('Artisanal Roast: Cinematic Coffee B-Roll Commercial', 'Sensory macro shots, steam Foley sound design, warm amber grade, and liquid pour slow motion.', 'assets/hero_doll_cinematic_1080p.mp4', '⭐ Client Sales +65%')">
-                <div class="uniform-play-btn-circle">▶</div>
-              </div>
+        </div>
+        <div class="real-work-card" data-category="viral" onclick="openTheaterVideo('Khamoshiyan — High-Octane Fast Beat Sync & Velocity Transitions', 'An electrifying, high-energy transition reel set to Khamoshiyan. Engineered with precision beat-matched velocity ramps, seamless whip pans, aggressive motion blurs, punchy color pops, and high retention pacing.', 'assets/work_khamoshi_1080p.mp4', 'Fast Beat Transitions', '✦ 4K 60FPS Hyper Velocity ✦')">
+          <div class="real-work-thumb">
+            <video src="assets/work_khamoshi_1080p.mp4" muted loop playsinline preload="metadata" onmouseover="this.play().catch(function(){})" onmouseout="this.pause()"></video>
+            <div style="position:absolute;top:10px;left:10px;padding:4px 10px;border-radius:999px;background:rgba(0,0,0,0.75);border:1px solid rgba(212,175,55,0.4);color:#FBBF24;font-size:10px;font-weight:800;letter-spacing:0.08em;text-transform:uppercase;">
+              ✦ 4K 60FPS Hyper Velocity ✦
             </div>
-            <div class="uniform-card-body">
-              <div>
-                <h3 class="uniform-card-title">Artisanal Roast: Cinematic Coffee B-Roll Commercial</h3>
-                <p class="uniform-card-desc">Sensory macro shots, steam Foley sound design, warm amber grade, and liquid pour slow motion.</p>
-              </div>
-              <div class="uniform-card-footer">
-                <span class="uniform-metric">⭐ Client Sales +65%</span>
-                <button class="uniform-card-cta" onclick="openPortfolioPlayer('Artisanal Roast: Cinematic Coffee B-Roll Commercial', 'Sensory macro shots, steam Foley sound design, warm amber grade, and liquid pour slow motion.', 'assets/hero_doll_cinematic_1080p.mp4', '⭐ Client Sales +65%')">
-                  Play Video ↗
-                </button>
-              </div>
+            <div style="position:absolute;bottom:10px;right:10px;padding:3px 8px;border-radius:6px;background:rgba(0,0,0,0.85);color:#FFF;font-size:10px;font-weight:700;">
+              9:16 4K UHD Reel
             </div>
           </div>
-          <div class="uniform-video-card" data-category="music" data-reveal>
-            <div class="uniform-thumb-container">
-              <img src="https://images.unsplash.com/photo-1514525253161-7a46d19cd819?auto=format&fit=crop&w=800&q=80" alt="Ranjhana: Aesthetic Lyrical Storytelling" class="uniform-thumb-img" loading="lazy">
-              <div class="uniform-badge-row">
-                <span class="uniform-tag">Music Story</span>
-                <span class="uniform-duration">03:22</span>
-              </div>
-              <div class="uniform-play-btn" onclick="openPortfolioPlayer('Ranjhana: Aesthetic Lyrical Storytelling', 'Slow-tempo romantic storytelling, sunset golden hour tones, and subtle film light leaks.', 'assets/hero_doll_cinematic_1080p.mp4', '🎵 920K YouTube Views')">
-                <div class="uniform-play-btn-circle">▶</div>
-              </div>
+          <div class="real-work-body">
+            <div>
+              <div style="font-size:11px;font-weight:800;color:var(--gold-neon);letter-spacing:0.1em;text-transform:uppercase;margin-bottom:6px;">Fast Beat Transitions</div>
+              <h3 class="real-work-title">Khamoshiyan — High-Octane Fast Beat Sync & Velocity Transitions</h3>
+              <p class="real-work-desc">An electrifying, high-energy transition reel set to Khamoshiyan. Engineered with precision beat-matched velocity ramps, seamless whip pans, aggressive motion blurs, punchy color pops, and high retention pacing.</p>
             </div>
-            <div class="uniform-card-body">
-              <div>
-                <h3 class="uniform-card-title">Ranjhana: Aesthetic Lyrical Storytelling</h3>
-                <p class="uniform-card-desc">Slow-tempo romantic storytelling, sunset golden hour tones, and subtle film light leaks.</p>
-              </div>
-              <div class="uniform-card-footer">
-                <span class="uniform-metric">🎵 920K YouTube Views</span>
-                <button class="uniform-card-cta" onclick="openPortfolioPlayer('Ranjhana: Aesthetic Lyrical Storytelling', 'Slow-tempo romantic storytelling, sunset golden hour tones, and subtle film light leaks.', 'assets/hero_doll_cinematic_1080p.mp4', '🎵 920K YouTube Views')">
-                  Play Video ↗
-                </button>
-              </div>
+            <div class="real-work-footer">
+              <span style="color:#10B981;font-weight:800;font-size:11.5px;">✓ Krishna Master Edit</span>
+              <span style="color:#F59E0B;font-weight:800;font-size:12px;letter-spacing:0.08em;text-transform:uppercase;">Open Theater ↗</span>
             </div>
           </div>
-          <div class="uniform-video-card" data-category="brand" data-reveal>
-            <div class="uniform-thumb-container">
-              <img src="https://images.unsplash.com/photo-1600585154340-be6161a56a0c?auto=format&fit=crop&w=800&q=80" alt="The Glass Villa: Luxury Architecture Walkthrough" class="uniform-thumb-img" loading="lazy">
-              <div class="uniform-badge-row">
-                <span class="uniform-tag">Real Estate Film</span>
-                <span class="uniform-duration">02:40</span>
-              </div>
-              <div class="uniform-play-btn" onclick="openPortfolioPlayer('The Glass Villa: Luxury Architecture Walkthrough', 'Ultra-smooth gimbal stabilization, dynamic room transitions, daylight balancing, and premium music.', 'assets/hero_doll_cinematic_1080p.mp4', '⚡ $4.2M Property Sold')">
-                <div class="uniform-play-btn-circle">▶</div>
-              </div>
+        </div>
+        <div class="real-work-card" data-category="viral" onclick="openTheaterVideo('Mountain Therapy — Soulful Slowmotion & Sunset Moods', 'A deeply calming cinematic therapy reel set against majestic misty mountain peaks with friends. Featuring soothing optical flow slowmotion at ultra-smooth 60FPS, rich earthy film color grade, and peaceful acoustic harmony.', 'assets/work_therapy_1080p.mp4', 'Mountain Therapy & Vibe', '✦ Visual Therapy & Slowmo ✦')">
+          <div class="real-work-thumb">
+            <video src="assets/work_therapy_1080p.mp4" muted loop playsinline preload="metadata" onmouseover="this.play().catch(function(){})" onmouseout="this.pause()"></video>
+            <div style="position:absolute;top:10px;left:10px;padding:4px 10px;border-radius:999px;background:rgba(0,0,0,0.75);border:1px solid rgba(212,175,55,0.4);color:#FBBF24;font-size:10px;font-weight:800;letter-spacing:0.08em;text-transform:uppercase;">
+              ✦ Visual Therapy & Slowmo ✦
             </div>
-            <div class="uniform-card-body">
-              <div>
-                <h3 class="uniform-card-title">The Glass Villa: Luxury Architecture Walkthrough</h3>
-                <p class="uniform-card-desc">Ultra-smooth gimbal stabilization, dynamic room transitions, daylight balancing, and premium music.</p>
-              </div>
-              <div class="uniform-card-footer">
-                <span class="uniform-metric">⚡ $4.2M Property Sold</span>
-                <button class="uniform-card-cta" onclick="openPortfolioPlayer('The Glass Villa: Luxury Architecture Walkthrough', 'Ultra-smooth gimbal stabilization, dynamic room transitions, daylight balancing, and premium music.', 'assets/hero_doll_cinematic_1080p.mp4', '⚡ $4.2M Property Sold')">
-                  Play Video ↗
-                </button>
-              </div>
+            <div style="position:absolute;bottom:10px;right:10px;padding:3px 8px;border-radius:6px;background:rgba(0,0,0,0.85);color:#FFF;font-size:10px;font-weight:700;">
+              9:16 Ultra HD Reel
             </div>
           </div>
-          <div class="uniform-video-card" data-category="music" data-reveal>
-            <div class="uniform-thumb-container">
-              <img src="https://images.unsplash.com/photo-1542751371-adc38448a05e?auto=format&fit=crop&w=800&q=80" alt="Valorant Champions: Esports Montage & Motion FX" class="uniform-thumb-img" loading="lazy">
-              <div class="uniform-badge-row">
-                <span class="uniform-tag">Esports Montage</span>
-                <span class="uniform-duration">01:50</span>
-              </div>
-              <div class="uniform-play-btn" onclick="openPortfolioPlayer('Valorant Champions: Esports Montage & Motion FX', 'Kill-sync beats, custom motion tracking 3D text, neon muzzle flashes, and bass overdrive.', 'assets/hero_doll_cinematic_1080p.mp4', '🔥 3.1M Community Views')">
-                <div class="uniform-play-btn-circle">▶</div>
-              </div>
+          <div class="real-work-body">
+            <div>
+              <div style="font-size:11px;font-weight:800;color:var(--gold-neon);letter-spacing:0.1em;text-transform:uppercase;margin-bottom:6px;">Mountain Therapy & Vibe</div>
+              <h3 class="real-work-title">Mountain Therapy — Soulful Slowmotion & Sunset Moods</h3>
+              <p class="real-work-desc">A deeply calming cinematic therapy reel set against majestic misty mountain peaks with friends. Featuring soothing optical flow slowmotion at ultra-smooth 60FPS, rich earthy film color grade, and peaceful acoustic harmony.</p>
             </div>
-            <div class="uniform-card-body">
-              <div>
-                <h3 class="uniform-card-title">Valorant Champions: Esports Montage & Motion FX</h3>
-                <p class="uniform-card-desc">Kill-sync beats, custom motion tracking 3D text, neon muzzle flashes, and bass overdrive.</p>
-              </div>
-              <div class="uniform-card-footer">
-                <span class="uniform-metric">🔥 3.1M Community Views</span>
-                <button class="uniform-card-cta" onclick="openPortfolioPlayer('Valorant Champions: Esports Montage & Motion FX', 'Kill-sync beats, custom motion tracking 3D text, neon muzzle flashes, and bass overdrive.', 'assets/hero_doll_cinematic_1080p.mp4', '🔥 3.1M Community Views')">
-                  Play Video ↗
-                </button>
-              </div>
+            <div class="real-work-footer">
+              <span style="color:#10B981;font-weight:800;font-size:11.5px;">✓ Krishna Master Edit</span>
+              <span style="color:#F59E0B;font-weight:800;font-size:12px;letter-spacing:0.08em;text-transform:uppercase;">Open Theater ↗</span>
             </div>
           </div>
-          <div class="uniform-video-card" data-category="viral" data-reveal>
-            <div class="uniform-thumb-container">
-              <img src="https://images.unsplash.com/photo-1555396273-367ea4eb4db5?auto=format&fit=crop&w=800&q=80" alt="Wok & Flame: Asian Street Food Cinematic Reel" class="uniform-thumb-img" loading="lazy">
-              <div class="uniform-badge-row">
-                <span class="uniform-tag">Food Cinematic</span>
-                <span class="uniform-duration">00:42</span>
-              </div>
-              <div class="uniform-play-btn" onclick="openPortfolioPlayer('Wok & Flame: Asian Street Food Cinematic Reel', 'Sizzling audio textures, extreme macro depth of field, speed ramping, and vibrant appetizing color grading.', 'assets/hero_doll_cinematic_1080p.mp4', '🔥 2.8M Viral Views')">
-                <div class="uniform-play-btn-circle">▶</div>
-              </div>
+        </div>
+        <div class="real-work-card" data-category="music" onclick="openTheaterVideo('Sahiba — Cinematic Shoot & Narrative Music Edit', 'A soulful, cinema-grade music video shoot and edit set to Sahiba. Featuring delicate poetic pacing, natural lighting cinematography, warm film emulation tones, and emotional resonance.', 'assets/work_sahiba_1080p.mp4', 'Music Video & Direction', '✦ 4K Cinematic Master ✦')">
+          <div class="real-work-thumb">
+            <video src="assets/work_sahiba_1080p.mp4" muted loop playsinline preload="metadata" onmouseover="this.play().catch(function(){})" onmouseout="this.pause()"></video>
+            <div style="position:absolute;top:10px;left:10px;padding:4px 10px;border-radius:999px;background:rgba(0,0,0,0.75);border:1px solid rgba(212,175,55,0.4);color:#FBBF24;font-size:10px;font-weight:800;letter-spacing:0.08em;text-transform:uppercase;">
+              ✦ 4K Cinematic Master ✦
             </div>
-            <div class="uniform-card-body">
-              <div>
-                <h3 class="uniform-card-title">Wok & Flame: Asian Street Food Cinematic Reel</h3>
-                <p class="uniform-card-desc">Sizzling audio textures, extreme macro depth of field, speed ramping, and vibrant appetizing color grading.</p>
-              </div>
-              <div class="uniform-card-footer">
-                <span class="uniform-metric">🔥 2.8M Viral Views</span>
-                <button class="uniform-card-cta" onclick="openPortfolioPlayer('Wok & Flame: Asian Street Food Cinematic Reel', 'Sizzling audio textures, extreme macro depth of field, speed ramping, and vibrant appetizing color grading.', 'assets/hero_doll_cinematic_1080p.mp4', '🔥 2.8M Viral Views')">
-                  Play Video ↗
-                </button>
-              </div>
+            <div style="position:absolute;bottom:10px;right:10px;padding:3px 8px;border-radius:6px;background:rgba(0,0,0,0.85);color:#FFF;font-size:10px;font-weight:700;">
+              16:9 4K UHD Landscape
             </div>
           </div>
-          <div class="uniform-video-card" data-category="cinematic" data-reveal>
-            <div class="uniform-thumb-container">
-              <img src="https://images.unsplash.com/photo-1677442136019-21780efad99a?auto=format&fit=crop&w=800&q=80" alt="The Neural Age: AI Explainer Video Essay" class="uniform-thumb-img" loading="lazy">
-              <div class="uniform-badge-row">
-                <span class="uniform-tag">YouTube Explainer</span>
-                <span class="uniform-duration">11:20</span>
-              </div>
-              <div class="uniform-play-btn" onclick="openPortfolioPlayer('The Neural Age: AI Explainer Video Essay', 'Clean isometric 3D animations, code terminal visualizations, and clear narrative voiceover pacing.', 'assets/hero_doll_cinematic_1080p.mp4', '⚡ 650K Views • 14k Likes')">
-                <div class="uniform-play-btn-circle">▶</div>
-              </div>
+          <div class="real-work-body">
+            <div>
+              <div style="font-size:11px;font-weight:800;color:var(--gold-neon);letter-spacing:0.1em;text-transform:uppercase;margin-bottom:6px;">Music Video & Direction</div>
+              <h3 class="real-work-title">Sahiba — Cinematic Shoot & Narrative Music Edit</h3>
+              <p class="real-work-desc">A soulful, cinema-grade music video shoot and edit set to Sahiba. Featuring delicate poetic pacing, natural lighting cinematography, warm film emulation tones, and emotional resonance.</p>
             </div>
-            <div class="uniform-card-body">
-              <div>
-                <h3 class="uniform-card-title">The Neural Age: AI Explainer Video Essay</h3>
-                <p class="uniform-card-desc">Clean isometric 3D animations, code terminal visualizations, and clear narrative voiceover pacing.</p>
-              </div>
-              <div class="uniform-card-footer">
-                <span class="uniform-metric">⚡ 650K Views • 14k Likes</span>
-                <button class="uniform-card-cta" onclick="openPortfolioPlayer('The Neural Age: AI Explainer Video Essay', 'Clean isometric 3D animations, code terminal visualizations, and clear narrative voiceover pacing.', 'assets/hero_doll_cinematic_1080p.mp4', '⚡ 650K Views • 14k Likes')">
-                  Play Video ↗
-                </button>
-              </div>
+            <div class="real-work-footer">
+              <span style="color:#10B981;font-weight:800;font-size:11.5px;">✓ Krishna Master Edit</span>
+              <span style="color:#F59E0B;font-weight:800;font-size:12px;letter-spacing:0.08em;text-transform:uppercase;">Open Theater ↗</span>
             </div>
           </div>
-          <div class="uniform-video-card" data-category="travel" data-reveal>
-            <div class="uniform-thumb-container">
-              <img src="https://images.unsplash.com/photo-1470071459604-3b5ec3a7fe05?auto=format&fit=crop&w=800&q=80" alt="Guardians of the Wild: Forest Nature Odyssey" class="uniform-thumb-img" loading="lazy">
-              <div class="uniform-badge-row">
-                <span class="uniform-tag">4K Wildlife</span>
-                <span class="uniform-duration">05:15</span>
-              </div>
-              <div class="uniform-play-btn" onclick="openPortfolioPlayer('Guardians of the Wild: Forest Nature Odyssey', 'Telephoto slow-motion footage, organic environmental audio recording, and subtle Kodachrome film look.', 'assets/hero_doll_cinematic_1080p.mp4', '🏆 BBC Style 4K Master')">
-                <div class="uniform-play-btn-circle">▶</div>
-              </div>
+        </div>
+        <div class="real-work-card" data-category="travel" onclick="openTheaterVideo('Shyamlatal Serenity — 4K Cinematic Travel & Nature Film', 'Shot on location and color-graded to perfection at pristine Shyamlatal lake. Breathtaking landscape framing, tranquil pacing, atmospheric sound foley, and rich natural earth grading.', 'assets/work_shyamlatal_1080p.mp4', 'Travel & Cinematic Shoot', '✦ Cinematic Nature Odyssey ✦')">
+          <div class="real-work-thumb">
+            <video src="assets/work_shyamlatal_1080p.mp4" muted loop playsinline preload="metadata" onmouseover="this.play().catch(function(){})" onmouseout="this.pause()"></video>
+            <div style="position:absolute;top:10px;left:10px;padding:4px 10px;border-radius:999px;background:rgba(0,0,0,0.75);border:1px solid rgba(212,175,55,0.4);color:#FBBF24;font-size:10px;font-weight:800;letter-spacing:0.08em;text-transform:uppercase;">
+              ✦ Cinematic Nature Odyssey ✦
             </div>
-            <div class="uniform-card-body">
-              <div>
-                <h3 class="uniform-card-title">Guardians of the Wild: Forest Nature Odyssey</h3>
-                <p class="uniform-card-desc">Telephoto slow-motion footage, organic environmental audio recording, and subtle Kodachrome film look.</p>
-              </div>
-              <div class="uniform-card-footer">
-                <span class="uniform-metric">🏆 BBC Style 4K Master</span>
-                <button class="uniform-card-cta" onclick="openPortfolioPlayer('Guardians of the Wild: Forest Nature Odyssey', 'Telephoto slow-motion footage, organic environmental audio recording, and subtle Kodachrome film look.', 'assets/hero_doll_cinematic_1080p.mp4', '🏆 BBC Style 4K Master')">
-                  Play Video ↗
-                </button>
-              </div>
+            <div style="position:absolute;bottom:10px;right:10px;padding:3px 8px;border-radius:6px;background:rgba(0,0,0,0.85);color:#FFF;font-size:10px;font-weight:700;">
+              16:9 4K UHD Landscape
             </div>
           </div>
-          <div class="uniform-video-card" data-category="brand" data-reveal>
-            <div class="uniform-thumb-container">
-              <img src="https://images.unsplash.com/photo-1522335789203-aabd1fc54bc9?auto=format&fit=crop&w=800&q=80" alt="Aura Glow: Luxury Skincare Editorial Commercial" class="uniform-thumb-img" loading="lazy">
-              <div class="uniform-badge-row">
-                <span class="uniform-tag">Beauty Ad</span>
-                <span class="uniform-duration">00:45</span>
-              </div>
-              <div class="uniform-play-btn" onclick="openPortfolioPlayer('Aura Glow: Luxury Skincare Editorial Commercial', 'Flawless skin retouching, gentle water droplet physics, clean pastel color grading, and whisper-soft audio.', 'assets/hero_doll_cinematic_1080p.mp4', '⭐ Brand ROAS 4.8x')">
-                <div class="uniform-play-btn-circle">▶</div>
-              </div>
+          <div class="real-work-body">
+            <div>
+              <div style="font-size:11px;font-weight:800;color:var(--gold-neon);letter-spacing:0.1em;text-transform:uppercase;margin-bottom:6px;">Travel & Cinematic Shoot</div>
+              <h3 class="real-work-title">Shyamlatal Serenity — 4K Cinematic Travel & Nature Film</h3>
+              <p class="real-work-desc">Shot on location and color-graded to perfection at pristine Shyamlatal lake. Breathtaking landscape framing, tranquil pacing, atmospheric sound foley, and rich natural earth grading.</p>
             </div>
-            <div class="uniform-card-body">
-              <div>
-                <h3 class="uniform-card-title">Aura Glow: Luxury Skincare Editorial Commercial</h3>
-                <p class="uniform-card-desc">Flawless skin retouching, gentle water droplet physics, clean pastel color grading, and whisper-soft audio.</p>
-              </div>
-              <div class="uniform-card-footer">
-                <span class="uniform-metric">⭐ Brand ROAS 4.8x</span>
-                <button class="uniform-card-cta" onclick="openPortfolioPlayer('Aura Glow: Luxury Skincare Editorial Commercial', 'Flawless skin retouching, gentle water droplet physics, clean pastel color grading, and whisper-soft audio.', 'assets/hero_doll_cinematic_1080p.mp4', '⭐ Brand ROAS 4.8x')">
-                  Play Video ↗
-                </button>
-              </div>
+            <div class="real-work-footer">
+              <span style="color:#10B981;font-weight:800;font-size:11.5px;">✓ Krishna Master Edit</span>
+              <span style="color:#F59E0B;font-weight:800;font-size:12px;letter-spacing:0.08em;text-transform:uppercase;">Open Theater ↗</span>
             </div>
           </div>
+        </div>
+        <div class="real-work-card" data-category="cinematic" onclick="openTheaterVideo('Sample for Long Video Edits — Pacing & B-Roll Structure', 'A sample demonstration edit specifically crafted for long videos and YouTube content. Showcases clean narrative pacing, smooth B-roll integration, high viewer retention cuts, and balanced audio mixing.', 'assets/work_long_sample_1080p.mp4', 'Long Video Edit Sample', '✦ Long Video Edit Sample ✦')">
+          <div class="real-work-thumb">
+            <video src="assets/work_long_sample_1080p.mp4" muted loop playsinline preload="metadata" onmouseover="this.play().catch(function(){})" onmouseout="this.pause()"></video>
+            <div style="position:absolute;top:10px;left:10px;padding:4px 10px;border-radius:999px;background:rgba(0,0,0,0.75);border:1px solid rgba(212,175,55,0.4);color:#FBBF24;font-size:10px;font-weight:800;letter-spacing:0.08em;text-transform:uppercase;">
+              ✦ Long Video Edit Sample ✦
+            </div>
+            <div style="position:absolute;bottom:10px;right:10px;padding:3px 8px;border-radius:6px;background:rgba(0,0,0,0.85);color:#FFF;font-size:10px;font-weight:700;">
+              16:9 Landscape Video
+            </div>
+          </div>
+          <div class="real-work-body">
+            <div>
+              <div style="font-size:11px;font-weight:800;color:var(--gold-neon);letter-spacing:0.1em;text-transform:uppercase;margin-bottom:6px;">Long Video Edit Sample</div>
+              <h3 class="real-work-title">Sample for Long Video Edits — Pacing & B-Roll Structure</h3>
+              <p class="real-work-desc">A sample demonstration edit specifically crafted for long videos and YouTube content. Showcases clean narrative pacing, smooth B-roll integration, high viewer retention cuts, and balanced audio mixing.</p>
+            </div>
+            <div class="real-work-footer">
+              <span style="color:#10B981;font-weight:800;font-size:11.5px;">✓ Krishna Master Edit</span>
+              <span style="color:#F59E0B;font-weight:800;font-size:12px;letter-spacing:0.08em;text-transform:uppercase;">Open Theater ↗</span>
+            </div>
+          </div>
+        </div>
+        <div class="real-work-card" data-category="music" onclick="openTheaterVideo('Raanjhanaa — Cinematic 4K Film Master', 'A breathtaking cinematic film edit set to Raanjhanaa in pristine 3840x2160 4K UHD at ultra-smooth 60FPS. Featuring atmospheric film emulation, emotive color grading, rhythmically timed motion dynamics, and deeply immersive audio.', 'assets/work_ranjhana_1080p.mp4', 'Cinematic Film Edit', '✦ 4K 60FPS Masterpiece ✦')">
+          <div class="real-work-thumb">
+            <video src="assets/work_ranjhana_1080p.mp4" muted loop playsinline preload="metadata" onmouseover="this.play().catch(function(){})" onmouseout="this.pause()"></video>
+            <div style="position:absolute;top:10px;left:10px;padding:4px 10px;border-radius:999px;background:rgba(0,0,0,0.75);border:1px solid rgba(212,175,55,0.4);color:#FBBF24;font-size:10px;font-weight:800;letter-spacing:0.08em;text-transform:uppercase;">
+              ✦ 4K 60FPS Masterpiece ✦
+            </div>
+            <div style="position:absolute;bottom:10px;right:10px;padding:3px 8px;border-radius:6px;background:rgba(0,0,0,0.85);color:#FFF;font-size:10px;font-weight:700;">
+              16:9 4K Landscape
+            </div>
+          </div>
+          <div class="real-work-body">
+            <div>
+              <div style="font-size:11px;font-weight:800;color:var(--gold-neon);letter-spacing:0.1em;text-transform:uppercase;margin-bottom:6px;">Cinematic Film Edit</div>
+              <h3 class="real-work-title">Raanjhanaa — Cinematic 4K Film Master</h3>
+              <p class="real-work-desc">A breathtaking cinematic film edit set to Raanjhanaa in pristine 3840x2160 4K UHD at ultra-smooth 60FPS. Featuring atmospheric film emulation, emotive color grading, rhythmically timed motion dynamics, and deeply immersive audio.</p>
+            </div>
+            <div class="real-work-footer">
+              <span style="color:#10B981;font-weight:800;font-size:11.5px;">✓ Krishna Master Edit</span>
+              <span style="color:#F59E0B;font-weight:800;font-size:12px;letter-spacing:0.08em;text-transform:uppercase;">Open Theater ↗</span>
+            </div>
+          </div>
+        </div>
+        <div class="real-work-card" data-category="viral" onclick="openTheaterVideo('Ganesh Chaturthi — High-Energy Festival Celebration Reel', 'High-energy festive celebration reel featuring energetic beat-matched transitions, vibrant colors, festive music synchronization, and dynamic crowd moments.', 'assets/work_ganesh_1080p.mp4', 'Festival Celebration Reel', '✦ Festival Celebration Reel ✦')">
+          <div class="real-work-thumb">
+            <video src="assets/work_ganesh_1080p.mp4" muted loop playsinline preload="metadata" onmouseover="this.play().catch(function(){})" onmouseout="this.pause()"></video>
+            <div style="position:absolute;top:10px;left:10px;padding:4px 10px;border-radius:999px;background:rgba(0,0,0,0.75);border:1px solid rgba(212,175,55,0.4);color:#FBBF24;font-size:10px;font-weight:800;letter-spacing:0.08em;text-transform:uppercase;">
+              ✦ Festival Celebration Reel ✦
+            </div>
+            <div style="position:absolute;bottom:10px;right:10px;padding:3px 8px;border-radius:6px;background:rgba(0,0,0,0.85);color:#FFF;font-size:10px;font-weight:700;">
+              9:16 Vertical Reel
+            </div>
+          </div>
+          <div class="real-work-body">
+            <div>
+              <div style="font-size:11px;font-weight:800;color:var(--gold-neon);letter-spacing:0.1em;text-transform:uppercase;margin-bottom:6px;">Festival Celebration Reel</div>
+              <h3 class="real-work-title">Ganesh Chaturthi — High-Energy Festival Celebration Reel</h3>
+              <p class="real-work-desc">High-energy festive celebration reel featuring energetic beat-matched transitions, vibrant colors, festive music synchronization, and dynamic crowd moments.</p>
+            </div>
+            <div class="real-work-footer">
+              <span style="color:#10B981;font-weight:800;font-size:11.5px;">✓ Krishna Master Edit</span>
+              <span style="color:#F59E0B;font-weight:800;font-size:12px;letter-spacing:0.08em;text-transform:uppercase;">Open Theater ↗</span>
+            </div>
+          </div>
+        </div>
+        <div class="real-work-card" data-category="commercial" onclick="openTheaterVideo('Apex Corporate Brand Showcase', 'A sleek, authoritative company brand commercial edit featuring precision pacing, cinematic title cards, enterprise-grade color grading, and razor-sharp sound design built for maximum brand credibility.', 'assets/work_company_1080p.mp4', 'Corporate Brand Commercial', '✦ Corporate Showcase ✦')">
+          <div class="real-work-thumb">
+            <video src="assets/work_company_1080p.mp4" muted loop playsinline preload="metadata" onmouseover="this.play().catch(function(){})" onmouseout="this.pause()"></video>
+            <div style="position:absolute;top:10px;left:10px;padding:4px 10px;border-radius:999px;background:rgba(0,0,0,0.75);border:1px solid rgba(212,175,55,0.4);color:#FBBF24;font-size:10px;font-weight:800;letter-spacing:0.08em;text-transform:uppercase;">
+              ✦ Corporate Showcase ✦
+            </div>
+            <div style="position:absolute;bottom:10px;right:10px;padding:3px 8px;border-radius:6px;background:rgba(0,0,0,0.85);color:#FFF;font-size:10px;font-weight:700;">
+              9:16 Vertical Reel
+            </div>
+          </div>
+          <div class="real-work-body">
+            <div>
+              <div style="font-size:11px;font-weight:800;color:var(--gold-neon);letter-spacing:0.1em;text-transform:uppercase;margin-bottom:6px;">Corporate Brand Commercial</div>
+              <h3 class="real-work-title">Apex Corporate Brand Showcase</h3>
+              <p class="real-work-desc">A sleek, authoritative company brand commercial edit featuring precision pacing, cinematic title cards, enterprise-grade color grading, and razor-sharp sound design built for maximum brand credibility.</p>
+            </div>
+            <div class="real-work-footer">
+              <span style="color:#10B981;font-weight:800;font-size:11.5px;">✓ Krishna Master Edit</span>
+              <span style="color:#F59E0B;font-weight:800;font-size:12px;letter-spacing:0.08em;text-transform:uppercase;">Open Theater ↗</span>
+            </div>
+          </div>
+        </div>
+        <div class="real-work-card" data-category="viral" onclick="openTheaterVideo('Neon Vibe — Cinematic Birthday Celebration', 'High-energy celebration reel featuring seamless speed ramps, vibrant neon glows, beat-matched transitions, and infectious cinematic rhythm that captures every electric moment.', 'assets/work_birthday_1080p.mp4', 'Birthday Celebration Reel', '✦ Speed Ramp & VFX ✦')">
+          <div class="real-work-thumb">
+            <video src="assets/work_birthday_1080p.mp4" muted loop playsinline preload="metadata" onmouseover="this.play().catch(function(){})" onmouseout="this.pause()"></video>
+            <div style="position:absolute;top:10px;left:10px;padding:4px 10px;border-radius:999px;background:rgba(0,0,0,0.75);border:1px solid rgba(212,175,55,0.4);color:#FBBF24;font-size:10px;font-weight:800;letter-spacing:0.08em;text-transform:uppercase;">
+              ✦ Speed Ramp & VFX ✦
+            </div>
+            <div style="position:absolute;bottom:10px;right:10px;padding:3px 8px;border-radius:6px;background:rgba(0,0,0,0.85);color:#FFF;font-size:10px;font-weight:700;">
+              9:16 Vertical Reel
+            </div>
+          </div>
+          <div class="real-work-body">
+            <div>
+              <div style="font-size:11px;font-weight:800;color:var(--gold-neon);letter-spacing:0.1em;text-transform:uppercase;margin-bottom:6px;">Birthday Celebration Reel</div>
+              <h3 class="real-work-title">Neon Vibe — Cinematic Birthday Celebration</h3>
+              <p class="real-work-desc">High-energy celebration reel featuring seamless speed ramps, vibrant neon glows, beat-matched transitions, and infectious cinematic rhythm that captures every electric moment.</p>
+            </div>
+            <div class="real-work-footer">
+              <span style="color:#10B981;font-weight:800;font-size:11.5px;">✓ Krishna Master Edit</span>
+              <span style="color:#F59E0B;font-weight:800;font-size:12px;letter-spacing:0.08em;text-transform:uppercase;">Open Theater ↗</span>
+            </div>
+          </div>
+        </div>
+        <div class="real-work-card" data-category="viral" onclick="openTheaterVideo('Relentless Beast — Gym Motivation Edit', 'Aggressive, high-octane workout edit engineered with hard-hitting bass drops, dynamic punch-ins, motion blur whip pans, and intense film grain aesthetics to ignite unstoppable energy.', 'assets/work_gym_1080p.mp4', 'Gym Motivation Edit', '✦ High-Octane Retention ✦')">
+          <div class="real-work-thumb">
+            <video src="assets/work_gym_1080p.mp4" muted loop playsinline preload="metadata" onmouseover="this.play().catch(function(){})" onmouseout="this.pause()"></video>
+            <div style="position:absolute;top:10px;left:10px;padding:4px 10px;border-radius:999px;background:rgba(0,0,0,0.75);border:1px solid rgba(212,175,55,0.4);color:#FBBF24;font-size:10px;font-weight:800;letter-spacing:0.08em;text-transform:uppercase;">
+              ✦ High-Octane Retention ✦
+            </div>
+            <div style="position:absolute;bottom:10px;right:10px;padding:3px 8px;border-radius:6px;background:rgba(0,0,0,0.85);color:#FFF;font-size:10px;font-weight:700;">
+              9:16 Vertical Reel
+            </div>
+          </div>
+          <div class="real-work-body">
+            <div>
+              <div style="font-size:11px;font-weight:800;color:var(--gold-neon);letter-spacing:0.1em;text-transform:uppercase;margin-bottom:6px;">Gym Motivation Edit</div>
+              <h3 class="real-work-title">Relentless Beast — Gym Motivation Edit</h3>
+              <p class="real-work-desc">Aggressive, high-octane workout edit engineered with hard-hitting bass drops, dynamic punch-ins, motion blur whip pans, and intense film grain aesthetics to ignite unstoppable energy.</p>
+            </div>
+            <div class="real-work-footer">
+              <span style="color:#10B981;font-weight:800;font-size:11.5px;">✓ Krishna Master Edit</span>
+              <span style="color:#F59E0B;font-weight:800;font-size:12px;letter-spacing:0.08em;text-transform:uppercase;">Open Theater ↗</span>
+            </div>
+          </div>
+        </div>
+        <div class="real-work-card" data-category="commercial" onclick="openTheaterVideo('Compassion in Motion — Feeding the Needy & Rescuing Stray Lives', 'A deeply moving and heartfelt social documentary story capturing a young girl distributing warm meals to the homeless and feeding hungry stray animals on the streets. Crafted with uplifting warm tones, emotional narrative rhythm, and soul-stirring audio atmosphere.', 'assets/work_charity_1080p.mp4', 'Social Documentary Story', '✦ Heartfelt Storytelling ✦')">
+          <div class="real-work-thumb">
+            <video src="assets/work_charity_1080p.mp4" muted loop playsinline preload="metadata" onmouseover="this.play().catch(function(){})" onmouseout="this.pause()"></video>
+            <div style="position:absolute;top:10px;left:10px;padding:4px 10px;border-radius:999px;background:rgba(0,0,0,0.75);border:1px solid rgba(212,175,55,0.4);color:#FBBF24;font-size:10px;font-weight:800;letter-spacing:0.08em;text-transform:uppercase;">
+              ✦ Heartfelt Storytelling ✦
+            </div>
+            <div style="position:absolute;bottom:10px;right:10px;padding:3px 8px;border-radius:6px;background:rgba(0,0,0,0.85);color:#FFF;font-size:10px;font-weight:700;">
+              9:16 Vertical Story
+            </div>
+          </div>
+          <div class="real-work-body">
+            <div>
+              <div style="font-size:11px;font-weight:800;color:var(--gold-neon);letter-spacing:0.1em;text-transform:uppercase;margin-bottom:6px;">Social Documentary Story</div>
+              <h3 class="real-work-title">Compassion in Motion — Feeding the Needy & Rescuing Stray Lives</h3>
+              <p class="real-work-desc">A deeply moving and heartfelt social documentary story capturing a young girl distributing warm meals to the homeless and feeding hungry stray animals on the streets. Crafted with uplifting warm tones, emotional narrative rhythm, and soul-stirring audio atmosphere.</p>
+            </div>
+            <div class="real-work-footer">
+              <span style="color:#10B981;font-weight:800;font-size:11.5px;">✓ Krishna Master Edit</span>
+              <span style="color:#F59E0B;font-weight:800;font-size:12px;letter-spacing:0.08em;text-transform:uppercase;">Open Theater ↗</span>
+            </div>
+          </div>
+        </div>
       </div>
 
       <!-- INTERACTIVE BEFORE/AFTER COLOR GRADING COMPARISON SLIDER -->
-      <div style="margin-top: 80px; text-align: center;">
+      <div style="margin-top: 90px; text-align: center;">
         <span class="section-eyebrow">✦ INTERACTIVE COLOR SCIENCE ✦</span>
         <h2 style="font-family: var(--display); font-size: clamp(24px, 4vw, 36px); color: #FFF; margin-bottom: 12px;">
           RAW S-Log vs <span>DaVinci Resolve Grade</span>
@@ -869,20 +619,20 @@
           Drag the center handle horizontally to inspect the dynamic color grading, skin tone isolation, and film halation applied to flat sensor footage.
         </p>
 
-        <div class="grading-slider-container">
-          <div class="grading-badge-raw">RAW FLAT S-LOG</div>
-          <div class="grading-badge-graded">DAVINCI 3D LUT GRADE</div>
+        <div class="grading-slider-container" style="position:relative;width:100%;max-width:1000px;margin:30px auto;aspect-ratio:16/9;border-radius:20px;overflow:hidden;border:1.5px solid rgba(212,175,55,0.35);box-shadow:0 20px 50px rgba(0,0,0,0.8);user-select:none;">
+          <div style="position:absolute;top:16px;right:16px;padding:6px 14px;border-radius:999px;background:rgba(0,0,0,0.75);border:1px solid rgba(255,255,255,0.2);color:#9CA3AF;font-family:monospace;font-size:11px;font-weight:800;letter-spacing:0.1em;text-transform:uppercase;">RAW FLAT S-LOG</div>
+          <div style="position:absolute;top:16px;left:16px;padding:6px 14px;border-radius:999px;background:rgba(245,158,11,0.9);color:#000;font-family:monospace;font-size:11px;font-weight:800;letter-spacing:0.1em;text-transform:uppercase;z-index:15;">DAVINCI 3D LUT GRADE</div>
           
-          <div class="grading-layer">
-            <img src="https://images.unsplash.com/photo-1492691527719-9d1e07e534b4?auto=format&fit=crop&w=1200&q=40" alt="RAW flat footage" style="filter: grayscale(80%) brightness(1.2) contrast(0.65);">
+          <div style="position:absolute;inset:0;width:100%;height:100%;">
+            <img src="https://images.unsplash.com/photo-1492691527719-9d1e07e534b4?auto=format&fit=crop&w=1200&q=40" alt="RAW flat footage" style="width:100%;height:100%;object-fit:cover;filter:grayscale(80%) brightness(1.2) contrast(0.65);">
           </div>
           
-          <div class="grading-after">
-            <img src="https://images.unsplash.com/photo-1492691527719-9d1e07e534b4?auto=format&fit=crop&w=1200&q=95" alt="Color Graded footage" style="filter: contrast(1.25) saturate(1.3) drop-shadow(0 0 10px rgba(245,158,11,0.3));">
+          <div class="grading-after" style="position:absolute;inset:0;width:50%;height:100%;overflow:hidden;border-right:2px solid #FFFFFF;">
+            <img src="https://images.unsplash.com/photo-1492691527719-9d1e07e534b4?auto=format&fit=crop&w=1200&q=95" alt="Color Graded footage" style="width:1000px;max-width:none;height:100%;object-fit:cover;filter:contrast(1.25) saturate(1.3) drop-shadow(0 0 10px rgba(245,158,11,0.3));">
           </div>
           
-          <div class="grading-handle">
-            <div class="grading-handle-button">↔</div>
+          <div class="grading-handle" style="position:absolute;top:0;bottom:0;left:50%;width:4px;background:#FFFFFF;cursor:ew-resize;transform:translateX(-50%);z-index:10;box-shadow:0 0 15px rgba(0,0,0,0.8);">
+            <div style="position:absolute;top:50%;left:50%;width:44px;height:44px;background:#110D09;border:2px solid #FFFFFF;border-radius:50%;transform:translate(-50%,-50%);display:flex;align-items:center;justify-content:center;color:#FFF;font-size:14px;font-weight:900;">↔</div>
           </div>
         </div>
       </div>
@@ -890,36 +640,16 @@
     </div>
   </main>
 
-  <!-- VIDEO POPUP MODAL -->
-  <div class="video-modal-backdrop" id="videoModal">
-    <div class="video-modal-box">
-      <button class="modal-close-btn" onclick="closePortfolioPlayer()">✕</button>
-      <div class="video-player-container">
-        <video id="portfolioModalVideo" controls autoplay playsinline style="width:100%;height:100%;object-fit:contain;background:#000;"></video>
-      </div>
-      <div class="video-modal-details">
-        <div>
-          <h3 id="modalVideoTitle" style="font-family:var(--serif);font-size:22px;color:#FFF;margin-bottom:6px;">Video Title</h3>
-          <p id="modalVideoDesc" style="color:var(--muted);font-size:13.5px;max-width:600px;">Description</p>
-        </div>
-        <div style="display:flex;align-items:center;gap:12px;">
-          <span id="modalVideoMetric" style="color:#10B981;font-weight:800;font-size:13px;">Metric</span>
-          <a href="/contact" style="padding:10px 20px;border-radius:999px;background:#F59E0B;color:#000;font-weight:900;font-size:12px;letter-spacing:0.1em;text-transform:uppercase;text-decoration:none;">Book Edit ↗</a>
-        </div>
-      </div>
-    </div>
-  </div>
-
   <footer style="margin-top: 100px; padding: 50px 4vw; border-top: 1px solid rgba(255,255,255,0.08); text-align: center; color: var(--muted); font-size: 13px;">
     <p>© 2026 KRISHNA X EDITZ — Master Video Editing &amp; Creative Studio. In Official Collaboration with Sorexa Technologies.</p>
   </footer>
 
   <script src="../assets/studio-interactive.js"></script>
   <script>
-    function filterProjects(cat, btn) {
+    function filterRealProjects(cat, btn) {
       document.querySelectorAll('.port-tab-btn').forEach(function(b) { b.classList.remove('active'); });
       btn.classList.add('active');
-      var cards = document.querySelectorAll('.uniform-video-card');
+      var cards = document.querySelectorAll('.real-work-card');
       cards.forEach(function(card) {
         if (cat === 'all' || card.getAttribute('data-category') === cat) {
           card.style.display = 'flex';
@@ -929,28 +659,37 @@
       });
     }
 
-    function openPortfolioPlayer(title, desc, src, metric) {
-      var modal = document.getElementById('videoModal');
-      var video = document.getElementById('portfolioModalVideo');
-      document.getElementById('modalVideoTitle').textContent = title;
-      document.getElementById('modalVideoDesc').textContent = desc;
-      document.getElementById('modalVideoMetric').textContent = metric;
-      video.src = src;
-      modal.classList.add('open');
-      video.play().catch(function() {});
-    }
+    // Before/After Slider Drag Controller
+    (function() {
+      var container = document.querySelector('.grading-slider-container');
+      if (!container) return;
+      var handle = container.querySelector('.grading-handle');
+      var afterLayer = container.querySelector('.grading-after');
+      var isDragging = false;
 
-    function closePortfolioPlayer() {
-      var modal = document.getElementById('videoModal');
-      var video = document.getElementById('portfolioModalVideo');
-      video.pause();
-      video.src = '';
-      modal.classList.remove('open');
-    }
+      function update(clientX) {
+        var rect = container.getBoundingClientRect();
+        var posX = clientX - rect.left;
+        posX = Math.max(0, Math.min(posX, rect.width));
+        var percent = (posX / rect.width) * 100;
+        handle.style.left = percent + '%';
+        afterLayer.style.width = percent + '%';
+      }
 
-    document.getElementById('videoModal').addEventListener('click', function(e) {
-      if (e.target === document.getElementById('videoModal')) closePortfolioPlayer();
-    });
+      container.addEventListener('pointerdown', function(e) {
+        isDragging = true;
+        update(e.clientX);
+        window.addEventListener('pointermove', onMove);
+        window.addEventListener('pointerup', onUp);
+      });
+
+      function onMove(e) { if (isDragging) update(e.clientX); }
+      function onUp() {
+        isDragging = false;
+        window.removeEventListener('pointermove', onMove);
+        window.removeEventListener('pointerup', onUp);
+      }
+    })();
   </script>
 </body>
 </html>

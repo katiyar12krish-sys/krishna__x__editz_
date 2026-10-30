@@ -569,6 +569,8 @@
   <link rel="stylesheet" href="../assets/studio-interactive.css">
 </head>
 <body>
+  <!-- MOUSE SPOTLIGHT (HOMEPAGE LUXURY AURA) -->
+  <div class="mouse-spotlight" id="mouseSpotlight" aria-hidden="true"></div>
 
   <!-- TOPBAR -->
   <header class="topbar studio-header" id="topbar">
@@ -646,6 +648,7 @@
             <div>
               <h3 style="font-family: var(--serif); font-size: 20px; color: #fff; margin-bottom: 6px;">Basic Cut &amp; Trim</h3>
               <p style="color: var(--muted); font-size: 13px; line-height: 1.5; margin-bottom: 16px;">Quick clean cut &amp; trim with audio balance. Perfect for simple stories &amp; teasers.</p>
+              <button type="button" onclick="openPricingExampleVideo('Basic Cut & Trim', 'assets/work_grind_viral_1080p.mp4', '₹250', 'Fast 15-20s social clip cutdown with rhythm beat sync and clean audio.')" style="width:100%;padding:10px;border-radius:999px;background:rgba(212,175,55,0.12);border:1px solid rgba(212,175,55,0.4);color:#FBBF24;font-family:var(--sans);font-size:12px;font-weight:800;letter-spacing:0.08em;text-transform:uppercase;cursor:pointer;margin-bottom:14px;transition:all 200ms;">🎬 Watch Example Video ↗</button>
               <div style="margin-bottom: 18px;">
                 <span style="font-family: var(--display); font-size: 38px; font-weight: 900; color: var(--gold-bright);">₹250</span>
                 <span style="font-size: 12px; color: var(--muted);">/ 15-20s video</span>
@@ -665,6 +668,7 @@
             <div>
               <h3 style="font-family: var(--serif); font-size: 20px; color: #fff; margin-bottom: 6px;">Standard Transition Edit</h3>
               <p style="color: var(--muted); font-size: 13px; line-height: 1.5; margin-bottom: 16px;">Smooth transition-driven reel with beat matching, punch-ins &amp; rhythmic pacing.</p>
+              <button type="button" onclick="openPricingExampleVideo('Standard Transition Edit', 'assets/work_unamerican_girls_1080p.mp4', '₹300', '20-30s dynamic edit featuring seamless whip zooms, velocity curves, and beat alignment.')" style="width:100%;padding:10px;border-radius:999px;background:rgba(212,175,55,0.12);border:1px solid rgba(212,175,55,0.4);color:#FBBF24;font-family:var(--sans);font-size:12px;font-weight:800;letter-spacing:0.08em;text-transform:uppercase;cursor:pointer;margin-bottom:14px;transition:all 200ms;">🎬 Watch Example Video ↗</button>
               <div style="margin-bottom: 18px;">
                 <span style="font-family: var(--display); font-size: 38px; font-weight: 900; color: var(--gold-bright);">₹300</span>
                 <span style="font-size: 12px; color: var(--muted);">/ 20-30s video</span>
@@ -685,6 +689,7 @@
               <span style="display: inline-block; background: var(--gold-neon); color: #000; font-size: 10px; font-weight: 800; padding: 3px 10px; border-radius: 999px; text-transform: uppercase; margin-bottom: 8px;">🔥 Most Popular</span>
               <h3 style="font-family: var(--serif); font-size: 20px; color: #fff; margin-bottom: 6px;">Pro Viral Full Edit</h3>
               <p style="color: var(--muted); font-size: 13px; line-height: 1.5; margin-bottom: 16px;">The complete viral retention package: kinetic captions, sound Foley, and speed ramps.</p>
+              <button type="button" onclick="openPricingExampleVideo('Pro Viral Full Edit', 'assets/work_friends_chaos_1080p.mp4', '₹500', 'Up to 60s viral retention edit with kinetic animated typography, foley sound effects, and color grading.')" style="width:100%;padding:10px;border-radius:999px;background:rgba(245,158,11,0.22);border:1.5px solid #F59E0B;color:#FFF;font-family:var(--sans);font-size:12px;font-weight:900;letter-spacing:0.08em;text-transform:uppercase;cursor:pointer;margin-bottom:14px;transition:all 200ms;">🎬 Watch Example Video ↗</button>
               <div style="margin-bottom: 18px;">
                 <span style="font-family: var(--display); font-size: 38px; font-weight: 900; color: #fff;">₹500</span>
                 <span style="font-size: 12px; color: var(--gold-bright);">/ ~1 min video</span>
@@ -704,6 +709,7 @@
             <div>
               <h3 style="font-family: var(--serif); font-size: 20px; color: #fff; margin-bottom: 6px;">5-Minute Video Edit</h3>
               <p style="color: var(--muted); font-size: 13px; line-height: 1.5; margin-bottom: 16px;">Ideal for YouTube vlogs, talking head tutorials, product reviews, and interviews.</p>
+              <button type="button" onclick="openPricingExampleVideo('5-Minute Video Edit', 'assets/work_long_sample_1080p.mp4', '₹1,600-1,700', 'Complete 5-minute YouTube or interview post-production with multi-cam switching and B-roll.')" style="width:100%;padding:10px;border-radius:999px;background:rgba(212,175,55,0.12);border:1px solid rgba(212,175,55,0.4);color:#FBBF24;font-family:var(--sans);font-size:12px;font-weight:800;letter-spacing:0.08em;text-transform:uppercase;cursor:pointer;margin-bottom:14px;transition:all 200ms;">🎬 Watch Example Video ↗</button>
               <div style="margin-bottom: 18px;">
                 <span style="font-family: var(--display); font-size: 32px; font-weight: 900; color: var(--gold-bright);">₹1,600 – ₹1,700</span>
                 <span style="font-size: 12px; color: var(--muted);">/ flexible rate</span>
@@ -723,6 +729,7 @@
             <div>
               <h3 style="font-family: var(--serif); font-size: 20px; color: #fff; margin-bottom: 6px;">10-Minute Master Video</h3>
               <p style="color: var(--muted); font-size: 13px; line-height: 1.5; margin-bottom: 16px;">Full cinematic YouTube documentary edit with storytelling, custom soundscapes, and grading.</p>
+              <button type="button" onclick="openPricingExampleVideo('10-Minute Master Video', 'assets/work_nazar_cinematic_1080p.mp4', '₹3,300-3,500', 'Full 4K documentary edit with narrative chaptering, custom orchestral soundscapes, and DaVinci color grading.')" style="width:100%;padding:10px;border-radius:999px;background:rgba(212,175,55,0.12);border:1px solid rgba(212,175,55,0.4);color:#FBBF24;font-family:var(--sans);font-size:12px;font-weight:800;letter-spacing:0.08em;text-transform:uppercase;cursor:pointer;margin-bottom:14px;transition:all 200ms;">🎬 Watch Example Video ↗</button>
               <div style="margin-bottom: 18px;">
                 <span style="font-family: var(--display); font-size: 32px; font-weight: 900; color: var(--gold-bright);">₹3,300 – ₹3,500</span>
                 <span style="font-size: 12px; color: var(--muted);">/ flexible rate</span>

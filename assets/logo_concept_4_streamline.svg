@@ -1,0 +1,18 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 200 200" width="100%" height="100%" fill="none">
+  <defs>
+    <linearGradient id="c4Grad" x1="0%" y1="100%" x2="100%" y2="0%">
+      <stop offset="0%" stop-color="#10B981" />
+      <stop offset="45%" stop-color="#34D399" />
+      <stop offset="70%" stop-color="#F59E0B" />
+      <stop offset="100%" stop-color="#FFD700" />
+    </linearGradient>
+  </defs>
+  <!-- Smooth Aerodynamic Streamline Pill Tracks (K Spine + X Velocity) -->
+  <rect x="36" y="28" width="20" height="144" rx="10" fill="url(#c4Grad)" />
+  <!-- Upper Loop & Growth Arrow -->
+  <path d="M 66 122 L 132 56 C 137 51, 146 51, 151 56 L 155 60 C 160 65, 160 74, 155 79 L 89 145 C 84 150, 75 150, 70 145 Z" fill="url(#c4Grad)" />
+  <!-- Arrow Head -->
+  <path d="M 136 26 L 176 34 L 168 74 L 156 62 L 128 90 L 116 78 L 144 50 Z" fill="url(#c4Grad)" />
+  <!-- Lower Leg -->
+  <path d="M 96 110 L 148 162 C 153 167, 162 167, 167 162 C 172 157, 172 148, 167 143 L 115 91 Z" fill="url(#c4Grad)" />
+</svg>

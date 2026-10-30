@@ -3,574 +3,93 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="theme-color" content="#14100c">
-  <meta name="description" content="Complete video editing services by KRISHNA X EDITZ: Instagram Reels, YouTube Long-Form, Cinematic, and Commercials.">
-  <title>Services — KRISHNA X EDITZ</title>
+  <meta name="theme-color" content="#16130e">
+  <meta name="description" content="KRISHNA X EDITZ — Professional Video Editing Services. High-retention Instagram reels, YouTube documentaries, cinematic commercials, and DaVinci color grading.">
+  <title>Services &amp; Capabilities — KRISHNA X EDITZ</title>
   
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Italiana&family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;0,600;0,700;1,400;1,600&family=Cinzel+Decorative:wght@700;900&family=Cinzel:wght@600;700;800;900&family=Playfair+Display:ital,wght@0,500;0,600;0,700;1,400;1,500;1,600;1,700&family=Plus+Jakarta+Sans:ital,wght@0,300;0,400;0,500;0,600;0,700;0,800;1,400;1,600;1,700&display=swap" rel="stylesheet">
-  
+  <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@600;700;800;900&family=Playfair+Display:ital,wght@0,500;0,600;0,700;1,400;1,600&family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="../assets/studio-interactive.css">
+
   <style>
     :root {
       --ink: #14100c;
-      --ink-deep: #0a0806;
-      --ink-soft: #201a14;
-      --ink-card: #1b1611;
-      
       --gold: #d4af37;
       --gold-bright: #fff2c6;
-      --gold-foil: #f3d484;
       --gold-neon: #f59e0b;
-      
       --emerald: #10b981;
-      --emerald-neon: #34d399;
-      --emerald-glow: rgba(16, 185, 129, 0.45);
-      
-      --crimson: #e11d48;
-      --crimson-neon: #fb7185;
-      --crimson-glow: rgba(225, 29, 72, 0.45);
-      
-      --violet: #8b5cf6;
-      --violet-neon: #a78bfa;
-      --violet-glow: rgba(139, 92, 246, 0.45);
-      
-      --cyan: #06b6d4;
-      --cyan-neon: #38bdf8;
-      --cyan-glow: rgba(6, 182, 212, 0.45);
-      
-      --amber: #f97316;
-      --amber-neon: #fb923c;
-      --amber-glow: rgba(249, 115, 22, 0.45);
-
       --text: #fdfaf3;
       --muted: #cfc3ac;
-      --muted-dark: #9e917d;
       --serif: "Playfair Display", Georgia, serif;
-      --display: "Cinzel Decorative", "Cinzel", serif;
-      --sans: "Plus Jakarta Sans", -apple-system, sans-serif;
-      --ease: cubic-bezier(0.16, 1, 0.3, 1);
-      --ease-bounce: cubic-bezier(0.34, 1.56, 0.64, 1);
+      --display: "Cinzel", serif;
+      --sans: "Plus Jakarta Sans", sans-serif;
     }
-
-    *, *::before, *::after {
-      box-sizing: border-box;
-      margin: 0;
-      padding: 0;
-    }
-
-    html {
-      width: 100%;
-      background: var(--ink);
-      scroll-behavior: smooth;
-    }
-
+    * { box-sizing: border-box; margin: 0; padding: 0; }
     body {
-      width: 100%;
-      min-height: 100vh;
-      background: var(--ink);
+      background: #14100c;
       color: var(--text);
       font-family: var(--sans);
-      -webkit-font-smoothing: antialiased;
       overflow-x: hidden;
-      overflow-y: auto;
+      line-height: 1.6;
     }
-
-    /* GLOBAL HEADER / TOPBAR */
-    .topbar {
-      position: fixed;
-      z-index: 100;
-      top: 0;
-      left: 0;
-      right: 0;
-      display: flex;
-      align-items: center;
-      justify-content: space-between;
-      padding: 16px 4vw;
-      transition: background 300ms ease, padding 200ms ease, border-color 300ms ease;
-      background: rgba(18, 14, 10, 0.85);
-      backdrop-filter: blur(14px);
-      border-bottom: 1px solid rgba(212, 175, 55, 0.18);
-    }
-
-    .topbar.scrolled {
-      background: rgba(14, 10, 7, 0.96);
-      padding: 12px 4vw;
-      border-bottom: 1px solid rgba(212, 175, 55, 0.28);
-      box-shadow: 0 10px 30px rgba(0, 0, 0, 0.7);
-    }
-
-    .brand-wrap {
-      display: flex;
-      align-items: center;
-      gap: 12px;
-    }
-
-    .brand-logo-img {
-      width: 36px;
-      height: 36px;
-      object-fit: contain;
-      filter: drop-shadow(0 0 10px rgba(245, 158, 11, 0.4));
-    }
-
-    .brand {
-      font-family: var(--display);
-      font-size: clamp(17px, 2.2vw, 22px);
-      font-weight: 800;
-      color: var(--text);
-      text-decoration: none;
-      letter-spacing: 0.1em;
-      display: inline-flex;
-      align-items: center;
-      gap: 6px;
-    }
-
-    .brand span {
-      color: var(--gold-neon);
-      font-style: italic;
-      font-family: var(--serif);
-    }
-
-    /* DESKTOP NAVIGATION */
-    .main-nav {
-      display: flex;
-      align-items: center;
-      gap: clamp(14px, 1.8vw, 26px);
-    }
-
-    .nav-link {
-      color: rgba(244, 217, 160, 0.75);
-      text-decoration: none;
-      font-size: 13px;
-      font-weight: 700;
-      letter-spacing: 0.08em;
-      text-transform: uppercase;
-      font-family: var(--sans);
-      transition: color 200ms ease;
-      position: relative;
-      padding: 4px 0;
-    }
-
-    .nav-link:hover, .nav-link.active {
-      color: #FFFFFF;
-    }
-
-    .nav-link.active::after {
-      content: "";
-      position: absolute;
-      bottom: -2px;
-      left: 0;
-      right: 0;
-      height: 2px;
-      background: var(--gold-neon);
-      border-radius: 999px;
-      box-shadow: 0 0 8px var(--gold-neon);
-    }
-
-    .nav-actions {
-      display: flex;
-      align-items: center;
-      gap: 12px;
-    }
-
-    .wa-top-btn {
-      display: inline-flex;
-      align-items: center;
-      justify-content: center;
-      width: 38px;
-      height: 38px;
-      border-radius: 50%;
-      background: rgba(37, 211, 102, 0.15);
-      border: 1px solid rgba(37, 211, 102, 0.4);
-      color: #25D366;
-      text-decoration: none;
-      transition: transform 200ms ease, background 200ms ease;
-    }
-
-    .wa-top-btn:hover {
-      transform: scale(1.08);
-      background: rgba(37, 211, 102, 0.28);
-    }
-
-    .btn-book-top {
-      display: inline-flex;
-      align-items: center;
-      gap: 8px;
-      padding: 10px 22px;
-      border-radius: 999px;
-      background: linear-gradient(135deg, var(--gold-neon) 0%, #d97706 100%);
-      color: #0b0805;
-      font-weight: 800;
-      font-size: 13px;
-      letter-spacing: 0.06em;
-      text-transform: uppercase;
-      text-decoration: none;
-      box-shadow: 0 4px 18px rgba(245, 158, 11, 0.4);
-      transition: all 250ms var(--ease);
-    }
-
-    .btn-book-top:hover {
-      background: linear-gradient(135deg, #FFF2C6 0%, var(--gold-foil) 100%);
-      transform: translateY(-2px);
-      box-shadow: 0 8px 24px rgba(245, 158, 11, 0.6);
-    }
-
-    .hamburger-btn {
-      display: none;
-      background: none;
-      border: none;
-      color: var(--gold-foil);
-      font-size: 24px;
-      cursor: pointer;
-      padding: 6px;
-    }
-
-    /* MOBILE DRAWER */
-    .mobile-drawer {
-      display: none;
-      position: fixed;
-      inset: 0;
-      background: rgba(14, 10, 7, 0.98);
-      z-index: 200;
-      flex-direction: column;
-      padding: 30px 24px;
-      overflow-y: auto;
-    }
-
-    .mobile-drawer.open {
-      display: flex;
-    }
-
-    .drawer-header {
-      display: flex;
-      align-items: center;
-      justify-content: space-between;
-      padding-bottom: 20px;
-      border-bottom: 1px solid rgba(212, 175, 55, 0.2);
-    }
-
-    .drawer-close-btn {
-      background: none;
-      border: none;
-      color: var(--gold-bright);
-      font-size: 28px;
-      cursor: pointer;
-    }
-
-    .drawer-nav {
-      display: flex;
-      flex-direction: column;
-      gap: 18px;
-      margin-top: 24px;
-    }
-
-    .drawer-link {
-      color: var(--text);
-      text-decoration: none;
-      font-family: var(--display);
-      font-size: 20px;
-      font-weight: 700;
-      padding: 8px 0;
-      border-bottom: 1px solid rgba(255, 255, 255, 0.06);
-      transition: color 200ms;
-    }
-
-    .drawer-link.active, .drawer-link:hover {
-      color: var(--gold-neon);
-    }
-
-    .drawer-cta {
-      margin-top: auto;
-      padding-top: 24px;
-      display: flex;
-      flex-direction: column;
-      gap: 12px;
-    }
-
-    /* CONTENT WRAPPER & GLOW ORBS */
-    .content-wrapper {
-      position: relative;
-      z-index: 20;
-      width: 100%;
-      background:
-        radial-gradient(circle at 10% 15%, rgba(16,185,129,0.12), transparent 45%),
-        radial-gradient(circle at 90% 40%, rgba(225,29,72,0.12), transparent 45%),
-        radial-gradient(circle at 20% 75%, rgba(139,92,246,0.12), transparent 45%),
-        radial-gradient(circle at 80% 90%, rgba(6,182,212,0.12), transparent 45%),
-        linear-gradient(180deg, #1d150e 0%, #241a12 8%, #1c140e 100%);
-      padding-top: 90px;
-      min-height: 100vh;
-    }
-
-    .ambient-orb {
-      position: absolute;
-      border-radius: 50%;
-      filter: blur(55px);
-      pointer-events: none;
-      opacity: 0.22;
-      will-change: transform;
-      animation: orbFloat 14s ease-in-out infinite alternate;
-    }
-    .orb-1 { top: 10%; left: -5%; width: 450px; height: 450px; background: rgba(16, 185, 129, 0.4); animation-delay: 0s; }
-    .orb-2 { top: 40%; right: -10%; width: 500px; height: 500px; background: rgba(225, 29, 72, 0.35); animation-delay: 3s; }
-    .orb-3 { top: 70%; left: 5%; width: 420px; height: 420px; background: rgba(139, 92, 246, 0.35); animation-delay: 6s; }
-    @keyframes orbFloat {
-      0% { transform: translate(0, 0) scale(1); }
-      50% { transform: translate(40px, -60px) scale(1.08); }
-      100% { transform: translate(-20px, 30px) scale(0.95); }
-    }
-
     .container {
-      max-width: 1260px;
+      max-width: 1360px;
       margin: 0 auto;
       padding: 0 4vw;
       position: relative;
       z-index: 5;
     }
-
-    .section {
-      padding: 70px 0;
-      border-bottom: 1px solid rgba(212, 175, 55, 0.12);
+    .page-hero {
+      padding: 130px 0 30px;
+      text-align: center;
       position: relative;
     }
-
-    .section-header {
-      text-align: center;
-      margin-bottom: 48px;
-    }
-
     .section-eyebrow {
       display: inline-block;
-      font-family: var(--sans);
-      font-size: 12px;
-      font-weight: 800;
-      letter-spacing: 0.22em;
-      text-transform: uppercase;
-      color: var(--gold-neon);
-      margin-bottom: 12px;
-    }
-
-    .section-title {
-      font-family: var(--serif);
-      font-size: clamp(28px, 4.2vw, 46px);
-      font-weight: 700;
-      line-height: 1.15;
-      color: var(--text);
-      margin-bottom: 14px;
-    }
-
-    .section-desc {
-      font-family: var(--sans);
-      font-size: 15px;
-      color: var(--muted);
-      line-height: 1.65;
-      max-width: 680px;
-      margin: 0 auto;
-    }
-
-    /* PAGE HERO SECTION */
-    .page-hero {
-      padding: 60px 0 40px;
-      text-align: center;
-      position: relative;
-    }
-
-    .page-hero-title {
-      font-family: var(--display);
-      font-size: clamp(34px, 5.5vw, 58px);
-      font-weight: 900;
-      line-height: 1.1;
-      margin-bottom: 16px;
-      background: linear-gradient(135deg, #FFFFFF 0%, #F4D9A0 60%, #D4AF37 100%);
-      -webkit-background-clip: text;
-      -webkit-text-fill-color: transparent;
-    }
-
-    /* SOREXA TECH PARTNER CARD */
-    .partner-spotlight-card {
-      background: linear-gradient(135deg, rgba(28, 20, 14, 0.95) 0%, rgba(18, 14, 10, 0.98) 100%);
-      border: 1.5px solid rgba(212, 175, 55, 0.35);
-      border-radius: 20px;
-      padding: 32px 36px;
-      margin-bottom: 48px;
-      box-shadow: 0 14px 40px rgba(0, 0, 0, 0.6);
-      display: flex;
-      flex-direction: column;
-      gap: 16px;
-    }
-
-    .partner-badge {
-      display: inline-block;
-      align-self: flex-start;
       font-size: 11px;
       font-weight: 800;
-      letter-spacing: 0.16em;
+      letter-spacing: 0.24em;
       text-transform: uppercase;
       color: var(--gold-neon);
-      background: rgba(245, 158, 11, 0.12);
-      border: 1px solid rgba(245, 158, 11, 0.35);
-      padding: 4px 12px;
-      border-radius: 999px;
+      margin-bottom: 14px;
     }
-
-    .partner-content-row {
-      display: flex;
-      align-items: center;
-      justify-content: space-between;
-      gap: 24px;
-      flex-wrap: wrap;
-    }
-
-    .partner-info h3 {
-      font-family: var(--serif);
-      font-size: 26px;
-      color: #FFFFFF;
-      margin-bottom: 8px;
-    }
-
-    .partner-info p {
-      color: var(--muted);
-      font-size: 14.5px;
-      line-height: 1.6;
-      max-width: 680px;
-      margin-bottom: 10px;
-    }
-
-    .partner-verified-badge {
-      display: inline-flex;
-      align-items: center;
-      gap: 6px;
-      font-size: 12px;
-      font-weight: 700;
-      color: var(--emerald-neon);
-    }
-
-    .btn-partner-visit {
-      display: inline-flex;
-      align-items: center;
-      gap: 10px;
-      padding: 13px 26px;
-      border-radius: 999px;
-      background: rgba(212, 175, 55, 0.15);
-      border: 1.5px solid var(--gold-foil);
-      color: var(--gold-bright);
-      text-decoration: none;
-      font-weight: 800;
-      font-size: 13.5px;
-      letter-spacing: 0.06em;
-      transition: all 250ms ease;
-    }
-
-    .btn-partner-visit:hover {
-      background: var(--gold-foil);
-      color: #120D08;
-      transform: translateY(-2px);
-      box-shadow: 0 10px 28px rgba(212, 175, 55, 0.4);
-    }
-
-    /* GLOBAL SITE FOOTER */
-    .site-footer {
-      background: #0d0a07;
-      border-top: 1px solid rgba(212, 175, 55, 0.18);
-      padding: 60px 4vw 30px;
-      margin-top: 60px;
-    }
-
-    .footer-inner {
-      max-width: 1260px;
-      margin: 0 auto;
-      display: grid;
-      grid-template-columns: 2fr 1fr 1fr 1fr;
-      gap: 40px;
-    }
-
-    .footer-brand {
-      display: flex;
-      flex-direction: column;
-      gap: 14px;
-    }
-
-    .footer-logo {
-      display: inline-flex;
-      align-items: center;
-      gap: 10px;
+    .page-hero-title {
       font-family: var(--display);
-      font-size: 22px;
-      font-weight: 800;
-      color: var(--text);
-      text-decoration: none;
+      font-size: clamp(32px, 5.2vw, 54px);
+      font-weight: 900;
+      color: #FFFFFF;
+      letter-spacing: 0.04em;
+      margin-bottom: 16px;
+      line-height: 1.15;
     }
-
-    .footer-logo span {
-      color: var(--gold-neon);
+    .page-hero-title span {
+      background: linear-gradient(135deg, #FFD700 0%, #FF8F00 100%);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
       font-style: italic;
     }
-
-    .footer-tagline {
+    .section-desc {
       color: var(--muted);
-      font-size: 13.5px;
-      line-height: 1.6;
-      max-width: 320px;
+      font-size: clamp(15px, 1.8vw, 17px);
+      max-width: 740px;
+      margin: 0 auto 30px;
+      line-height: 1.65;
     }
-
-    .footer-title {
-      font-family: var(--sans);
-      font-size: 12px;
-      font-weight: 800;
-      letter-spacing: 0.16em;
-      text-transform: uppercase;
-      color: var(--gold-bright);
-      margin-bottom: 16px;
-    }
-
-    .footer-links {
-      display: flex;
-      flex-direction: column;
-      gap: 10px;
-    }
-
-    .footer-links a {
-      color: rgba(244, 217, 160, 0.7);
-      text-decoration: none;
-      font-size: 13.5px;
-      transition: color 200ms;
-    }
-
-    .footer-links a:hover {
-      color: #FFFFFF;
-    }
-
-    .footer-bottom {
-      max-width: 1260px;
-      margin: 36px auto 0;
-      padding-top: 24px;
-      border-top: 1px solid rgba(255, 255, 255, 0.08);
-      display: flex;
-      align-items: center;
-      justify-content: space-between;
-      flex-wrap: wrap;
-      gap: 14px;
-      color: rgba(244, 217, 160, 0.5);
-      font-size: 12.5px;
-    }
-
-    /* MEDIA QUERIES FOR CLEAN RESPONSIVENESS */
-    @media (max-width: 960px) {
-      .main-nav { display: none; }
-      .hamburger-btn { display: block; }
-      .footer-inner { grid-template-columns: 1fr 1fr; }
-    }
-
-    @media (max-width: 600px) {
-      .footer-inner { grid-template-columns: 1fr; }
-      .partner-content-row { flex-direction: column; align-items: flex-start; }
+    .services-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+      gap: 30px;
+      margin-bottom: 80px;
     }
   </style>
-  <link rel="stylesheet" href="../assets/studio-interactive.css">
 </head>
 <body>
 
-  <!-- TOPBAR -->
+  <!-- MOUSE SPOTLIGHT (HOMEPAGE LUXURY AURA) -->
+  <div class="mouse-spotlight" id="mouseSpotlight" aria-hidden="true"></div>
+
+  <!-- SOREXA-STYLE BLENDED HEADER -->
   <header class="topbar studio-header" id="topbar">
     <div class="studio-header-inner">
       <div class="brand-wrap">
@@ -587,12 +106,12 @@
       <nav class="studio-nav" aria-label="Main Navigation">
         <a href="/" class="studio-nav-item">Home</a>
         <a href="/services" class="studio-nav-item active">Services</a>
-        <a href="/portfolio" class="studio-nav-item ">Portfolio</a>
-        <a href="/my-work" class="studio-nav-item ">My Work</a>
-        <a href="/pricing" class="studio-nav-item ">Pricing</a>
-        <a href="/about" class="studio-nav-item ">About</a>
-        <a href="/testimonials" class="studio-nav-item ">Reviews</a>
-        <a href="/contact" class="studio-nav-item ">Contact</a>
+        <a href="/portfolio" class="studio-nav-item">Portfolio</a>
+        <a href="/my-work" class="studio-nav-item">My Work</a>
+        <a href="/pricing" class="studio-nav-item">Pricing</a>
+        <a href="/about" class="studio-nav-item">About</a>
+        <a href="/testimonials" class="studio-nav-item">Reviews</a>
+        <a href="/contact" class="studio-nav-item">Contact</a>
       </nav>
 
       <!-- SOREXA-STYLE RIGHT ACTIONS -->
@@ -608,260 +127,190 @@
     </div>
   </header>
 
-  <!-- CONTENT WRAPPER -->
-  <div class="content-wrapper">
-    <div class="ambient-orb orb-1" aria-hidden="true"></div>
-    <div class="ambient-orb orb-2" aria-hidden="true"></div>
-    <div class="ambient-orb orb-3" aria-hidden="true"></div>
+  <main class="page-hero">
+    <div class="container">
+      <span class="section-eyebrow">✦ BESPOKE POST-PRODUCTION SUITE ✦</span>
+      <h1 class="page-hero-title">Video Editing Services &amp; <span>Capabilities</span></h1>
+      <p class="section-desc">
+        Click on any service card below to open its dedicated full-screen breakdown — including our 5-stage production pipeline, exact technical deliverables, and software stack.
+      </p>
 
-    <section class="page-hero">
-      <div class="container">
-        <span class="section-eyebrow">✦ BESPOKE VIDEO EDITING SUITE ✦</span>
-        <h1 class="page-hero-title">Video Editing Services &amp; Packages</h1>
-        <p class="section-desc">
-          From viral short-form retention reels to cinematic brand commercials, tech showreels, and YouTube documentaries. Every cut is sculpted with rhythm, high retention, and Hollywood color science.
-        </p>
-      </div>
-    </section>
-
-    <section class="section" style="padding-top: 10px;">
-      <div class="container">
-        <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(330px, 1fr)); gap: 28px;">
-          
-          <!-- Service 1: Emerald -->
-          <div style="background: linear-gradient(150deg, rgba(16, 185, 129, 0.14) 0%, rgba(26, 20, 14, 0.95) 45%, rgba(14, 11, 8, 0.98) 100%); border: 1.5px solid rgba(16, 185, 129, 0.35); border-radius: 20px; padding: 36px 30px; display: flex; flex-direction: column; justify-content: space-between; box-shadow: 0 14px 36px rgba(0,0,0,0.5);">
-            <div>
-              <span style="display: inline-block; padding: 4px 10px; border-radius: 999px; background: rgba(16, 185, 129, 0.15); border: 1px solid rgba(16, 185, 129, 0.4); color: var(--emerald-neon); font-size: 11px; font-weight: 800; letter-spacing: 0.1em; text-transform: uppercase; margin-bottom: 16px;">Vol. 01 • Short-Form</span>
-              <h3 style="font-family: var(--serif); font-size: 24px; color: #fff; margin-bottom: 12px;">Instagram Reels &amp; YouTube Shorts</h3>
-              <p style="color: var(--muted); font-size: 14px; line-height: 1.6; margin-bottom: 20px;">
-                Engineered for explosive watch time, hook optimization, and viral algorithms. Kinetic typography, sound layering, and rhythm-matched transitions.
-              </p>
-              <ul style="list-style: none; display: flex; flex-direction: column; gap: 10px; font-size: 13.5px; color: var(--text); margin-bottom: 24px;">
-                <li><span style="color: var(--emerald-neon); font-weight: bold;">✓</span> 9:16 Vertical Video Formats</li>
-                <li><span style="color: var(--emerald-neon); font-weight: bold;">✓</span> 3-Second Retention Hook Pacing</li>
-                <li><span style="color: var(--emerald-neon); font-weight: bold;">✓</span> Kinetic Captions &amp; Sound Foley</li>
-                <li><span style="color: var(--emerald-neon); font-weight: bold;">✓</span> 24-48 Hour Turnaround</li>
-              </ul>
-            </div>
-            <a href="/contact" style="display: inline-flex; align-items: center; justify-content: center; gap: 8px; padding: 12px; border-radius: 999px; border: 1.5px solid rgba(16, 185, 129, 0.5); color: #fff; text-decoration: none; font-weight: 800; font-size: 13px; text-transform: uppercase;"><div style="display:flex;gap:10px;margin-top:16px;">
-                <button type="button" onclick="openServiceDetail('reels')" style="flex:1;padding:12px;border-radius:999px;background:rgba(16,185,129,0.18);border:1.5px solid #10B981;color:#34D399;font-weight:800;font-size:12px;letter-spacing:0.08em;text-transform:uppercase;cursor:pointer;transition:all 200ms;">Explore Deep Breakdown ↗</button>
-                <a href="/contact" style="display:inline-flex;align-items:center;justify-content:center;padding:12px 20px;border-radius:999px;background:#10B981;color:#000;text-decoration:none;font-weight:900;font-size:12px;text-transform:uppercase;">Book &rarr;</a>
-              </div>
-          </div>
-
-          <!-- Service 2: Gold -->
-          <div style="background: linear-gradient(150deg, rgba(245, 158, 11, 0.14) 0%, rgba(26, 20, 14, 0.95) 45%, rgba(14, 11, 8, 0.98) 100%); border: 1.5px solid rgba(245, 158, 11, 0.35); border-radius: 20px; padding: 36px 30px; display: flex; flex-direction: column; justify-content: space-between; box-shadow: 0 14px 36px rgba(0,0,0,0.5);">
-            <div>
-              <span style="display: inline-block; padding: 4px 10px; border-radius: 999px; background: rgba(245, 158, 11, 0.15); border: 1px solid rgba(245, 158, 11, 0.4); color: var(--gold-neon); font-size: 11px; font-weight: 800; letter-spacing: 0.1em; text-transform: uppercase; margin-bottom: 16px;">Vol. 02 • Long-Form</span>
-              <h3 style="font-family: var(--serif); font-size: 24px; color: #fff; margin-bottom: 12px;">YouTube Master Editing</h3>
-              <p style="color: var(--muted); font-size: 14px; line-height: 1.6; margin-bottom: 20px;">
-                Comprehensive editing for talking heads, documentaries, podcasts, and luxury vloggers. Eliminates dead air with dynamic zooms, B-roll, and visual graphs.
-              </p>
-              <ul style="list-style: none; display: flex; flex-direction: column; gap: 10px; font-size: 13.5px; color: var(--text); margin-bottom: 24px;">
-                <li><span style="color: var(--gold-neon); font-weight: bold;">✓</span> 16:9 4K UHD Master Output</li>
-                <li><span style="color: var(--gold-neon); font-weight: bold;">✓</span> Narrative Structuring &amp; Chaptering</li>
-                <li><span style="color: var(--gold-neon); font-weight: bold;">✓</span> Background Music Balancing &amp; Foley</li>
-                <li><span style="color: var(--gold-neon); font-weight: bold;">✓</span> Up to 2 Free Revisions</li>
-              </ul>
-            </div>
-            <a href="/contact" style="display: inline-flex; align-items: center; justify-content: center; gap: 8px; padding: 12px; border-radius: 999px; border: 1.5px solid rgba(245, 158, 11, 0.5); color: #fff; text-decoration: none; font-weight: 800; font-size: 13px; text-transform: uppercase;"><div style="display:flex;gap:10px;margin-top:16px;">
-                <button type="button" onclick="openServiceDetail('youtube')" style="flex:1;padding:12px;border-radius:999px;background:rgba(245,158,11,0.18);border:1.5px solid #F59E0B;color:#FBBF24;font-weight:800;font-size:12px;letter-spacing:0.08em;text-transform:uppercase;cursor:pointer;transition:all 200ms;">Explore Deep Breakdown ↗</button>
-                <a href="/contact" style="display:inline-flex;align-items:center;justify-content:center;padding:12px 20px;border-radius:999px;background:#F59E0B;color:#000;text-decoration:none;font-weight:900;font-size:12px;text-transform:uppercase;">Book &rarr;</a>
-              </div>
-          </div>
-
-          <!-- Service 3: Crimson -->
-          <div style="background: linear-gradient(150deg, rgba(225, 29, 72, 0.14) 0%, rgba(26, 20, 14, 0.95) 45%, rgba(14, 11, 8, 0.98) 100%); border: 1.5px solid rgba(225, 29, 72, 0.35); border-radius: 20px; padding: 36px 30px; display: flex; flex-direction: column; justify-content: space-between; box-shadow: 0 14px 36px rgba(0,0,0,0.5);">
-            <div>
-              <span style="display: inline-block; padding: 4px 10px; border-radius: 999px; background: rgba(225, 29, 72, 0.15); border: 1px solid rgba(225, 29, 72, 0.4); color: var(--crimson-neon); font-size: 11px; font-weight: 800; letter-spacing: 0.1em; text-transform: uppercase; margin-bottom: 16px;">Vol. 03 • Cinematic</span>
-              <h3 style="font-family: var(--serif); font-size: 24px; color: #fff; margin-bottom: 12px;">Cinematic Film &amp; Narrative Visuals</h3>
-              <p style="color: var(--muted); font-size: 14px; line-height: 1.6; margin-bottom: 20px;">
-                Atmospheric tone building, slow-burn emotional pacing, speed ramping, and Hollywood LUT color science for high-end films and attitude edits.
-              </p>
-              <ul style="list-style: none; display: flex; flex-direction: column; gap: 10px; font-size: 13.5px; color: var(--text); margin-bottom: 24px;">
-                <li><span style="color: var(--crimson-neon); font-weight: bold;">✓</span> Cinematic 2.39:1 Anamorphic Looks</li>
-                <li><span style="color: var(--crimson-neon); font-weight: bold;">✓</span> DaVinci Resolve Film Emulation</li>
-                <li><span style="color: var(--crimson-neon); font-weight: bold;">✓</span> Bespoke Soundscape &amp; Bass Drops</li>
-                <li><span style="color: var(--crimson-neon); font-weight: bold;">✓</span> 4K Ultra-Crisp Master Export</li>
-              </ul>
-            </div>
-            <a href="/contact" style="display: inline-flex; align-items: center; justify-content: center; gap: 8px; padding: 12px; border-radius: 999px; border: 1.5px solid rgba(225, 29, 72, 0.5); color: #fff; text-decoration: none; font-weight: 800; font-size: 13px; text-transform: uppercase;"><div style="display:flex;gap:10px;margin-top:16px;">
-                <button type="button" onclick="openServiceDetail('cinematic')" style="flex:1;padding:12px;border-radius:999px;background:rgba(225,29,72,0.18);border:1.5px solid #E11D48;color:#FB7185;font-weight:800;font-size:12px;letter-spacing:0.08em;text-transform:uppercase;cursor:pointer;transition:all 200ms;">Explore Deep Breakdown ↗</button>
-                <a href="/contact" style="display:inline-flex;align-items:center;justify-content:center;padding:12px 20px;border-radius:999px;background:#E11D48;color:#FFF;text-decoration:none;font-weight:900;font-size:12px;text-transform:uppercase;">Book &rarr;</a>
-              </div>
-          </div>
-
-          <!-- Service 4: Cyan (Brand Commercials & Tech Showreels) -->
-          <div style="background: linear-gradient(150deg, rgba(6, 182, 212, 0.14) 0%, rgba(26, 20, 14, 0.95) 45%, rgba(14, 11, 8, 0.98) 100%); border: 1.5px solid rgba(6, 182, 212, 0.35); border-radius: 20px; padding: 36px 30px; display: flex; flex-direction: column; justify-content: space-between; box-shadow: 0 14px 36px rgba(0,0,0,0.5);">
-            <div>
-              <span style="display: inline-block; padding: 4px 10px; border-radius: 999px; background: rgba(6, 182, 212, 0.15); border: 1px solid rgba(6, 182, 212, 0.4); color: var(--cyan-neon); font-size: 11px; font-weight: 800; letter-spacing: 0.1em; text-transform: uppercase; margin-bottom: 16px;">Vol. 04 • Commercial</span>
-              <h3 style="font-family: var(--serif); font-size: 24px; color: #fff; margin-bottom: 12px;">Brand Commercials &amp; Tech Showreels</h3>
-              <p style="color: var(--muted); font-size: 14px; line-height: 1.6; margin-bottom: 20px;">
-                High-converting product videos, software demos, and corporate presentations for companies like Sorexa Tech and emerging digital brands.
-              </p>
-              <ul style="list-style: none; display: flex; flex-direction: column; gap: 10px; font-size: 13.5px; color: var(--text); margin-bottom: 24px;">
-                <li><span style="color: var(--cyan-neon); font-weight: bold;">✓</span> Multi-Ratio Exports (16:9 &amp; 9:16)</li>
-                <li><span style="color: var(--cyan-neon); font-weight: bold;">✓</span> Logo Animations &amp; Motion Lower-Thirds</li>
-                <li><span style="color: var(--cyan-neon); font-weight: bold;">✓</span> Commercial Broadcast Rights</li>
-                <li><span style="color: var(--cyan-neon); font-weight: bold;">✓</span> Direct Tech Collaboration</li>
-              </ul>
-            </div>
-            <a href="/contact" style="display: inline-flex; align-items: center; justify-content: center; gap: 8px; padding: 12px; border-radius: 999px; border: 1.5px solid rgba(6, 182, 212, 0.5); color: #fff; text-decoration: none; font-weight: 800; font-size: 13px; text-transform: uppercase;"><div style="display:flex;gap:10px;margin-top:16px;">
-                <button type="button" onclick="openServiceDetail('commercial')" style="flex:1;padding:12px;border-radius:999px;background:rgba(6,182,212,0.18);border:1.5px solid #06B6D4;color:#38BDF8;font-weight:800;font-size:12px;letter-spacing:0.08em;text-transform:uppercase;cursor:pointer;transition:all 200ms;">Explore Deep Breakdown ↗</button>
-                <a href="/contact" style="display:inline-flex;align-items:center;justify-content:center;padding:12px 20px;border-radius:999px;background:#06B6D4;color:#000;text-decoration:none;font-weight:900;font-size:12px;text-transform:uppercase;">Book &rarr;</a>
-              </div>
-          </div>
-
-          <!-- Service 5: Violet (Music Videos & Beat Sync) -->
-          <div style="background: linear-gradient(150deg, rgba(139, 92, 246, 0.14) 0%, rgba(26, 20, 14, 0.95) 45%, rgba(14, 11, 8, 0.98) 100%); border: 1.5px solid rgba(139, 92, 246, 0.35); border-radius: 20px; padding: 36px 30px; display: flex; flex-direction: column; justify-content: space-between; box-shadow: 0 14px 36px rgba(0,0,0,0.5);">
-            <div>
-              <span style="display: inline-block; padding: 4px 10px; border-radius: 999px; background: rgba(139, 92, 246, 0.15); border: 1px solid rgba(139, 92, 246, 0.4); color: var(--violet-neon); font-size: 11px; font-weight: 800; letter-spacing: 0.1em; text-transform: uppercase; margin-bottom: 16px;">Vol. 05 • Music &amp; Rhythm</span>
-              <h3 style="font-family: var(--serif); font-size: 24px; color: #fff; margin-bottom: 12px;">Music Videos &amp; Rhythmic Beat-Sync</h3>
-              <p style="color: var(--muted); font-size: 14px; line-height: 1.6; margin-bottom: 20px;">
-                Frame-accurate audio cutting, velocity ramps, bass shakes, and aesthetic color grading as seen in our work on Khamoshi, Sahiba, and Ranjhana.
-              </p>
-              <ul style="list-style: none; display: flex; flex-direction: column; gap: 10px; font-size: 13.5px; color: var(--text); margin-bottom: 24px;">
-                <li><span style="color: var(--violet-neon); font-weight: bold;">✓</span> Frame-Accurate Beat Snapping</li>
-                <li><span style="color: var(--violet-neon); font-weight: bold;">✓</span> Velocity Ramps &amp; Flash Transitions</li>
-                <li><span style="color: var(--violet-neon); font-weight: bold;">✓</span> Lyrical Typography Sync</li>
-                <li><span style="color: var(--violet-neon); font-weight: bold;">✓</span> Atmospheric Color Grading</li>
-              </ul>
-            </div>
-            <a href="/contact" style="display: inline-flex; align-items: center; justify-content: center; gap: 8px; padding: 12px; border-radius: 999px; border: 1.5px solid rgba(139, 92, 246, 0.5); color: #fff; text-decoration: none; font-weight: 800; font-size: 13px; text-transform: uppercase;"><div style="display:flex;gap:10px;margin-top:16px;">
-                <button type="button" onclick="openServiceDetail('music')" style="flex:1;padding:12px;border-radius:999px;background:rgba(139,92,246,0.18);border:1.5px solid #8B5CF6;color:#A78BFA;font-weight:800;font-size:12px;letter-spacing:0.08em;text-transform:uppercase;cursor:pointer;transition:all 200ms;">Explore Deep Breakdown ↗</button>
-                <a href="/contact" style="display:inline-flex;align-items:center;justify-content:center;padding:12px 20px;border-radius:999px;background:#8B5CF6;color:#FFF;text-decoration:none;font-weight:900;font-size:12px;text-transform:uppercase;">Book &rarr;</a>
-              </div>
-          </div>
-
-          <!-- Service 6: Amber (Color Grading & Look Dev) -->
-          <div style="background: linear-gradient(150deg, rgba(249, 115, 22, 0.14) 0%, rgba(26, 20, 14, 0.95) 45%, rgba(14, 11, 8, 0.98) 100%); border: 1.5px solid rgba(249, 115, 22, 0.35); border-radius: 20px; padding: 36px 30px; display: flex; flex-direction: column; justify-content: space-between; box-shadow: 0 14px 36px rgba(0,0,0,0.5);">
-            <div>
-              <span style="display: inline-block; padding: 4px 10px; border-radius: 999px; background: rgba(249, 115, 22, 0.15); border: 1px solid rgba(249, 115, 22, 0.4); color: var(--amber-neon); font-size: 11px; font-weight: 800; letter-spacing: 0.1em; text-transform: uppercase; margin-bottom: 16px;">Vol. 06 • Color Science</span>
-              <h3 style="font-family: var(--serif); font-size: 24px; color: #fff; margin-bottom: 12px;">Color Grading &amp; Film Look Dev</h3>
-              <p style="color: var(--muted); font-size: 14px; line-height: 1.6; margin-bottom: 20px;">
-                DaVinci Resolve color transformation from flat log footage into high-contrast cinematic glory. Custom teal-orange, moody warm amber, and film halation.
-              </p>
-              <ul style="list-style: none; display: flex; flex-direction: column; gap: 10px; font-size: 13.5px; color: var(--text); margin-bottom: 24px;">
-                <li><span style="color: var(--amber-neon); font-weight: bold;">✓</span> LOG / S-Log / D-Log Rec.709 Correction</li>
-                <li><span style="color: var(--amber-neon); font-weight: bold;">✓</span> Natural Skin-Tone Preservation</li>
-                <li><span style="color: var(--amber-neon); font-weight: bold;">✓</span> Film Grain &amp; Halation Emulation</li>
-                <li><span style="color: var(--amber-neon); font-weight: bold;">✓</span> Delivery in Master ProRes / H.264</li>
-              </ul>
-            </div>
-            <a href="/contact" style="display: inline-flex; align-items: center; justify-content: center; gap: 8px; padding: 12px; border-radius: 999px; border: 1.5px solid rgba(249, 115, 22, 0.5); color: #fff; text-decoration: none; font-weight: 800; font-size: 13px; text-transform: uppercase;">Book This Service &rarr;</a>
-          </div>
-
+      <!-- EDITORIAL STATS BAR (MATCHING HOMEPAGE LUXURY STAGE) -->
+      <div class="editorial-stats-bar">
+        <div class="editorial-stat-card">
+          <div class="editorial-stat-number" data-counter-target="50" data-counter-suffix="M+">50M+</div>
+          <div class="editorial-stat-label">Organic Watch Views</div>
         </div>
-      </div>
-    </section>
-    
-    <!-- SOREXA TECH PARTNER BANNER -->
-    <section class="section" style="padding-top: 30px; padding-bottom: 20px;">
-      <div class="container">
-        <div class="partner-spotlight-card">
-          <span class="partner-badge">✦ OFFICIAL TECHNOLOGY CLIENT &amp; VIDEO EDITING PARTNER ✦</span>
-          <div class="partner-content-row">
-            <div class="partner-info">
-              <h3>Sorexa Tech</h3>
-              <p>
-                Official Video Editing &amp; Cinematic Media Partner. We engineer high-retention product showreels, technological brand presentations, and modern visual identities for Sorexa Tech.
-              </p>
-              <span class="partner-verified-badge">✓ Verified Creative Client &amp; Tech Collaboration</span>
-            </div>
-            <div class="partner-action">
-              <a href="https://www.sorexatech.com/" target="_blank" rel="noopener noreferrer" class="btn-partner-visit">
-                <span>Visit Sorexa Tech Official Website ↗</span>
-              </a>
-            </div>
-          </div>
+        <div class="editorial-stat-card">
+          <div class="editorial-stat-number" data-counter-target="500" data-counter-suffix="+">500+</div>
+          <div class="editorial-stat-label">Delivered Projects</div>
         </div>
-      </div>
-    </section>
-
-  </div><!-- /content-wrapper -->
-
-  <!-- FOOTER -->
-  <footer class="site-footer">
-    <div class="footer-inner">
-      <div class="footer-brand">
-        <a href="/" class="footer-logo">
-          <img src="../assets/logo.svg" alt="KXE Logo" width="30" height="30">
-          KRISHNA <span>X</span> EDITZ
-        </a>
-        <p class="footer-tagline">
-          Turning raw footage into extraordinary cinematic art, viral pacing, and bespoke high-retention video narratives.
-        </p>
-      </div>
-
-      <div>
-        <h4 class="footer-title">Navigation</h4>
-        <div class="footer-links">
-          <a href="/">Home</a>
-          <a href="/services">Services</a>
-          <a href="/portfolio">Portfolio</a>
-          <a href="/my-work">My Work</a>
-          <a href="/pricing">Pricing</a>
-          <a href="/testimonials">Reviews</a>
+        <div class="editorial-stat-card">
+          <div class="editorial-stat-number" data-counter-target="99.4" data-counter-suffix="%">99.4%</div>
+          <div class="editorial-stat-label">Client Retention</div>
+        </div>
+        <div class="editorial-stat-card">
+          <div class="editorial-stat-number" data-counter-target="24" data-counter-suffix="h">24h</div>
+          <div class="editorial-stat-label">Rapid Delivery</div>
         </div>
       </div>
 
-      <div>
-        <h4 class="footer-title">Studio &amp; Info</h4>
-        <div class="footer-links">
-          <a href="/about">About Krishna</a>
-          <a href="/founder">Founder Profile</a>
-          <a href="/skills">Editing Tools</a>
-          <a href="/faq">FAQ</a>
-          <a href="/contact">Contact</a>
-          <a href="https://www.sorexatech.com/" target="_blank" rel="noopener noreferrer">Sorexa Tech ↗</a>
+      <!-- SOREXA-STYLE CLEAN SERVICE CARDS (NO UGLY DOUBLE PILLS OR CIRCLES!) -->
+      <div class="services-grid">
+
+        <!-- Vol 01: Reels -->
+        <div class="sorexa-service-card" onclick="openServiceDetail('reels')">
+          <div>
+            <div class="service-card-top-row">
+              <span class="service-vol-tag" style="color:#10B981;">Vol. 01 • Short-Form Reach</span>
+              <span style="color:#10B981;font-size:12px;font-weight:800;">⚡ 3-Sec Hook Optimization</span>
+            </div>
+            <h3 class="service-title">Instagram Reels &amp; YouTube Shorts</h3>
+            <p class="service-snippet">
+              Engineered for hyper-retention and viral algorithms. Kinetic typography, micro-speed ramps, sound foley layering, and psychology-driven pacing.
+            </p>
+            <ul class="service-feature-list">
+              <li><span style="color:#10B981;font-weight:900;">✓</span> 9:16 Vertical 4K 60FPS Master Delivery</li>
+              <li><span style="color:#10B981;font-weight:900;">✓</span> 3-Second Psychological Hook Optimization</li>
+              <li><span style="color:#10B981;font-weight:900;">✓</span> Kinetic Captions &amp; Sound Foley Layering</li>
+              <li><span style="color:#10B981;font-weight:900;">✓</span> Rapid 24-48 Hour Turnaround</li>
+            </ul>
+          </div>
+          <button type="button" class="service-action-btn" onclick="event.stopPropagation(); openServiceDetail('reels');">
+            <span>Explore Full Breakdown</span>
+            <span>↗</span>
+          </button>
         </div>
+
+        <!-- Vol 02: YouTube -->
+        <div class="sorexa-service-card" onclick="openServiceDetail('youtube')">
+          <div>
+            <div class="service-card-top-row">
+              <span class="service-vol-tag" style="color:#F59E0B;">Vol. 02 • Long-Form Cinema</span>
+              <span style="color:#F59E0B;font-size:12px;font-weight:800;">⭐ 50M+ Views Driven</span>
+            </div>
+            <h3 class="service-title">YouTube Documentaries &amp; Vlogs</h3>
+            <p class="service-snippet">
+              End-to-end post-production for high-tier creators, podcasters, and documentaries. Multi-cam sync, B-roll pacing, animated data graphs, and audio mastering.
+            </p>
+            <ul class="service-feature-list">
+              <li><span style="color:#F59E0B;font-weight:900;">✓</span> 16:9 4K UHD Master Video Output</li>
+              <li><span style="color:#F59E0B;font-weight:900;">✓</span> Dynamic Chaptering, Zoom Cuts &amp; B-Roll</li>
+              <li><span style="color:#F59E0B;font-weight:900;">✓</span> Broadcast Audio Mixing (-14 LUFS)</li>
+              <li><span style="color:#F59E0B;font-weight:900;">✓</span> 3 Clickable Shorts/Reels Cuts Included</li>
+            </ul>
+          </div>
+          <button type="button" class="service-action-btn" onclick="event.stopPropagation(); openServiceDetail('youtube');">
+            <span>Explore Full Breakdown</span>
+            <span>↗</span>
+          </button>
+        </div>
+
+        <!-- Vol 03: Cinematic -->
+        <div class="sorexa-service-card" onclick="openServiceDetail('cinematic')">
+          <div>
+            <div class="service-card-top-row">
+              <span class="service-vol-tag" style="color:#E11D48;">Vol. 03 • Narrative Visuals</span>
+              <span style="color:#E11D48;font-size:12px;font-weight:800;">🏆 Festival Color Science</span>
+            </div>
+            <h3 class="service-title">Cinematic Films &amp; Showreels</h3>
+            <p class="service-snippet">
+              Atmospheric mood, slow-burn emotional pacing, speed ramping, and Hollywood DaVinci Resolve color grading for narrative fiction and attitude edits.
+            </p>
+            <ul class="service-feature-list">
+              <li><span style="color:#E11D48;font-weight:900;">✓</span> Cinematic 2.39:1 Anamorphic Framing</li>
+              <li><span style="color:#E11D48;font-weight:900;">✓</span> Kodak 2383 / Fuji Film Print Emulation</li>
+              <li><span style="color:#E11D48;font-weight:900;">✓</span> Custom Orchestral Soundscape &amp; Bass Drops</li>
+              <li><span style="color:#E11D48;font-weight:900;">✓</span> ProRes 4444 Master Export with Look-LUT</li>
+            </ul>
+          </div>
+          <button type="button" class="service-action-btn" onclick="event.stopPropagation(); openServiceDetail('cinematic');">
+            <span>Explore Full Breakdown</span>
+            <span>↗</span>
+          </button>
+        </div>
+
+        <!-- Vol 04: Commercial -->
+        <div class="sorexa-service-card" onclick="openServiceDetail('commercial')">
+          <div>
+            <div class="service-card-top-row">
+              <span class="service-vol-tag" style="color:#06B6D4;">Vol. 04 • Enterprise Media</span>
+              <span style="color:#06B6D4;font-size:12px;font-weight:800;">⚡ Partnered with Sorexa Tech</span>
+            </div>
+            <h3 class="service-title">Brand Commercials &amp; SaaS Demos</h3>
+            <p class="service-snippet">
+              High-converting software presentations, corporate showreels, and luxury brand launches designed for tech companies and modern digital brands.
+            </p>
+            <ul class="service-feature-list">
+              <li><span style="color:#06B6D4;font-weight:900;">✓</span> Omni-Channel Ratio Exports (16:9 &amp; 9:16)</li>
+              <li><span style="color:#06B6D4;font-weight:900;">✓</span> 3D Device Screen Mockups &amp; UI Animations</li>
+              <li><span style="color:#06B6D4;font-weight:900;">✓</span> Full Commercial Broadcasting Rights</li>
+              <li><span style="color:#06B6D4;font-weight:900;">✓</span> Direct Developer / Founder Collaboration</li>
+            </ul>
+          </div>
+          <button type="button" class="service-action-btn" onclick="event.stopPropagation(); openServiceDetail('commercial');">
+            <span>Explore Full Breakdown</span>
+            <span>↗</span>
+          </button>
+        </div>
+
+        <!-- Vol 05: Music -->
+        <div class="sorexa-service-card" onclick="openServiceDetail('music')">
+          <div>
+            <div class="service-card-top-row">
+              <span class="service-vol-tag" style="color:#8B5CF6;">Vol. 05 • Sonic &amp; Visual</span>
+              <span style="color:#8B5CF6;font-size:12px;font-weight:800;">🎵 Frame-Accurate Snapping</span>
+            </div>
+            <h3 class="service-title">Music Videos &amp; Rhythmic Beat-Sync</h3>
+            <p class="service-snippet">
+              Audio-transient mapping down to every drum kick and hi-hat. Velocity ramps, RGB flash transitions, and hypnotic visual flow for artists and AMVs.
+            </p>
+            <ul class="service-feature-list">
+              <li><span style="color:#8B5CF6;font-weight:900;">✓</span> Frame-Accurate Beat Snapping</li>
+              <li><span style="color:#8B5CF6;font-weight:900;">✓</span> Velocity Curve Ramping &amp; Optical Flashes</li>
+              <li><span style="color:#8B5CF6;font-weight:900;">✓</span> Lyric Typography Sync &amp; Motion Album Art</li>
+              <li><span style="color:#8B5CF6;font-weight:900;">✓</span> 4K Ultra-Crisp Master Export</li>
+            </ul>
+          </div>
+          <button type="button" class="service-action-btn" onclick="event.stopPropagation(); openServiceDetail('music');">
+            <span>Explore Full Breakdown</span>
+            <span>↗</span>
+          </button>
+        </div>
+
+        <!-- Vol 06: Color -->
+        <div class="sorexa-service-card" onclick="openServiceDetail('color')">
+          <div>
+            <div class="service-card-top-row">
+              <span class="service-vol-tag" style="color:#F97316;">Vol. 06 • Color Science</span>
+              <span style="color:#F97316;font-size:12px;font-weight:800;">🎨 Calibrated Grading</span>
+            </div>
+            <h3 class="service-title">Color Grading &amp; Film Look Dev</h3>
+            <p class="service-snippet">
+              Transforming flat, lifeless S-Log camera footage into high-contrast cinematic glory using DaVinci Resolve Studio. Split toning, skin isolation, and halation.
+            </p>
+            <ul class="service-feature-list">
+              <li><span style="color:#F97316;font-weight:900;">✓</span> Rec.709 Color Space Transform (CST)</li>
+              <li><span style="color:#F97316;font-weight:900;">✓</span> Melanin Skin Tone Qualifier Protection</li>
+              <li><span style="color:#F97316;font-weight:900;">✓</span> Organic Film Halation &amp; 35mm Grain</li>
+              <li><span style="color:#F97316;font-weight:900;">✓</span> Custom .CUBE 3D LUT Delivery</li>
+            </ul>
+          </div>
+          <button type="button" class="service-action-btn" onclick="event.stopPropagation(); openServiceDetail('color');">
+            <span>Explore Full Breakdown</span>
+            <span>↗</span>
+          </button>
+        </div>
+
       </div>
 
-      <div>
-        <h4 class="footer-title">Connect Direct</h4>
-        <div class="footer-links">
-          <a href="https://wa.me/918449495147" target="_blank" rel="noopener noreferrer">💬 WhatsApp (+91 8449495147)</a>
-          <a href="https://instagram.com/krishna__x__editz_" target="_blank" rel="noopener noreferrer">📸 Instagram (@krishna__x__editz_)</a>
-          <a href="/contact">📩 Inquire Project</a>
-        </div>
-      </div>
     </div>
+  </main>
 
-    <div class="footer-bottom">
-      <div>© <span id="footerYear"></span> KRISHNA X EDITZ. All rights reserved.</div>
-      <div>Designed with Cinematic Craft for Creators &amp; Brands.</div>
-    </div>
+  <footer style="margin-top: 100px; padding: 50px 4vw; border-top: 1px solid rgba(255,255,255,0.08); text-align: center; color: var(--muted); font-size: 13px;">
+    <p>© 2026 KRISHNA X EDITZ — Master Video Editing &amp; Creative Studio. In Official Collaboration with Sorexa Technologies.</p>
   </footer>
 
-  <script>
-    // Set dynamic year
-    document.getElementById('footerYear').textContent = new Date().getFullYear();
-
-    // Topbar scroll effect
-    const topbar = document.getElementById('topbar');
-    window.addEventListener('scroll', () => {
-      if (window.scrollY > 40) topbar.classList.add('scrolled');
-      else topbar.classList.remove('scrolled');
-    }, { passive: true });
-
-    // Mobile drawer toggle
-    const hamburgerBtn = document.getElementById('hamburgerBtn');
-    const mobileDrawer = document.getElementById('mobileDrawer');
-    const drawerCloseBtn = document.getElementById('drawerCloseBtn');
-    if (hamburgerBtn && mobileDrawer) {
-      hamburgerBtn.addEventListener('click', () => mobileDrawer.classList.add('open'));
-      drawerCloseBtn.addEventListener('click', () => mobileDrawer.classList.remove('open'));
-    }
-
-    // Set active link
-    const path = window.location.pathname;
-    document.querySelectorAll('.nav-link, .drawer-link').forEach(link => {
-      const href = link.getAttribute('href');
-      if (href === path || (href !== '/' && path.startsWith(href))) {
-        link.classList.add('active');
-      }
-    });
-  </script>
   <script src="../assets/studio-interactive.js"></script>
 </body>
 </html>
