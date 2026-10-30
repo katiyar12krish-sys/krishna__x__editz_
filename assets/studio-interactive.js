@@ -464,10 +464,86 @@
 
   // 5. INITIALIZE ON DOM CONTENT LOADED
   document.addEventListener('DOMContentLoaded', () => {
+    initUniversalMobileNav();
     initMouseSpotlight();
     initMetricCounters();
 
-    // Sticky Header Scroll Controller
+  
+  // 6. UNIVERSAL MOBILE DRAWER & NAV CLICK ENFORCEMENT
+  function initUniversalMobileNav() {
+    // Build or attach the drawer
+    let drawer = document.getElementById('universalMobileDrawer');
+    if (!drawer) {
+      drawer = document.createElement('div');
+      drawer.id = 'universalMobileDrawer';
+      drawer.className = 'universal-mobile-drawer';
+      drawer.innerHTML = `
+        <div class="drawer-top">
+          <a href="/" class="drawer-brand">KRISHNA <span>X</span> EDITZ</a>
+          <button type="button" class="drawer-close-btn" id="drawerCloseBtn" aria-label="Close menu">&times;</button>
+        </div>
+        <nav class="drawer-links-list">
+          <a href="/" class="drawer-link"><span>Home</span><span class="drawer-link-arrow">&rarr;</span></a>
+          <a href="/services" class="drawer-link"><span>Services &amp; Stages</span><span class="drawer-link-arrow">&rarr;</span></a>
+          <a href="/portfolio" class="drawer-link"><span>Portfolio (Real Works)</span><span class="drawer-link-arrow">&rarr;</span></a>
+          <a href="/my-work" class="drawer-link"><span>My Work Theater</span><span class="drawer-link-arrow">&rarr;</span></a>
+          <a href="/pricing" class="drawer-link"><span>Pricing Packages</span><span class="drawer-link-arrow">&rarr;</span></a>
+          <a href="/about" class="drawer-link"><span>About Krishna</span><span class="drawer-link-arrow">&rarr;</span></a>
+          <a href="/founder" class="drawer-link"><span>Founder Profile</span><span class="drawer-link-arrow">&rarr;</span></a>
+          <a href="/testimonials" class="drawer-link"><span>Client Reviews</span><span class="drawer-link-arrow">&rarr;</span></a>
+          <a href="/contact" class="drawer-link"><span>Contact Studio</span><span class="drawer-link-arrow">&rarr;</span></a>
+        </nav>
+        <div class="drawer-footer-actions">
+          <a href="/contact" class="drawer-cta-primary">Book Video Project &rarr;</a>
+          <a href="https://www.sorexatech.com/" target="_blank" rel="noopener noreferrer" class="drawer-sorexa-link">Sorexa Tech Official Partner &nearr;</a>
+        </div>
+      `;
+      document.body.appendChild(drawer);
+    }
+
+    const closeBtn = document.getElementById('drawerCloseBtn');
+    if (closeBtn) {
+      closeBtn.addEventListener('click', () => {
+        drawer.classList.remove('active');
+        document.body.style.overflow = '';
+      });
+    }
+
+    // Attach to any hamburger button on page
+    const menuButtons = document.querySelectorAll('#menuButton, .studio-hamburger');
+    menuButtons.forEach(btn => {
+      btn.addEventListener('click', (e) => {
+        e.preventDefault();
+        e.stopPropagation();
+        const isOpen = drawer.classList.contains('active');
+        if (isOpen) {
+          drawer.classList.remove('active');
+          document.body.style.overflow = '';
+        } else {
+          drawer.classList.add('active');
+          document.body.style.overflow = 'hidden';
+        }
+      });
+    });
+
+    // Close on link click
+    drawer.querySelectorAll('a').forEach(link => {
+      link.addEventListener('click', () => {
+        drawer.classList.remove('active');
+        document.body.style.overflow = '';
+      });
+    });
+
+    // Close on Escape key
+    window.addEventListener('keydown', (e) => {
+      if (e.key === 'Escape' && drawer.classList.contains('active')) {
+        drawer.classList.remove('active');
+        document.body.style.overflow = '';
+      }
+    });
+  }
+
+  // Sticky Header Scroll Controller
     const header = document.querySelector('.studio-header') || document.getElementById('topbar');
     if (header) {
       window.addEventListener('scroll', () => {

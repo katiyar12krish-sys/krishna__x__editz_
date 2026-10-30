@@ -593,9 +593,31 @@
       justify-content: space-between;
       width: 100%;
       padding: 20px 4vw;
-      pointer-events: none;
+      pointer-events: auto !important;
       transition: background 300ms ease, border-color 300ms ease, backdrop-filter 300ms ease, padding 300ms ease, box-shadow 300ms ease;
     }
+    /* CRITICAL HEADER CLICKABILITY & INTERACTIVITY ENFORCEMENT */
+    .topbar,
+    .studio-header,
+    .studio-header-inner,
+    .studio-nav,
+    .studio-nav-item,
+    .studio-actions-wrap,
+    .studio-header-cta,
+    .studio-hamburger,
+    .brand-wrap,
+    .top-back-btn {
+      pointer-events: auto !important;
+      cursor: pointer !important;
+    }
+    .topbar {
+      z-index: 99999 !important;
+    }
+    .studio-nav-item {
+      display: inline-block !important;
+      cursor: pointer !important;
+    }
+
 
     .topbar.scrolled {
       background: rgba(18, 14, 10, 0.9);
@@ -6700,7 +6722,7 @@
           </p>
         </div>
 
-        <button type="button" class="inner-btn-explore" onclick="selectBook('services')" aria-label="Explore Services">
+        <button type="button" class="inner-btn-explore" onclick="window.location.href='/services'" aria-label="Explore Services">
           <span>EXPLORE ARCHIVE</span>
           <svg viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2.5">
             <path d="M5 12h14M12 5l7 7-7 7"/>
@@ -6708,39 +6730,7 @@
         </button>
       </div>
 
-      <!-- RIGHT COLUMN: 4 STUDIO ACTION OPTIONS (Moved from bottom dock) -->
-      <div class="hero-right-actions" role="navigation" aria-label="Main Studio Navigation">
-        
-        <button type="button" class="hero-action-pill" onclick="selectBook('services')">
-          <span class="action-pill-icon">✦</span>
-          <span class="action-pill-text">Our Services</span>
-          <span class="action-pill-arrow">→</span>
-        </button>
-
-        <button type="button" class="hero-action-pill" onclick="selectBook('works')">
-          <span class="action-pill-icon">🎬</span>
-          <span class="action-pill-text">Master Works</span>
-          <span class="action-pill-arrow">→</span>
-        </button>
-
-        <button type="button" class="hero-action-pill" onclick="selectBook('contact')">
-          <span class="action-pill-icon">📩</span>
-          <span class="action-pill-text">Contact Us</span>
-          <span class="action-pill-arrow">→</span>
-        </button>
-
-        <button type="button" class="hero-action-pill hero-action-highlight" onclick="openBookingModal('Viral Reels & Shorts')">
-          <span class="action-pill-icon">🔥</span>
-          <span class="action-pill-text">Book Video Project</span>
-          <span class="action-pill-arrow">→</span>
-        </button>
-
       </div>
-
-    </div>
-
-
-
   </main>
 
   <!-- ========================================================

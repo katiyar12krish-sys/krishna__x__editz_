@@ -494,6 +494,36 @@ app.post('/api/reviews', async (req, res) => {
 });
 
 // Static Files and Views with HLS & Video Streaming Headers
+
+// ==========================================
+// 8. LOGO SWITCHER API (Instantly Apply Chosen Concept)
+// ==========================================
+app.post('/api/set-logo', (req, res) => {
+  try {
+    const { concept } = req.body;
+    const validConcepts = [
+      'logo_concept_1_mayur_iris.svg',
+      'logo_concept_2_golden_neon_kx.svg',
+      'logo_concept_3_directors_frame.svg',
+      'logo_concept_4_infinity_cut.svg'
+    ];
+    if (!validConcepts.includes(concept)) {
+      return res.status(400).json({ success: false, message: 'Invalid logo concept' });
+    }
+    const sourcePath = path.join(__dirname, 'assets', concept);
+    const targetPath = path.join(__dirname, 'assets', 'logo.svg');
+    if (!fs.existsSync(sourcePath)) {
+      return res.status(404).json({ success: false, message: 'Source logo file not found' });
+    }
+    fs.copyFileSync(sourcePath, targetPath);
+    console.log(`[LOGO UPDATED] Successfully applied ${concept} as official website logo!`);
+    res.status(200).json({ success: true, message: `Applied ${concept} as official logo!`, concept });
+  } catch (err) {
+    console.error('Error applying logo:', err);
+    res.status(500).json({ success: false, message: 'Error applying logo' });
+  }
+});
+
 app.use(express.static(__dirname, {
   setHeaders: (res, filePath) => {
     if (filePath.endsWith('.m3u8')) {

@@ -3,202 +3,546 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>Logo Concepts Showcase — KRISHNA X EDITZ</title>
+  <title>Elite Studio Brand Identity Suite • KRISHNA X EDITZ</title>
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@700;900&family=Playfair+Display:wght@700&family=Plus+Jakarta+Sans:wght@500;700;800&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@700;800;900&family=Playfair+Display:ital,wght@0,600;0,700;1,500&family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet">
   <style>
+    :root {
+      --bg: #0C0906;
+      --card-bg: rgba(22, 17, 12, 0.88);
+      --gold-primary: #F59E0B;
+      --gold-light: #FDE68A;
+      --gold-deep: #B45309;
+      --cyan-neon: #38BDF8;
+      --emerald-neon: #10B981;
+      --text: #FDFDFD;
+      --text-muted: #CFC3AC;
+      --border: rgba(245, 158, 11, 0.24);
+    }
+
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+
     body {
-      background: #0E0A07;
-      color: #FDFDFD;
+      background: var(--bg);
+      color: var(--text);
       font-family: 'Plus Jakarta Sans', sans-serif;
-      padding: 60px 4vw;
-      margin: 0;
+      padding: 40px 4vw 80px;
+      line-height: 1.6;
+      min-height: 100vh;
+    }
+
+    /* Studio Header Bar */
+    .top-header {
+      max-width: 1300px;
+      margin: 0 auto 50px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding-bottom: 24px;
+      border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+    }
+
+    .back-btn {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      padding: 10px 22px;
+      border-radius: 999px;
+      background: rgba(30, 22, 15, 0.9);
+      border: 1.5px solid var(--border);
+      color: var(--gold-light);
+      text-decoration: none;
+      font-size: 13px;
+      font-weight: 700;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      transition: all 240ms ease;
+    }
+
+    .back-btn:hover {
+      background: rgba(245, 158, 11, 0.2);
+      border-color: var(--gold-primary);
+      color: #FFF;
+      transform: translateX(-3px);
+    }
+
+    .header-badge {
+      font-size: 11px;
+      font-weight: 800;
+      letter-spacing: 0.18em;
+      color: var(--gold-primary);
+      text-transform: uppercase;
+      background: rgba(245, 158, 11, 0.12);
+      padding: 6px 16px;
+      border-radius: 999px;
+      border: 1px solid rgba(245, 158, 11, 0.3);
+    }
+
+    .hero-title-wrap {
+      max-width: 900px;
+      margin: 0 auto 60px;
       text-align: center;
     }
-    .header-title {
+
+    .hero-title {
       font-family: 'Cinzel', serif;
-      font-size: clamp(28px, 4.5vw, 44px);
+      font-size: clamp(32px, 4.5vw, 52px);
       font-weight: 900;
-      color: #FFF;
-      letter-spacing: 0.08em;
-      margin-bottom: 12px;
+      letter-spacing: 0.06em;
+      line-height: 1.15;
+      margin-bottom: 16px;
     }
-    .header-title span {
-      background: linear-gradient(135deg, #FFD700, #FF8F00);
+
+    .hero-title span {
+      background: linear-gradient(135deg, #FFF5CC 0%, #F59E0B 50%, #B45309 100%);
       -webkit-background-clip: text;
       -webkit-text-fill-color: transparent;
     }
-    .header-desc {
-      color: #CFC3AC;
-      font-size: 16px;
-      max-width: 680px;
-      margin: 0 auto 50px;
-      line-height: 1.6;
-    }
-    .logo-grid {
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-      gap: 30px;
-      max-width: 1300px;
+
+    .hero-desc {
+      color: var(--text-muted);
+      font-size: 16.5px;
+      max-width: 720px;
       margin: 0 auto;
     }
+
+    /* Grid of 4 Concepts */
+    .concepts-grid {
+      max-width: 1300px;
+      margin: 0 auto;
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(360px, 1fr));
+      gap: 34px;
+    }
+
     .concept-card {
-      background: rgba(24, 18, 12, 0.95);
-      border: 1.5px solid rgba(212, 175, 55, 0.3);
-      border-radius: 20px;
-      padding: 36px 24px;
+      background: var(--card-bg);
+      border: 1.5px solid var(--border);
+      border-radius: 24px;
+      padding: 34px 28px;
       display: flex;
       flex-direction: column;
-      align-items: center;
-      transition: all 300ms ease;
-      box-shadow: 0 10px 30px rgba(0,0,0,0.6);
+      position: relative;
+      overflow: hidden;
+      backdrop-filter: blur(20px);
+      transition: all 320ms cubic-bezier(0.16, 1, 0.3, 1);
     }
+
     .concept-card:hover {
-      transform: translateY(-8px);
-      border-color: #F59E0B;
-      box-shadow: 0 20px 50px rgba(0,0,0,0.8), 0 0 25px rgba(245,158,11,0.25);
+      border-color: var(--gold-primary);
+      transform: translateY(-6px);
+      box-shadow: 0 20px 48px rgba(0, 0, 0, 0.7), 0 0 30px rgba(245, 158, 11, 0.2);
     }
-    .logo-box {
-      width: 140px;
-      height: 140px;
+
+    .card-top {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
       margin-bottom: 24px;
+    }
+
+    .concept-tag {
+      font-size: 11px;
+      font-weight: 800;
+      letter-spacing: 0.16em;
+      text-transform: uppercase;
+      color: var(--gold-primary);
+    }
+
+    .concept-number {
+      font-family: 'Cinzel', serif;
+      font-size: 20px;
+      font-weight: 800;
+      color: rgba(255, 255, 255, 0.25);
+    }
+
+    /* Logo Showcase Box */
+    .logo-stage-box {
+      width: 100%;
+      height: 250px;
+      background: radial-gradient(circle at center, rgba(34, 25, 17, 0.9) 0%, rgba(12, 9, 6, 0.98) 80%);
+      border: 1px solid rgba(255, 255, 255, 0.08);
+      border-radius: 18px;
       display: flex;
       align-items: center;
       justify-content: center;
+      padding: 24px;
+      margin-bottom: 24px;
+      position: relative;
+      box-shadow: inset 0 2px 14px rgba(0,0,0,0.6);
     }
-    .concept-num {
-      font-family: monospace;
+
+    .logo-stage-box img {
+      max-width: 160px;
+      max-height: 160px;
+      filter: drop-shadow(0 8px 24px rgba(0, 0, 0, 0.8));
+      transition: transform 300ms ease;
+    }
+
+    .concept-card:hover .logo-stage-box img {
+      transform: scale(1.06);
+    }
+
+    .concept-name {
+      font-family: 'Playfair Display', serif;
+      font-size: 22px;
+      font-weight: 700;
+      color: #FFFFFF;
+      margin-bottom: 10px;
+      line-height: 1.25;
+    }
+
+    .concept-meaning {
+      font-size: 14px;
+      color: var(--text-muted);
+      margin-bottom: 20px;
+      line-height: 1.6;
+      flex-grow: 1;
+    }
+
+    .concept-specs {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 8px;
+      margin-bottom: 26px;
+      padding-top: 14px;
+      border-top: 1px solid rgba(255, 255, 255, 0.08);
+    }
+
+    .spec-pill {
       font-size: 11px;
+      font-weight: 700;
+      color: #E2D9C8;
+      background: rgba(255, 255, 255, 0.06);
+      padding: 4px 10px;
+      border-radius: 6px;
+      border: 1px solid rgba(255, 255, 255, 0.08);
+    }
+
+    /* Action Apply Button */
+    .btn-apply-logo {
+      width: 100%;
+      padding: 14px 20px;
+      background: linear-gradient(135deg, #F59E0B 0%, #D97706 100%);
+      color: #120D08;
+      font-family: 'Plus Jakarta Sans', sans-serif;
+      font-size: 12.5px;
       font-weight: 800;
-      color: #10B981;
-      letter-spacing: 0.16em;
+      letter-spacing: 0.12em;
       text-transform: uppercase;
+      border: none;
+      border-radius: 12px;
+      cursor: pointer;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 10px;
+      box-shadow: 0 6px 20px rgba(245, 158, 11, 0.35);
+      transition: all 260ms ease;
+    }
+
+    .btn-apply-logo:hover {
+      background: linear-gradient(135deg, #FDE68A 0%, #F59E0B 100%);
+      transform: translateY(-2px);
+      box-shadow: 0 10px 28px rgba(245, 158, 11, 0.55);
+      color: #000;
+    }
+
+    /* Live Header Simulation Card */
+    .mockup-section {
+      max-width: 1300px;
+      margin: 80px auto 0;
+      background: rgba(18, 13, 9, 0.92);
+      border: 1.5px solid var(--border);
+      border-radius: 24px;
+      padding: 40px 36px;
+    }
+
+    .mockup-title {
+      font-family: 'Cinzel', serif;
+      font-size: 24px;
+      font-weight: 800;
+      color: #FFFFFF;
       margin-bottom: 8px;
     }
-    .concept-title {
-      font-family: 'Playfair Display', serif;
-      font-size: 20px;
-      font-weight: 700;
+
+    .mockup-desc {
+      color: var(--text-muted);
+      font-size: 14.5px;
+      margin-bottom: 28px;
+    }
+
+    .sim-navbar {
+      background: rgba(14, 10, 7, 0.95);
+      border: 1px solid rgba(245, 158, 11, 0.28);
+      border-radius: 999px;
+      padding: 12px 28px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      box-shadow: 0 10px 30px rgba(0, 0, 0, 0.8);
+    }
+
+    .sim-brand {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+    }
+
+    .sim-brand-logo {
+      width: 40px;
+      height: 40px;
+    }
+
+    .sim-brand-text {
+      font-family: 'Cinzel', serif;
+      font-size: 16px;
+      font-weight: 900;
+      letter-spacing: 0.12em;
       color: #FFF;
-      margin-bottom: 10px;
     }
-    .concept-desc {
-      color: #CFC3AC;
-      font-size: 13.5px;
-      line-height: 1.55;
-      margin-bottom: 20px;
+
+    .sim-brand-text span {
+      color: var(--gold-primary);
     }
-    .lockup-preview {
+
+    .sim-links {
+      display: flex;
+      align-items: center;
+      gap: 22px;
+    }
+
+    .sim-link {
+      color: rgba(255, 255, 255, 0.7);
+      font-size: 12px;
+      font-weight: 700;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+    }
+
+    .sim-btn {
+      padding: 8px 20px;
+      border-radius: 999px;
+      background: #110D09;
+      border: 1px solid rgba(245, 158, 11, 0.4);
+      color: #FFF;
+      font-size: 11px;
+      font-weight: 800;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+    }
+
+    /* Toast Notification */
+    .toast {
+      position: fixed;
+      bottom: 30px;
+      right: 30px;
+      background: linear-gradient(135deg, #10B981, #059669);
+      color: #FFFFFF;
+      padding: 16px 24px;
+      border-radius: 14px;
+      font-weight: 700;
+      font-size: 14px;
+      box-shadow: 0 10px 30px rgba(0,0,0,0.6);
+      transform: translateY(100px);
+      opacity: 0;
+      transition: all 300ms cubic-bezier(0.16, 1, 0.3, 1);
+      z-index: 999999;
       display: flex;
       align-items: center;
       gap: 10px;
-      background: rgba(0,0,0,0.6);
-      padding: 10px 18px;
-      border-radius: 999px;
-      border: 1px solid rgba(255,255,255,0.1);
-      margin-top: auto;
     }
-    .lockup-text {
-      font-family: 'Cinzel', serif;
-      font-size: 13px;
-      font-weight: 900;
-      letter-spacing: 0.1em;
-      color: #FFF;
+
+    .toast.show {
+      transform: translateY(0);
+      opacity: 1;
     }
-    .lockup-text span { color: #F59E0B; }
   </style>
 </head>
 <body>
 
-  <div class="header-title">Official Brand Logo <span>Concepts</span></div>
-  <p class="header-desc">
-    5 distinct luxury design directions for <strong>KRISHNA X EDITZ</strong>. Select your favorite concept number to activate it across the entire website.
-  </p>
+  <!-- Topbar -->
+  <header class="top-header">
+    <a href="/" class="back-btn">
+      <svg viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2.5">
+        <line x1="19" y1="12" x2="5" y2="12"></line>
+        <polyline points="12 19 5 12 12 5"></polyline>
+      </svg>
+      <span>Back To Website</span>
+    </a>
+    <span class="header-badge">BESPOKE BRAND SUITE 2026</span>
+  </header>
 
-  <div class="logo-grid">
+  <!-- Hero Header -->
+  <section class="hero-title-wrap">
+    <h1 class="hero-title">Exclusive Brand Identity Concepts for <span>KRISHNA X EDITZ</span></h1>
+    <p class="hero-desc">
+      Har concept ko Krishna ke sacred identity, cinematic video editing technology, aur world-class luxury aesthetics ko dhyan me rakhkar handcrafted kiya gaya hai. Apna pasandida logo select karke ek click me official website logo banayein.
+    </p>
+  </section>
 
-    <!-- Option 1 -->
-    <div class="concept-card">
-      <div class="concept-num">Concept 01</div>
-      <div class="logo-box">
-        <img src="assets/logo_concept_1_razor.svg" alt="Concept 1" style="width:100%;height:100%;">
+  <!-- 4 Bespoke Concepts Grid -->
+  <main class="concepts-grid">
+
+    <!-- CONCEPT 1 -->
+    <article class="concept-card">
+      <div class="card-top">
+        <span class="concept-tag">Cultural & Cinema Fusion</span>
+        <span class="concept-number">#01</span>
       </div>
-      <div class="concept-title">The Razor K-X Monogram</div>
-      <div class="concept-desc">
-        Ultra-sharp geometric lines where the vertical stem of "K" has clean chamfered edges, and its diagonal wings intersect cleanly to form a cutting "X" with center diamond precision.
+      <div class="logo-stage-box">
+        <img src="assets/logo_concept_1_mayur_iris.svg" alt="The Mayur Cine Iris" id="img-concept-1">
       </div>
-      <div class="lockup-preview">
-        <img src="assets/logo_concept_1_razor.svg" width="22" height="22">
-        <div class="lockup-text">KRISHNA <span>X</span> EDITZ</div>
+      <h2 class="concept-name">The Mayur-Eye Cine Iris</h2>
+      <p class="concept-meaning">
+        Lord Krishna ki sacred identity <strong>Mayur Pankh (Peacock Feather)</strong> ka cinematic translation: feather eye ko ultra-crisp camera aperture lens me transform kiya gaya hai, jiske center me <strong>Razor 'X'</strong> aur anamorphic cyan flare cut hai. Ekdam unique aur personal to Krishna.
+      </p>
+      <div class="concept-specs">
+        <span class="spec-pill">T1.5 Cine Lens Barrel</span>
+        <span class="spec-pill">Peacock Iridescent Cyan Core</span>
+        <span class="spec-pill">Razor Anamorphic 'X'</span>
       </div>
+      <button class="btn-apply-logo" onclick="applyLogo('logo_concept_1_mayur_iris.svg', 'The Mayur-Eye Cine Iris')">
+        <span>⚡ Set As Official Logo</span>
+      </button>
+    </article>
+
+    <!-- CONCEPT 2 -->
+    <article class="concept-card">
+      <div class="card-top">
+        <span class="concept-tag">Sorexa & Cyber-Cinematic</span>
+        <span class="concept-number">#02</span>
+      </div>
+      <div class="logo-stage-box">
+        <img src="assets/logo_concept_2_golden_neon_kx.svg" alt="Cyber-Cinematic Interlocking KX" id="img-concept-2">
+      </div>
+      <h2 class="concept-name">Cyber-Cinematic KX Emblem</h2>
+      <p class="concept-meaning">
+        Ultra-futuristic 3D beveled monogram jisme <strong>'K'</strong> aur <strong>'X'</strong> ek dusre ke sath seamlessly interlock hote hain. Dark titanium timeline spine me keyframe notches hain aur 24K mirror gold wings sharp speed cutlines banati hain. High-tempo viral reels ke liye best.
+      </p>
+      <div class="concept-specs">
+        <span class="spec-pill">3D Interlocking 'K' & 'X'</span>
+        <span class="spec-pill">Keyframe Spine Cutouts</span>
+        <span class="spec-pill">Emerald & Gold Dual Glow</span>
+      </div>
+      <button class="btn-apply-logo" onclick="applyLogo('logo_concept_2_golden_neon_kx.svg', 'Cyber-Cinematic KX Emblem')">
+        <span>⚡ Set As Official Logo</span>
+      </button>
+    </article>
+
+    <!-- CONCEPT 3 -->
+    <article class="concept-card">
+      <div class="card-top">
+        <span class="concept-tag">Hollywood Studio Style</span>
+        <span class="concept-number">#03</span>
+      </div>
+      <div class="logo-stage-box">
+        <img src="assets/logo_concept_3_directors_frame.svg" alt="Director Cine Viewfinder Frame" id="img-concept-3">
+      </div>
+      <h2 class="concept-name">Director's Anamorphic Frame</h2>
+      <p class="concept-meaning">
+        Hollywood director viewfinder frame <code>[ ✕ ]</code> with 2.39:1 widescreen optical markings, RAW recording indicators, aur massive razor-sculpted 'X'. Center se traverse karti electric cyan anamorphic lens flare beam isko true film studio feel deti hai.
+      </p>
+      <div class="concept-specs">
+        <span class="spec-pill">2.39:1 Anamorphic Brackets</span>
+        <span class="spec-pill">Architectural Chamfer 'X'</span>
+        <span class="spec-pill">Cyan Horizontal Optical Streak</span>
+      </div>
+      <button class="btn-apply-logo" onclick="applyLogo('logo_concept_3_directors_frame.svg', 'Director's Anamorphic Frame')">
+        <span>⚡ Set As Official Logo</span>
+      </button>
+    </article>
+
+    <!-- CONCEPT 4 -->
+    <article class="concept-card">
+      <div class="card-top">
+        <span class="concept-tag">Retention & Viral Flow</span>
+        <span class="concept-number">#04</span>
+      </div>
+      <div class="logo-stage-box">
+        <img src="assets/logo_concept_4_infinity_cut.svg" alt="Sovereign Infinity Ribbon Cut" id="img-concept-4">
+      </div>
+      <h2 class="concept-name">Sovereign Infinity Ribbon Cut</h2>
+      <p class="concept-meaning">
+        Endless video loop aur 100% viewer retention ko represent karne wala continuous 3D <strong>Möbius Infinity Ribbon</strong>. Front ribbons 24K mirror gold hain aur center me razor blade cutline banati hai, symbolizing flawless, invisible video transitions.
+      </p>
+      <div class="concept-specs">
+        <span class="spec-pill">Continuous Möbius Loop</span>
+        <span class="spec-pill">Seamless Infinity 'X'</span>
+        <span class="spec-pill">Focal Crest Starburst</span>
+      </div>
+      <button class="btn-apply-logo" onclick="applyLogo('logo_concept_4_infinity_cut.svg', 'Sovereign Infinity Ribbon Cut')">
+        <span>⚡ Set As Official Logo</span>
+      </button>
+    </article>
+
+  </main>
+
+  <!-- Live Simulation Header Mockup -->
+  <section class="mockup-section">
+    <h3 class="mockup-title">Live Website Header Mockup</h3>
+    <p class="mockup-desc">Yeh dekhne ke liye ki select kiya gaya logo live website topbar navbar me kaisa lagega:</p>
+    <div class="sim-navbar">
+      <div class="sim-brand">
+        <img src="assets/logo.svg" alt="Active Logo" class="sim-brand-logo" id="activeNavLogo">
+        <div class="sim-brand-text">KRISHNA <span>X</span> EDITZ</div>
+      </div>
+      <div class="sim-links">
+        <span class="sim-link">Services</span>
+        <span class="sim-link">Portfolio</span>
+        <span class="sim-link">Pricing</span>
+        <span class="sim-link">About</span>
+        <span class="sim-link">Contact</span>
+      </div>
+      <button class="sim-btn">Start Project ↗</button>
     </div>
+  </section>
 
-    <!-- Option 2 -->
-    <div class="concept-card">
-      <div class="concept-num">Concept 02</div>
-      <div class="logo-box">
-        <img src="assets/logo_concept_2_shutter.svg" alt="Concept 2" style="width:100%;height:100%;">
-      </div>
-      <div class="concept-title">The Cinematic Shutter</div>
-      <div class="concept-desc">
-        Inspired by high-end cinema camera lenses. 4 dynamic aperture shutter blades form the letter "K" and dynamic "X" inside a subtle dashed lens ring.
-      </div>
-      <div class="lockup-preview">
-        <img src="assets/logo_concept_2_shutter.svg" width="22" height="22">
-        <div class="lockup-text">KRISHNA <span>X</span> EDITZ</div>
-      </div>
-    </div>
-
-    <!-- Option 3 -->
-    <div class="concept-card">
-      <div class="concept-num">Concept 03</div>
-      <div class="logo-box">
-        <img src="assets/logo_concept_3_sovereign.svg" alt="Concept 3" style="width:100%;height:100%;">
-      </div>
-      <div class="concept-title">The Sovereign Studio Monogram</div>
-      <div class="concept-desc">
-        A24 &amp; Sony Pictures Classics aesthetic: timeless luxury serif calligraphy where a sovereign "K" interlocks seamlessly with a golden cutting blade "X".
-      </div>
-      <div class="lockup-preview">
-        <img src="assets/logo_concept_3_sovereign.svg" width="22" height="22">
-        <div class="lockup-text">KRISHNA <span>X</span> EDITZ</div>
-      </div>
-    </div>
-
-    <!-- Option 4 -->
-    <div class="concept-card">
-      <div class="concept-num">Concept 04</div>
-      <div class="logo-box">
-        <img src="assets/logo_concept_4_streamline.svg" alt="Concept 4" style="width:100%;height:100%;">
-      </div>
-      <div class="concept-title">The Cybernetic Streamline</div>
-      <div class="concept-desc">
-        Inspired by Sorexa Tech's fluid velocity vector. Smooth aerodynamic pill tracks curve upward into a sharp velocity growth arrow in champagne gold and emerald green.
-      </div>
-      <div class="lockup-preview">
-        <img src="assets/logo_concept_4_streamline.svg" width="22" height="22">
-        <div class="lockup-text">KRISHNA <span>X</span> EDITZ</div>
-      </div>
-    </div>
-
-    <!-- Option 5 -->
-    <div class="concept-card">
-      <div class="concept-num">Concept 05</div>
-      <div class="logo-box">
-        <img src="assets/logo_concept_5_chevrons.svg" alt="Concept 5" style="width:100%;height:100%;">
-      </div>
-      <div class="concept-title">The Anamorphic Chevrons</div>
-      <div class="concept-desc">
-        Dual dynamic play &amp; fast-forward chevrons intersecting with a vertical film strip spine to form a powerful modern K &amp; X cutting mark.
-      </div>
-      <div class="lockup-preview">
-        <img src="assets/logo_concept_5_chevrons.svg" width="22" height="22">
-        <div class="lockup-text">KRISHNA <span>X</span> EDITZ</div>
-      </div>
-    </div>
-
+  <!-- Toast -->
+  <div class="toast" id="toastBox">
+    <span>✓</span>
+    <span id="toastMsg">Logo applied successfully!</span>
   </div>
 
+  <script>
+    async function applyLogo(conceptFile, conceptName) {
+      const btn = event.currentTarget;
+      const originalText = btn.innerHTML;
+      btn.innerHTML = '<span>⏳ Applying...</span>';
+      btn.style.opacity = '0.7';
+
+      try {
+        const res = await fetch('/api/set-logo', {
+          method: 'POST',
+          headers: { 'Content-Type': 'application/json' },
+          body: JSON.stringify({ concept: conceptFile })
+        });
+        const data = await res.json();
+        if (data.success) {
+          // Update mockup immediately with cache bust
+          document.getElementById('activeNavLogo').src = 'assets/logo.svg?t=' + Date.now();
+          showToast(`🎉 "${conceptName}" ab poorie website ka official logo set ho gaya hai!`);
+        } else {
+          showToast(`❌ Error: ${data.message || 'Could not apply logo'}`);
+        }
+      } catch (e) {
+        console.error(e);
+        showToast('❌ Server error occurred while applying logo.');
+      } finally {
+        btn.innerHTML = originalText;
+        btn.style.opacity = '1';
+      }
+    }
+
+    function showToast(msg) {
+      const t = document.getElementById('toastBox');
+      document.getElementById('toastMsg').innerText = msg;
+      t.classList.add('show');
+      setTimeout(() => {
+        t.classList.remove('show');
+      }, 4500);
+    }
+  </script>
 </body>
 </html>

@@ -1,0 +1,67 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 240 240" width="100%" height="100%" fill="none" role="img" aria-label="Krishna X Editz - Cyber-Cinematic KX">
+  <defs>
+    <!-- Hyper-Polished Metallic 24K Gold -->
+    <linearGradient id="kGoldLight" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#FFFFFF" />
+      <stop offset="20%" stop-color="#FDE68A" />
+      <stop offset="55%" stop-color="#F59E0B" />
+      <stop offset="85%" stop-color="#B45309" />
+      <stop offset="100%" stop-color="#451A03" />
+    </linearGradient>
+
+    <linearGradient id="kGoldBevel" x1="100%" y1="0%" x2="0%" y2="100%">
+      <stop offset="0%" stop-color="#FBBF24" />
+      <stop offset="50%" stop-color="#D97706" />
+      <stop offset="100%" stop-color="#78350F" />
+    </linearGradient>
+
+    <!-- Emerald Edge Flare -->
+    <linearGradient id="emeraldFlare" x1="0%" y1="0%" x2="100%" y2="0%">
+      <stop offset="0%" stop-color="#10B981" />
+      <stop offset="100%" stop-color="#047857" />
+    </linearGradient>
+
+    <filter id="kxVolumetricGlow" x="-20%" y="-20%" width="140%" height="140%">
+      <feGaussianBlur stdDeviation="5" result="glow" />
+      <feComposite in="SourceGraphic" in2="glow" operator="over" />
+    </filter>
+  </defs>
+
+  <!-- Ambient Dark Shield Plate -->
+  <polygon points="120,16 216,68 216,172 120,224 24,172 24,68" fill="#15100B" stroke="rgba(245, 158, 11, 0.28)" stroke-width="1.5" />
+  <polygon points="120,26 206,73 206,167 120,214 34,167 34,73" fill="none" stroke="rgba(255, 255, 255, 0.05)" stroke-width="1" />
+
+  <!-- Background Cyber Metric Marks -->
+  <line x1="48" y1="120" x2="60" y2="120" stroke="#F59E0B" stroke-width="2" opacity="0.6" />
+  <line x1="180" y1="120" x2="192" y2="120" stroke="#F59E0B" stroke-width="2" opacity="0.6" />
+  <line x1="120" y1="38" x2="120" y2="50" stroke="#10B981" stroke-width="2" opacity="0.8" />
+  <line x1="120" y1="190" x2="120" y2="202" stroke="#10B981" stroke-width="2" opacity="0.8" />
+
+  <!-- INTERLOCKING 'K' AND 'X' 3D SCULPTED GEOMETRY -->
+  <g filter="url(#kxVolumetricGlow)">
+    <!-- Vertical Spine of 'K' (3D Beveled Pillar) -->
+    <polygon points="62,54 84,54 84,186 62,186" fill="url(#kGoldLight)" />
+    <polygon points="84,54 94,62 94,178 84,186" fill="url(#kGoldBevel)" />
+    <!-- Cutout Keyframe Notch in Spine -->
+    <polygon points="62,112 76,120 62,128" fill="#15100B" />
+
+    <!-- Top-Right Diagonal Wing of 'K' / Upper-Left arm of 'X' -->
+    <polygon points="90,128 162,56 186,56 114,128" fill="url(#kGoldLight)" />
+    <polygon points="114,128 186,56 190,64 122,136" fill="url(#kGoldBevel)" />
+
+    <!-- Bottom-Right Diagonal Wing of 'K' / Lower-Left arm of 'X' -->
+    <polygon points="114,112 186,184 162,184 90,112" fill="url(#kGoldLight)" />
+    <polygon points="122,104 190,176 186,184 114,112" fill="url(#kGoldBevel)" />
+
+    <!-- The Crossing Anamorphic Saber: Top-Left to Bottom-Right arm of 'X' -->
+    <polygon points="106,64 122,54 176,176 160,186" fill="url(#kGoldLight)" opacity="0.95" />
+    <polygon points="122,54 130,60 170,180 160,186" fill="url(#emeraldFlare)" />
+
+    <!-- CENTER GEM & LENS FLARE -->
+    <polygon points="120,110 130,120 120,130 110,120" fill="#FFFFFF" />
+    <circle cx="120" cy="120" r="3" fill="#FCD34D" />
+  </g>
+
+  <!-- Horizontal Razor Line Cutting Through Monogram -->
+  <line x1="50" y1="120" x2="190" y2="120" stroke="rgba(255, 255, 255, 0.4)" stroke-width="1" stroke-dasharray="8 6" />
+</svg>
