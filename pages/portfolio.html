@@ -2,14 +2,258 @@
 <html lang="en">
 <head>
   <meta charset="utf-8">
-  <title>Redirecting to My Works — KRISHNA X EDITZ</title>
-  <meta http-equiv="refresh" content="0; url=/my-work">
-  <link rel="canonical" href="/my-work">
-  <script>
-    window.location.replace('/my-work');
-  </script>
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+  <meta name="theme-color" content="#16130e">
+  <meta name="description" content="KRISHNA X EDITZ — Master Portfolio & Curated Showcase. Exclusive commercial edits, cinematic films, and viral projects.">
+  <title>Curated Portfolio — KRISHNA X EDITZ</title>
+  
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@600;700;800;900&family=Playfair+Display:ital,wght@0,500;0,600;0,700;1,400;1,600&family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="../assets/studio-interactive.css">
+
+  <style>
+    :root {
+      --ink: #14100c;
+      --gold: #d4af37;
+      --gold-bright: #fff2c6;
+      --gold-neon: #f59e0b;
+      --emerald: #10b981;
+      --text: #fdfaf3;
+      --muted: #cfc3ac;
+      --serif: "Playfair Display", Georgia, serif;
+      --display: "Cinzel", serif;
+      --sans: "Plus Jakarta Sans", sans-serif;
+    }
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+    body {
+      background: #14100c;
+      color: var(--text);
+      font-family: var(--sans);
+      overflow-x: hidden;
+      line-height: 1.6;
+    }
+    .container {
+      max-width: 1440px;
+      margin: 0 auto;
+      padding: 0 4vw;
+      position: relative;
+      z-index: 5;
+    }
+    .page-hero {
+      padding: 160px 0 80px;
+      text-align: center;
+      position: relative;
+    }
+    .section-eyebrow {
+      display: inline-block;
+      font-size: 14px;
+      font-weight: 800;
+      letter-spacing: 0.24em;
+      text-transform: uppercase;
+      color: var(--gold-neon);
+      margin-bottom: 20px;
+    }
+    .page-hero-title {
+      font-family: var(--display);
+      font-size: clamp(44px, 6vw, 76px);
+      font-weight: 900;
+      letter-spacing: 0.04em;
+      margin-bottom: 22px;
+      line-height: 1.15;
+    }
+    .section-desc {
+      color: var(--muted);
+      font-size: clamp(18px, 2vw, 21px);
+      max-width: 860px;
+      margin: 0 auto 50px;
+      line-height: 1.7;
+    }
+
+    /* CURATED ARCHIVE CONTAINER (LUXURY PLACEHOLDER READY FOR DESIGNATED WORKS) */
+    .portfolio-archive-vault {
+      background: linear-gradient(135deg, rgba(28, 21, 14, 0.88) 0%, rgba(18, 13, 8, 0.95) 100%);
+      border: 1px solid rgba(245, 158, 11, 0.35);
+      border-radius: 28px;
+      padding: 80px 48px;
+      text-align: center;
+      position: relative;
+      overflow: hidden;
+      box-shadow: 0 24px 60px rgba(0, 0, 0, 0.7), 0 0 40px rgba(245, 158, 11, 0.1);
+      margin-bottom: 90px;
+    }
+    .portfolio-archive-vault::before {
+      content: '';
+      position: absolute;
+      top: 0; left: 0; right: 0; height: 3px;
+      background: linear-gradient(90deg, #10B981, #F59E0B, #E11D48, #06B6D4);
+    }
+    .vault-icon {
+      width: 76px;
+      height: 76px;
+      margin: 0 auto 28px;
+      border-radius: 22px;
+      background: rgba(245, 158, 11, 0.14);
+      border: 1px solid rgba(245, 158, 11, 0.4);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 34px;
+      box-shadow: 0 0 30px rgba(245, 158, 11, 0.25);
+    }
+    .vault-title {
+      font-family: var(--display);
+      font-size: clamp(28px, 3.5vw, 42px);
+      font-weight: 800;
+      color: #FFFFFF;
+      margin-bottom: 16px;
+      letter-spacing: 0.05em;
+    }
+    .vault-desc {
+      color: var(--muted);
+      font-size: clamp(16px, 1.4vw, 18.5px);
+      max-width: 760px;
+      margin: 0 auto 36px;
+      line-height: 1.75;
+    }
+    .vault-actions-row {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 18px;
+      flex-wrap: wrap;
+    }
+    .btn-vault-primary {
+      display: inline-flex;
+      align-items: center;
+      gap: 10px;
+      padding: 16px 36px;
+      border-radius: 999px;
+      background: #F59E0B;
+      color: #000;
+      font-family: var(--sans);
+      font-weight: 900;
+      font-size: 14.5px;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      text-decoration: none;
+      box-shadow: 0 8px 25px rgba(245, 158, 11, 0.45);
+      transition: all 250ms ease;
+    }
+    .btn-vault-primary:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 12px 35px rgba(245, 158, 11, 0.65);
+      background: #FFB020;
+    }
+    .btn-vault-secondary {
+      display: inline-flex;
+      align-items: center;
+      gap: 10px;
+      padding: 16px 34px;
+      border-radius: 999px;
+      background: rgba(255, 255, 255, 0.06);
+      border: 1px solid rgba(255, 255, 255, 0.2);
+      color: #FFFFFF;
+      font-family: var(--sans);
+      font-weight: 800;
+      font-size: 14.5px;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      text-decoration: none;
+      transition: all 250ms ease;
+    }
+    .btn-vault-secondary:hover {
+      background: rgba(255, 255, 255, 0.12);
+      border-color: #F59E0B;
+      color: #F59E0B;
+      transform: translateY(-2px);
+    }
+  </style>
 </head>
-<body style="background:#0e0a07;color:#fdfdfd;font-family:sans-serif;display:flex;align-items:center;justify-content:center;height:100vh;margin:0;">
-  <p>Redirecting to <a href="/my-work" style="color:#f59e0b;font-weight:bold;">My Works &amp; Cinematic Portfolio &rarr;</a></p>
+<body>
+
+  <!-- MOUSE SPOTLIGHT (HOMEPAGE LUXURY AURA) -->
+  <div class="mouse-spotlight" id="mouseSpotlight" aria-hidden="true"></div>
+
+  <!-- SOREXA-STYLE BLENDED HEADER -->
+  <header class="topbar studio-header" id="topbar">
+    <div class="studio-header-inner">
+      <div class="brand-wrap">
+        <a class="studio-brand-link" href="/" aria-label="KRISHNA X EDITZ home">
+          <img src="../assets/logo.svg" alt="KXE Logo" class="studio-brand-logo" width="38" height="38">
+          <div class="studio-brand-titles">
+            <span class="studio-brand-name">KRISHNA <span>X</span> EDITZ</span>
+            <span class="studio-brand-tag">CREATIVE STUDIO</span>
+          </div>
+        </a>
+      </div>
+
+      <!-- SOREXA-INSPIRED SEAMLESS DESKTOP NAVIGATION -->
+      <nav class="studio-nav" aria-label="Main Navigation">
+        <a href="/" class="studio-nav-item">Home</a>
+        <a href="/services" class="studio-nav-item">Services</a>
+        <a href="/portfolio" class="studio-nav-item active">Portfolio</a>
+        <a href="/my-work" class="studio-nav-item">My Works</a>
+        <a href="/pricing" class="studio-nav-item">Pricing</a>
+        <a href="/about" class="studio-nav-item">About</a>
+        <a href="/testimonials" class="studio-nav-item">Reviews</a>
+        <a href="/contact" class="studio-nav-item">Contact</a>
+      </nav>
+
+      <!-- SOREXA-STYLE RIGHT ACTIONS -->
+      <div class="studio-actions-wrap" style="display: flex; align-items: center; gap: 14px;">
+        <a href="/contact" class="studio-header-cta">
+          <span>Start Project</span>
+          <svg viewBox="0 0 24 24" width="13" height="13" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+            <line x1="7" y1="17" x2="17" y2="7"></line>
+            <polyline points="7 7 17 7 17 17"></polyline>
+          </svg>
+        </a>
+      </div>
+    </div>
+  </header>
+
+  <div class="content-wrapper">
+    <!-- FLOATING AMBIENT GLOW ORBS -->
+    <div class="ambient-orb orb-1" aria-hidden="true"></div>
+    <div class="ambient-orb orb-2" aria-hidden="true"></div>
+    <div class="ambient-orb orb-3" aria-hidden="true"></div>
+    <div class="ambient-orb orb-4" aria-hidden="true"></div>
+    <div class="ambient-orb orb-5" aria-hidden="true"></div>
+
+    <main class="page-hero">
+      <div class="container">
+        <span class="section-eyebrow">✦ MASTER PORTFOLIO ARCHIVE ✦</span>
+        <h1 class="page-hero-title">Curated Portfolio &amp; <span>Feature Showcase</span></h1>
+        <p class="section-desc">
+          An exclusive editorial curation of Krishna's signature commercial projects, high-budget visual storytelling, and flagship brand edits.
+        </p>
+
+        <!-- LUXURY CURATION VAULT PLACEHOLDER -->
+        <div class="portfolio-archive-vault">
+          <div class="vault-icon">🎬</div>
+          <h2 class="vault-title">Curated Master Showcase Under Assembly</h2>
+          <p class="vault-desc">
+            Krishna's handpicked signature master portfolio is currently being assembled with exclusive long-form cinematic reels and brand campaigns. Stay tuned — projects will be unveiled here shortly.
+          </p>
+          <div class="vault-actions-row">
+            <a href="/my-work" class="btn-vault-primary">
+              <span>Explore 19 Delivered Works in My Works &rarr;</span>
+            </a>
+            <a href="https://wa.me/918449495147?text=Hi%20Krishna!%20I%20want%20to%20discuss%20a%20master%20portfolio%20project." target="_blank" rel="noopener noreferrer" class="btn-vault-secondary">
+              <span>Commission Direct Project &nearr;</span>
+            </a>
+          </div>
+        </div>
+
+      </div>
+    </main>
+  </div>
+
+  <footer style="margin-top: 100px; padding: 50px 4vw; border-top: 1px solid rgba(255,255,255,0.08); text-align: center; color: var(--muted); font-size: 15px;">
+    <p>© 2026 KRISHNA X EDITZ — Master Video Editing &amp; Creative Studio. In Official Collaboration with Sorexa Technologies.</p>
+  </footer>
+
+  <script src="../assets/studio-interactive.js"></script>
 </body>
 </html>

@@ -47,10 +47,10 @@
 }
 
 .studio-header-inner {
-  max-width: 1400px;
+  max-width: 100% !important;
   height: 100% !important;
-  margin: 0 auto;
-  padding: 0 4vw !important;
+  margin: 0 !important;
+  padding: 0 clamp(24px, 4vw, 64px) !important;
   display: flex !important;
   align-items: center !important;
   justify-content: space-between !important;
@@ -742,4 +742,44 @@
   0% { transform: translate(0, 0) scale(1); }
   50% { transform: translate(35px, -45px) scale(1.1); }
   100% { transform: translate(-25px, 35px) scale(0.92); }
+}
+
+
+/* UNIVERSAL HEADINGS GRADIENT (MATCHING HOMEPAGE LUXURY GOLD) */
+.page-hero-title,
+.section-title,
+.editorial-title {
+  background: linear-gradient(135deg, #ffffff 0%, #fff2c6 40%, #ffd700 75%, #f59e0b 100%) !important;
+  -webkit-background-clip: text !important;
+  -webkit-text-fill-color: transparent !important;
+}
+.page-hero-title span,
+.section-title span {
+  background: linear-gradient(135deg, #ffd700 0%, #f59e0b 60%, #ea580c 100%) !important;
+  -webkit-background-clip: text !important;
+  -webkit-text-fill-color: transparent !important;
+  font-style: italic !important;
+}
+
+/* 4-COLUMN REAL WORKS GRID */
+.real-works-grid {
+  display: grid !important;
+  grid-template-columns: repeat(4, 1fr) !important;
+  gap: 22px !important;
+  width: 100% !important;
+}
+@media (max-width: 1350px) {
+  .real-works-grid {
+    grid-template-columns: repeat(3, 1fr) !important;
+  }
+}
+@media (max-width: 950px) {
+  .real-works-grid {
+    grid-template-columns: repeat(2, 1fr) !important;
+  }
+}
+@media (max-width: 580px) {
+  .real-works-grid {
+    grid-template-columns: 1fr !important;
+  }
 }

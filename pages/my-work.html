@@ -34,9 +34,9 @@
       line-height: 1.6;
     }
     .container {
-      max-width: 1400px;
+      max-width: 1560px;
       margin: 0 auto;
-      padding: 0 4vw;
+      padding: 0 3vw;
       position: relative;
       z-index: 5;
     }
@@ -128,6 +128,7 @@
       <nav class="studio-nav" aria-label="Main Navigation">
         <a href="/" class="studio-nav-item">Home</a>
         <a href="/services" class="studio-nav-item">Services</a>
+        <a href="/portfolio" class="studio-nav-item">Portfolio</a>
         <a href="/my-work" class="studio-nav-item active">My Works</a>
         <a href="/pricing" class="studio-nav-item">Pricing</a>
         <a href="/about" class="studio-nav-item">About</a>
@@ -164,26 +165,6 @@
         Explore Krishna's 19 real delivered projects. Click any video card to open its dedicated full-screen theater view with high-definition playback, project narrative, and direct booking options.
       </p>
 
-      <!-- EDITORIAL STATS BAR (MATCHING HOMEPAGE LUXURY STAGE) -->
-      <div class="editorial-stats-bar">
-        <div class="editorial-stat-card">
-          <div class="editorial-stat-number" data-counter-target="50" data-counter-suffix="M+">50M+</div>
-          <div class="editorial-stat-label">Organic Watch Views</div>
-        </div>
-        <div class="editorial-stat-card">
-          <div class="editorial-stat-number" data-counter-target="500" data-counter-suffix="+">500+</div>
-          <div class="editorial-stat-label">Delivered Projects</div>
-        </div>
-        <div class="editorial-stat-card">
-          <div class="editorial-stat-number" data-counter-target="99.4" data-counter-suffix="%">99.4%</div>
-          <div class="editorial-stat-label">Client Retention</div>
-        </div>
-        <div class="editorial-stat-card">
-          <div class="editorial-stat-number" data-counter-target="24" data-counter-suffix="h">24h</div>
-          <div class="editorial-stat-label">Rapid Delivery</div>
-        </div>
-      </div>
-
       <!-- FILTER TABS -->
       <div class="filter-tabs-row">
         <button type="button" class="port-tab-btn active" onclick="filterRealProjects('all', this)">All Real Projects (19)</button>
@@ -196,9 +177,9 @@
 
       <!-- REAL WORKS UNIFORM GRID -->
       <div class="real-works-grid" id="realWorksGrid">
-        <div class="real-work-card" data-category="music" onclick="openTheaterVideo('Nazar-e-Khaas — 4K UHD Poetic Cinematography & Color Symphony', 'A cinematic widescreen masterpiece blending delicate film emulation LUTs, natural landscape framing, paper-foley acoustic design, and heart-tugging melody pacing. Mastered in full 4K 60FPS clarity.', 'assets/work_nazar_cinematic_1080p.mp4', 'Cinematic Film & Color Master', '✦ 4K UHD POETIC CINEMA ✦')">
+        <div class="real-work-card" data-category="music" onclick="openTheaterVideo('Nazar-e-Khaas — 4K UHD Poetic Cinematography & Color Symphony', 'A cinematic widescreen masterpiece blending delicate film emulation LUTs, natural landscape framing, paper-foley acoustic design, and heart-tugging melody pacing. Mastered in full 4K 60FPS clarity.', '/assets/work_nazar_cinematic_1080p.mp4', 'Cinematic Film & Color Master', '✦ 4K UHD POETIC CINEMA ✦')">
           <div class="real-work-thumb">
-            <video src="assets/work_nazar_cinematic_1080p.mp4" muted loop playsinline preload="metadata" onmouseover="this.play().catch(function(){})" onmouseout="this.pause()"></video>
+            <video src="/assets/work_nazar_cinematic_1080p.mp4" poster="/assets/thumb_work_nazar_cinematic.jpg" muted loop playsinline preload="metadata" onmouseover="this.play().catch(function(){})" onmouseout="this.pause()"></video>
             <div style="position:absolute;top:10px;left:10px;padding:4px 10px;border-radius:999px;background:rgba(0,0,0,0.75);border:1px solid rgba(212,175,55,0.4);color:#FBBF24;font-size:10px;font-weight:800;letter-spacing:0.08em;text-transform:uppercase;">
               ✦ 4K UHD POETIC CINEMA ✦
             </div>
@@ -218,9 +199,9 @@
             </div>
           </div>
         </div>
-        <div class="real-work-card" data-category="viral" onclick="openTheaterVideo('Unfiltered Chaos & Brotherhood — High-Retention Dynamic Reel', 'A fast-paced, high-retention lifestyle reel celebrating raw camaraderie and spontaneous brotherhood. Engineered with punchy comedic timing, rhythmic beat cuts, crystal-clear 4K vertical grading, and relatable narrative pacing.', 'assets/work_friends_chaos_1080p.mp4', 'Relatable Lifestyle Reel', '🔥 VIRAL • Friends & Banter ✦')">
+        <div class="real-work-card" data-category="viral" onclick="openTheaterVideo('Unfiltered Chaos & Brotherhood — High-Retention Dynamic Reel', 'A fast-paced, high-retention lifestyle reel celebrating raw camaraderie and spontaneous brotherhood. Engineered with punchy comedic timing, rhythmic beat cuts, crystal-clear 4K vertical grading, and relatable narrative pacing.', '/assets/work_friends_chaos_1080p.mp4', 'Relatable Lifestyle Reel', '🔥 VIRAL • Friends & Banter ✦')">
           <div class="real-work-thumb">
-            <video src="assets/work_friends_chaos_1080p.mp4" muted loop playsinline preload="metadata" onmouseover="this.play().catch(function(){})" onmouseout="this.pause()"></video>
+            <video src="/assets/work_friends_chaos_1080p.mp4" poster="/assets/thumb_work_friends_chaos.jpg" muted loop playsinline preload="metadata" onmouseover="this.play().catch(function(){})" onmouseout="this.pause()"></video>
             <div style="position:absolute;top:10px;left:10px;padding:4px 10px;border-radius:999px;background:rgba(0,0,0,0.75);border:1px solid rgba(212,175,55,0.4);color:#FBBF24;font-size:10px;font-weight:800;letter-spacing:0.08em;text-transform:uppercase;">
               🔥 VIRAL • Friends & Banter ✦
             </div>
@@ -240,9 +221,9 @@
             </div>
           </div>
         </div>
-        <div class="real-work-card" data-category="music" onclick="openTheaterVideo('American Dream / Unamerican Girls — Ultra-Clean Dynamic Velocity Edit', 'A high-impact and ultra-clean master showcase edit set to the infectious upbeat groove of American Dream / Unamerican Girls. Crafted with razor-sharp frame transitions, rhythmic whip pans, punchy bass sync, crystal cinematic color grade, and flawless visual retention.', 'assets/work_unamerican_girls_1080p.mp4', 'Viral Reels & Music Edits', '🔥 NEW • Clean Master Edit ✦')">
+        <div class="real-work-card" data-category="music" onclick="openTheaterVideo('American Dream / Unamerican Girls — Ultra-Clean Dynamic Velocity Edit', 'A high-impact and ultra-clean master showcase edit set to the infectious upbeat groove of American Dream / Unamerican Girls. Crafted with razor-sharp frame transitions, rhythmic whip pans, punchy bass sync, crystal cinematic color grade, and flawless visual retention.', '/assets/work_unamerican_girls_1080p.mp4', 'Viral Reels & Music Edits', '🔥 NEW • Clean Master Edit ✦')">
           <div class="real-work-thumb">
-            <video src="assets/work_unamerican_girls_1080p.mp4" muted loop playsinline preload="metadata" onmouseover="this.play().catch(function(){})" onmouseout="this.pause()"></video>
+            <video src="/assets/work_unamerican_girls_1080p.mp4" poster="/assets/thumb_work_unamerican_girls.jpg" muted loop playsinline preload="metadata" onmouseover="this.play().catch(function(){})" onmouseout="this.pause()"></video>
             <div style="position:absolute;top:10px;left:10px;padding:4px 10px;border-radius:999px;background:rgba(0,0,0,0.75);border:1px solid rgba(212,175,55,0.4);color:#FBBF24;font-size:10px;font-weight:800;letter-spacing:0.08em;text-transform:uppercase;">
               🔥 NEW • Clean Master Edit ✦
             </div>
@@ -262,9 +243,9 @@
             </div>
           </div>
         </div>
-        <div class="real-work-card" data-category="viral" onclick="openTheaterVideo('Grind With Me — Viral Instagram Aesthetic Motion Blur Edit', 'A viral Instagram sensation edit set to the trending sound Grind With Me by Pretty Ricky. Engineered with seductive optical-flow slow-motion ramps, atmospheric motion blur whip transitions, deep bass drops, and an unmatched hypnotic visual aesthetic designed to stop the scroll.', 'assets/work_grind_viral_1080p.mp4', 'Trending Instagram Reel', '👑 TRENDING • Viral Instagram Edit ✦')">
+        <div class="real-work-card" data-category="viral" onclick="openTheaterVideo('Grind With Me — Viral Instagram Aesthetic Motion Blur Edit', 'A viral Instagram sensation edit set to the trending sound Grind With Me by Pretty Ricky. Engineered with seductive optical-flow slow-motion ramps, atmospheric motion blur whip transitions, deep bass drops, and an unmatched hypnotic visual aesthetic designed to stop the scroll.', '/assets/work_grind_viral_1080p.mp4', 'Trending Instagram Reel', '👑 TRENDING • Viral Instagram Edit ✦')">
           <div class="real-work-thumb">
-            <video src="assets/work_grind_viral_1080p.mp4" muted loop playsinline preload="metadata" onmouseover="this.play().catch(function(){})" onmouseout="this.pause()"></video>
+            <video src="/assets/work_grind_viral_1080p.mp4" poster="/assets/thumb_work_grind_viral.jpg" muted loop playsinline preload="metadata" onmouseover="this.play().catch(function(){})" onmouseout="this.pause()"></video>
             <div style="position:absolute;top:10px;left:10px;padding:4px 10px;border-radius:999px;background:rgba(0,0,0,0.75);border:1px solid rgba(212,175,55,0.4);color:#FBBF24;font-size:10px;font-weight:800;letter-spacing:0.08em;text-transform:uppercase;">
               👑 TRENDING • Viral Instagram Edit ✦
             </div>
@@ -284,9 +265,9 @@
             </div>
           </div>
         </div>
-        <div class="real-work-card" data-category="viral" onclick="openTheaterVideo('The Sovereign Stride — Dark Cinematic Attitude & Drill Velocity', 'A razor-sharp gangster aesthetic master edit featuring bold typography overlays, aggressive frame-snapping transitions, analog camera shutter SFX, and a crushing dark bassline tailored for maximum alpha energy.', 'assets/work_gangster_attitude_1080p.mp4', 'Dark Gangster Attitude', '⚡ DOMINANCE • Gangster Drill ✦')">
+        <div class="real-work-card" data-category="viral" onclick="openTheaterVideo('The Sovereign Stride — Dark Cinematic Attitude & Drill Velocity', 'A razor-sharp gangster aesthetic master edit featuring bold typography overlays, aggressive frame-snapping transitions, analog camera shutter SFX, and a crushing dark bassline tailored for maximum alpha energy.', '/assets/work_gangster_attitude_1080p.mp4', 'Dark Gangster Attitude', '⚡ DOMINANCE • Gangster Drill ✦')">
           <div class="real-work-thumb">
-            <video src="assets/work_gangster_attitude_1080p.mp4" muted loop playsinline preload="metadata" onmouseover="this.play().catch(function(){})" onmouseout="this.pause()"></video>
+            <video src="/assets/work_gangster_attitude_1080p.mp4" poster="/assets/thumb_work_gangster_attitude.jpg" muted loop playsinline preload="metadata" onmouseover="this.play().catch(function(){})" onmouseout="this.pause()"></video>
             <div style="position:absolute;top:10px;left:10px;padding:4px 10px;border-radius:999px;background:rgba(0,0,0,0.75);border:1px solid rgba(212,175,55,0.4);color:#FBBF24;font-size:10px;font-weight:800;letter-spacing:0.08em;text-transform:uppercase;">
               ⚡ DOMINANCE • Gangster Drill ✦
             </div>
@@ -306,9 +287,9 @@
             </div>
           </div>
         </div>
-        <div class="real-work-card" data-category="viral" onclick="openTheaterVideo('The Syndicate Trade — Gritty Underworld Dialogue & Bass Impact', 'A raw, heavy-hitting gangster reel centered on intense underworld dialogue delivery. Synced with rapid velocity speed ramps, aggressive bass kicks, and high-contrast neo-noir color grading.', 'assets/work_gangster_mafia_1080p.mp4', 'Underworld Dialogue Reel', '👑 MAFIA • Underworld Energy ✦')">
+        <div class="real-work-card" data-category="viral" onclick="openTheaterVideo('The Syndicate Trade — Gritty Underworld Dialogue & Bass Impact', 'A raw, heavy-hitting gangster reel centered on intense underworld dialogue delivery. Synced with rapid velocity speed ramps, aggressive bass kicks, and high-contrast neo-noir color grading.', '/assets/work_gangster_mafia_1080p.mp4', 'Underworld Dialogue Reel', '👑 MAFIA • Underworld Energy ✦')">
           <div class="real-work-thumb">
-            <video src="assets/work_gangster_mafia_1080p.mp4" muted loop playsinline preload="metadata" onmouseover="this.play().catch(function(){})" onmouseout="this.pause()"></video>
+            <video src="/assets/work_gangster_mafia_1080p.mp4" poster="/assets/thumb_work_gangster_mafia.jpg" muted loop playsinline preload="metadata" onmouseover="this.play().catch(function(){})" onmouseout="this.pause()"></video>
             <div style="position:absolute;top:10px;left:10px;padding:4px 10px;border-radius:999px;background:rgba(0,0,0,0.75);border:1px solid rgba(212,175,55,0.4);color:#FBBF24;font-size:10px;font-weight:800;letter-spacing:0.08em;text-transform:uppercase;">
               👑 MAFIA • Underworld Energy ✦
             </div>
@@ -328,9 +309,9 @@
             </div>
           </div>
         </div>
-        <div class="real-work-card" data-category="commercial" onclick="openTheaterVideo('Bhimtal Lake Odyssey — 4K UHD Cinematic Shoot & Color Master', 'Shot on location and master-graded by Krishna at Bhimtal Lake, Uttarakhand. Featuring tranquil lake reflections, cinematic aerial framing, advanced color grading, and pristine 4K 60FPS clarity.', 'assets/work_bhimtal_1080p.mp4', 'Location Shoot & Master Edit', '✦ 4K UHD Lake Masterpiece ✦')">
+        <div class="real-work-card" data-category="commercial" onclick="openTheaterVideo('Bhimtal Lake Odyssey — 4K UHD Cinematic Shoot & Color Master', 'Shot on location and master-graded by Krishna at Bhimtal Lake, Uttarakhand. Featuring tranquil lake reflections, cinematic aerial framing, advanced color grading, and pristine 4K 60FPS clarity.', '/assets/work_bhimtal_1080p.mp4', 'Location Shoot & Master Edit', '✦ 4K UHD Lake Masterpiece ✦')">
           <div class="real-work-thumb">
-            <video src="assets/work_bhimtal_1080p.mp4" muted loop playsinline preload="metadata" onmouseover="this.play().catch(function(){})" onmouseout="this.pause()"></video>
+            <video src="/assets/work_bhimtal_1080p.mp4" poster="/assets/thumb_work_bhimtal.jpg" muted loop playsinline preload="metadata" onmouseover="this.play().catch(function(){})" onmouseout="this.pause()"></video>
             <div style="position:absolute;top:10px;left:10px;padding:4px 10px;border-radius:999px;background:rgba(0,0,0,0.75);border:1px solid rgba(212,175,55,0.4);color:#FBBF24;font-size:10px;font-weight:800;letter-spacing:0.08em;text-transform:uppercase;">
               ✦ 4K UHD Lake Masterpiece ✦
             </div>
@@ -350,9 +331,9 @@
             </div>
           </div>
         </div>
-        <div class="real-work-card" data-category="music" onclick="openTheaterVideo('Kalyani Nature Symphony — Cinematic Shoot & Slowmotion Flow', 'Shot and edited entirely by Krishna, this cinematic nature edit synchronizes lush green landscapes and crystal water drops to the rhythm of Kalyani Remix. Featuring silk-smooth 60FPS optical slowmotion in true 4K UHD.', 'assets/work_kalyani_1080p.mp4', 'Nature Shoot & Color Grading', '✦ 4K UHD Nature Masterpiece ✦')">
+        <div class="real-work-card" data-category="music" onclick="openTheaterVideo('Kalyani Nature Symphony — Cinematic Shoot & Slowmotion Flow', 'Shot and edited entirely by Krishna, this cinematic nature edit synchronizes lush green landscapes and crystal water drops to the rhythm of Kalyani Remix. Featuring silk-smooth 60FPS optical slowmotion in true 4K UHD.', '/assets/work_kalyani_1080p.mp4', 'Nature Shoot & Color Grading', '✦ 4K UHD Nature Masterpiece ✦')">
           <div class="real-work-thumb">
-            <video src="assets/work_kalyani_1080p.mp4" muted loop playsinline preload="metadata" onmouseover="this.play().catch(function(){})" onmouseout="this.pause()"></video>
+            <video src="/assets/work_kalyani_1080p.mp4" poster="/assets/thumb_work_kalyani.jpg" muted loop playsinline preload="metadata" onmouseover="this.play().catch(function(){})" onmouseout="this.pause()"></video>
             <div style="position:absolute;top:10px;left:10px;padding:4px 10px;border-radius:999px;background:rgba(0,0,0,0.75);border:1px solid rgba(212,175,55,0.4);color:#FBBF24;font-size:10px;font-weight:800;letter-spacing:0.08em;text-transform:uppercase;">
               ✦ 4K UHD Nature Masterpiece ✦
             </div>
@@ -372,9 +353,9 @@
             </div>
           </div>
         </div>
-        <div class="real-work-card" data-category="viral" onclick="openTheaterVideo('Khamoshiyan — High-Octane Fast Beat Sync & Velocity Transitions', 'An electrifying, high-energy transition reel set to Khamoshiyan. Engineered with precision beat-matched velocity ramps, seamless whip pans, aggressive motion blurs, punchy color pops, and high retention pacing.', 'assets/work_khamoshi_1080p.mp4', 'Fast Beat Transitions', '✦ 4K 60FPS Hyper Velocity ✦')">
+        <div class="real-work-card" data-category="viral" onclick="openTheaterVideo('Khamoshiyan — High-Octane Fast Beat Sync & Velocity Transitions', 'An electrifying, high-energy transition reel set to Khamoshiyan. Engineered with precision beat-matched velocity ramps, seamless whip pans, aggressive motion blurs, punchy color pops, and high retention pacing.', '/assets/work_khamoshi_1080p.mp4', 'Fast Beat Transitions', '✦ 4K 60FPS Hyper Velocity ✦')">
           <div class="real-work-thumb">
-            <video src="assets/work_khamoshi_1080p.mp4" muted loop playsinline preload="metadata" onmouseover="this.play().catch(function(){})" onmouseout="this.pause()"></video>
+            <video src="/assets/work_khamoshi_1080p.mp4" poster="/assets/thumb_work_khamoshi.jpg" muted loop playsinline preload="metadata" onmouseover="this.play().catch(function(){})" onmouseout="this.pause()"></video>
             <div style="position:absolute;top:10px;left:10px;padding:4px 10px;border-radius:999px;background:rgba(0,0,0,0.75);border:1px solid rgba(212,175,55,0.4);color:#FBBF24;font-size:10px;font-weight:800;letter-spacing:0.08em;text-transform:uppercase;">
               ✦ 4K 60FPS Hyper Velocity ✦
             </div>
@@ -394,9 +375,9 @@
             </div>
           </div>
         </div>
-        <div class="real-work-card" data-category="viral" onclick="openTheaterVideo('Mountain Therapy — Soulful Slowmotion & Sunset Moods', 'A deeply calming cinematic therapy reel set against majestic misty mountain peaks with friends. Featuring soothing optical flow slowmotion at ultra-smooth 60FPS, rich earthy film color grade, and peaceful acoustic harmony.', 'assets/work_therapy_1080p.mp4', 'Mountain Therapy & Vibe', '✦ Visual Therapy & Slowmo ✦')">
+        <div class="real-work-card" data-category="viral" onclick="openTheaterVideo('Mountain Therapy — Soulful Slowmotion & Sunset Moods', 'A deeply calming cinematic therapy reel set against majestic misty mountain peaks with friends. Featuring soothing optical flow slowmotion at ultra-smooth 60FPS, rich earthy film color grade, and peaceful acoustic harmony.', '/assets/work_therapy_1080p.mp4', 'Mountain Therapy & Vibe', '✦ Visual Therapy & Slowmo ✦')">
           <div class="real-work-thumb">
-            <video src="assets/work_therapy_1080p.mp4" muted loop playsinline preload="metadata" onmouseover="this.play().catch(function(){})" onmouseout="this.pause()"></video>
+            <video src="/assets/work_therapy_1080p.mp4" poster="/assets/thumb_work_therapy.jpg" muted loop playsinline preload="metadata" onmouseover="this.play().catch(function(){})" onmouseout="this.pause()"></video>
             <div style="position:absolute;top:10px;left:10px;padding:4px 10px;border-radius:999px;background:rgba(0,0,0,0.75);border:1px solid rgba(212,175,55,0.4);color:#FBBF24;font-size:10px;font-weight:800;letter-spacing:0.08em;text-transform:uppercase;">
               ✦ Visual Therapy & Slowmo ✦
             </div>
@@ -416,9 +397,9 @@
             </div>
           </div>
         </div>
-        <div class="real-work-card" data-category="music" onclick="openTheaterVideo('Sahiba — Cinematic Shoot & Narrative Music Edit', 'A soulful, cinema-grade music video shoot and edit set to Sahiba. Featuring delicate poetic pacing, natural lighting cinematography, warm film emulation tones, and emotional resonance.', 'assets/work_sahiba_1080p.mp4', 'Music Video & Direction', '✦ 4K Cinematic Master ✦')">
+        <div class="real-work-card" data-category="music" onclick="openTheaterVideo('Sahiba — Cinematic Shoot & Narrative Music Edit', 'A soulful, cinema-grade music video shoot and edit set to Sahiba. Featuring delicate poetic pacing, natural lighting cinematography, warm film emulation tones, and emotional resonance.', '/assets/work_sahiba_1080p.mp4', 'Music Video & Direction', '✦ 4K Cinematic Master ✦')">
           <div class="real-work-thumb">
-            <video src="assets/work_sahiba_1080p.mp4" muted loop playsinline preload="metadata" onmouseover="this.play().catch(function(){})" onmouseout="this.pause()"></video>
+            <video src="/assets/work_sahiba_1080p.mp4" poster="/assets/thumb_work_sahiba.jpg" muted loop playsinline preload="metadata" onmouseover="this.play().catch(function(){})" onmouseout="this.pause()"></video>
             <div style="position:absolute;top:10px;left:10px;padding:4px 10px;border-radius:999px;background:rgba(0,0,0,0.75);border:1px solid rgba(212,175,55,0.4);color:#FBBF24;font-size:10px;font-weight:800;letter-spacing:0.08em;text-transform:uppercase;">
               ✦ 4K Cinematic Master ✦
             </div>
@@ -438,9 +419,9 @@
             </div>
           </div>
         </div>
-        <div class="real-work-card" data-category="travel" onclick="openTheaterVideo('Shyamlatal Serenity — 4K Cinematic Travel & Nature Film', 'Shot on location and color-graded to perfection at pristine Shyamlatal lake. Breathtaking landscape framing, tranquil pacing, atmospheric sound foley, and rich natural earth grading.', 'assets/work_shyamlatal_1080p.mp4', 'Travel & Cinematic Shoot', '✦ Cinematic Nature Odyssey ✦')">
+        <div class="real-work-card" data-category="travel" onclick="openTheaterVideo('Shyamlatal Serenity — 4K Cinematic Travel & Nature Film', 'Shot on location and color-graded to perfection at pristine Shyamlatal lake. Breathtaking landscape framing, tranquil pacing, atmospheric sound foley, and rich natural earth grading.', '/assets/work_shyamlatal_1080p.mp4', 'Travel & Cinematic Shoot', '✦ Cinematic Nature Odyssey ✦')">
           <div class="real-work-thumb">
-            <video src="assets/work_shyamlatal_1080p.mp4" muted loop playsinline preload="metadata" onmouseover="this.play().catch(function(){})" onmouseout="this.pause()"></video>
+            <video src="/assets/work_shyamlatal_1080p.mp4" poster="/assets/thumb_work_shyamlatal.jpg" muted loop playsinline preload="metadata" onmouseover="this.play().catch(function(){})" onmouseout="this.pause()"></video>
             <div style="position:absolute;top:10px;left:10px;padding:4px 10px;border-radius:999px;background:rgba(0,0,0,0.75);border:1px solid rgba(212,175,55,0.4);color:#FBBF24;font-size:10px;font-weight:800;letter-spacing:0.08em;text-transform:uppercase;">
               ✦ Cinematic Nature Odyssey ✦
             </div>
@@ -460,9 +441,9 @@
             </div>
           </div>
         </div>
-        <div class="real-work-card" data-category="cinematic" onclick="openTheaterVideo('Sample for Long Video Edits — Pacing & B-Roll Structure', 'A sample demonstration edit specifically crafted for long videos and YouTube content. Showcases clean narrative pacing, smooth B-roll integration, high viewer retention cuts, and balanced audio mixing.', 'assets/work_long_sample_1080p.mp4', 'Long Video Edit Sample', '✦ Long Video Edit Sample ✦')">
+        <div class="real-work-card" data-category="cinematic" onclick="openTheaterVideo('Sample for Long Video Edits — Pacing & B-Roll Structure', 'A sample demonstration edit specifically crafted for long videos and YouTube content. Showcases clean narrative pacing, smooth B-roll integration, high viewer retention cuts, and balanced audio mixing.', '/assets/work_long_sample_1080p.mp4', 'Long Video Edit Sample', '✦ Long Video Edit Sample ✦')">
           <div class="real-work-thumb">
-            <video src="assets/work_long_sample_1080p.mp4" muted loop playsinline preload="metadata" onmouseover="this.play().catch(function(){})" onmouseout="this.pause()"></video>
+            <video src="/assets/work_long_sample_1080p.mp4" poster="/assets/thumb_work_long_sample.jpg" muted loop playsinline preload="metadata" onmouseover="this.play().catch(function(){})" onmouseout="this.pause()"></video>
             <div style="position:absolute;top:10px;left:10px;padding:4px 10px;border-radius:999px;background:rgba(0,0,0,0.75);border:1px solid rgba(212,175,55,0.4);color:#FBBF24;font-size:10px;font-weight:800;letter-spacing:0.08em;text-transform:uppercase;">
               ✦ Long Video Edit Sample ✦
             </div>
@@ -482,9 +463,9 @@
             </div>
           </div>
         </div>
-        <div class="real-work-card" data-category="music" onclick="openTheaterVideo('Raanjhanaa — Cinematic 4K Film Master', 'A breathtaking cinematic film edit set to Raanjhanaa in pristine 3840x2160 4K UHD at ultra-smooth 60FPS. Featuring atmospheric film emulation, emotive color grading, rhythmically timed motion dynamics, and deeply immersive audio.', 'assets/work_ranjhana_1080p.mp4', 'Cinematic Film Edit', '✦ 4K 60FPS Masterpiece ✦')">
+        <div class="real-work-card" data-category="music" onclick="openTheaterVideo('Raanjhanaa — Cinematic 4K Film Master', 'A breathtaking cinematic film edit set to Raanjhanaa in pristine 3840x2160 4K UHD at ultra-smooth 60FPS. Featuring atmospheric film emulation, emotive color grading, rhythmically timed motion dynamics, and deeply immersive audio.', '/assets/work_ranjhana_1080p.mp4', 'Cinematic Film Edit', '✦ 4K 60FPS Masterpiece ✦')">
           <div class="real-work-thumb">
-            <video src="assets/work_ranjhana_1080p.mp4" muted loop playsinline preload="metadata" onmouseover="this.play().catch(function(){})" onmouseout="this.pause()"></video>
+            <video src="/assets/work_ranjhana_1080p.mp4" poster="/assets/thumb_work_ranjhana.jpg" muted loop playsinline preload="metadata" onmouseover="this.play().catch(function(){})" onmouseout="this.pause()"></video>
             <div style="position:absolute;top:10px;left:10px;padding:4px 10px;border-radius:999px;background:rgba(0,0,0,0.75);border:1px solid rgba(212,175,55,0.4);color:#FBBF24;font-size:10px;font-weight:800;letter-spacing:0.08em;text-transform:uppercase;">
               ✦ 4K 60FPS Masterpiece ✦
             </div>
@@ -504,9 +485,9 @@
             </div>
           </div>
         </div>
-        <div class="real-work-card" data-category="viral" onclick="openTheaterVideo('Ganesh Chaturthi — High-Energy Festival Celebration Reel', 'High-energy festive celebration reel featuring energetic beat-matched transitions, vibrant colors, festive music synchronization, and dynamic crowd moments.', 'assets/work_ganesh_1080p.mp4', 'Festival Celebration Reel', '✦ Festival Celebration Reel ✦')">
+        <div class="real-work-card" data-category="viral" onclick="openTheaterVideo('Ganesh Chaturthi — High-Energy Festival Celebration Reel', 'High-energy festive celebration reel featuring energetic beat-matched transitions, vibrant colors, festive music synchronization, and dynamic crowd moments.', '/assets/work_ganesh_1080p.mp4', 'Festival Celebration Reel', '✦ Festival Celebration Reel ✦')">
           <div class="real-work-thumb">
-            <video src="assets/work_ganesh_1080p.mp4" muted loop playsinline preload="metadata" onmouseover="this.play().catch(function(){})" onmouseout="this.pause()"></video>
+            <video src="/assets/work_ganesh_1080p.mp4" poster="/assets/thumb_work_ganesh.jpg" muted loop playsinline preload="metadata" onmouseover="this.play().catch(function(){})" onmouseout="this.pause()"></video>
             <div style="position:absolute;top:10px;left:10px;padding:4px 10px;border-radius:999px;background:rgba(0,0,0,0.75);border:1px solid rgba(212,175,55,0.4);color:#FBBF24;font-size:10px;font-weight:800;letter-spacing:0.08em;text-transform:uppercase;">
               ✦ Festival Celebration Reel ✦
             </div>
@@ -526,9 +507,9 @@
             </div>
           </div>
         </div>
-        <div class="real-work-card" data-category="commercial" onclick="openTheaterVideo('Apex Corporate Brand Showcase', 'A sleek, authoritative company brand commercial edit featuring precision pacing, cinematic title cards, enterprise-grade color grading, and razor-sharp sound design built for maximum brand credibility.', 'assets/work_company_1080p.mp4', 'Corporate Brand Commercial', '✦ Corporate Showcase ✦')">
+        <div class="real-work-card" data-category="commercial" onclick="openTheaterVideo('Apex Corporate Brand Showcase', 'A sleek, authoritative company brand commercial edit featuring precision pacing, cinematic title cards, enterprise-grade color grading, and razor-sharp sound design built for maximum brand credibility.', '/assets/work_company_1080p.mp4', 'Corporate Brand Commercial', '✦ Corporate Showcase ✦')">
           <div class="real-work-thumb">
-            <video src="assets/work_company_1080p.mp4" muted loop playsinline preload="metadata" onmouseover="this.play().catch(function(){})" onmouseout="this.pause()"></video>
+            <video src="/assets/work_company_1080p.mp4" poster="/assets/thumb_work_company.jpg" muted loop playsinline preload="metadata" onmouseover="this.play().catch(function(){})" onmouseout="this.pause()"></video>
             <div style="position:absolute;top:10px;left:10px;padding:4px 10px;border-radius:999px;background:rgba(0,0,0,0.75);border:1px solid rgba(212,175,55,0.4);color:#FBBF24;font-size:10px;font-weight:800;letter-spacing:0.08em;text-transform:uppercase;">
               ✦ Corporate Showcase ✦
             </div>
@@ -548,9 +529,9 @@
             </div>
           </div>
         </div>
-        <div class="real-work-card" data-category="viral" onclick="openTheaterVideo('Neon Vibe — Cinematic Birthday Celebration', 'High-energy celebration reel featuring seamless speed ramps, vibrant neon glows, beat-matched transitions, and infectious cinematic rhythm that captures every electric moment.', 'assets/work_birthday_1080p.mp4', 'Birthday Celebration Reel', '✦ Speed Ramp & VFX ✦')">
+        <div class="real-work-card" data-category="viral" onclick="openTheaterVideo('Neon Vibe — Cinematic Birthday Celebration', 'High-energy celebration reel featuring seamless speed ramps, vibrant neon glows, beat-matched transitions, and infectious cinematic rhythm that captures every electric moment.', '/assets/work_birthday_1080p.mp4', 'Birthday Celebration Reel', '✦ Speed Ramp & VFX ✦')">
           <div class="real-work-thumb">
-            <video src="assets/work_birthday_1080p.mp4" muted loop playsinline preload="metadata" onmouseover="this.play().catch(function(){})" onmouseout="this.pause()"></video>
+            <video src="/assets/work_birthday_1080p.mp4" poster="/assets/thumb_work_birthday.jpg" muted loop playsinline preload="metadata" onmouseover="this.play().catch(function(){})" onmouseout="this.pause()"></video>
             <div style="position:absolute;top:10px;left:10px;padding:4px 10px;border-radius:999px;background:rgba(0,0,0,0.75);border:1px solid rgba(212,175,55,0.4);color:#FBBF24;font-size:10px;font-weight:800;letter-spacing:0.08em;text-transform:uppercase;">
               ✦ Speed Ramp & VFX ✦
             </div>
@@ -570,9 +551,9 @@
             </div>
           </div>
         </div>
-        <div class="real-work-card" data-category="viral" onclick="openTheaterVideo('Relentless Beast — Gym Motivation Edit', 'Aggressive, high-octane workout edit engineered with hard-hitting bass drops, dynamic punch-ins, motion blur whip pans, and intense film grain aesthetics to ignite unstoppable energy.', 'assets/work_gym_1080p.mp4', 'Gym Motivation Edit', '✦ High-Octane Retention ✦')">
+        <div class="real-work-card" data-category="viral" onclick="openTheaterVideo('Relentless Beast — Gym Motivation Edit', 'Aggressive, high-octane workout edit engineered with hard-hitting bass drops, dynamic punch-ins, motion blur whip pans, and intense film grain aesthetics to ignite unstoppable energy.', '/assets/work_gym_1080p.mp4', 'Gym Motivation Edit', '✦ High-Octane Retention ✦')">
           <div class="real-work-thumb">
-            <video src="assets/work_gym_1080p.mp4" muted loop playsinline preload="metadata" onmouseover="this.play().catch(function(){})" onmouseout="this.pause()"></video>
+            <video src="/assets/work_gym_1080p.mp4" poster="/assets/thumb_work_gym.jpg" muted loop playsinline preload="metadata" onmouseover="this.play().catch(function(){})" onmouseout="this.pause()"></video>
             <div style="position:absolute;top:10px;left:10px;padding:4px 10px;border-radius:999px;background:rgba(0,0,0,0.75);border:1px solid rgba(212,175,55,0.4);color:#FBBF24;font-size:10px;font-weight:800;letter-spacing:0.08em;text-transform:uppercase;">
               ✦ High-Octane Retention ✦
             </div>
@@ -592,9 +573,9 @@
             </div>
           </div>
         </div>
-        <div class="real-work-card" data-category="commercial" onclick="openTheaterVideo('Compassion in Motion — Feeding the Needy & Rescuing Stray Lives', 'A deeply moving and heartfelt social documentary story capturing a young girl distributing warm meals to the homeless and feeding hungry stray animals on the streets. Crafted with uplifting warm tones, emotional narrative rhythm, and soul-stirring audio atmosphere.', 'assets/work_charity_1080p.mp4', 'Social Documentary Story', '✦ Heartfelt Storytelling ✦')">
+        <div class="real-work-card" data-category="commercial" onclick="openTheaterVideo('Compassion in Motion — Feeding the Needy & Rescuing Stray Lives', 'A deeply moving and heartfelt social documentary story capturing a young girl distributing warm meals to the homeless and feeding hungry stray animals on the streets. Crafted with uplifting warm tones, emotional narrative rhythm, and soul-stirring audio atmosphere.', '/assets/work_charity_1080p.mp4', 'Social Documentary Story', '✦ Heartfelt Storytelling ✦')">
           <div class="real-work-thumb">
-            <video src="assets/work_charity_1080p.mp4" muted loop playsinline preload="metadata" onmouseover="this.play().catch(function(){})" onmouseout="this.pause()"></video>
+            <video src="/assets/work_charity_1080p.mp4" poster="/assets/thumb_work_charity.jpg" muted loop playsinline preload="metadata" onmouseover="this.play().catch(function(){})" onmouseout="this.pause()"></video>
             <div style="position:absolute;top:10px;left:10px;padding:4px 10px;border-radius:999px;background:rgba(0,0,0,0.75);border:1px solid rgba(212,175,55,0.4);color:#FBBF24;font-size:10px;font-weight:800;letter-spacing:0.08em;text-transform:uppercase;">
               ✦ Heartfelt Storytelling ✦
             </div>
