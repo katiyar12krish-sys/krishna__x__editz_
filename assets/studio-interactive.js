@@ -214,14 +214,14 @@
 
     const phasesHtml = data.pipeline.map(p => `
       <div style="background:rgba(255,255,255,0.04);border:1px solid rgba(255,255,255,0.1);border-radius:16px;padding:22px;">
-        <div style="font-family:monospace;font-size:11px;font-weight:900;color:${data.color};letter-spacing:0.12em;text-transform:uppercase;">STAGE ${p.phase}</div>
-        <div style="font-family:var(--serif, serif);font-size:19px;font-weight:700;color:#FFF;margin:8px 0;">${p.title}</div>
-        <p style="color:var(--muted,#cfc3ac);font-size:13.5px;line-height:1.6;margin:0;">${p.desc}</p>
+        <div style="font-family:monospace;font-size:13px;font-weight:900;color:${data.color};letter-spacing:0.14em;text-transform:uppercase;">STAGE ${p.phase}</div>
+        <div style="font-family:var(--serif, serif);font-size:22px;font-weight:700;color:#FFF;margin:8px 0;">${p.title}</div>
+        <p style="color:var(--muted,#cfc3ac);font-size:15.5px;line-height:1.65;margin:0;">${p.desc}</p>
       </div>
     `).join('');
 
     const deliverablesHtml = data.deliverables.map(d => `
-      <div style="display:flex;align-items:center;gap:12px;background:rgba(16,185,129,0.07);border:1px solid rgba(16,185,129,0.22);border-radius:12px;padding:12px 16px;color:#FFF;font-size:14px;">
+      <div style="display:flex;align-items:center;gap:12px;background:rgba(16,185,129,0.07);border:1px solid rgba(16,185,129,0.22);border-radius:12px;padding:12px 16px;color:#FFF;font-size:16px;">
         <span style="color:#10B981;font-weight:900;font-size:16px;">✓</span>
         <span>${d}</span>
       </div>
@@ -239,11 +239,11 @@
         <div style="display:flex;align-items:center;gap:12px;">
           <a href="https://wa.me/918449495147?text=Hi%20Krishna!%20I%20want%20to%20book%20the%20${encodeURIComponent(data.title)}%20service." 
              target="_blank" rel="noopener noreferrer"
-             style="display:inline-flex;align-items:center;gap:8px;padding:10px 22px;border-radius:999px;background:#25D366;color:#FFF;font-family:var(--sans);font-weight:900;font-size:12px;letter-spacing:0.1em;text-decoration:none;text-transform:uppercase;">
+             style="display:inline-flex;align-items:center;gap:8px;padding:10px 22px;border-radius:999px;background:#25D366;color:#FFF;font-family:var(--sans);font-weight:900;font-size:14px;letter-spacing:0.1em;text-decoration:none;text-transform:uppercase;">
             WhatsApp Chat ↗
           </a>
           <a href="/contact" 
-             style="display:inline-flex;align-items:center;gap:8px;padding:10px 22px;border-radius:999px;background:#F59E0B;color:#000;font-family:var(--sans);font-weight:900;font-size:12px;letter-spacing:0.1em;text-decoration:none;text-transform:uppercase;">
+             style="display:inline-flex;align-items:center;gap:8px;padding:10px 22px;border-radius:999px;background:#F59E0B;color:#000;font-family:var(--sans);font-weight:900;font-size:14px;letter-spacing:0.1em;text-decoration:none;text-transform:uppercase;">
             Book This Service &rarr;
           </a>
         </div>
@@ -251,7 +251,7 @@
 
       <div class="fullscreen-body-container">
         <div style="display:flex;align-items:center;gap:10px;margin-bottom:14px;">
-          <span style="display:inline-block;padding:5px 14px;border-radius:999px;background:rgba(255,255,255,0.08);border:1px solid ${data.color};color:${data.color};font-size:11px;font-weight:800;letter-spacing:0.14em;text-transform:uppercase;">
+          <span style="display:inline-block;padding:5px 14px;border-radius:999px;background:rgba(255,255,255,0.08);border:1px solid ${data.color};color:${data.color};font-size:13px;font-weight:800;letter-spacing:0.14em;text-transform:uppercase;">
             ${data.vol} • ${data.tag}
           </span>
         </div>
@@ -264,18 +264,18 @@
           ${data.summary}
         </p>
 
-        <div style="background:rgba(255,255,255,0.04);border-radius:14px;padding:18px 24px;margin-bottom:48px;border-left:4px solid ${data.color};font-size:14.5px;font-weight:700;color:#FFF;">
+        <div style="background:rgba(255,255,255,0.04);border-radius:14px;padding:18px 24px;margin-bottom:48px;border-left:4px solid ${data.color};font-size:16.5px;font-weight:700;color:#FFF;">
           ⚡ Strategic Performance Benchmark: <span style="color:${data.color}">${data.metrics}</span>
         </div>
 
-        <h2 style="font-family:var(--sans,sans-serif);font-size:14px;font-weight:900;letter-spacing:0.2em;text-transform:uppercase;color:#FFF;margin:0 0 20px 0;">
+        <h2 style="font-family:var(--sans,sans-serif);font-size:16px;font-weight:900;letter-spacing:0.18em;text-transform:uppercase;color:#FFF;margin:0 0 20px 0;">
           5-Stage End-to-End Production Pipeline
         </h2>
         <div style="display:grid;grid-template-columns:repeat(auto-fit, minmax(280px, 1fr));gap:20px;margin-bottom:48px;">
           ${phasesHtml}
         </div>
 
-        <h2 style="font-family:var(--sans,sans-serif);font-size:14px;font-weight:900;letter-spacing:0.2em;text-transform:uppercase;color:#FFF;margin:0 0 20px 0;">
+        <h2 style="font-family:var(--sans,sans-serif);font-size:16px;font-weight:900;letter-spacing:0.18em;text-transform:uppercase;color:#FFF;margin:0 0 20px 0;">
           Everything Included In Your Delivery
         </h2>
         <div style="display:grid;grid-template-columns:repeat(auto-fit, minmax(280px, 1fr));gap:14px;margin-bottom:48px;">
@@ -331,7 +331,7 @@
           </svg>
           <span>Back to Portfolio</span>
         </button>
-        <a href="/contact" style="display:inline-flex;align-items:center;gap:8px;padding:9px 20px;border-radius:999px;background:#F59E0B;color:#000;font-family:var(--sans);font-weight:900;font-size:12px;letter-spacing:0.1em;text-decoration:none;text-transform:uppercase;">
+        <a href="/contact" style="display:inline-flex;align-items:center;gap:8px;padding:9px 20px;border-radius:999px;background:#F59E0B;color:#000;font-family:var(--sans);font-weight:900;font-size:14px;letter-spacing:0.1em;text-decoration:none;text-transform:uppercase;">
           Book an Edit Like This ↗
         </a>
       </div>
@@ -358,10 +358,10 @@
 
         <div style="background:rgba(255,255,255,0.04);border-radius:16px;padding:24px;border:1px solid rgba(255,255,255,0.1);display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:20px;">
           <div>
-            <div style="color:#FFF;font-size:15px;font-weight:700;">Interested in creating a video with this style and pacing?</div>
-            <div style="color:var(--muted);font-size:13px;margin-top:4px;">Average delivery is 24-48 hours with 4K mastering and custom sound design.</div>
+            <div style="color:#FFF;font-size:17px;font-weight:700;">Interested in creating a video with this style and pacing?</div>
+            <div style="color:var(--muted);font-size:15px;margin-top:4px;">Average delivery is 24-48 hours with 4K mastering and custom sound design.</div>
           </div>
-          <a href="https://wa.me/918449495147?text=Hi%20Krishna!%20I%20saw%20your%20project%20'${encodeURIComponent(title)}'%20and%20want%20to%20discuss%20a%20similar%20edit." target="_blank" style="padding:12px 24px;border-radius:999px;background:#25D366;color:#FFF;text-decoration:none;font-weight:900;font-size:12.5px;letter-spacing:0.08em;text-transform:uppercase;">
+          <a href="https://wa.me/918449495147?text=Hi%20Krishna!%20I%20saw%20your%20project%20'${encodeURIComponent(title)}'%20and%20want%20to%20discuss%20a%20similar%20edit." target="_blank" style="padding:12px 24px;border-radius:999px;background:#25D366;color:#FFF;text-decoration:none;font-weight:900;font-size:14px;letter-spacing:0.08em;text-transform:uppercase;">
             WhatsApp Krishna Directly ↗
           </a>
         </div>
@@ -404,7 +404,7 @@
           <span>Back to Pricing Packages</span>
         </button>
         <a href="https://wa.me/918449495147?text=Hi%20Krishna!%20I%20reviewed%20the%20example%20video%20and%20want%20to%20book%20the%20${encodeURIComponent(title)}%20package%20(${encodeURIComponent(price)})." 
-           target="_blank" style="padding:10px 22px;border-radius:999px;background:#F59E0B;color:#000;font-family:var(--sans);font-weight:900;font-size:12px;letter-spacing:0.1em;text-decoration:none;text-transform:uppercase;">
+           target="_blank" style="padding:10px 22px;border-radius:999px;background:#F59E0B;color:#000;font-family:var(--sans);font-weight:900;font-size:14px;letter-spacing:0.1em;text-decoration:none;text-transform:uppercase;">
           Book This Package (${price}) ↗
         </a>
       </div>
@@ -420,7 +420,7 @@
         <h1 style="font-family:var(--serif);font-size:clamp(26px, 4vw, 42px);color:#FFF;margin-bottom:8px;line-height:1.2;">
           ${title} — Sample Video Edit
         </h1>
-        <p style="color:var(--muted);font-size:15px;margin-bottom:24px;">
+        <p style="color:var(--muted);font-size:17px;margin-bottom:24px;">
           ${desc}
         </p>
 
@@ -431,15 +431,15 @@
 
         <div style="background:rgba(255,255,255,0.04);border-radius:16px;padding:22px 28px;border:1px solid rgba(255,255,255,0.1);display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:20px;">
           <div>
-            <div style="color:#F59E0B;font-size:11px;font-weight:800;letter-spacing:0.14em;text-transform:uppercase;margin-bottom:4px;">✦ Krishna's Editing Guarantee</div>
-            <div style="color:#FFF;font-size:15.5px;font-weight:700;">Includes 4K master export, beat sync, kinetic typography &amp; revisions.</div>
-            <div style="color:var(--muted);font-size:12.5px;margin-top:2px;">(Krishna will customize the exact showcase video for this section as requested).</div>
+            <div style="color:#F59E0B;font-size:13px;font-weight:800;letter-spacing:0.14em;text-transform:uppercase;margin-bottom:4px;">✦ Krishna's Editing Guarantee</div>
+            <div style="color:#FFF;font-size:17.5px;font-weight:700;">Includes 4K master export, beat sync, kinetic typography &amp; revisions.</div>
+            <div style="color:var(--muted);font-size:14.5px;margin-top:2px;">(Krishna will customize the exact showcase video for this section as requested).</div>
           </div>
           <div style="display:flex;gap:12px;flex-wrap:wrap;">
-            <a href="https://wa.me/918449495147" target="_blank" style="padding:12px 24px;border-radius:999px;background:#25D366;color:#FFF;font-weight:900;font-size:12px;letter-spacing:0.08em;text-transform:uppercase;text-decoration:none;">
+            <a href="https://wa.me/918449495147" target="_blank" style="padding:12px 24px;border-radius:999px;background:#25D366;color:#FFF;font-weight:900;font-size:14px;letter-spacing:0.08em;text-transform:uppercase;text-decoration:none;">
               WhatsApp Krishna ↗
             </a>
-            <a href="/contact" style="padding:12px 24px;border-radius:999px;background:#F59E0B;color:#000;font-weight:900;font-size:12px;letter-spacing:0.08em;text-transform:uppercase;text-decoration:none;">
+            <a href="/contact" style="padding:12px 24px;border-radius:999px;background:#F59E0B;color:#000;font-weight:900;font-size:14px;letter-spacing:0.08em;text-transform:uppercase;text-decoration:none;">
               Confirm Project Brief &rarr;
             </a>
           </div>
