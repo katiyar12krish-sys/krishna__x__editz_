@@ -965,3 +965,53 @@ body {
   line-height: 1.6 !important;
   color: #cfc3ac !important;
 }
+
+
+/* ========================================================
+   HEADER ADMIN QUICK ACCESS BUTTON
+   ======================================================== */
+.studio-header-admin {
+  display: inline-flex !important;
+  align-items: center !important;
+  gap: 6px !important;
+  padding: 6px 14px !important;
+  height: 36px !important;
+  background: rgba(212, 175, 55, 0.12) !important;
+  color: #F59E0B !important;
+  text-decoration: none !important;
+  font-family: var(--sans, 'Plus Jakarta Sans', sans-serif) !important;
+  font-size: 12px !important;
+  font-weight: 800 !important;
+  letter-spacing: 0.08em !important;
+  text-transform: uppercase !important;
+  border-radius: 999px !important;
+  border: 1px solid rgba(245, 158, 11, 0.45) !important;
+  position: relative !important;
+  transition: all 260ms ease !important;
+  box-sizing: border-box !important;
+  cursor: pointer !important;
+  box-shadow: 0 0 14px rgba(245, 158, 11, 0.15) !important;
+}
+
+.studio-header-admin:hover {
+  background: rgba(245, 158, 11, 0.25) !important;
+  border-color: #F59E0B !important;
+  color: #FFFFFF !important;
+  transform: translateY(-1px) !important;
+  box-shadow: 0 4px 20px rgba(245, 158, 11, 0.5) !important;
+}
+
+.studio-header-admin .admin-crown-icon {
+  font-size: 14px !important;
+  line-height: 1 !important;
+  filter: drop-shadow(0 0 6px rgba(245, 158, 11, 0.6)) !important;
+}
+
+@media (max-width: 640px) {
+  .studio-header-admin .admin-text-label {
+    display: none !important;
+  }
+  .studio-header-admin {
+    padding: 6px 10px !important;
+  }
+}

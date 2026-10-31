@@ -556,4 +556,42 @@
     }
   });
 
+
+  // ========================================================
+  // GLOBAL ADMIN COMMAND CENTER SHORTCUTS
+  // (Alt+A, Ctrl+Shift+A, or 5 quick clicks on brand logo)
+  // ========================================================
+  window.addEventListener('keydown', (e) => {
+    if ((e.altKey && (e.key === 'a' || e.key === 'A')) || 
+        (e.ctrlKey && e.shiftKey && (e.key === 'a' || e.key === 'A'))) {
+      e.preventDefault();
+      if (typeof openAdminPortal === 'function') {
+        openAdminPortal();
+      } else {
+        window.location.href = '/admin';
+      }
+    }
+  });
+
+  // 5-click easter egg on brand logo
+  let logoClicks = 0;
+  let logoTimer = null;
+  document.querySelectorAll('.studio-brand-link, .studio-brand-logo, .footer-logo, .brand-wrap').forEach(el => {
+    el.addEventListener('click', (e) => {
+      logoClicks++;
+      clearTimeout(logoTimer);
+      if (logoClicks >= 5) {
+        logoClicks = 0;
+        e.preventDefault();
+        if (typeof openAdminPortal === 'function') {
+          openAdminPortal();
+        } else {
+          window.location.href = '/admin';
+        }
+      } else {
+        logoTimer = setTimeout(() => { logoClicks = 0; }, 2000);
+      }
+    });
+  });
+
 })();
