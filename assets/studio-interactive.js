@@ -485,8 +485,7 @@
         <nav class="drawer-links-list">
           <a href="/" class="drawer-link"><span>Home</span><span class="drawer-link-arrow">&rarr;</span></a>
           <a href="/services" class="drawer-link"><span>Services &amp; Stages</span><span class="drawer-link-arrow">&rarr;</span></a>
-          <a href="/portfolio" class="drawer-link"><span>Portfolio (Real Works)</span><span class="drawer-link-arrow">&rarr;</span></a>
-          <a href="/my-work" class="drawer-link"><span>My Work Theater</span><span class="drawer-link-arrow">&rarr;</span></a>
+          <a href="/my-work" class="drawer-link"><span>My Works (19 Real Edits)</span><span class="drawer-link-arrow">&rarr;</span></a>
           <a href="/pricing" class="drawer-link"><span>Pricing Packages</span><span class="drawer-link-arrow">&rarr;</span></a>
           <a href="/about" class="drawer-link"><span>About Krishna</span><span class="drawer-link-arrow">&rarr;</span></a>
           <a href="/founder" class="drawer-link"><span>Founder Profile</span><span class="drawer-link-arrow">&rarr;</span></a>

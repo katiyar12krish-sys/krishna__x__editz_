@@ -559,8 +559,13 @@ const servePage = (pageName) => (req, res) => {
 
 app.get('/services', servePage('services.html'));
 app.get('/services/:slug', servePage('services.html'));
-app.get('/portfolio', servePage('portfolio.html'));
+app.get('/portfolio', (req, res) => res.redirect(301, '/my-work'));
+app.get('/portfolio.html', (req, res) => res.redirect(301, '/my-work'));
 app.get('/my-work', servePage('my-work.html'));
+app.get('/my-work.html', servePage('my-work.html'));
+app.get('/my-works', servePage('my-work.html'));
+app.get('/works', servePage('my-work.html'));
+app.get('/work', servePage('my-work.html'));
 app.get('/pricing', servePage('pricing.html'));
 app.get('/about', servePage('about.html'));
 app.get('/founder', servePage('founder.html'));
