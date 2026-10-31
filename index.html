@@ -8136,7 +8136,14 @@
     <div class="booking-modal-backdrop" onclick="closeBookingModal()"></div>
     <div class="booking-modal-dialog">
       <div class="booking-modal-header">
-        <span class="section-eyebrow" style="margin-bottom: 8px;">✦ Direct Client Booking ✦</span>
+        <div style="display: flex; align-items: center; justify-content: space-between; margin-bottom: 12px;">
+          <button type="button" class="btn-nav-back" onclick="closeBookingModal()" style="height:32px;padding:4px 12px;font-size:12px;">
+            <svg viewBox="0 0 24 24" width="14" height="14" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="15 18 9 12 15 6"></polyline></svg>
+            <span>← Back to Website</span>
+          </button>
+          <button type="button" onclick="closeBookingModal()" style="background: rgba(255,255,255,0.08); border: 1px solid rgba(255,255,255,0.2); border-radius: 50%; width: 32px; height: 32px; color: #FFF; cursor: pointer; display: flex; align-items: center; justify-content: center;">✕</button>
+        </div>
+        <span class="section-eyebrow"  style="margin-bottom: 8px;">✦ Direct Client Booking ✦</span>
         <h3 class="booking-modal-title">Commission Your Next Video Project</h3>
         <p class="booking-modal-subtitle">🎉 <strong>Flat 20% OFF on your first order!</strong> Rates are flexible &amp; bargainable (halka upar-neeche kr skte hain). Pricing scales by video timing, style &amp; references.</p>
       </div>

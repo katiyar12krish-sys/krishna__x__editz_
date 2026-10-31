@@ -1017,175 +1017,263 @@ body {
 }
 
 
+
 /* ========================================================
-   SOREXA-STYLE FOUNDER / ABOUT ME EXECUTIVE CARD
+   SEAMLESS UNBOXED FOUNDER PROFILE (NO BOX CONTAINER)
    ======================================================== */
 .founder-spotlight-card {
   position: relative;
   width: 100%;
   max-width: 1100px;
-  margin: 0 auto 60px auto;
-  border-radius: 28px;
-  padding: 2px;
-  background: linear-gradient(135deg, rgba(6, 182, 212, 0.7) 0%, rgba(168, 85, 247, 0.6) 50%, rgba(16, 185, 129, 0.7) 100%);
-  box-shadow: 0 20px 60px rgba(0, 0, 0, 0.8), 0 0 35px rgba(6, 182, 212, 0.2);
-  transition: transform 0.4s cubic-bezier(0.16, 1, 0.3, 1), box-shadow 0.4s ease;
+  margin: 0 auto 50px auto;
+  background: transparent !important;
+  border: none !important;
+  box-shadow: none !important;
+  padding: 0 !important;
 }
 
 .founder-spotlight-card:hover {
-  transform: translateY(-4px);
-  box-shadow: 0 28px 70px rgba(0, 0, 0, 0.9), 0 0 45px rgba(6, 182, 212, 0.35);
+  transform: none !important;
+  box-shadow: none !important;
 }
 
 .founder-card-inner {
-  background: rgba(14, 18, 27, 0.92);
-  backdrop-filter: blur(28px);
-  border-radius: 26px;
-  padding: clamp(32px, 5vw, 56px);
+  background: transparent !important;
+  backdrop-filter: none !important;
+  border: none !important;
+  box-shadow: none !important;
+  padding: clamp(20px, 3vw, 40px) 0 !important;
   display: flex;
   align-items: center;
   gap: clamp(28px, 4.5vw, 60px);
   text-align: left;
 }
 
-/* Left Column: Avatar & OWNER Badge */
-.founder-avatar-col {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  flex-shrink: 0;
-  position: relative;
-}
-
-.founder-avatar-frame {
-  position: relative;
-  width: clamp(160px, 20vw, 220px);
-  height: clamp(160px, 20vw, 220px);
-  border-radius: 50%;
-  padding: 4px;
-  background: linear-gradient(135deg, #00f2fe, #a855f7, #10b981);
-  box-shadow: 0 0 30px rgba(6, 182, 212, 0.45);
-}
-
-.founder-avatar-img {
-  width: 100%;
-  height: 100%;
-  border-radius: 50%;
-  object-fit: cover;
-  display: block;
-  background: #0b111a;
-}
-
-.founder-owner-badge {
-  position: absolute;
-  bottom: -12px;
-  left: 50%;
-  transform: translateX(-50%);
+/* ========================================================
+   GLOBAL SUBPAGE NAV BAR & BACK / HOME CONTROLS
+   ======================================================== */
+.subpage-nav-bar {
   display: inline-flex;
-  align-items: center;
-  gap: 6px;
-  padding: 6px 18px;
-  background: rgba(6, 182, 212, 0.2);
-  border: 1.5px solid rgba(0, 242, 254, 0.8);
-  border-radius: 999px;
-  color: #00f2fe;
-  font-family: var(--font-body, 'Plus Jakarta Sans', sans-serif);
-  font-size: 11.5px;
-  font-weight: 800;
-  letter-spacing: 0.16em;
-  text-transform: uppercase;
-  backdrop-filter: blur(12px);
-  box-shadow: 0 4px 18px rgba(6, 182, 212, 0.4);
-  white-space: nowrap;
-}
-
-/* Right Column: Bio & Pills */
-.founder-details-col {
-  flex: 1 1 auto;
-}
-
-.founder-eyebrow {
-  color: #00f2fe;
-  font-family: var(--font-body, 'Plus Jakarta Sans', sans-serif);
-  font-size: clamp(12px, 1.3vw, 14px);
-  font-weight: 800;
-  letter-spacing: 0.2em;
-  text-transform: uppercase;
-  margin-bottom: 8px;
-}
-
-.founder-name {
-  color: #FFFFFF;
-  font-family: var(--font-body, 'Plus Jakarta Sans', sans-serif);
-  font-size: clamp(32px, 4.2vw, 50px);
-  font-weight: 900;
-  line-height: 1.15;
-  margin: 0 0 16px 0;
-  background: linear-gradient(135deg, #FFFFFF 30%, #00f2fe 100%);
-  -webkit-background-clip: text;
-  -webkit-text-fill-color: transparent;
-}
-
-.founder-bio {
-  color: #d1d5db;
-  font-family: var(--font-body, 'Plus Jakarta Sans', sans-serif);
-  font-size: clamp(14.5px, 1.4vw, 17px);
-  line-height: 1.65;
-  margin-bottom: 22px;
-  max-width: 680px;
-}
-
-.founder-bio strong {
-  color: #FFFFFF;
-}
-
-.founder-milestone-row {
-  display: flex;
   align-items: center;
   gap: 10px;
   margin-bottom: 24px;
-  color: #9ca3af;
-  font-size: clamp(13.5px, 1.3vw, 15px);
-  font-weight: 600;
 }
 
-.founder-briefcase-icon {
-  font-size: 18px;
+.btn-nav-back, .btn-nav-home {
+  display: inline-flex;
+  align-items: center;
+  gap: 7px;
+  padding: 7px 16px;
+  height: 38px;
+  border-radius: 999px;
+  background: rgba(255, 255, 255, 0.05);
+  border: 1px solid rgba(255, 255, 255, 0.16);
+  color: #FFFFFF;
+  text-decoration: none;
+  font-family: var(--sans, 'Plus Jakarta Sans', sans-serif);
+  font-size: 13px;
+  font-weight: 700;
+  letter-spacing: 0.04em;
+  cursor: pointer;
+  backdrop-filter: blur(12px);
+  transition: all 0.22s ease;
+  box-sizing: border-box;
 }
 
-.founder-skills-grid {
+.btn-nav-back:hover, .btn-nav-home:hover {
+  background: rgba(245, 158, 11, 0.18);
+  border-color: #F59E0B;
+  color: #F59E0B;
+  transform: translateY(-2px);
+  box-shadow: 0 4px 16px rgba(245, 158, 11, 0.3);
+}
+
+.btn-nav-back svg, .btn-nav-home svg {
+  stroke-width: 2.5;
+  transition: transform 0.2s ease;
+}
+
+.btn-nav-back:hover svg {
+  transform: translateX(-3px);
+}
+
+/* Global Floating Navigation (Bottom-Left) */
+.global-floating-nav {
+  position: fixed;
+  bottom: 24px;
+  left: 24px;
+  z-index: 99999;
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  padding: 6px;
+  background: rgba(14, 18, 27, 0.92);
+  border: 1px solid rgba(212, 175, 55, 0.35);
+  border-radius: 999px;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.75), 0 0 20px rgba(212, 175, 55, 0.2);
+  backdrop-filter: blur(16px);
+  animation: fadeIn 0.4s ease;
+}
+
+.floating-nav-btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  padding: 6px 14px;
+  height: 32px;
+  border-radius: 999px;
+  background: rgba(255, 255, 255, 0.06);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  color: #FFFFFF;
+  text-decoration: none;
+  font-family: var(--sans, 'Plus Jakarta Sans', sans-serif);
+  font-size: 12px;
+  font-weight: 800;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  cursor: pointer;
+  transition: all 0.2s ease;
+}
+
+.floating-nav-btn:hover {
+  background: rgba(245, 158, 11, 0.25);
+  border-color: #F59E0B;
+  color: #F59E0B;
+  box-shadow: 0 0 12px rgba(245, 158, 11, 0.4);
+}
+
+.floating-nav-btn.home-btn {
+  color: #00F2FE;
+  border-color: rgba(0, 242, 254, 0.25);
+}
+
+.floating-nav-btn.home-btn:hover {
+  background: rgba(0, 242, 254, 0.2);
+  border-color: #00F2FE;
+  color: #FFFFFF;
+  box-shadow: 0 0 12px rgba(0, 242, 254, 0.4);
+}
+
+/* ========================================================
+   CINEMATIC FULLSCREEN THEATER MODAL (MY WORKS)
+   ======================================================== */
+.work-theater-modal {
+  position: fixed;
+  inset: 0;
+  z-index: 100002;
+  background: rgba(6, 4, 3, 0.96);
+  backdrop-filter: blur(28px);
+  display: none;
+  align-items: center;
+  justify-content: center;
+  padding: clamp(14px, 2.5vw, 32px);
+  box-sizing: border-box;
+}
+
+.work-theater-modal.open {
+  display: flex !important;
+  animation: fadeIn 0.25s ease;
+}
+
+.theater-dialog {
+  position: relative;
+  width: min(1140px, 96vw);
+  max-height: 94vh;
   display: flex;
-  flex-wrap: wrap;
+  flex-direction: column;
+  background: #0F141E;
+  border: 1.5px solid rgba(212, 175, 55, 0.4);
+  border-radius: 20px;
+  box-shadow: 0 25px 70px rgba(0, 0, 0, 0.95), 0 0 40px rgba(212, 175, 55, 0.2);
+  overflow: hidden;
+}
+
+.theater-top-bar {
+  padding: 14px 22px;
+  background: rgba(22, 17, 12, 0.98);
+  border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 14px;
+}
+
+.theater-nav-controls {
+  display: flex;
+  align-items: center;
   gap: 10px;
 }
 
-.founder-skill-pill {
-  display: inline-block;
-  padding: 8px 18px;
-  border-radius: 999px;
-  background: rgba(255, 255, 255, 0.05);
-  border: 1px solid rgba(255, 255, 255, 0.12);
-  color: #e5e7eb;
-  font-family: var(--font-body, 'Plus Jakarta Sans', sans-serif);
-  font-size: 13.5px;
-  font-weight: 600;
-  letter-spacing: 0.02em;
-  transition: all 0.25s ease;
+.theater-close-btn {
+  background: rgba(255, 255, 255, 0.08);
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  border-radius: 50%;
+  width: 36px;
+  height: 36px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: #FFF;
+  cursor: pointer;
+  transition: all 0.2s ease;
 }
 
-.founder-skill-pill:hover {
-  background: rgba(6, 182, 212, 0.15);
-  border-color: rgba(6, 182, 212, 0.5);
-  color: #00f2fe;
-  transform: translateY(-2px);
+.theater-close-btn:hover {
+  background: #EF4444;
+  border-color: #EF4444;
+  color: #FFF;
+  transform: rotate(90deg);
 }
 
-@media (max-width: 860px) {
-  .founder-card-inner {
-    flex-direction: column;
-    text-align: center;
-    gap: 36px;
-  }
+.theater-content-body {
+  padding: clamp(18px, 2.5vw, 28px);
+  overflow-y: auto;
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+
+.theater-video-frame {
+  width: 100%;
+  max-height: 56vh;
+  background: #000;
+  border-radius: 14px;
+  overflow: hidden;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.8);
+}
+
+.theater-video-frame video {
+  width: 100%;
+  height: 100%;
+  max-height: 56vh;
+  object-fit: contain;
+  display: block;
+}
+
+.theater-meta-row {
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+  gap: 20px;
+  flex-wrap: wrap;
+}
+
+.theater-title {
+  color: #FFFFFF;
+  font-family: var(--serif, 'Cinzel', serif);
+  font-size: clamp(20px, 2.4vw, 28px);
+  font-weight: 800;
+  margin: 6px 0 8px 0;
+}
+
+.theater-desc {
+  color: #9ca3af;
+  font-size: 14.5px;
+  line-height: 1.6;
+  max-width: 720px;
+  margin: 0;
+}
+
   .founder-milestone-row {
     justify-content: center;
   }

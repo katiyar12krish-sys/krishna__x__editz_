@@ -482,7 +482,8 @@
         </svg>
         Sync Data
       </button>
-      <a href="/" class="btn-live-site" target="_blank">&larr; Live Portfolio</a>
+      <button type="button" class="btn-sync" onclick="if(document.referrer){history.back();}else{window.location.href='/';}" style="background:rgba(255,255,255,0.06);border-color:rgba(255,255,255,0.2);color:#FFF;">&larr; Back</button>
+      <a href="/" class="btn-live-site">&larr; Return to Home</a>
     </div>
   </header>
 

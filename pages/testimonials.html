@@ -622,6 +622,23 @@
     <div class="ambient-orb orb-5" aria-hidden="true"></div>
 <section class="page-hero">
       <div class="container">
+      <!-- SUBPAGE BACK & HOME NAVIGATION BAR -->
+      <div class="subpage-nav-bar">
+        <button type="button" class="btn-nav-back" onclick="if(document.referrer && document.referrer.indexOf(window.location.host)!==-1){history.back();}else{window.location.href='/';}">
+          <svg viewBox="0 0 24 24" width="15" height="15" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+            <polyline points="15 18 9 12 15 6"></polyline>
+          </svg>
+          <span>Back</span>
+        </button>
+        <a href="/" class="btn-nav-home">
+          <svg viewBox="0 0 24 24" width="15" height="15" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round">
+            <path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"></path>
+            <polyline points="9 22 9 12 15 12 15 22"></polyline>
+          </svg>
+          <span>Home</span>
+        </a>
+      </div>
+
         <span class="section-eyebrow">✦ REAL-TIME DATABASE VERIFIED ✦</span>
         <h1 class="page-hero-title">Client Reviews &amp; Testimonials</h1>
         <p class="section-desc">
@@ -941,5 +958,22 @@
     });
   </script>
   <script src="../assets/studio-interactive.js"></script>
+  <!-- GLOBAL FLOATING QUICK NAVIGATION (BACK & HOME ANYWHERE) -->
+  <div class="global-floating-nav" aria-label="Quick Navigation">
+    <button type="button" class="floating-nav-btn" onclick="if(document.referrer && document.referrer.indexOf(window.location.host)!==-1){history.back();}else{window.location.href='/';}" title="Go back to previous page">
+      <svg viewBox="0 0 24 24" width="14" height="14" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+        <polyline points="15 18 9 12 15 6"></polyline>
+      </svg>
+      <span>Back</span>
+    </button>
+    <a href="/" class="floating-nav-btn home-btn" title="Return to Homepage">
+      <svg viewBox="0 0 24 24" width="14" height="14" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round">
+        <path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"></path>
+        <polyline points="9 22 9 12 15 12 15 22"></polyline>
+      </svg>
+      <span>Home</span>
+    </a>
+  </div>
+
 </body>
 </html>

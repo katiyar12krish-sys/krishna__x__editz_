@@ -169,6 +169,23 @@
 
 <main class="page-hero">
     <div class="container">
+      <!-- SUBPAGE BACK & HOME NAVIGATION BAR -->
+      <div class="subpage-nav-bar">
+        <button type="button" class="btn-nav-back" onclick="if(document.referrer && document.referrer.indexOf(window.location.host)!==-1){history.back();}else{window.location.href='/';}">
+          <svg viewBox="0 0 24 24" width="15" height="15" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+            <polyline points="15 18 9 12 15 6"></polyline>
+          </svg>
+          <span>Back</span>
+        </button>
+        <a href="/" class="btn-nav-home">
+          <svg viewBox="0 0 24 24" width="15" height="15" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round">
+            <path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"></path>
+            <polyline points="9 22 9 12 15 12 15 22"></polyline>
+          </svg>
+          <span>Home</span>
+        </a>
+      </div>
+
       <span class="section-eyebrow">✦ REAL DELIVERED WORKS &amp; SIGNATURE CUTS ✦</span>
       <h1 class="page-hero-title">Selected Works &amp; <span>Cinematic Proofs</span></h1>
       <p class="section-desc">
@@ -692,5 +709,100 @@
       }
     })();
   </script>
+
+  <!-- ========================================================
+       CINEMATIC FULLSCREEN THEATER MODAL
+       ======================================================== -->
+  <div class="work-theater-modal" id="workTheaterModal" aria-hidden="true">
+    <div class="theater-dialog">
+      <!-- TOP CONTROLS: BACK, HOME & CLOSE -->
+      <div class="theater-top-bar">
+        <div class="theater-nav-controls">
+          <button type="button" class="btn-nav-back" onclick="closeTheaterModal()" style="height:32px;padding:4px 12px;font-size:12px;">
+            <svg viewBox="0 0 24 24" width="14" height="14" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="15 18 9 12 15 6"></polyline></svg>
+            <span>Back to Works</span>
+          </button>
+          <a href="/" class="btn-nav-home" style="height:32px;padding:4px 12px;font-size:12px;">
+            <svg viewBox="0 0 24 24" width="14" height="14" fill="none" stroke="currentColor" stroke-width="2.2"><path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"></path><polyline points="9 22 9 12 15 12 15 22"></polyline></svg>
+            <span>Home</span>
+          </a>
+        </div>
+        <button type="button" class="theater-close-btn" onclick="closeTheaterModal()" title="Close Theater Video (Esc)">
+          <svg viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2.5"><line x1="18" y1="6" x2="6" y2="18"></line><line x1="6" y1="6" x2="18" y2="18"></line></svg>
+        </button>
+      </div>
+
+      <!-- VIDEO PLAYER & DETAILS -->
+      <div class="theater-content-body">
+        <div class="theater-video-frame">
+          <video id="theaterVideoElem" controls autoplay playsinline></video>
+        </div>
+        <div class="theater-meta-row">
+          <div>
+            <span id="theaterCategoryBadge" style="display:inline-block;padding:4px 12px;border-radius:999px;background:rgba(212,175,55,0.15);border:1px solid rgba(212,175,55,0.4);color:#FBBF24;font-size:11px;font-weight:800;letter-spacing:0.08em;text-transform:uppercase;margin-bottom:8px;"></span>
+            <h2 class="theater-title" id="theaterTitle"></h2>
+            <p class="theater-desc" id="theaterDesc"></p>
+          </div>
+          <div style="display:flex;flex-direction:column;gap:10px;min-width:200px;">
+            <a id="theaterWaBtn" href="https://wa.me/918449495147" target="_blank" rel="noopener noreferrer" style="padding:12px 20px;border-radius:999px;background:#25D366;color:#FFF;font-weight:900;font-size:12px;letter-spacing:0.06em;text-transform:uppercase;text-decoration:none;display:flex;align-items:center;justify-content:center;gap:6px;">
+              <span>Book This Style ↗</span>
+            </a>
+            <button type="button" onclick="closeTheaterModal()" style="padding:10px 18px;border-radius:999px;background:rgba(255,255,255,0.06);border:1px solid rgba(255,255,255,0.15);color:#d1d5db;font-weight:700;font-size:12px;cursor:pointer;">
+              ← Back to All Works
+            </button>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <script>
+    function openTheaterVideo(title, desc, videoSrc, category, badgeText) {
+      var modal = document.getElementById('workTheaterModal');
+      var videoElem = document.getElementById('theaterVideoElem');
+      document.getElementById('theaterTitle').textContent = title;
+      document.getElementById('theaterDesc').textContent = desc;
+      document.getElementById('theaterCategoryBadge').textContent = badgeText || category || 'Cinematic Proof';
+      var waLink = document.getElementById('theaterWaBtn');
+      if (waLink) {
+        waLink.href = 'https://wa.me/918449495147?text=' + encodeURIComponent('Hi Krishna! I want to book a video edit in the style of: ' + title);
+      }
+      videoElem.src = videoSrc;
+      modal.classList.add('open');
+      videoElem.play().catch(function(){});
+    }
+
+    function closeTheaterModal() {
+      var modal = document.getElementById('workTheaterModal');
+      var videoElem = document.getElementById('theaterVideoElem');
+      if (videoElem) {
+        videoElem.pause();
+        videoElem.src = '';
+      }
+      if (modal) modal.classList.remove('open');
+    }
+
+    window.addEventListener('keydown', function(e) {
+      if (e.key === 'Escape') closeTheaterModal();
+    });
+  </script>
+
+  <!-- GLOBAL FLOATING QUICK NAVIGATION (BACK & HOME ANYWHERE) -->
+  <div class="global-floating-nav" aria-label="Quick Navigation">
+    <button type="button" class="floating-nav-btn" onclick="if(document.referrer && document.referrer.indexOf(window.location.host)!==-1){history.back();}else{window.location.href='/';}" title="Go back to previous page">
+      <svg viewBox="0 0 24 24" width="14" height="14" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+        <polyline points="15 18 9 12 15 6"></polyline>
+      </svg>
+      <span>Back</span>
+    </button>
+    <a href="/" class="floating-nav-btn home-btn" title="Return to Homepage">
+      <svg viewBox="0 0 24 24" width="14" height="14" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round">
+        <path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"></path>
+        <polyline points="9 22 9 12 15 12 15 22"></polyline>
+      </svg>
+      <span>Home</span>
+    </a>
+  </div>
+
 </body>
 </html>
