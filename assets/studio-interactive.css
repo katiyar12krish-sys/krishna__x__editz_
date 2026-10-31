@@ -783,3 +783,43 @@
     grid-template-columns: 1fr !important;
   }
 }
+
+
+/* ========================================================
+   UNIVERSAL CHROMATIC THEME ENGINE (ALL PAGES)
+   ======================================================== */
+.content-wrapper {
+  position: relative !important;
+  z-index: 20 !important;
+  width: 100% !important;
+  min-height: 100vh !important;
+  background: 
+    radial-gradient(circle at 12% 6%, rgba(16, 185, 129, 0.28) 0%, transparent 48%),
+    radial-gradient(circle at 88% 22%, rgba(245, 158, 11, 0.26) 0%, transparent 46%),
+    radial-gradient(circle at 8% 42%, rgba(225, 29, 72, 0.25) 0%, transparent 48%),
+    radial-gradient(circle at 92% 62%, rgba(139, 92, 246, 0.26) 0%, transparent 48%),
+    radial-gradient(circle at 12% 82%, rgba(6, 182, 212, 0.26) 0%, transparent 48%),
+    linear-gradient(180deg, #17110b 0%, #150f0a 15%, #1a110b 35%, #1d120a 55%, #180d16 75%, #0d141b 90%, #130e09 100%) !important;
+  overflow: hidden !important;
+}
+
+body {
+  background: #14100c !important;
+}
+
+.ambient-orb {
+  position: absolute !important;
+  border-radius: 50% !important;
+  filter: blur(80px) !important;
+  pointer-events: none !important;
+  opacity: 0.45 !important;
+  will-change: transform !important;
+  animation: orbFloat 14s ease-in-out infinite alternate !important;
+  z-index: 0 !important;
+}
+
+.orb-1 { top: 4% !important; left: -6% !important; width: 550px !important; height: 550px !important; background: rgba(16, 185, 129, 0.55) !important; animation-delay: 0s !important; }
+.orb-2 { top: 22% !important; right: -8% !important; width: 600px !important; height: 600px !important; background: rgba(245, 158, 11, 0.50) !important; animation-delay: 2.5s !important; }
+.orb-3 { top: 44% !important; left: -5% !important; width: 550px !important; height: 550px !important; background: rgba(225, 29, 72, 0.48) !important; animation-delay: 5s !important; }
+.orb-4 { top: 66% !important; right: -6% !important; width: 620px !important; height: 620px !important; background: rgba(139, 92, 246, 0.52) !important; animation-delay: 7.5s !important; }
+.orb-5 { top: 86% !important; left: -5% !important; width: 580px !important; height: 580px !important; background: rgba(6, 182, 212, 0.50) !important; animation-delay: 10s !important; }

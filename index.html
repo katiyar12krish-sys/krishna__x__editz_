@@ -6608,9 +6608,9 @@
   
     /* SLEEK 1-LINE STATS ROW & SHIFTED UP ABOUT SECTION */
     #about-section {
-      padding-top: 35px !important;
-      padding-bottom: 50px !important;
-      margin-top: -15px !important;
+      padding-top: 90px !important;
+      padding-bottom: 80px !important;
+      margin-top: 0 !important;
     }
 
     #about-section .section-header {
@@ -6884,6 +6884,42 @@
       }
     }
 
+
+    /* ========================================================
+       VIBRANT CONTINUOUS CHROMATIC THEME (GREEN -> ORANGE -> CRIMSON -> PURPLE -> CYAN)
+       ======================================================== */
+    .content-wrapper {
+      position: relative !important;
+      z-index: 20 !important;
+      width: 100% !important;
+      background: 
+        radial-gradient(circle at 12% 4%, rgba(16, 185, 129, 0.28) 0%, transparent 48%),
+        radial-gradient(circle at 88% 18%, rgba(245, 158, 11, 0.26) 0%, transparent 46%),
+        radial-gradient(circle at 8% 36%, rgba(225, 29, 72, 0.25) 0%, transparent 48%),
+        radial-gradient(circle at 92% 54%, rgba(139, 92, 246, 0.26) 0%, transparent 48%),
+        radial-gradient(circle at 12% 74%, rgba(6, 182, 212, 0.26) 0%, transparent 48%),
+        radial-gradient(circle at 88% 90%, rgba(245, 158, 11, 0.22) 0%, transparent 46%),
+        linear-gradient(180deg, #17110b 0%, #150f0a 12%, #1a110b 28%, #1d120a 44%, #180d16 60%, #0d141b 76%, #130e09 100%) !important;
+      overflow: hidden !important;
+    }
+
+    /* Vibrant Ambient Orbs */
+    .ambient-orb {
+      position: absolute !important;
+      border-radius: 50% !important;
+      filter: blur(80px) !important;
+      pointer-events: none !important;
+      opacity: 0.45 !important;
+      will-change: transform !important;
+      animation: orbFloat 14s ease-in-out infinite alternate !important;
+      z-index: 0 !important;
+    }
+    .orb-1 { top: 3% !important; left: -6% !important; width: 550px !important; height: 550px !important; background: rgba(16, 185, 129, 0.55) !important; animation-delay: 0s !important; }
+    .orb-2 { top: 18% !important; right: -8% !important; width: 600px !important; height: 600px !important; background: rgba(245, 158, 11, 0.50) !important; animation-delay: 2.5s !important; }
+    .orb-3 { top: 38% !important; left: -5% !important; width: 550px !important; height: 550px !important; background: rgba(225, 29, 72, 0.48) !important; animation-delay: 5s !important; }
+    .orb-4 { top: 58% !important; right: -6% !important; width: 620px !important; height: 620px !important; background: rgba(139, 92, 246, 0.52) !important; animation-delay: 7.5s !important; }
+    .orb-5 { top: 78% !important; left: -5% !important; width: 580px !important; height: 580px !important; background: rgba(6, 182, 212, 0.50) !important; animation-delay: 10s !important; }
+
 </style>
   <link rel="stylesheet" href="assets/studio-interactive.css">
 </head>
@@ -7039,10 +7075,12 @@
        ======================================================== -->
   <div class="content-wrapper">
     
-    <!-- FLOATING AMBIENT GLOW ORBS -->
+    <!-- FLOATING AMBIENT GLOW ORBS (CHROMATIC THEME: GREEN -> ORANGE -> RED -> PURPLE -> CYAN) -->
     <div class="ambient-orb orb-1" aria-hidden="true"></div>
     <div class="ambient-orb orb-2" aria-hidden="true"></div>
     <div class="ambient-orb orb-3" aria-hidden="true"></div>
+    <div class="ambient-orb orb-4" aria-hidden="true"></div>
+    <div class="ambient-orb orb-5" aria-hidden="true"></div>
 
     <!-- SECTION 1: ABOUT / EDITING PHILOSOPHY -->
     <section class="section" id="about-section">
@@ -7076,22 +7114,6 @@
             <div class="stat-number">24H</div>
             <div class="stat-label">Average Turnaround</div>
             <div class="stat-subtext">Rapid delivery pipeline with zero compromise on audio or color grade</div>
-          </div>
-        </div>
-          <div class="stat-line-divider"></div>
-          <div class="stat-line-col">
-            <div class="stat-line-number count-up" data-target="180" data-suffix="+">180+</div>
-            <div class="stat-line-label">Projects Completed</div>
-          </div>
-          <div class="stat-line-divider"></div>
-          <div class="stat-line-col">
-            <div class="stat-line-number count-up" data-target="99.8" data-suffix="%" data-decimals="1">99.8%</div>
-            <div class="stat-line-label">Client Satisfaction</div>
-          </div>
-          <div class="stat-line-divider"></div>
-          <div class="stat-line-col">
-            <div class="stat-line-number">24-48H</div>
-            <div class="stat-line-label">Express Delivery</div>
           </div>
         </div>
       </div>
@@ -10114,11 +10136,13 @@ ${payload.project_brief || 'None specified'}
           entry.target.classList.add('in-view');
           
           // Trigger number counter if present
-          const counterElem = entry.target.querySelector('.count-up');
-          if (counterElem && !counterElem.dataset.counted) {
-            counterElem.dataset.counted = "true";
-            animateCounter(counterElem);
-          }
+          const counterElems = entry.target.querySelectorAll('.count-up');
+          counterElems.forEach(counterElem => {
+            if (!counterElem.dataset.counted) {
+              counterElem.dataset.counted = "true";
+              animateCounter(counterElem);
+            }
+          });
 
           observer.unobserve(entry.target);
         }
