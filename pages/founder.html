@@ -131,6 +131,18 @@
   <header class="topbar studio-header" id="topbar">
     <div class="studio-header-inner">
       <div class="brand-wrap">
+        <!-- TOP-LEFT HEADER NAVIGATION: BACK & HOME -->
+        <div class="header-nav-left">
+          <button type="button" class="btn-header-back" onclick="if(document.referrer && document.referrer.indexOf(window.location.host)!==-1){history.back();}else{window.location.href='/';}" title="Go Back">
+            <svg viewBox="0 0 24 24" width="13" height="13" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="15 18 9 12 15 6"></polyline></svg>
+            <span>Back</span>
+          </button>
+          <a href="/" class="btn-header-home" title="Return to Homepage">
+            <svg viewBox="0 0 24 24" width="13" height="13" fill="none" stroke="currentColor" stroke-width="2.2"><path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"></path><polyline points="9 22 9 12 15 12 15 22"></polyline></svg>
+            <span>Home</span>
+          </a>
+        </div>
+
         <a class="studio-brand-link" href="/" aria-label="KRISHNA X EDITZ home">
           <img src="../assets/logo.svg" alt="KXE Logo" class="studio-brand-logo" width="38" height="38">
           <div class="studio-brand-titles">
@@ -360,6 +372,171 @@
 
         </div>
       </div>
+
+      <!-- 4-SOFTWARE INTERACTIVE BEFORE/AFTER DEMONSTRATION CONSOLE -->
+      <div class="software-demo-suite" id="softwareDemoSuite" style="margin-top: 50px; text-align: left;">
+        <span class="section-eyebrow" style="color: #00F2FE;">⚡ LIVE WORKFLOW DEMONSTRATION ⚡</span>
+        <h2 style="font-family: var(--serif); font-size: clamp(24px, 3.2vw, 36px); color: #FFF; margin: 8px 0 10px 0;">
+          Inspect The 4-Software Craft (Before vs After)
+        </h2>
+        <p style="color: var(--muted); font-size: clamp(14px, 1.3vw, 15.5px); max-width: 760px; margin: 0 0 26px 0; line-height: 1.6;">
+          Drag the center handle horizontally to inspect how flat camera footage is transformed through all 4 studio post-production suites. Click any software tab below to switch workflows in real time.
+        </p>
+
+        <!-- 4 SOFTWARE SELECTOR TABS -->
+        <div class="sw-demo-tabs-row" style="display: flex; gap: 10px; flex-wrap: wrap; margin-bottom: 24px;">
+          <button type="button" class="sw-tab-pill active" onclick="switchSoftwareDemo('davinci', this)">
+            <span>🎨 DaVinci Resolve Studio (Color Grading)</span>
+          </button>
+          <button type="button" class="sw-tab-pill" onclick="switchSoftwareDemo('ae', this)">
+            <span>⚡ Adobe After Effects (3D VFX &amp; Motion)</span>
+          </button>
+          <button type="button" class="sw-tab-pill" onclick="switchSoftwareDemo('premiere', this)">
+            <span>🎬 Adobe Premiere Pro (Timeline Assembly)</span>
+          </button>
+          <button type="button" class="sw-tab-pill" onclick="switchSoftwareDemo('capcut', this)">
+            <span>🚀 CapCut Desktop Pro (Viral 60FPS Flow)</span>
+          </button>
+        </div>
+
+        <!-- INTERACTIVE SLIDER CONTAINER -->
+        <div class="grading-slider-container" id="softwareDemoSlider" style="position:relative;width:100%;max-width:1080px;margin:10px 0 30px 0;aspect-ratio:16/9;border-radius:22px;overflow:hidden;border:1.5px solid rgba(212,175,55,0.4);box-shadow:0 25px 60px rgba(0,0,0,0.85), 0 0 30px rgba(0,242,254,0.15);user-select:none;touch-action:none;">
+          
+          <!-- Top Labels -->
+          <div id="swDemoRawBadge" style="position:absolute;top:16px;right:16px;padding:6px 14px;border-radius:999px;background:rgba(0,0,0,0.8);border:1px solid rgba(255,255,255,0.25);color:#9CA3AF;font-family:monospace;font-size:11px;font-weight:800;letter-spacing:0.1em;text-transform:uppercase;z-index:10;">
+            RAW FLAT S-LOG
+          </div>
+          <div id="swDemoGradeBadge" style="position:absolute;top:16px;left:16px;padding:6px 14px;border-radius:999px;background:rgba(245,158,11,0.95);color:#000;font-family:monospace;font-size:11px;font-weight:800;letter-spacing:0.1em;text-transform:uppercase;z-index:15;">
+            DAVINCI 3D LUT GRADE
+          </div>
+
+          <!-- Bottom Description Strip -->
+          <div id="swDemoDescStrip" style="position:absolute;bottom:14px;left:18px;right:18px;padding:10px 18px;border-radius:12px;background:rgba(10,12,18,0.85);backdrop-filter:blur(10px);border:1px solid rgba(255,255,255,0.12);color:#d1d5db;font-size:13px;font-weight:600;z-index:15;display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:8px;">
+            <span id="swDemoDescText">DaVinci Resolve Studio 19: Hollywood 35mm color grading, Kodak 2383 film LUTs, skin-tone isolation &amp; HDR.</span>
+            <span style="color:#00F2FE;font-size:11.5px;font-weight:800;letter-spacing:0.06em;">← DRAG TO COMPARE →</span>
+          </div>
+
+          <!-- BEFORE LAYER (Right Side / Full Width) -->
+          <div style="position:absolute;inset:0;width:100%;height:100%;">
+            <img id="swDemoBeforeImg" src="https://images.unsplash.com/photo-1492691527719-9d1e07e534b4?auto=format&fit=crop&w=1200&q=40" alt="Before Footage" style="width:100%;height:100%;object-fit:cover;filter:grayscale(85%) brightness(1.2) contrast(0.65);">
+          </div>
+
+          <!-- AFTER LAYER (Left Side / Clipped Width) -->
+          <div class="grading-after" id="swDemoAfterLayer" style="position:absolute;inset:0;width:50%;height:100%;overflow:hidden;border-right:2.5px solid #FFFFFF;">
+            <img id="swDemoAfterImg" src="https://images.unsplash.com/photo-1492691527719-9d1e07e534b4?auto=format&fit=crop&w=1200&q=95" alt="After Finished Post-Production" style="width:1080px;max-width:none;height:100%;object-fit:cover;">
+          </div>
+
+          <!-- DRAG HANDLE -->
+          <div class="grading-handle" id="swDemoHandle" style="position:absolute;top:0;bottom:0;left:50%;width:44px;margin-left:-22px;cursor:ew-resize;z-index:25;display:flex;align-items:center;justify-content:center;">
+            <div style="width:40px;height:40px;border-radius:50%;background:#FFF;color:#000;display:flex;align-items:center;justify-content:center;box-shadow:0 4px 20px rgba(0,0,0,0.8), 0 0 15px rgba(0,242,254,0.6);font-size:15px;font-weight:900;">↔</div>
+          </div>
+
+        </div>
+      </div>
+
+      <script>
+        var swDemos = {
+          davinci: {
+            gradeBadge: 'DAVINCI 3D LUT GRADE',
+            gradeBg: 'rgba(245,158,11,0.95)',
+            gradeColor: '#000',
+            rawBadge: 'RAW FLAT S-LOG',
+            afterImg: 'https://images.unsplash.com/photo-1492691527719-9d1e07e534b4?auto=format&fit=crop&w=1200&q=95',
+            beforeImg: 'https://images.unsplash.com/photo-1492691527719-9d1e07e534b4?auto=format&fit=crop&w=1200&q=40',
+            beforeFilter: 'grayscale(85%) brightness(1.2) contrast(0.65)',
+            desc: 'DaVinci Resolve Studio 19: Hollywood 35mm color grading, Kodak 2383 film LUTs, skin-tone isolation & HDR.'
+          },
+          ae: {
+            gradeBadge: 'AFTER EFFECTS 3D VFX & KINETIC TITLES',
+            gradeBg: 'rgba(153, 128, 250, 0.95)',
+            gradeColor: '#FFF',
+            rawBadge: 'RAW UNTRACKED CAMERA PLATE',
+            afterImg: 'https://images.unsplash.com/photo-1518709268805-4e9042af9f23?auto=format&fit=crop&w=1200&q=95',
+            beforeImg: 'https://images.unsplash.com/photo-1518709268805-4e9042af9f23?auto=format&fit=crop&w=1200&q=40',
+            beforeFilter: 'grayscale(50%) brightness(0.9) contrast(0.85)',
+            desc: 'Adobe After Effects 2026: 3D planar camera tracking, kinetic typography, neon HUD graphics, and velocity curves.'
+          },
+          premiere: {
+            gradeBadge: 'PREMIERE PRO RETENTION TIMELINE',
+            gradeBg: 'rgba(234, 56, 252, 0.95)',
+            gradeColor: '#FFF',
+            rawBadge: 'UNPULSED ROUGH CUT',
+            afterImg: 'https://images.unsplash.com/photo-1574717024653-61fd2cf4d44d?auto=format&fit=crop&w=1200&q=95',
+            beforeImg: 'https://images.unsplash.com/photo-1574717024653-61fd2cf4d44d?auto=format&fit=crop&w=1200&q=40',
+            beforeFilter: 'grayscale(40%) contrast(0.9)',
+            desc: 'Adobe Premiere Pro 2026: Multi-camera synchronized switching, micro-beat audio foley & narrative retention flow.'
+          },
+          capcut: {
+            gradeBadge: 'CAPCUT 60FPS OPTICAL FLOW & VIRAL HOOKS',
+            gradeBg: 'rgba(0, 242, 254, 0.95)',
+            gradeColor: '#000',
+            rawBadge: 'STANDARD 24FPS CHOPPY',
+            afterImg: 'https://images.unsplash.com/photo-1534438327276-14e5300c3a48?auto=format&fit=crop&w=1200&q=95',
+            beforeImg: 'https://images.unsplash.com/photo-1534438327276-14e5300c3a48?auto=format&fit=crop&w=1200&q=40',
+            beforeFilter: 'contrast(0.85) brightness(0.9)',
+            desc: 'CapCut Desktop Pro: Optical flow 60FPS buttery slow-motion, dynamic auto-captions, and viral short-form retention.'
+          }
+        };
+
+        function switchSoftwareDemo(key, btn) {
+          document.querySelectorAll('.sw-tab-pill').forEach(function(b) { b.classList.remove('active'); });
+          if (btn) btn.classList.add('active');
+          var data = swDemos[key];
+          if (!data) return;
+
+          var gradeBadge = document.getElementById('swDemoGradeBadge');
+          var rawBadge = document.getElementById('swDemoRawBadge');
+          var afterImg = document.getElementById('swDemoAfterImg');
+          var beforeImg = document.getElementById('swDemoBeforeImg');
+          var descText = document.getElementById('swDemoDescText');
+
+          if (gradeBadge) {
+            gradeBadge.textContent = data.gradeBadge;
+            gradeBadge.style.background = data.gradeBg;
+            gradeBadge.style.color = data.gradeColor;
+          }
+          if (rawBadge) rawBadge.textContent = data.rawBadge;
+          if (descText) descText.textContent = data.desc;
+          if (afterImg) afterImg.src = data.afterImg;
+          if (beforeImg) {
+            beforeImg.src = data.beforeImg;
+            beforeImg.style.filter = data.beforeFilter;
+          }
+        }
+
+        // Live Slider Drag Controller
+        (function() {
+          var container = document.getElementById('softwareDemoSlider');
+          if (!container) return;
+          var handle = document.getElementById('swDemoHandle');
+          var afterLayer = document.getElementById('swDemoAfterLayer');
+          var isDragging = false;
+
+          function update(clientX) {
+            var rect = container.getBoundingClientRect();
+            var posX = clientX - rect.left;
+            posX = Math.max(0, Math.min(posX, rect.width));
+            var percent = (posX / rect.width) * 100;
+            if (handle) handle.style.left = percent + '%';
+            if (afterLayer) afterLayer.style.width = percent + '%';
+          }
+
+          container.addEventListener('pointerdown', function(e) {
+            isDragging = true;
+            update(e.clientX);
+            window.addEventListener('pointermove', onMove);
+            window.addEventListener('pointerup', onUp);
+          });
+
+          function onMove(e) { if (isDragging) update(e.clientX); }
+          function onUp() {
+            isDragging = false;
+            window.removeEventListener('pointermove', onMove);
+            window.removeEventListener('pointerup', onUp);
+          }
+        })();
+      </script>
+
 
       <!-- MAIN EDITORIAL PROFILE STORY -->
       <div class="about-story-card" style="text-align: left; margin-bottom: 60px;">
