@@ -56,7 +56,7 @@
       --paper: #f5ecd8;
       --paper-line: #e3d2b2;
       --serif: "Playfair Display", "Iowan Old Style", Georgia, serif;
-      --display: "Cinzel Decorative", "Cinzel", serif;
+      --display: "Cinzel", "Cinzel Decorative", serif;
       --sans: "Plus Jakarta Sans", -apple-system, BlinkMacSystemFont, sans-serif;
       --ease: cubic-bezier(0.16, 1, 0.3, 1);
       --ease-bounce: cubic-bezier(0.34, 1.56, 0.64, 1);
@@ -585,16 +585,14 @@
     /* TOPBAR / STICKY NAVIGATION */
     .topbar {
       position: fixed;
-      z-index: 50;
+      z-index: 99999 !important;
       top: 0;
       left: 0;
-      display: flex;
-      align-items: center;
-      justify-content: space-between;
       width: 100%;
-      padding: 20px 4vw;
+      height: 52px !important;
+      padding: 0 !important;
       pointer-events: auto !important;
-      transition: background 300ms ease, border-color 300ms ease, backdrop-filter 300ms ease, padding 300ms ease, box-shadow 300ms ease;
+      transition: background 260ms ease, border-color 260ms ease, backdrop-filter 260ms ease, box-shadow 260ms ease;
     }
     /* CRITICAL HEADER CLICKABILITY & INTERACTIVITY ENFORCEMENT */
     .topbar,
@@ -620,18 +618,18 @@
 
 
     .topbar.scrolled {
-      background: rgba(18, 14, 10, 0.9);
-      backdrop-filter: blur(16px);
-      border-bottom: 1px solid rgba(212, 175, 55, 0.25);
+      background: rgba(10, 8, 6, 0.96);
+      backdrop-filter: blur(20px);
+      border-bottom: 1px solid rgba(212, 175, 55, 0.22);
       box-shadow: 0 10px 30px rgba(0, 0, 0, 0.7);
-      padding: 14px 4vw;
+      padding: 0 !important;
+      height: 50px !important;
     }
 
     .brand-wrap {
       display: flex;
-      flex-direction: column;
-      align-items: flex-start;
-      gap: 6px;
+      align-items: center;
+      gap: 10px;
       pointer-events: auto;
     }
 
@@ -6708,33 +6706,27 @@
     <div class="studio-header-inner">
       <div class="brand-wrap">
         <a class="studio-brand-link" href="/" aria-label="KRISHNA X EDITZ home">
-          <img src="assets/logo.svg" alt="KXE Logo" class="studio-brand-logo" width="38" height="38">
+          <img src="assets/logo.svg" alt="KXE Logo" class="studio-brand-logo" width="32" height="32">
           <div class="studio-brand-titles">
             <span class="studio-brand-name">KRISHNA <span>X</span> EDITZ</span>
             <span class="studio-brand-tag">CREATIVE STUDIO</span>
           </div>
         </a>
-        <button class="top-back-btn" id="topBackBtn" type="button" aria-label="Go Back" onclick="handleGlobalBack()">
-          <svg viewBox="0 0 24 24" width="14" height="14" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
-            <line x1="19" y1="12" x2="5" y2="12"></line>
-            <polyline points="12 19 5 12 12 5"></polyline>
-          </svg>
-          <span>Back</span>
-        </button>
       </div>
 
       <!-- SOREXA-INSPIRED SEAMLESS DESKTOP NAVIGATION -->
       <nav class="studio-nav" aria-label="Main Navigation">
         <a href="/" class="studio-nav-item active">Home</a>
         <a href="/services" class="studio-nav-item">Services</a>
-        <a href="/my-work" class="studio-nav-item">My Works</a>
+        <a href="/my-work" class="studio-nav-item">Portfolio</a>
+        <a href="/my-work" class="studio-nav-item">My Work</a>
         <a href="/pricing" class="studio-nav-item">Pricing</a>
         <a href="/about" class="studio-nav-item">About</a>
         <a href="/testimonials" class="studio-nav-item">Reviews</a>
         <a href="/contact" class="studio-nav-item">Contact</a>
       </nav>
 
-      <!-- SOREXA-STYLE RIGHT ACTIONS (CLEAN CTA + MOBILE HAMBURGER ONLY) -->
+      <!-- SOREXA-STYLE RIGHT ACTIONS -->
       <div class="studio-actions-wrap" style="display: flex; align-items: center; gap: 14px;">
         <a href="/contact" class="studio-header-cta">
           <span>Start Project</span>
@@ -6748,6 +6740,13 @@
         </button>
       </div>
     </div>
+    <button class="top-back-btn" id="topBackBtn" type="button" aria-label="Go Back" onclick="handleGlobalBack()" style="position: fixed; left: 20px; top: 10px; z-index: 100001;">
+      <svg viewBox="0 0 24 24" width="14" height="14" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+        <line x1="19" y1="12" x2="5" y2="12"></line>
+        <polyline points="12 19 5 12 12 5"></polyline>
+      </svg>
+      <span>Back</span>
+    </button>
   </header>
 
   <!-- INNER PEACE EDITORIAL HERO STAGE -->
