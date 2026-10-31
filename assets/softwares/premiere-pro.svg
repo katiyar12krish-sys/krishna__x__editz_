@@ -1,0 +1,18 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100" width="100%" height="100%">
+  <defs>
+    <linearGradient id="pr-bg" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#140726"/>
+      <stop offset="100%" stop-color="#06020D"/>
+    </linearGradient>
+    <linearGradient id="pr-text" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#EA38FC"/>
+      <stop offset="100%" stop-color="#9999FF"/>
+    </linearGradient>
+    <filter id="pr-glow" x="-20%" y="-20%" width="140%" height="140%">
+      <feGaussianBlur stdDeviation="2.5" result="blur"/>
+      <feComposite in="SourceGraphic" in2="blur" operator="over"/>
+    </filter>
+  </defs>
+  <rect width="100" height="100" rx="22" fill="url(#pr-bg)" stroke="#EA38FC" stroke-width="2.5"/>
+  <text x="50" y="66" font-family="'Plus Jakarta Sans', -apple-system, sans-serif" font-size="44" font-weight="900" fill="url(#pr-text)" text-anchor="middle" letter-spacing="-1.5" filter="url(#pr-glow)">Pr</text>
+</svg>

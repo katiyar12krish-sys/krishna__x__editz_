@@ -1,0 +1,125 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 400 400" width="100%" height="100%">
+  <defs>
+    <!-- Background Gradient -->
+    <radialGradient id="bg-glow" cx="45%" cy="40%" r="65%">
+      <stop offset="0%" stop-color="#142838"/>
+      <stop offset="50%" stop-color="#0B131E"/>
+      <stop offset="100%" stop-color="#05080E"/>
+    </radialGradient>
+    
+    <!-- Neon Rim Lights -->
+    <linearGradient id="cyan-rim" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#00F2FE"/>
+      <stop offset="60%" stop-color="#4FACFE"/>
+      <stop offset="100%" stop-color="transparent"/>
+    </linearGradient>
+
+    <linearGradient id="purple-rim" x1="100%" y1="0%" x2="0%" y2="100%">
+      <stop offset="0%" stop-color="#D946EF"/>
+      <stop offset="70%" stop-color="#8B5CF6"/>
+      <stop offset="100%" stop-color="transparent"/>
+    </linearGradient>
+
+    <linearGradient id="gold-accent" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#FCD34D"/>
+      <stop offset="100%" stop-color="#D97706"/>
+    </linearGradient>
+
+    <!-- Suit & Shadow Gradients -->
+    <linearGradient id="suit-grad" x1="30%" y1="0%" x2="70%" y2="100%">
+      <stop offset="0%" stop-color="#1E2330"/>
+      <stop offset="50%" stop-color="#121620"/>
+      <stop offset="100%" stop-color="#0A0C13"/>
+    </linearGradient>
+
+    <linearGradient id="skin-base" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#F3C299"/>
+      <stop offset="60%" stop-color="#D89A6C"/>
+      <stop offset="100%" stop-color="#B27343"/>
+    </linearGradient>
+
+    <filter id="soft-shadow" x="-20%" y="-20%" width="140%" height="140%">
+      <feGaussianBlur stdDeviation="8" result="blur"/>
+      <feComposite in="SourceGraphic" in2="blur" operator="over"/>
+    </filter>
+  </defs>
+
+  <!-- Circular Clip Path -->
+  <clipPath id="circle-clip">
+    <circle cx="200" cy="200" r="196"/>
+  </clipPath>
+
+  <g clip-path="url(#circle-clip)">
+    <!-- Dark Studio Background -->
+    <rect width="400" height="400" fill="url(#bg-glow)"/>
+
+    <!-- Ambient Studio Light Beams (Teal/Cyan Backlight) -->
+    <ellipse cx="110" cy="120" rx="140" ry="110" fill="#00F2FE" opacity="0.16" filter="url(#soft-shadow)"/>
+    <ellipse cx="310" cy="260" rx="120" ry="140" fill="#8B5CF6" opacity="0.14" filter="url(#soft-shadow)"/>
+
+    <!-- Studio Grid Lines (Subtle Cyber/Creator Aesthetics) -->
+    <path d="M 50 0 L 50 400 M 350 0 L 350 400 M 0 200 L 400 200" stroke="rgba(255,255,255,0.03)" stroke-width="1.5"/>
+
+    <!-- Stylized Background Monogram KXE -->
+    <text x="200" y="190" font-family="'Plus Jakarta Sans', sans-serif" font-size="110" font-weight="900" fill="rgba(255,255,255,0.03)" text-anchor="middle" letter-spacing="4">KXE</text>
+
+    <!-- Torso / Designer Suit Jacket -->
+    <path d="M 80 400 L 120 270 L 160 250 L 200 290 L 240 250 L 280 270 L 320 400 Z" fill="url(#suit-grad)"/>
+    <!-- Suit Lapels with Cyan Rim Light on Left, Purple on Right -->
+    <path d="M 120 270 L 175 350 L 200 370 L 185 280 Z" fill="#262D3D" stroke="url(#cyan-rim)" stroke-width="1.5"/>
+    <path d="M 280 270 L 225 350 L 200 370 L 215 280 Z" fill="#1C2230" stroke="url(#purple-rim)" stroke-width="1.5"/>
+    <!-- Inner Shirt / Collar -->
+    <polygon points="175,250 200,295 225,250 200,240" fill="#0E121A"/>
+
+    <!-- Neck -->
+    <rect x="180" y="195" width="40" height="60" rx="6" fill="#C68A5C"/>
+    <!-- Neck Shadow -->
+    <path d="M 180 220 Q 200 245 220 220 L 220 255 L 180 255 Z" fill="rgba(0,0,0,0.25)"/>
+
+    <!-- Head / Face Silhouette & Contours -->
+    <!-- Jaw & Ears -->
+    <ellipse cx="145" cy="180" rx="14" ry="22" fill="#BA7F52"/>
+    <ellipse cx="255" cy="180" rx="14" ry="22" fill="#996038"/>
+    <!-- Face Base -->
+    <path d="M 152 140 C 152 230 170 255 200 255 C 230 255 248 230 248 140 C 248 95 152 95 152 140 Z" fill="url(#skin-base)"/>
+
+    <!-- Studio Lighting Contour on Face (Cyan Left Key Light, Soft Warm Fill) -->
+    <path d="M 152 140 C 152 210 168 245 190 252 C 175 230 162 190 162 140 Z" fill="#00F2FE" opacity="0.3"/>
+    <path d="M 248 140 C 248 210 232 245 210 252 C 225 230 238 190 238 140 Z" fill="#8B5CF6" opacity="0.25"/>
+
+    <!-- Eyes, Brows & Beard / Facial Hair (Clean Sharp Editor Look) -->
+    <!-- Brows -->
+    <path d="M 166 142 Q 182 136 194 144" stroke="#221710" stroke-width="4.5" stroke-linecap="round" fill="none"/>
+    <path d="M 234 142 Q 218 136 206 144" stroke="#221710" stroke-width="4.5" stroke-linecap="round" fill="none"/>
+    <!-- Eyes with Subtle Studio Light Reflection -->
+    <ellipse cx="180" cy="155" rx="7" ry="4.5" fill="#1C140E"/>
+    <circle cx="178.5" cy="153.5" r="1.8" fill="#00F2FE"/>
+    <ellipse cx="220" cy="155" rx="7" ry="4.5" fill="#1C140E"/>
+    <circle cx="221.5" cy="153.5" r="1.8" fill="#00F2FE"/>
+
+    <!-- Nose & Mouth -->
+    <path d="M 197 148 L 195 180 L 204 180" stroke="#9A6137" stroke-width="3" stroke-linecap="round" fill="none"/>
+    <path d="M 186 205 Q 200 210 214 205" stroke="#7A4524" stroke-width="3.5" stroke-linecap="round" fill="none"/>
+
+    <!-- Trimmed Designer Beard & Mustache -->
+    <path d="M 183 194 Q 200 197 217 194 Q 200 202 183 194 Z" fill="#1E140F" opacity="0.85"/>
+    <path d="M 164 195 C 170 248 190 255 200 255 C 210 255 230 248 236 195 C 234 225 215 248 200 248 C 185 248 166 225 164 195 Z" fill="#1A120D" opacity="0.9"/>
+
+    <!-- Modern Textured Fade Haircut -->
+    <path d="M 148 140 C 144 110 156 80 185 70 C 215 62 245 76 254 100 C 260 120 254 145 252 150 C 248 130 244 95 220 90 C 190 85 165 105 156 135 Z" fill="#160F0A"/>
+    <!-- Hair Volume Top & Texture -->
+    <path d="M 160 110 C 170 70 210 65 240 80 C 255 90 255 110 250 125 C 245 95 210 82 175 95 Z" fill="#261B12"/>
+    <!-- Cyber / Studio Hair Highlight -->
+    <path d="M 165 92 Q 195 72 230 82" stroke="#00F2FE" stroke-width="2.5" opacity="0.4" fill="none" stroke-linecap="round"/>
+
+    <!-- Professional Studio Monitoring Headphones around neck -->
+    <path d="M 130 210 C 120 240 145 270 175 280 L 165 295 C 130 280 105 245 115 205 Z" fill="#18202C" stroke="#00F2FE" stroke-width="2"/>
+    <ellipse cx="125" cy="210" rx="14" ry="24" fill="#0F141C" stroke="rgba(0,242,254,0.6)" stroke-width="2"/>
+    <path d="M 270 210 C 280 240 255 270 225 280 L 235 295 C 270 280 295 245 285 205 Z" fill="#18202C" stroke="#8B5CF6" stroke-width="2"/>
+    <ellipse cx="275" cy="210" rx="14" ry="24" fill="#0F141C" stroke="rgba(139,92,246,0.6)" stroke-width="2"/>
+  </g>
+
+  <!-- Glowing Circular Perimeter Frame (Matching Sorexa reference) -->
+  <circle cx="200" cy="200" r="195" fill="none" stroke="url(#cyan-rim)" stroke-width="3" opacity="0.85"/>
+  <circle cx="200" cy="200" r="195" fill="none" stroke="url(#purple-rim)" stroke-width="3" opacity="0.6"/>
+</svg>

@@ -1,0 +1,41 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100" width="100%" height="100%">
+  <defs>
+    <linearGradient id="dv-bg" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#1A1824"/>
+      <stop offset="100%" stop-color="#0E0D14"/>
+    </linearGradient>
+    <linearGradient id="dv-red" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#FF5252"/>
+      <stop offset="100%" stop-color="#D32F2F"/>
+    </linearGradient>
+    <linearGradient id="dv-green" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#69F0AE"/>
+      <stop offset="100%" stop-color="#00C853"/>
+    </linearGradient>
+    <linearGradient id="dv-blue" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#40C4FF"/>
+      <stop offset="100%" stop-color="#0091EA"/>
+    </linearGradient>
+    <filter id="dv-glow" x="-20%" y="-20%" width="140%" height="140%">
+      <feGaussianBlur stdDeviation="3" result="blur"/>
+      <feComposite in="SourceGraphic" in2="blur" operator="over"/>
+    </filter>
+  </defs>
+  <rect width="100" height="100" rx="22" fill="url(#dv-bg)" stroke="rgba(255,82,82,0.4)" stroke-width="2"/>
+  <g filter="url(#dv-glow)" transform="translate(50, 50) scale(0.92) translate(-50, -50)">
+    <!-- Red Blade -->
+    <path d="M 50 18 C 58 26 62 36 50 50 C 38 36 42 26 50 18 Z" fill="url(#dv-red)"/>
+    <circle cx="50" cy="20" r="5" fill="#FF5252"/>
+    <!-- Blue Blade (rotated 120 deg) -->
+    <g transform="rotate(120 50 50)">
+      <path d="M 50 18 C 58 26 62 36 50 50 C 38 36 42 26 50 18 Z" fill="url(#dv-blue)"/>
+      <circle cx="50" cy="20" r="5" fill="#40C4FF"/>
+    </g>
+    <!-- Green Blade (rotated 240 deg) -->
+    <g transform="rotate(240 50 50)">
+      <path d="M 50 18 C 58 26 62 36 50 50 C 38 36 42 26 50 18 Z" fill="url(#dv-green)"/>
+      <circle cx="50" cy="20" r="5" fill="#69F0AE"/>
+    </g>
+    <circle cx="50" cy="50" r="4" fill="#FFFFFF" opacity="0.9"/>
+  </g>
+</svg>
