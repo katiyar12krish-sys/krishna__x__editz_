@@ -745,9 +745,11 @@
       transform: translateX(-3px);
     }
 
+    [data-menu="open"] .top-back-btn {
+      display: none !important;
+    }
     .top-back-btn.visible,
     [data-mode="detail"] .top-back-btn,
-    [data-menu="open"] .top-back-btn,
     body.modal-open .top-back-btn {
       opacity: 1;
       visibility: visible;
@@ -9028,12 +9030,12 @@
             <span class="menu-brand-sub">✦ COMPLETE STUDIO ARCHIVE ✦</span>
           </div>
         </div>
-        <button type="button" class="menu-layer-close-btn"  aria-label="Close menu">✕</button>
+        <button type="button" class="menu-layer-close-btn" id="menuLayerCloseBtn" onclick="window.closeUniversalMobileNav(event)" aria-label="Close menu">✕</button>
       </div>
 
       <div class="menu-sections-grid">
         <!-- 1. Home Stage -->
-        <a href="#heroStage" class="menu-card-link" onclick="handleMenuNav(event, 'heroStage', '/')">
+        <a href="#heroStage" class="menu-card-link" onclick="window.openedFromMenuDrawer = true; handleMenuNav(event, 'heroStage', '/')">
           <span class="m-icon">🏠</span>
           <div class="m-info">
             <span class="m-title">Studio Home</span>
@@ -9043,7 +9045,7 @@
         </a>
 
         <!-- 2. Portfolio / Real Works -->
-        <a href="#works-section" class="menu-card-link highlight-gold" onclick="handleMenuNav(event, 'works-section', '/portfolio')">
+        <a href="#works-section" class="menu-card-link highlight-gold" onclick="window.openedFromMenuDrawer = true; handleMenuNav(event, 'works-section', '/portfolio')">
           <span class="m-icon">🎬</span>
           <div class="m-info">
             <div style="display:flex;align-items:center;gap:6px;">
@@ -9056,7 +9058,7 @@
         </a>
 
         <!-- 3. Services & Capabilities -->
-        <a href="#sec-services" class="menu-card-link" onclick="handleMenuNav(event, 'sec-services', '/services')">
+        <a href="#sec-services" class="menu-card-link" onclick="window.openedFromMenuDrawer = true; handleMenuNav(event, 'sec-services', '/services')">
           <span class="m-icon">⚡</span>
           <div class="m-info">
             <span class="m-title">Services &amp; Capabilities</span>
@@ -9066,7 +9068,7 @@
         </a>
 
         <!-- 4. Pricing & Retainers -->
-        <a href="#pricing-section" class="menu-card-link highlight-amber" onclick="handleMenuNav(event, 'pricing-section', '/pricing')">
+        <a href="#pricing-section" class="menu-card-link highlight-amber" onclick="window.openedFromMenuDrawer = true; handleMenuNav(event, 'pricing-section', '/pricing')">
           <span class="m-icon">💰</span>
           <div class="m-info">
             <div style="display:flex;align-items:center;gap:6px;">
@@ -9079,7 +9081,7 @@
         </a>
 
         <!-- 5. Founder / About -->
-        <a href="#about-section" class="menu-card-link" onclick="handleMenuNav(event, 'about-section', '/founder')">
+        <a href="#about-section" class="menu-card-link" onclick="window.openedFromMenuDrawer = true; handleMenuNav(event, 'about-section', '/founder')">
           <span class="m-icon">👑</span>
           <div class="m-info">
             <span class="m-title">About Krishna (Founder)</span>
@@ -9089,7 +9091,7 @@
         </a>
 
         <!-- 6. Permanent Clients -->
-        <a href="#permanent-clients-section" class="menu-card-link" onclick="handleMenuNav(event, 'permanent-clients-section')">
+        <a href="#permanent-clients-section" class="menu-card-link" onclick="window.openedFromMenuDrawer = true; handleMenuNav(event, 'permanent-clients-section')">
           <span class="m-icon">🤝</span>
           <div class="m-info">
             <span class="m-title">Permanent Clients</span>
@@ -9099,7 +9101,7 @@
         </a>
 
         <!-- 7. 5-Stage Editing Pipeline -->
-        <a href="#pipeline-section" class="menu-card-link" onclick="handleMenuNav(event, 'pipeline-section')">
+        <a href="#pipeline-section" class="menu-card-link" onclick="window.openedFromMenuDrawer = true; handleMenuNav(event, 'pipeline-section')">
           <span class="m-icon">⚙️</span>
           <div class="m-info">
             <span class="m-title">5-Stage Editing Pipeline</span>
@@ -9109,7 +9111,7 @@
         </a>
 
         <!-- 8. Editing Arsenal & Software -->
-        <a href="#software-section" class="menu-card-link" onclick="handleMenuNav(event, 'software-section')">
+        <a href="#software-section" class="menu-card-link" onclick="window.openedFromMenuDrawer = true; handleMenuNav(event, 'software-section')">
           <span class="m-icon">🖥️</span>
           <div class="m-info">
             <span class="m-title">Software &amp; Rig Arsenal</span>
@@ -9119,7 +9121,7 @@
         </a>
 
         <!-- 9. Reviews & Testimonials -->
-        <a href="#reviews-section" class="menu-card-link" onclick="handleMenuNav(event, 'reviews-section', '/testimonials')">
+        <a href="#reviews-section" class="menu-card-link" onclick="window.openedFromMenuDrawer = true; handleMenuNav(event, 'reviews-section', '/testimonials')">
           <span class="m-icon">⭐</span>
           <div class="m-info">
             <div style="display:flex;align-items:center;gap:6px;">
@@ -9132,7 +9134,7 @@
         </a>
 
         <!-- 10. Submit Project Brief -->
-        <a href="#" class="menu-card-link highlight-cta" onclick="handleMenuAction(event, 'booking')">
+        <a href="#" class="menu-card-link highlight-cta" onclick="window.openedFromMenuDrawer = true; handleMenuAction(event, 'booking')">
           <span class="m-icon">📩</span>
           <div class="m-info">
             <span class="m-title">Submit Project Brief</span>
@@ -9142,7 +9144,7 @@
         </a>
 
         <!-- 11. WhatsApp Direct -->
-        <a href="https://wa.me/918449495147?text=Hi%20Krishna!%20I%20am%20interested%20in%20video%20editing%20services." target="_blank" rel="noopener noreferrer" class="menu-card-link highlight-wa" onclick="handleMenuAction(event, 'whatsapp')">
+        <a href="https://wa.me/918449495147?text=Hi%20Krishna!%20I%20am%20interested%20in%20video%20editing%20services." target="_blank" rel="noopener noreferrer" class="menu-card-link highlight-wa" onclick="window.openedFromMenuDrawer = true; handleMenuAction(event, 'whatsapp')">
           <span class="m-icon">💬</span>
           <div class="m-info">
             <span class="m-title">WhatsApp Krishna Direct</span>
@@ -9152,7 +9154,7 @@
         </a>
 
         <!-- 12. Admin Studio Portal -->
-        <a href="#" class="menu-card-link" onclick="handleMenuAction(event, 'admin')">
+        <a href="#" class="menu-card-link" onclick="window.openedFromMenuDrawer = true; handleMenuAction(event, 'admin')">
           <span class="m-icon">🔒</span>
           <div class="m-info">
             <span class="m-title">Admin Studio Portal</span>
@@ -9773,8 +9775,9 @@
       const isMenu = body.getAttribute('data-menu') === 'open';
       const isBooking = bookingModal && bookingModal.classList.contains('open');
       const isAdmin = adminOverlayModal && adminOverlayModal.classList.contains('open');
+      const isReturnToList = Boolean(window.openedFromMenuDrawer);
 
-      if (isDetail || isMenu || isBooking || isAdmin) {
+      if (isDetail || isBooking || isAdmin || (isReturnToList && !isMenu)) {
         topBackBtn.classList.add('visible');
         body.classList.add('modal-open');
       } else {
@@ -9783,16 +9786,35 @@
       }
     }
 
+    window.openedFromMenuDrawer = false;
+
     function handleGlobalBack() {
+      const returnToList = window.openedFromMenuDrawer;
+
       if (adminOverlayModal && adminOverlayModal.classList.contains('open')) {
         closeAdminPortal();
       } else if (bookingModal && bookingModal.classList.contains('open')) {
         closeBookingModal();
       } else if (body.getAttribute('data-menu') === 'open') {
-        body.setAttribute('data-menu', 'closed');
-        menuBtn.setAttribute('aria-expanded', 'false');
+        window.closeUniversalMobileNav();
+        return;
       } else if (currentSelected) {
         closeDetail();
+      } else if (returnToList) {
+        window.openedFromMenuDrawer = false;
+        window.openUniversalMobileNav();
+        updateBackBtnVisibility();
+        return;
+      } else if (window.scrollY > 200) {
+        window.scrollTo({ top: 0, behavior: 'smooth' });
+        return;
+      }
+
+      if (returnToList && body.getAttribute('data-menu') !== 'open') {
+        window.openedFromMenuDrawer = false;
+        setTimeout(() => {
+          window.openUniversalMobileNav();
+        }, 120);
       }
       updateBackBtnVisibility();
     }
@@ -9903,6 +9925,10 @@
       bookingModal.classList.remove('open');
       updateBackBtnVisibility();
       playTone(220, 'sine', 0.12, 0.03);
+      if (window.openedFromMenuDrawer) {
+        window.openedFromMenuDrawer = false;
+        setTimeout(() => window.openUniversalMobileNav(), 120);
+      }
     }
 
     // Submit Project Booking Brief (POST /api/bookings + Instant WhatsApp to Krishna)
@@ -10009,6 +10035,10 @@ ${payload.project_brief || 'None specified'}
       adminOverlayModal.classList.remove('open');
       updateBackBtnVisibility();
       playTone(200, 'sine', 0.12, 0.03);
+      if (window.openedFromMenuDrawer) {
+        window.openedFromMenuDrawer = false;
+        setTimeout(() => window.openUniversalMobileNav(), 120);
+      }
     }
 
     function unlockAdminPortal() {
@@ -11172,6 +11202,10 @@ ${payload.project_brief || 'None specified'}
       if (heroWord) heroWord.textContent = "KRISHNA X EDITZ";
       playTone(200, 'sine', 0.15, 0.03);
       updateBackBtnVisibility();
+      if (window.openedFromMenuDrawer) {
+        window.openedFromMenuDrawer = false;
+        setTimeout(() => window.openUniversalMobileNav(), 120);
+      }
     }
 
     cards.forEach(card => {
@@ -12057,6 +12091,10 @@ ${payload.project_brief || 'None specified'}
         modal.querySelectorAll('.work-video-elem').forEach(v => {
           if (!v.paused) v.pause();
         });
+        if (window.openedFromMenuDrawer) {
+          window.openedFromMenuDrawer = false;
+          setTimeout(() => window.openUniversalMobileNav(), 120);
+        }
       }
 
       // Close on ESC key

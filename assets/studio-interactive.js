@@ -1874,26 +1874,47 @@
 // ==========================================================================
 // UNIVERSAL 3-LINE MOBILE HAMBURGER & SECTION ROUTING ENGINE
 // ==========================================================================
-window.toggleUniversalMobileNav = function(e) {
-  if (e && e.preventDefault) e.preventDefault();
-  const body = document.body;
+window.closeUniversalMobileNav = function(e) {
+  if (e) {
+    if (e.preventDefault) e.preventDefault();
+    if (e.stopPropagation) e.stopPropagation();
+  }
+  window.openedFromMenuDrawer = false;
+  document.body.setAttribute('data-menu', 'closed');
   const menuBtn = document.getElementById('menuButton');
-  const isOpen = body.getAttribute('data-menu') === 'open';
-
-  if (isOpen) {
-    body.setAttribute('data-menu', 'closed');
-    if (menuBtn) {
-      menuBtn.setAttribute('aria-expanded', 'false');
-      menuBtn.classList.remove('is-active');
-    }
-  } else {
-    body.setAttribute('data-menu', 'open');
-    if (menuBtn) {
-      menuBtn.setAttribute('aria-expanded', 'true');
-      menuBtn.classList.add('is-active');
-    }
+  if (menuBtn) {
+    menuBtn.setAttribute('aria-expanded', 'false');
+    menuBtn.classList.remove('is-active');
   }
   if (typeof window.updateBackBtnVisibility === 'function') window.updateBackBtnVisibility();
+};
+
+window.openUniversalMobileNav = function(e) {
+  if (e) {
+    if (e.preventDefault) e.preventDefault();
+    if (e.stopPropagation) e.stopPropagation();
+  }
+  document.body.setAttribute('data-menu', 'open');
+  const menuBtn = document.getElementById('menuButton');
+  if (menuBtn) {
+    menuBtn.setAttribute('aria-expanded', 'true');
+    menuBtn.classList.add('is-active');
+  }
+  if (typeof window.updateBackBtnVisibility === 'function') window.updateBackBtnVisibility();
+};
+
+window.toggleUniversalMobileNav = function(e) {
+  if (e) {
+    if (e.preventDefault) e.preventDefault();
+    if (e.stopPropagation) e.stopPropagation();
+  }
+  const body = document.body;
+  const isOpen = body.getAttribute('data-menu') === 'open';
+  if (isOpen) {
+    window.closeUniversalMobileNav(e);
+  } else {
+    window.openUniversalMobileNav(e);
+  }
 };
 
 window.handleMenuNav = function(e, targetId, fallbackUrl) {
@@ -1905,6 +1926,14 @@ window.handleMenuNav = function(e, targetId, fallbackUrl) {
     menuBtn.classList.remove('is-active');
   }
   if (typeof window.updateBackBtnVisibility === 'function') window.updateBackBtnVisibility();
+
+  if (targetId === 'sec-services' || targetId === 'services-section') {
+    if (typeof window.selectBook === 'function') {
+      window.selectBook('services');
+      if (typeof window.updateBackBtnVisibility === 'function') window.updateBackBtnVisibility();
+      return;
+    }
+  }
 
   const target = document.getElementById(targetId);
   if (target) {

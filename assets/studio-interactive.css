@@ -3185,18 +3185,26 @@ body.has-festive-ribbon {
 
 @media (max-width: 768px) {
   .kxe-festive-ribbon {
+    position: relative !important;
+    top: 0 !important;
+    left: 0 !important;
+    width: 100% !important;
     height: auto !important;
-    min-height: 42px !important;
+    min-height: 40px !important;
+    z-index: 99990 !important;
+    padding: 8px 12px !important;
   }
   body.has-festive-ribbon #topbar,
   body.has-festive-ribbon .studio-header {
-    top: 42px !important;
+    position: sticky !important;
+    top: 0 !important;
   }
   body.has-festive-ribbon .kxe-festive-garland {
-    top: 104px !important;
+    position: absolute !important;
+    top: auto !important;
   }
   body.has-festive-ribbon {
-    padding-top: 42px !important;
+    padding-top: 0 !important;
   }
 }
 
@@ -3813,5 +3821,108 @@ body.has-festive-ribbon {
   /* 6. Image & Video rendering hardware bypass */
   img, video {
     image-rendering: -webkit-optimize-contrast;
+  }
+}
+
+/* ==========================================================================
+   MOBILE HEADER ACTION FIX: ADMIN & 3-LINES SIDE-BY-SIDE (ZERO OVERLAP)
+   ========================================================================== */
+@media (max-width: 768px) {
+  .topbar,
+  .studio-header {
+    position: sticky !important;
+    top: 0 !important;
+    height: 56px !important;
+    z-index: 99999 !important;
+    padding: 0 12px !important;
+    background: rgba(14, 10, 7, 0.96) !important;
+    backdrop-filter: blur(16px) !important;
+  }
+
+  .studio-header-inner {
+    padding: 0 !important;
+    height: 100% !important;
+    display: flex !important;
+    align-items: center !important;
+    justify-content: space-between !important;
+  }
+
+  .studio-actions-wrap {
+    display: flex !important;
+    align-items: center !important;
+    gap: 8px !important;
+    margin-left: auto !important;
+  }
+
+  .studio-header-cta {
+    display: none !important;
+  }
+
+  /* Admin Quick Access Button - Prominent, styled, NOT hidden */
+  .studio-header-admin {
+    display: inline-flex !important;
+    align-items: center !important;
+    gap: 5px !important;
+    padding: 6px 12px !important;
+    height: 36px !important;
+    border-radius: 999px !important;
+    background: rgba(212, 175, 55, 0.16) !important;
+    border: 1px solid rgba(212, 175, 55, 0.5) !important;
+    color: #F59E0B !important;
+    font-size: 11.5px !important;
+    font-weight: 800 !important;
+    position: static !important;
+    z-index: 10 !important;
+    text-decoration: none !important;
+  }
+
+  .studio-header-admin .admin-text-label {
+    display: inline !important;
+  }
+
+  /* 3-Lines Hamburger Button - Static flex child next to Admin button */
+  .studio-hamburger.universal-hamburger-btn,
+  #menuButton {
+    position: static !important;
+    top: auto !important;
+    right: auto !important;
+    width: 38px !important;
+    height: 38px !important;
+    display: inline-flex !important;
+    flex-direction: column !important;
+    align-items: center !important;
+    justify-content: center !important;
+    gap: 4px !important;
+    border-radius: 10px !important;
+    background: rgba(28, 20, 14, 0.95) !important;
+    border: 1.5px solid rgba(212, 175, 55, 0.6) !important;
+    cursor: pointer !important;
+    flex-shrink: 0 !important;
+    padding: 0 !important;
+    margin: 0 !important;
+  }
+
+  .studio-hamburger.universal-hamburger-btn .hamburger-bar,
+  #menuButton .hamburger-bar {
+    width: 18px !important;
+    height: 2px !important;
+  }
+
+  /* Close Button in Fullscreen Menu Drawer */
+  .menu-layer-close-btn {
+    width: 42px !important;
+    height: 42px !important;
+    border-radius: 50% !important;
+    background: rgba(245, 158, 11, 0.22) !important;
+    border: 1.5px solid #F59E0B !important;
+    color: #FFFFFF !important;
+    font-size: 19px !important;
+    font-weight: 900 !important;
+    display: flex !important;
+    align-items: center !important;
+    justify-content: center !important;
+    cursor: pointer !important;
+    pointer-events: auto !important;
+    box-shadow: 0 0 16px rgba(245, 158, 11, 0.4) !important;
   }
 }
