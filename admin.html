@@ -484,6 +484,10 @@
       </button>
       <button type="button" class="btn-sync" onclick="if(document.referrer){history.back();}else{window.location.href='/';}" style="background:rgba(255,255,255,0.06);border-color:rgba(255,255,255,0.2);color:#FFF;">&larr; Back</button>
       <a href="/" class="btn-live-site">&larr; Return to Home</a>
+      <button type="button" onclick="lockAdminPage()" style="background: rgba(239, 68, 68, 0.2); border: 1.5px solid #EF4444; color: #FCA5A5; padding: 7px 16px; border-radius: 999px; font-weight: 800; font-size: 12px; cursor: pointer; display: inline-flex; align-items: center; gap: 6px; transition: all 200ms;" title="Lock Admin Screen (Requires PIN 8090)">
+        <span>🔒</span>
+        <span>Lock Studio</span>
+      </button>
     </div>
   </header>
 
@@ -529,6 +533,7 @@
           <button class="tab-btn active" id="tabBookingsBtn" onclick="switchTab('bookings')">Client Leads</button>
           <button class="tab-btn" id="tabSubscribersBtn" onclick="switchTab('subscribers')">VIP Subscribers</button>
           <button class="tab-btn" id="tabVisitorsBtn" onclick="switchTab('visitors')">👥 Unique Visitors</button>
+          <button class="tab-btn" id="tabFestiveBtn" onclick="switchTab('festive')">✨ Festival &amp; Discounts</button>
         </div>
 
         <div class="filters-bar" id="bookingsFilters">
@@ -619,6 +624,299 @@
         </table>
       </div>
 
+      <!-- FESTIVAL & AUTOMATED DISCOUNTS MANAGEMENT VIEW -->
+      <div id="viewFestive" style="display: none; padding: 32px 28px;">
+        
+        <!-- DUAL EXECUTIVE RADAR: CURRENT ACTIVE FESTIVAL & NEXT UPCOMING EVENT -->
+        <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(320px, 1fr)); gap: 18px; margin-bottom: 26px;">
+          
+          <!-- CARD 1: CURRENTLY ACTIVE ON WEBSITE -->
+          <div style="background: linear-gradient(135deg, rgba(30, 22, 12, 0.95), rgba(46, 32, 14, 0.95)); border: 2px solid #F59E0B; border-radius: 18px; padding: 22px; position: relative; box-shadow: 0 10px 30px rgba(0,0,0,0.6);">
+            <div style="display: flex; align-items: center; justify-content: space-between; margin-bottom: 12px;">
+              <span style="font-size: 11px; font-weight: 800; letter-spacing: 0.12em; text-transform: uppercase; padding: 4px 10px; border-radius: 999px; background: rgba(34, 197, 94, 0.2); border: 1px solid #22C55E; color: #4ADE80; display: inline-flex; align-items: center; gap: 6px;">
+                <span style="width: 8px; height: 8px; border-radius: 50%; background: #22C55E; display: inline-block;"></span>
+                ACTIVE ON LIVE WEBSITE
+              </span>
+              <span style="font-size: 11px; color: var(--gold); font-weight: 700;" id="activeFestModeLabel">AUTO-CALENDAR</span>
+            </div>
+
+            <div style="display: flex; align-items: center; gap: 14px; margin-bottom: 14px;">
+              <span style="font-size: 38px;" id="currentFestIcon">🪔</span>
+              <div>
+                <div style="font-family: var(--serif); font-size: 20px; font-weight: 800; color: #FFF;" id="currentFestName">Diwali Festive Utsav &amp; Dhanteras</div>
+                <div style="font-size: 12.5px; color: #FBBF24; margin-top: 3px;" id="currentFestDates">Oct 18 – Nov 12 • 10-Day Advance Notice</div>
+              </div>
+            </div>
+
+            <div style="background: rgba(14, 10, 6, 0.7); border: 1px solid rgba(212, 175, 55, 0.25); border-radius: 12px; padding: 12px 14px; margin-bottom: 14px; display: grid; grid-template-columns: 1fr 1fr; gap: 10px;">
+              <div>
+                <span style="color: var(--muted); font-size: 11px; text-transform: uppercase;">Active Discount</span>
+                <div style="color: #4ADE80; font-size: 17px; font-weight: 900;" id="currentFestDiscount">15% OFF</div>
+              </div>
+              <div>
+                <span style="color: var(--muted); font-size: 11px; text-transform: uppercase;">Midnight Expiration</span>
+                <div style="color: #FFD700; font-size: 13.5px; font-weight: 800;" id="currentFestExpiry">Nov 12 at 12:00 AM</div>
+              </div>
+            </div>
+
+            <div style="font-size: 12px; color: #cfc3ac; line-height: 1.5; margin-bottom: 14px;" id="currentFestDecorDesc">
+              ✨ <strong>Active Elements:</strong> Animated Clay Diyas, Wax Candles, Tirchi-Mirchi Lights, Festive Hanging Garland, Strikethrough Pricing.
+            </div>
+
+            <div style="display: flex; gap: 8px;">
+              <a href="/" target="_blank" style="flex: 1; text-align: center; padding: 9px; border-radius: 8px; background: #F59E0B; color: #000; font-weight: 800; font-size: 12px; text-decoration: none;">View Live on Site ↗</a>
+              <button type="button" onclick="setFestivalMode('off')" style="padding: 9px 14px; border-radius: 8px; background: rgba(239, 68, 68, 0.15); border: 1px solid #EF4444; color: #FCA5A5; font-weight: 700; font-size: 12px; cursor: pointer;">Turn OFF Theme</button>
+            </div>
+          </div>
+
+          <!-- CARD 2: NEXT UPCOMING EVENT (AANE WALA FESTIVAL) -->
+          <div style="background: linear-gradient(135deg, rgba(22, 26, 38, 0.95), rgba(16, 20, 30, 0.95)); border: 2px solid #38BDF8; border-radius: 18px; padding: 22px; position: relative; box-shadow: 0 10px 30px rgba(0,0,0,0.6);">
+            <div style="display: flex; align-items: center; justify-content: space-between; margin-bottom: 12px;">
+              <span style="font-size: 11px; font-weight: 800; letter-spacing: 0.12em; text-transform: uppercase; padding: 4px 10px; border-radius: 999px; background: rgba(56, 189, 248, 0.18); border: 1px solid #38BDF8; color: #7DD3FC; display: inline-flex; align-items: center; gap: 6px;">
+                ⏳ NEXT UPCOMING EVENT
+              </span>
+              <span style="font-size: 11.5px; color: #38BDF8; font-weight: 800;" id="upcomingDaysBadge">STARTS IN 7 DAYS</span>
+            </div>
+
+            <div style="display: flex; align-items: center; gap: 14px; margin-bottom: 14px;">
+              <span style="font-size: 38px;" id="upcomingFestIcon">🕯️</span>
+              <div>
+                <div style="font-family: var(--serif); font-size: 20px; font-weight: 800; color: #FFF;" id="upcomingFestName">Guru Nanak Jayanti (Gurpurab)</div>
+                <div style="font-size: 12.5px; color: #7DD3FC; margin-top: 3px;" id="upcomingFestDates">Nov 8 – Nov 20 • 10-Day Advance Notice</div>
+              </div>
+            </div>
+
+            <div style="background: rgba(10, 14, 22, 0.7); border: 1px solid rgba(56, 189, 248, 0.25); border-radius: 12px; padding: 12px 14px; margin-bottom: 14px; display: grid; grid-template-columns: 1fr 1fr; gap: 10px;">
+              <div>
+                <span style="color: #94A3B8; font-size: 11px; text-transform: uppercase;">Upcoming Discount</span>
+                <div style="color: #7DD3FC; font-size: 17px; font-weight: 900;" id="upcomingFestDiscount">10% OFF</div>
+              </div>
+              <div>
+                <span style="color: #94A3B8; font-size: 11px; text-transform: uppercase;">Auto-Launch Date</span>
+                <div style="color: #F8FAFC; font-size: 13.5px; font-weight: 800;" id="upcomingFestLaunch">Nov 8, 2026</div>
+              </div>
+            </div>
+
+            <div style="font-size: 12px; color: #CBD5E1; line-height: 1.5; margin-bottom: 14px;" id="upcomingFestDesc">
+              🚀 <strong>Auto Trigger:</strong> When the start date arrives, the website automatically transitions into this theme with matching lighting and calculated discounts!
+            </div>
+
+            <div style="display: flex; gap: 8px;">
+              <button type="button" id="btnPreviewUpcoming" onclick="previewUpcomingFestival()" style="flex: 1; text-align: center; padding: 9px; border-radius: 8px; background: #0284C7; color: #FFF; font-weight: 800; font-size: 12px; cursor: pointer; border: none; box-shadow: 0 4px 15px rgba(2, 132, 199, 0.4);">⚡ Force Launch / Preview Now</button>
+              <button type="button" onclick="setFestivalMode('auto')" style="padding: 9px 14px; border-radius: 8px; background: rgba(34, 197, 94, 0.15); border: 1px solid #22C55E; color: #4ADE80; font-weight: 700; font-size: 12px; cursor: pointer;">Keep Auto</button>
+            </div>
+          </div>
+
+        </div>
+
+        <!-- STATUS BANNER -->
+        <div style="background: linear-gradient(135deg, rgba(28, 20, 14, 0.95) 0%, rgba(45, 30, 16, 0.95) 100%); border: 1.5px solid #F59E0B; border-radius: 20px; padding: 26px 30px; margin-bottom: 28px; box-shadow: 0 10px 30px rgba(245, 158, 11, 0.25);">
+          <div style="display: flex; align-items: center; justify-content: space-between; flex-wrap: wrap; gap: 14px; margin-bottom: 12px;">
+            <div style="display: flex; align-items: center; gap: 12px;">
+              <span style="font-size: 34px;" id="adminFestIcon">🪔</span>
+              <div>
+                <h3 style="font-family: var(--serif); font-size: 23px; color: #FFF; margin: 0;" id="adminFestTitle">Diwali Festive Utsav &amp; Jhalar Active</h3>
+                <p style="color: var(--muted); font-size: 13.5px; margin: 3px 0 0 0;" id="adminFestSubtitle">Automatic Calendar Mode — 10 Days Advance Lead Time Enabled — 15% OFF</p>
+              </div>
+            </div>
+            <div style="display: flex; gap: 10px;">
+              <a href="/" target="_blank" style="padding: 10px 22px; border-radius: 999px; background: #F59E0B; color: #000; font-weight: 800; font-size: 13px; text-decoration: none; box-shadow: 0 4px 15px rgba(245, 158, 11, 0.4);">Preview Live Home ↗</a>
+              <a href="/pages/pricing.html" target="_blank" style="padding: 10px 20px; border-radius: 999px; background: rgba(255,255,255,0.08); border: 1px solid rgba(212,175,55,0.4); color: #FFD700; font-weight: 800; font-size: 13px; text-decoration: none;">View Pricing Discounts ↗</a>
+            </div>
+          </div>
+          <p style="color: #FDF9F0; font-size: 14px; line-height: 1.6; max-width: 900px; margin: 0;">
+            💡 <strong>Autonomous Festival Engine:</strong> The entire website tracks calendar dates with <strong>7 to 10 days advance notice</strong> before every major Indian &amp; Global festival (Hindu, Muslim, Christian, Sikh, and National). The public switcher has been removed so <strong>only you (Admin) can control themes from here</strong>. When active, the site dresses in hanging fairy jhalar, animated clay diyas, wax candles, tirchi-mirchi lights, and automatically strikes through all prices with calculated festival discounts.
+          </p>
+        </div>
+
+        <!-- QUICK ACTION: AUTO CALENDAR OR OVERRIDE -->
+        <div style="display: flex; align-items: center; justify-content: space-between; flex-wrap: wrap; gap: 12px; margin-bottom: 20px; border-bottom: 1px solid rgba(255,255,255,0.08); padding-bottom: 14px;">
+          <div>
+            <h4 style="font-family: var(--serif); font-size: 19px; color: #FFF; margin: 0;">Multi-Faith Festival Catalog (14 Festivals):</h4>
+            <span style="font-size: 12.5px; color: var(--muted);">Click any festival below to manually preview or lock, or choose Auto-Calendar for hands-free automation.</span>
+          </div>
+          <div style="display: flex; gap: 10px;">
+            <button type="button" onclick="setFestivalMode('auto')" style="padding: 8px 18px; border-radius: 999px; background: rgba(34, 197, 94, 0.15); border: 1.5px solid #22C55E; color: #4ADE80; font-weight: 800; font-size: 12.5px; cursor: pointer;">
+              📅 Auto Calendar (7-10 Days Lead Time)
+            </button>
+            <button type="button" onclick="setFestivalMode('off')" style="padding: 8px 18px; border-radius: 999px; background: rgba(239, 68, 68, 0.15); border: 1.5px solid #EF4444; color: #F87171; font-weight: 800; font-size: 12.5px; cursor: pointer;">
+              🚫 Turn Off All Themes
+            </button>
+          </div>
+        </div>
+
+        <!-- 14 FESTIVALS GRID -->
+        <div style="display: grid; grid-template-columns: repeat(auto-fill, minmax(240px, 1fr)); gap: 14px; margin-bottom: 30px;">
+          
+          <!-- 1. DIWALI -->
+          <div class="stat-box" onclick="setFestivalMode('diwali')" style="cursor: pointer; border-color: #F59E0B; background: rgba(245, 158, 11, 0.08);">
+            <div style="display: flex; align-items: center; justify-content: space-between; margin-bottom: 6px;">
+              <span style="font-size: 26px;">🪔</span>
+              <span style="font-size: 10.5px; padding: 2px 8px; border-radius: 999px; background: #F59E0B; color: #000; font-weight: 900;">15% OFF</span>
+            </div>
+            <div style="font-weight: 800; font-size: 14.5px; color: #FFF;">Diwali &amp; Dhanteras</div>
+            <div style="font-size: 12px; color: #FBBF24; margin-top: 4px;">Oct 18 – Nov 12 (10-Day Lead)</div>
+            <div style="font-size: 11px; color: var(--muted); margin-top: 4px;">Clay Diyas, Candles, Mirchi Jhalar</div>
+          </div>
+
+          <!-- 2. HALLOWEEN -->
+          <div class="stat-box" onclick="setFestivalMode('halloween')" style="cursor: pointer; border-color: #F97316;">
+            <div style="display: flex; align-items: center; justify-content: space-between; margin-bottom: 6px;">
+              <span style="font-size: 26px;">🎃</span>
+              <span style="font-size: 10.5px; padding: 2px 8px; border-radius: 999px; background: #F97316; color: #000; font-weight: 900;">10% OFF</span>
+            </div>
+            <div style="font-weight: 800; font-size: 14.5px; color: #FFF;">Halloween Spooktacular</div>
+            <div style="font-size: 12px; color: #FB923C; margin-top: 4px;">Oct 22 – Nov 2 (9-Day Lead)</div>
+            <div style="font-size: 11px; color: var(--muted); margin-top: 4px;">Glowing Pumpkins &amp; Drifting Bats</div>
+          </div>
+
+          <!-- 3. CHRISTMAS & NEW YEAR -->
+          <div class="stat-box" onclick="setFestivalMode('newyear')" style="cursor: pointer; border-color: #EF4444;">
+            <div style="display: flex; align-items: center; justify-content: space-between; margin-bottom: 6px;">
+              <span style="font-size: 26px;">🎄</span>
+              <span style="font-size: 10.5px; padding: 2px 8px; border-radius: 999px; background: #EF4444; color: #000; font-weight: 900;">20% OFF</span>
+            </div>
+            <div style="font-weight: 800; font-size: 14.5px; color: #FFF;">Christmas &amp; New Year</div>
+            <div style="font-size: 12px; color: #F87171; margin-top: 4px;">Dec 15 – Jan 6 (10-Day Lead)</div>
+            <div style="font-size: 11px; color: var(--muted); margin-top: 4px;">Gentle Snowfall &amp; Red/Green Jhalar</div>
+          </div>
+
+          <!-- 4. REPUBLIC DAY -->
+          <div class="stat-box" onclick="setFestivalMode('republic')" style="cursor: pointer; border-color: #F97316;">
+            <div style="display: flex; align-items: center; justify-content: space-between; margin-bottom: 6px;">
+              <span style="font-size: 26px;">🇮🇳</span>
+              <span style="font-size: 10.5px; padding: 2px 8px; border-radius: 999px; background: #138808; color: #FFF; font-weight: 900;">10% OFF</span>
+            </div>
+            <div style="font-weight: 800; font-size: 14.5px; color: #FFF;">Republic Day</div>
+            <div style="font-size: 12px; color: #FDE047; margin-top: 4px;">Jan 17 – Jan 28 (9-Day Lead)</div>
+            <div style="font-size: 11px; color: var(--muted); margin-top: 4px;">Tiranga Saffron, White &amp; Green</div>
+          </div>
+
+          <!-- 5. MAHA SHIVRATRI -->
+          <div class="stat-box" onclick="setFestivalMode('shivratri')" style="cursor: pointer; border-color: #38BDF8;">
+            <div style="display: flex; align-items: center; justify-content: space-between; margin-bottom: 6px;">
+              <span style="font-size: 26px;">🔱</span>
+              <span style="font-size: 10.5px; padding: 2px 8px; border-radius: 999px; background: #38BDF8; color: #000; font-weight: 900;">10% OFF</span>
+            </div>
+            <div style="font-weight: 800; font-size: 14.5px; color: #FFF;">Maha Shivratri</div>
+            <div style="font-size: 12px; color: #38BDF8; margin-top: 4px;">Feb 18 – March 4 (7-Day Lead)</div>
+            <div style="font-size: 11px; color: var(--muted); margin-top: 4px;">Divine Cosmic Blue &amp; Gold Glow</div>
+          </div>
+
+          <!-- 6. HOLI -->
+          <div class="stat-box" onclick="setFestivalMode('holi')" style="cursor: pointer; border-color: #EC4899;">
+            <div style="display: flex; align-items: center; justify-content: space-between; margin-bottom: 6px;">
+              <span style="font-size: 26px;">🎨</span>
+              <span style="font-size: 10.5px; padding: 2px 8px; border-radius: 999px; background: #EC4899; color: #FFF; font-weight: 900;">12% OFF</span>
+            </div>
+            <div style="font-weight: 800; font-size: 14.5px; color: #FFF;">Holi (Festival of Colors)</div>
+            <div style="font-size: 12px; color: #F472B6; margin-top: 4px;">March 12 – March 29 (8-Day Lead)</div>
+            <div style="font-size: 11px; color: var(--muted); margin-top: 4px;">Gulal Powder Splashes &amp; Rainbow</div>
+          </div>
+
+          <!-- 7. EID UL-FITR -->
+          <div class="stat-box" onclick="setFestivalMode('eid_fitr')" style="cursor: pointer; border-color: #10B981;">
+            <div style="display: flex; align-items: center; justify-content: space-between; margin-bottom: 6px;">
+              <span style="font-size: 26px;">🌙</span>
+              <span style="font-size: 10.5px; padding: 2px 8px; border-radius: 999px; background: #10B981; color: #000; font-weight: 900;">12% OFF</span>
+            </div>
+            <div style="font-weight: 800; font-size: 14.5px; color: #FFF;">Eid ul-Fitr (Meethi Eid)</div>
+            <div style="font-size: 12px; color: #34D399; margin-top: 4px;">March 24 – April 16 (10-Day Lead)</div>
+            <div style="font-size: 11px; color: var(--muted); margin-top: 4px;">Crescent Moon &amp; Fanoos Lanterns</div>
+          </div>
+
+          <!-- 8. EID UL-ADHA / BAKRID -->
+          <div class="stat-box" onclick="setFestivalMode('eid_adha')" style="cursor: pointer; border-color: #059669;">
+            <div style="display: flex; align-items: center; justify-content: space-between; margin-bottom: 6px;">
+              <span style="font-size: 26px;">🌙</span>
+              <span style="font-size: 10.5px; padding: 2px 8px; border-radius: 999px; background: #059669; color: #FFF; font-weight: 900;">10% OFF</span>
+            </div>
+            <div style="font-weight: 800; font-size: 14.5px; color: #FFF;">Eid ul-Adha (Bakrid)</div>
+            <div style="font-size: 12px; color: #6EE7B7; margin-top: 4px;">June 5 – June 20 (7-Day Lead)</div>
+            <div style="font-size: 11px; color: var(--muted); margin-top: 4px;">Sacred Olive &amp; Gold Sparkles</div>
+          </div>
+
+          <!-- 9. INDEPENDENCE DAY -->
+          <div class="stat-box" onclick="setFestivalMode('independence')" style="cursor: pointer; border-color: #F97316;">
+            <div style="display: flex; align-items: center; justify-content: space-between; margin-bottom: 6px;">
+              <span style="font-size: 26px;">🇮🇳</span>
+              <span style="font-size: 10.5px; padding: 2px 8px; border-radius: 999px; background: #F97316; color: #000; font-weight: 900;">15% OFF</span>
+            </div>
+            <div style="font-weight: 800; font-size: 14.5px; color: #FFF;">Independence Day</div>
+            <div style="font-size: 12px; color: #FDE047; margin-top: 4px;">Aug 5 – Aug 18 (10-Day Lead)</div>
+            <div style="font-size: 11px; color: var(--muted); margin-top: 4px;">Tricolor Freedom Celebration</div>
+          </div>
+
+          <!-- 10. RAKSHA BANDHAN -->
+          <div class="stat-box" onclick="setFestivalMode('rakhi')" style="cursor: pointer; border-color: #D97706;">
+            <div style="display: flex; align-items: center; justify-content: space-between; margin-bottom: 6px;">
+              <span style="font-size: 26px;">🧵</span>
+              <span style="font-size: 10.5px; padding: 2px 8px; border-radius: 999px; background: #D97706; color: #FFF; font-weight: 900;">10% OFF</span>
+            </div>
+            <div style="font-weight: 800; font-size: 14.5px; color: #FFF;">Raksha Bandhan</div>
+            <div style="font-size: 12px; color: #FBBF24; margin-top: 4px;">Aug 18 – Aug 28 (7-Day Lead)</div>
+            <div style="font-size: 11px; color: var(--muted); margin-top: 4px;">Sacred Rakhi Thread &amp; Diyas</div>
+          </div>
+
+          <!-- 11. SHREE KRISHNA JANMASHTAMI -->
+          <div class="stat-box" onclick="setFestivalMode('janmashtami')" style="cursor: pointer; border-color: #00F2FE; background: rgba(0, 242, 254, 0.08);">
+            <div style="display: flex; align-items: center; justify-content: space-between; margin-bottom: 6px;">
+              <span style="font-size: 26px;">🪶</span>
+              <span style="font-size: 10.5px; padding: 2px 8px; border-radius: 999px; background: #00F2FE; color: #000; font-weight: 900;">15% OFF</span>
+            </div>
+            <div style="font-weight: 800; font-size: 14.5px; color: #FFF;">Krishna Janmashtami</div>
+            <div style="font-size: 12px; color: #38BDF8; margin-top: 4px;">Aug 26 – Sept 6 (7-Day Lead)</div>
+            <div style="font-size: 11px; color: var(--muted); margin-top: 4px;">Mor Pankh, Flute &amp; Divine Cyan Aura</div>
+          </div>
+
+          <!-- 12. GANESH CHATURTHI -->
+          <div class="stat-box" onclick="setFestivalMode('ganesh')" style="cursor: pointer; border-color: #EA580C;">
+            <div style="display: flex; align-items: center; justify-content: space-between; margin-bottom: 6px;">
+              <span style="font-size: 26px;">🐘</span>
+              <span style="font-size: 10.5px; padding: 2px 8px; border-radius: 999px; background: #EA580C; color: #FFF; font-weight: 900;">12% OFF</span>
+            </div>
+            <div style="font-weight: 800; font-size: 14.5px; color: #FFF;">Ganesh Chaturthi</div>
+            <div style="font-size: 12px; color: #FB923C; margin-top: 4px;">Sept 6 – Sept 20 (7-Day Lead)</div>
+            <div style="font-size: 11px; color: var(--muted); margin-top: 4px;">Ganpati Bappa Saffron/Gold Jhalar</div>
+          </div>
+
+          <!-- 13. NAVRATRI & DUSSEHRA -->
+          <div class="stat-box" onclick="setFestivalMode('navratri')" style="cursor: pointer; border-color: #DC2626;">
+            <div style="display: flex; align-items: center; justify-content: space-between; margin-bottom: 6px;">
+              <span style="font-size: 26px;">🪔</span>
+              <span style="font-size: 10.5px; padding: 2px 8px; border-radius: 999px; background: #DC2626; color: #FFF; font-weight: 900;">15% OFF</span>
+            </div>
+            <div style="font-weight: 800; font-size: 14.5px; color: #FFF;">Navratri &amp; Dussehra</div>
+            <div style="font-size: 12px; color: #F87171; margin-top: 4px;">Oct 1 – Oct 16 (8-Day Lead)</div>
+            <div style="font-size: 11px; color: var(--muted); margin-top: 4px;">Dandiya Gold &amp; Victory Crimson</div>
+          </div>
+
+          <!-- 14. GURU NANAK JAYANTI -->
+          <div class="stat-box" onclick="setFestivalMode('gurpurab')" style="cursor: pointer; border-color: #FFD700;">
+            <div style="display: flex; align-items: center; justify-content: space-between; margin-bottom: 6px;">
+              <span style="font-size: 26px;">🕯️</span>
+              <span style="font-size: 10.5px; padding: 2px 8px; border-radius: 999px; background: #FFD700; color: #000; font-weight: 900;">10% OFF</span>
+            </div>
+            <div style="font-weight: 800; font-size: 14.5px; color: #FFF;">Guru Nanak Jayanti</div>
+            <div style="font-size: 12px; color: #FDE047; margin-top: 4px;">Nov 8 – Nov 20 (7-Day Lead)</div>
+            <div style="font-size: 11px; color: var(--muted); margin-top: 4px;">Golden Gurdwara Illumination Lights</div>
+          </div>
+
+        </div>
+
+        <!-- CUSTOM DISCOUNT OVERRIDE -->
+        <div style="background: rgba(14, 18, 27, 0.95); border: 1px solid rgba(212, 175, 55, 0.25); border-radius: 18px; padding: 24px; max-width: 650px;">
+          <h4 style="font-family: var(--serif); font-size: 17px; color: #FFF; margin-bottom: 8px;">Custom Discount Override (Optional)</h4>
+          <p style="color: var(--muted); font-size: 13px; margin-bottom: 16px;">Set a custom discount % to override the festival default (leave blank to let each festival use its standard rate):</p>
+          <div style="display: flex; align-items: center; gap: 12px;">
+            <input type="number" id="customDiscountInput" min="1" max="50" placeholder="e.g. 5, 10, 15, 20" style="width: 140px; padding: 10px 14px; border-radius: 10px; background: rgba(0,0,0,0.5); border: 1.5px solid rgba(212, 175, 55, 0.4); color: #FFF; font-weight: 800; font-size: 16px;">
+            <span style="font-size: 18px; font-weight: 900; color: #F59E0B;">%</span>
+            <button type="button" onclick="saveCustomDiscount()" style="padding: 10px 24px; border-radius: 999px; background: #22C55E; color: #000; font-weight: 800; font-size: 13px; border: none; cursor: pointer;">Save Discount</button>
+          </div>
+          <div id="festiveStatusMsg" style="margin-top: 12px; font-size: 13px; color: #34D399; display: none;"></div>
+        </div>
+      </div></div>
+
     </div>
 
   </div>
@@ -662,16 +960,44 @@
     let allBookings = [];
     let allSubscribers = [];
 
+    // Session persistence check
+    if (sessionStorage.getItem('kxe_admin_unlocked') === 'true') {
+      isAdminUnlocked = true;
+      document.addEventListener('DOMContentLoaded', () => {
+        const overlay = document.getElementById('adminLockscreenOverlay');
+        if (overlay) overlay.style.display = 'none';
+      });
+    }
+
     function unlockAdminPage() {
-      const pin = document.getElementById('adminPagePinInput').value.trim();
+      const pinInput = document.getElementById('adminPagePinInput');
+      const pin = pinInput ? pinInput.value.trim() : '';
       if (pin === '8090') {
         isAdminUnlocked = true;
-        document.getElementById('adminLockscreenOverlay').style.display = 'none';
+        sessionStorage.setItem('kxe_admin_unlocked', 'true');
+        const overlay = document.getElementById('adminLockscreenOverlay');
+        if (overlay) overlay.style.display = 'none';
         loadAllData();
       } else {
         alert('Incorrect Security PIN. Please enter 8090.');
-        document.getElementById('adminPagePinInput').value = '';
-        document.getElementById('adminPagePinInput').focus();
+        if (pinInput) {
+          pinInput.value = '';
+          pinInput.focus();
+        }
+      }
+    }
+
+    function lockAdminPage() {
+      isAdminUnlocked = false;
+      sessionStorage.removeItem('kxe_admin_unlocked');
+      const overlay = document.getElementById('adminLockscreenOverlay');
+      if (overlay) {
+        overlay.style.display = 'flex';
+        const pinInput = document.getElementById('adminPagePinInput');
+        if (pinInput) {
+          pinInput.value = '';
+          setTimeout(() => pinInput.focus(), 150);
+        }
       }
     }
 
@@ -908,12 +1234,23 @@
       document.getElementById('tabSubscribersBtn').classList.remove('active');
       const visBtn = document.getElementById('tabVisitorsBtn');
       if (visBtn) visBtn.classList.remove('active');
+      const festBtn = document.getElementById('tabFestiveBtn');
+      if (festBtn) festBtn.classList.remove('active');
 
       document.getElementById('viewBookings').style.display = 'none';
       document.getElementById('viewSubscribers').style.display = 'none';
       const visView = document.getElementById('viewVisitors');
       if (visView) visView.style.display = 'none';
+      const festView = document.getElementById('viewFestive');
+      if (festView) festView.style.display = 'none';
       document.getElementById('bookingsFilters').style.display = 'none';
+
+      if (tab === 'festive') {
+        if (festBtn) festBtn.classList.add('active');
+        if (festView) festView.style.display = 'block';
+        loadAdminFestiveConfig();
+        return;
+      }
 
       if (tab === 'bookings') {
         document.getElementById('tabBookingsBtn').classList.add('active');
@@ -1007,6 +1344,265 @@
       const pinInput = document.getElementById('adminPagePinInput');
       if (pinInput) pinInput.focus();
     }, 200);
-  </script>
+  
+    // Festival Management Functions in Admin
+    // 14 FESTIVALS CATALOG WITH EXACT CALENDAR DATES & LEAD TIMES
+    const KXE_ALL_FESTIVALS = [
+      {
+        id: 'diwali', name: 'Diwali Festive Utsav & Dhanteras', icon: '🪔',
+        start_m: 10, start_d: 18, end_m: 11, end_d: 12, discount: 15, code: 'DIWALI15',
+        decor: 'Animated Clay Diyas, Wax Candles, Tirchi-Mirchi Lights & Hanging Fairy Garland'
+      },
+      {
+        id: 'halloween', name: 'Halloween Spooktacular', icon: '🎃',
+        start_m: 10, start_d: 22, end_m: 11, end_d: 2, discount: 10, code: 'SPOOKY10',
+        decor: 'Glowing Pumpkins, Drifting Bats & Spooky Mist'
+      },
+      {
+        id: 'gurpurab', name: 'Guru Nanak Jayanti (Gurpurab)', icon: '🕯️',
+        start_m: 11, start_d: 8, end_m: 11, end_d: 20, discount: 10, code: 'GURPURAB10',
+        decor: 'Gurdwara Illumination Wax Candles & Golden Glow'
+      },
+      {
+        id: 'newyear', name: 'Christmas & New Year Mega Carnival', icon: '🎄',
+        start_m: 12, start_d: 15, end_m: 1, end_d: 6, discount: 20, code: 'NEWYEAR20',
+        decor: 'Falling Snowflakes, Christmas Pine Garland & Holiday Candles'
+      },
+      {
+        id: 'republic', name: 'Republic Day Celebration', icon: '🇮🇳',
+        start_m: 1, start_d: 17, end_m: 1, end_d: 28, discount: 10, code: 'REPUBLIC10',
+        decor: 'Tiranga Tri-Color Saffron-White-Green Lighting'
+      },
+      {
+        id: 'shivratri', name: 'Maha Shivratri Divine Utsav', icon: '🔱',
+        start_m: 2, start_d: 18, end_m: 3, end_d: 4, discount: 10, code: 'SHIVRATRI10',
+        decor: 'Divine Cyan Cosmic Aura, Sacred Flames & Incense'
+      },
+      {
+        id: 'holi', name: 'Holi Colors of Cinema Utsav', icon: '🎨',
+        start_m: 3, start_d: 12, end_m: 3, end_d: 29, discount: 15, code: 'HOLI15',
+        decor: 'Dynamic Gulal Color Splashes & Vibrant Confetti Streamers'
+      },
+      {
+        id: 'eid_fitr', name: 'Eid ul-Fitr Mubarak', icon: '🌙',
+        start_m: 3, start_d: 24, end_m: 4, end_d: 16, discount: 15, code: 'EID15',
+        decor: 'Golden Crescent Moons, Hanging Fanoos Lanterns & Emerald Light'
+      },
+      {
+        id: 'eid_adha', name: 'Eid ul-Adha (Bakrid) Mubarak', icon: '🌙',
+        start_m: 6, start_d: 5, end_m: 6, end_d: 20, discount: 10, code: 'BAKRID10',
+        decor: 'Sacred Star Clusters & Crescent Lantern Illumination'
+      },
+      {
+        id: 'independence', name: 'Independence Day Freedom Festival', icon: '🇮🇳',
+        start_m: 8, start_d: 5, end_m: 8, end_d: 18, discount: 15, code: 'FREEDOM15',
+        decor: 'Patriotic Tri-Color Saffron & Green Illumination with Stars'
+      },
+      {
+        id: 'rakhi', name: 'Raksha Bandhan Utsav', icon: '🧵',
+        start_m: 8, start_d: 18, end_m: 8, end_d: 28, discount: 10, code: 'RAKHI10',
+        decor: 'Sacred Resham Rakhi Threads & Golden Aura'
+      },
+      {
+        id: 'janmashtami', name: 'Shree Krishna Janmashtami', icon: '🪶',
+        start_m: 8, start_d: 26, end_m: 9, end_d: 6, discount: 15, code: 'KRISHNA15',
+        decor: 'Mor Pankh Feather Embellishments & Flute Melody Lighting'
+      },
+      {
+        id: 'ganesh', name: 'Ganesh Chaturthi Mahotsav', icon: '🐘',
+        start_m: 9, start_d: 6, end_m: 9, end_d: 20, discount: 10, code: 'GANESH10',
+        decor: 'Modak Gold & Crimson Festive Floral Toran Garlands'
+      },
+      {
+        id: 'navratri', name: 'Navratri, Durga Puja & Dussehra', icon: '🪔',
+        start_m: 10, start_d: 1, end_m: 10, end_d: 16, discount: 15, code: 'NAVRATRI15',
+        decor: 'Dandiya Sticks, Nine-Nights Glowing Diyas & Royal Gold'
+      }
+    ];
+
+    let nextUpcomingFestivalObj = null;
+
+    function formatFestivalDate(m, d) {
+      const monthNames = ['', 'Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun', 'Jul', 'Aug', 'Sep', 'Oct', 'Nov', 'Dec'];
+      return `${monthNames[m]} ${d}`;
+    }
+
+    function checkIsFestivalActive(f, date) {
+      const y = date.getFullYear();
+      const start = new Date(y, f.start_m - 1, f.start_d, 0, 0, 0);
+      let end;
+      if (f.end_m < f.start_m) {
+        end = new Date(date.getMonth() + 1 >= f.start_m ? y + 1 : y, f.end_m - 1, f.end_d, 23, 59, 59);
+      } else {
+        end = new Date(y, f.end_m - 1, f.end_d, 23, 59, 59);
+      }
+      return date >= start && date <= end;
+    }
+
+    async function loadAdminFestiveConfig() {
+      try {
+        const res = await fetch('/api/festival', { cache: 'no-cache' });
+        const json = await res.json();
+        const cfg = (json && json.success && json.data) ? json.data : { mode: 'auto', discount: null };
+
+        const now = new Date();
+        const input = document.getElementById('customDiscountInput');
+        if (input && cfg.discount) input.value = cfg.discount;
+
+        // 1. Identify Currently Active Festival
+        let activeFestival = null;
+        if (cfg.mode && cfg.mode !== 'auto' && cfg.mode !== 'off' && cfg.mode !== 'standard') {
+          activeFestival = KXE_ALL_FESTIVALS.find(f => f.id === cfg.mode);
+        } else if (cfg.mode === 'auto') {
+          activeFestival = KXE_ALL_FESTIVALS.find(f => checkIsFestivalActive(f, now));
+        }
+
+        // 2. Identify Next Upcoming Festival
+        const upcomingList = [];
+        KXE_ALL_FESTIVALS.forEach(f => {
+          let startYear = now.getFullYear();
+          let startDate = new Date(startYear, f.start_m - 1, f.start_d, 0, 0, 0);
+          if (startDate < now) {
+            startDate = new Date(startYear + 1, f.start_m - 1, f.start_d, 0, 0, 0);
+          }
+          const diffMs = startDate - now;
+          const diffDays = Math.ceil(diffMs / (1000 * 60 * 60 * 24));
+          upcomingList.push({ festival: f, startDate, diffDays });
+        });
+        upcomingList.sort((a, b) => a.diffDays - b.diffDays);
+        nextUpcomingFestivalObj = upcomingList.length ? upcomingList[0] : null;
+
+        // Populate Card 1: Currently Active
+        const curIcon = document.getElementById('currentFestIcon');
+        const curName = document.getElementById('currentFestName');
+        const curDates = document.getElementById('currentFestDates');
+        const curDiscount = document.getElementById('currentFestDiscount');
+        const curExpiry = document.getElementById('currentFestExpiry');
+        const curDecorDesc = document.getElementById('currentFestDecorDesc');
+        const modeLabel = document.getElementById('activeFestModeLabel');
+
+        if (cfg.mode === 'off') {
+          if (curIcon) curIcon.textContent = '🚫';
+          if (curName) curName.textContent = 'Themes Disabled (Normal Classic Dark Luxury)';
+          if (curDates) curDates.textContent = 'Website is running in clean, elegant studio mode';
+          if (curDiscount) curDiscount.textContent = '0% OFF (Standard)';
+          if (curExpiry) curExpiry.textContent = 'Permanent';
+          if (modeLabel) modeLabel.textContent = 'MANUALLY DISABLED';
+          if (curDecorDesc) curDecorDesc.innerHTML = '⚡ <strong>Normal State:</strong> No floating garland, no ribbon, no diyas. Clean luxury branding.';
+        } else if (activeFestival) {
+          const discountVal = cfg.discount || activeFestival.discount;
+          if (curIcon) curIcon.textContent = activeFestival.icon;
+          if (curName) curName.textContent = activeFestival.name;
+          if (curDates) curDates.textContent = `${formatFestivalDate(activeFestival.start_m, activeFestival.start_d)} – ${formatFestivalDate(activeFestival.end_m, activeFestival.end_d)} • 7-10 Days Advance Lead Time`;
+          if (curDiscount) curDiscount.textContent = `${discountVal}% OFF (Code: ${activeFestival.code})`;
+          if (curExpiry) curExpiry.textContent = `${formatFestivalDate(activeFestival.end_m, activeFestival.end_d)} at 12:00 AM Midnight`;
+          if (modeLabel) modeLabel.textContent = cfg.mode === 'auto' ? '🟢 AUTO-CALENDAR LIVE' : '🔒 MANUALLY LOCKED LIVE';
+          if (curDecorDesc) curDecorDesc.innerHTML = `✨ <strong>Active Elements:</strong> ${activeFestival.decor}, Automatic Midnight Expiration (12:00 AM Reset).`;
+        } else {
+          if (curIcon) curIcon.textContent = '📅';
+          if (curName) curName.textContent = 'Normal Classic Mode (No Festival Active Today)';
+          if (curDates) curDates.textContent = 'Autonomous calendar waiting for next festival window';
+          if (curDiscount) curDiscount.textContent = 'Standard Rates';
+          if (curExpiry) curExpiry.textContent = nextUpcomingFestivalObj ? `Next: ${formatFestivalDate(nextUpcomingFestivalObj.festival.start_m, nextUpcomingFestivalObj.festival.start_d)}` : 'N/A';
+          if (modeLabel) modeLabel.textContent = 'AUTO-CALENDAR READY';
+          if (curDecorDesc) curDecorDesc.innerHTML = '⚡ <strong>Autonomous Engine:</strong> The site automatically arms decorations and discounts 7–10 days before any festival arrives!';
+        }
+
+        // Populate Card 2: Next Upcoming Event (Aane Wala Festival)
+        if (nextUpcomingFestivalObj) {
+          const up = nextUpcomingFestivalObj;
+          const upBadge = document.getElementById('upcomingDaysBadge');
+          const upIcon = document.getElementById('upcomingFestIcon');
+          const upName = document.getElementById('upcomingFestName');
+          const upDates = document.getElementById('upcomingFestDates');
+          const upDiscount = document.getElementById('upcomingFestDiscount');
+          const upLaunch = document.getElementById('upcomingFestLaunch');
+          const upDesc = document.getElementById('upcomingFestDesc');
+
+          if (upBadge) upBadge.textContent = `STARTS IN ${up.diffDays} DAYS`;
+          if (upIcon) upIcon.textContent = up.festival.icon;
+          if (upName) upName.textContent = up.festival.name;
+          if (upDates) upDates.textContent = `${formatFestivalDate(up.festival.start_m, up.festival.start_d)} – ${formatFestivalDate(up.festival.end_m, up.festival.end_d)} • 10-Day Advance Lead Time`;
+          if (upDiscount) upDiscount.textContent = `${up.festival.discount}% OFF (Code: ${up.festival.code})`;
+          if (upLaunch) upLaunch.textContent = `${formatFestivalDate(up.festival.start_m, up.festival.start_d)}, ${up.startDate.getFullYear()}`;
+          if (upDesc) upDesc.innerHTML = `🚀 <strong>Autonomous Switch:</strong> In ${up.diffDays} days, the site will automatically activate ${up.festival.icon} <strong>${up.festival.name}</strong> with ${up.festival.decor} without requiring manual intervention!`;
+        }
+
+        // Top Status Banner Sync
+        const bannerIcon = document.getElementById('adminFestIcon');
+        const bannerTitle = document.getElementById('adminFestTitle');
+        const bannerSubtitle = document.getElementById('adminFestSubtitle');
+        if (bannerTitle) {
+          if (activeFestival) {
+            if (bannerIcon) bannerIcon.textContent = activeFestival.icon;
+            bannerTitle.textContent = `${activeFestival.name} Active On Live Site`;
+            if (bannerSubtitle) bannerSubtitle.textContent = `Current Mode: ${cfg.mode.toUpperCase()} • ${cfg.discount || activeFestival.discount}% OFF • Automated Midnight Expiration`;
+          } else {
+            if (bannerIcon) bannerIcon.textContent = '📅';
+            bannerTitle.textContent = 'Classic Normal Mode Active (Calendar Waiting)';
+            if (bannerSubtitle) bannerSubtitle.textContent = nextUpcomingFestivalObj ? `Next Event: ${nextUpcomingFestivalObj.festival.icon} ${nextUpcomingFestivalObj.festival.name} in ${nextUpcomingFestivalObj.diffDays} days (${formatFestivalDate(nextUpcomingFestivalObj.festival.start_m, nextUpcomingFestivalObj.festival.start_d)})` : 'Auto Mode Active';
+          }
+        }
+
+      } catch (err) {
+        console.error('Error loading festive config:', err);
+      }
+    }
+
+    function previewUpcomingFestival() {
+      if (nextUpcomingFestivalObj && nextUpcomingFestivalObj.festival) {
+        setFestivalMode(nextUpcomingFestivalObj.festival.id);
+      } else {
+        alert('No upcoming festival found to preview.');
+      }
+    }
+
+    async function setFestivalMode(mode) {
+      try {
+        const res = await fetch('/api/festival', {
+          method: 'POST',
+          headers: { 'Content-Type': 'application/json' },
+          body: JSON.stringify({ mode: mode, active: mode !== 'off' })
+        });
+        const data = await res.json();
+        if (data.success) {
+          localStorage.setItem('kxe_festival_mode', mode);
+          loadAdminFestiveConfig();
+          const msg = document.getElementById('festiveStatusMsg');
+          if (msg) {
+            msg.style.display = 'block';
+            msg.textContent = '✅ Festival mode updated to: ' + mode.toUpperCase() + '! Check live website.';
+            setTimeout(() => { msg.style.display = 'none'; }, 4000);
+          }
+        }
+      } catch (e) {
+        alert('Failed to update festival mode: ' + e.message);
+      }
+    }
+
+    async function saveCustomDiscount() {
+      const val = document.getElementById('customDiscountInput').value;
+      const num = parseInt(val, 10);
+      try {
+        const res = await fetch('/api/festival', {
+          method: 'POST',
+          headers: { 'Content-Type': 'application/json' },
+          body: JSON.stringify({ discount: isNaN(num) ? null : num })
+        });
+        const data = await res.json();
+        if (data.success) {
+          loadAdminFestiveConfig();
+          const msg = document.getElementById('festiveStatusMsg');
+          if (msg) {
+            msg.style.display = 'block';
+            msg.textContent = '✅ Custom discount saved! All prices on the website will reflect this rate.';
+            setTimeout(() => { msg.style.display = 'none'; }, 4000);
+          }
+        }
+      } catch (e) {
+        alert('Failed to save discount: ' + e.message);
+      }
+    }
+</script>
 </body>
 </html>

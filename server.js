@@ -6,12 +6,7 @@ const db = require('./db');
 const app = express();
 const PORT = process.env.PORT || 3000;
 
-// Middleware
-app.use(cors({ origin: '*' }));
-app.use(express.json());
-app.use(express.urlencoded({ extended: true }));
-
-// Additional explicit CORS headers
+// CORS & Preflight middleware
 app.use((req, res, next) => {
   res.header('Access-Control-Allow-Origin', '*');
   res.header('Access-Control-Allow-Methods', 'GET, POST, PATCH, DELETE, OPTIONS');
@@ -430,6 +425,40 @@ app.get('/api/admin/stats', async (req, res) => {
 // ==========================================
 // 6. CLIENT REVIEWS & TESTIMONIALS API (REAL-TIME DB)
 // ==========================================
+
+// ==========================================
+// FESTIVAL & AUTOMATED DISCOUNT CONFIGURATION API
+// ==========================================
+app.get('/api/festival', (req, res) => {
+  try {
+    const config = (db.data && db.data.festival_config) || {
+      mode: 'auto', // 'auto', 'diwali', 'halloween', 'newyear', 'holi', 'eid', 'standard', 'off'
+      discount: null, // override discount percent or null for festival default
+      active: true,
+      lastUpdated: new Date().toISOString()
+    };
+    res.json({ success: true, data: config });
+  } catch (err) {
+    res.status(500).json({ success: false, error: err.message });
+  }
+});
+
+app.post('/api/festival', (req, res) => {
+  try {
+    const { mode, discount, active } = req.body;
+    if (!db.data) db.data = {};
+    db.data.festival_config = {
+      mode: mode || 'auto',
+      discount: (discount !== undefined && discount !== null && discount !== '') ? Number(discount) : null,
+      active: active !== undefined ? Boolean(active) : true,
+      lastUpdated: new Date().toISOString()
+    };
+    if (typeof db.save === 'function') db.save();
+    res.json({ success: true, data: db.data.festival_config });
+  } catch (err) {
+    res.status(500).json({ success: false, error: err.message });
+  }
+});
 
 // Get all reviews (sorted latest first)
 app.get('/api/reviews', async (req, res) => {

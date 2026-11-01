@@ -1,3 +1,21 @@
+
+/* UNIVERSAL SLEEK ULTRA-THIN SCROLLBAR (PREVENTS DESKTOP GUTTER ON MOBILE & IFRAME) */
+::-webkit-scrollbar {
+  width: 4px !important;
+  height: 4px !important;
+}
+::-webkit-scrollbar-track {
+  background: transparent !important;
+}
+::-webkit-scrollbar-thumb {
+  background: rgba(212, 175, 55, 0.35) !important;
+  border-radius: 999px !important;
+}
+* {
+  scrollbar-width: thin !important;
+  scrollbar-color: rgba(212, 175, 55, 0.35) transparent !important;
+}
+
 /* ==========================================================================
    KRISHNA X EDITZ — LUXURY STUDIO ANIMATIONS & FULL-SCREEN ENGINE
    No popups! Dedicated full-screen views, mouse spotlight, and editorial design
@@ -279,7 +297,7 @@
 .fullscreen-stage-view {
   position: fixed;
   inset: 0;
-  z-index: 2000;
+  z-index: 100000 !important;
   background: #14100C;
   overflow-y: auto;
   opacity: 0;
@@ -1484,4 +1502,2316 @@ body {
   border-color: #F59E0B !important;
   color: #FFFFFF !important;
   box-shadow: 0 0 16px rgba(245, 158, 11, 0.3) !important;
+}
+
+
+/* ========================================================
+   EXPANSIVE LUXURY CONTAINER & HERO MARGINS
+   ======================================================== */
+.container {
+  width: min(1560px, 94vw) !important;
+  max-width: 1560px !important;
+  margin: 0 auto !important;
+  padding: 0 clamp(16px, 3vw, 40px) !important;
+  position: relative !important;
+  z-index: 2 !important;
+  box-sizing: border-box !important;
+}
+
+.page-hero {
+  padding-top: clamp(80px, 10vh, 120px) !important;
+  padding-bottom: clamp(60px, 8vh, 90px) !important;
+}
+
+@media (max-width: 960px) {
+  .krishna-executive-grid {
+    grid-template-columns: 1fr !important;
+  }
+}
+
+/* ========================================================
+   KRISHNA EXECUTIVE SPOTLIGHT RESPONSIVE RULES
+   ======================================================== */
+@media (max-width: 960px) {
+  .krishna-executive-grid {
+    grid-template-columns: 1fr !important;
+    gap: 32px !important;
+  }
+  .krishna-portrait-card {
+    max-width: 440px !important;
+    margin: 0 auto !important;
+  }
+}
+
+/* ========================================================
+   4-SOFTWARE SEPARATE COMPARISON SUITE (2x2 LUXURY GRID)
+   ======================================================== */
+.software-comparisons-grid {
+  display: grid !important;
+  grid-template-columns: repeat(2, minmax(0, 1fr)) !important;
+  gap: 28px !important;
+}
+
+.sw-compare-card {
+  transition: transform 0.3s ease, box-shadow 0.3s ease, border-color 0.3s ease !important;
+}
+
+.sw-compare-card:hover {
+  transform: translateY(-4px) !important;
+  border-color: rgba(245, 158, 11, 0.7) !important;
+  box-shadow: 0 25px 60px rgba(0, 0, 0, 0.9), 0 0 30px rgba(245, 158, 11, 0.25) !important;
+}
+
+@media (max-width: 960px) {
+  .software-comparisons-grid {
+    grid-template-columns: 1fr !important;
+    gap: 24px !important;
+  }
+}
+
+
+/* ========================================================
+   FLOATING LUXURY DIRECT WHATSAPP ACTION WIDGET
+   ======================================================== */
+.wa-float-container {
+  position: fixed;
+  bottom: clamp(20px, 3.5vw, 32px);
+  right: clamp(20px, 3.5vw, 32px);
+  z-index: 99990;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-end;
+  gap: 8px;
+  pointer-events: auto;
+  transition: opacity 300ms ease, transform 300ms ease, visibility 300ms;
+}
+
+.wa-float-btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+  padding: 12px 20px 12px 14px;
+  border-radius: 999px;
+  background: linear-gradient(135deg, #25D366 0%, #128C7E 100%);
+  color: #ffffff !important;
+  text-decoration: none !important;
+  font-family: var(--sans, sans-serif);
+  font-size: 13.5px;
+  font-weight: 800;
+  letter-spacing: .03em;
+  box-shadow: 0 10px 30px rgba(37, 211, 102, 0.45), 0 0 25px rgba(37, 211, 102, 0.3), inset 0 1px 1px rgba(255, 255, 255, 0.4);
+  border: 1px solid rgba(255, 255, 255, 0.3);
+  cursor: pointer;
+  transition: transform 250ms ease, box-shadow 250ms ease, filter 200ms ease;
+  animation: waFloatPulse 3s infinite ease-in-out;
+}
+
+.wa-float-btn:hover {
+  transform: translateY(-4px) scale(1.05);
+  box-shadow: 0 16px 40px rgba(37, 211, 102, 0.65), 0 0 35px rgba(37, 211, 102, 0.5);
+  filter: brightness(1.1);
+}
+
+.wa-float-btn svg {
+  width: 22px;
+  height: 22px;
+  fill: #ffffff;
+  flex-shrink: 0;
+}
+
+@keyframes waFloatPulse {
+  0%, 100% {
+    box-shadow: 0 10px 28px rgba(37, 211, 102, 0.4), 0 0 18px rgba(37, 211, 102, 0.25);
+  }
+  50% {
+    box-shadow: 0 14px 38px rgba(37, 211, 102, 0.6), 0 0 28px rgba(37, 211, 102, 0.45);
+  }
+}
+
+@media (max-width: 600px) {
+  .wa-float-container {
+    bottom: 16px !important;
+    right: 14px !important;
+  }
+  .wa-float-btn {
+    padding: 10px 16px !important;
+    font-size: 12px !important;
+  }
+}
+
+/* PRICING SAMPLE DUAL STAGE MOBILE STYLES */
+@media (max-width: 860px) {
+  .pricing-sample-grid {
+    grid-template-columns: 1fr !important;
+  }
+  #pricingSamplePlayerCard {
+    max-width: 100% !important;
+  }
+}
+
+
+/* ========================================================
+   PHONE VIEW SIMULATOR & FLOATING MOBILE PREVIEW
+   ======================================================== */
+.phone-float-btn {
+  position: fixed;
+  bottom: 24px;
+  left: 24px;
+  z-index: 9998;
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  padding: 11px 18px;
+  border-radius: 999px;
+  background: linear-gradient(135deg, rgba(28, 22, 16, 0.96) 0%, rgba(14, 10, 7, 0.98) 100%);
+  border: 1.5px solid rgba(212, 175, 55, 0.45);
+  color: #FBBF24;
+  font-family: inherit;
+  font-size: 13px;
+  font-weight: 800;
+  letter-spacing: 0.05em;
+  text-decoration: none;
+  cursor: pointer;
+  box-shadow: 0 10px 28px rgba(0, 0, 0, 0.7), 0 0 20px rgba(212, 175, 55, 0.2);
+  transition: all 250ms cubic-bezier(0.16, 1, 0.3, 1);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+}
+
+.phone-float-btn:hover {
+  transform: translateY(-3px) scale(1.03);
+  border-color: #F59E0B;
+  color: #FFFFFF;
+  box-shadow: 0 14px 34px rgba(0, 0, 0, 0.85), 0 0 28px rgba(245, 158, 11, 0.35);
+  background: linear-gradient(135deg, rgba(45, 34, 24, 0.98) 0%, rgba(20, 15, 10, 0.98) 100%);
+}
+
+.phone-float-btn svg {
+  width: 17px;
+  height: 17px;
+  fill: none;
+  stroke: currentColor;
+  stroke-width: 2.2;
+  stroke-linecap: round;
+  stroke-linejoin: round;
+  flex-shrink: 0;
+}
+
+.studio-header-phone-btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 7px;
+  padding: 7px 14px;
+  border-radius: 999px;
+  background: rgba(212, 175, 55, 0.12);
+  border: 1px solid rgba(212, 175, 55, 0.35);
+  color: #FBBF24;
+  font-size: 12px;
+  font-weight: 800;
+  letter-spacing: 0.05em;
+  cursor: pointer;
+  text-decoration: none;
+  transition: all 220ms ease;
+}
+
+.studio-header-phone-btn:hover {
+  background: rgba(212, 175, 55, 0.25);
+  border-color: #F59E0B;
+  color: #FFF;
+  transform: translateY(-2px);
+  box-shadow: 0 6px 16px rgba(245, 158, 11, 0.25);
+}
+
+/* Simulator Modal Backdrop */
+.phone-sim-modal {
+  position: fixed;
+  inset: 0;
+  z-index: 100000;
+  background: rgba(8, 6, 4, 0.92);
+  backdrop-filter: blur(20px);
+  -webkit-backdrop-filter: blur(20px);
+  display: none;
+  flex-direction: column;
+  align-items: center;
+  justify-content: flex-start;
+  overflow-y: auto;
+  overflow-x: hidden;
+  padding: 16px 12px 30px;
+  opacity: 0;
+  transition: opacity 280ms cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.phone-sim-modal.active {
+  display: flex;
+  opacity: 1;
+}
+
+/* Simulator Header / Top Toolbar */
+.phone-sim-toolbar {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 16px;
+  width: 100%;
+  max-width: 900px;
+  background: rgba(24, 18, 13, 0.95);
+  border: 1px solid rgba(212, 175, 55, 0.3);
+  border-radius: 999px;
+  padding: 8px 18px;
+  margin-bottom: 20px;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.6);
+  z-index: 20;
+}
+
+.phone-sim-title-group {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.phone-sim-badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  padding: 4px 10px;
+  border-radius: 999px;
+  background: rgba(245, 158, 11, 0.15);
+  border: 1px solid rgba(245, 158, 11, 0.4);
+  color: #FBBF24;
+  font-size: 11px;
+  font-weight: 800;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+}
+
+.phone-sim-device-pills {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+}
+
+.phone-sim-device-btn {
+  padding: 6px 12px;
+  border-radius: 999px;
+  background: rgba(255, 255, 255, 0.06);
+  border: 1px solid rgba(255, 255, 255, 0.12);
+  color: #cfc3ac;
+  font-size: 11.5px;
+  font-weight: 700;
+  cursor: pointer;
+  transition: all 180ms ease;
+}
+
+.phone-sim-device-btn:hover {
+  background: rgba(255, 255, 255, 0.12);
+  color: #FFF;
+}
+
+.phone-sim-device-btn.active {
+  background: linear-gradient(135deg, #F59E0B, #D97706);
+  border-color: #F59E0B;
+  color: #000;
+  font-weight: 900;
+  box-shadow: 0 4px 14px rgba(245, 158, 11, 0.4);
+}
+
+.phone-sim-actions {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.phone-sim-action-btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  padding: 6px 12px;
+  border-radius: 999px;
+  background: rgba(255, 255, 255, 0.08);
+  border: 1px solid rgba(255, 255, 255, 0.15);
+  color: #FFF;
+  font-size: 11.5px;
+  font-weight: 700;
+  cursor: pointer;
+  transition: all 180ms ease;
+  text-decoration: none;
+}
+
+.phone-sim-action-btn:hover {
+  background: rgba(255, 255, 255, 0.18);
+  border-color: rgba(255, 255, 255, 0.3);
+}
+
+.phone-sim-close-btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 32px;
+  height: 32px;
+  border-radius: 50%;
+  background: rgba(239, 68, 68, 0.15);
+  border: 1px solid rgba(239, 68, 68, 0.4);
+  color: #EF4444;
+  font-size: 15px;
+  font-weight: 900;
+  cursor: pointer;
+  transition: all 180ms ease;
+}
+
+.phone-sim-close-btn:hover {
+  background: #EF4444;
+  color: #FFF;
+  transform: scale(1.08);
+}
+
+/* Device Wrapper & Realistic Phone Shell */
+.phone-sim-viewport-wrapper {
+  display: flex;
+  justify-content: center;
+  align-items: flex-start;
+  width: 100%;
+  perspective: 1200px;
+}
+
+.phone-sim-device {
+  position: relative;
+  background: #000000;
+  border: 11px solid #292524;
+  border-radius: 50px;
+  box-shadow: 0 30px 80px rgba(0, 0, 0, 0.95), 0 0 0 2px rgba(212, 175, 55, 0.45), inset 0 0 4px rgba(255, 255, 255, 0.15);
+  overflow: hidden;
+  transition: width 300ms cubic-bezier(0.16, 1, 0.3, 1), height 300ms cubic-bezier(0.16, 1, 0.3, 1), transform 200ms ease;
+}
+
+/* Dynamic Island */
+.phone-sim-island {
+  position: absolute;
+  top: 10px;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 96px;
+  height: 24px;
+  border-radius: 20px;
+  background: #000000;
+  z-index: 100;
+  pointer-events: none;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.8);
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 0 8px;
+}
+
+.phone-sim-island-camera {
+  width: 9px;
+  height: 9px;
+  border-radius: 50%;
+  background: #111827;
+  border: 1px solid #1f2937;
+  margin-left: auto;
+}
+
+/* Status Bar */
+.phone-sim-statusbar {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 38px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 0 24px;
+  z-index: 90;
+  pointer-events: none;
+  color: #FFF;
+  font-size: 12px;
+  font-weight: 700;
+  letter-spacing: -0.01em;
+}
+
+/* Phone Iframe */
+.phone-sim-iframe {
+  width: 100%;
+  height: 100%;
+  border: none;
+  display: block;
+  background: #0e0a07;
+}
+
+/* Home Indicator */
+.phone-sim-home-bar {
+  position: absolute;
+  bottom: 8px;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 120px;
+  height: 4px;
+  border-radius: 999px;
+  background: rgba(255, 255, 255, 0.65);
+  z-index: 100;
+  pointer-events: none;
+}
+
+@media (max-width: 768px) {
+  .phone-float-btn,
+  .studio-header-phone-btn {
+    display: none !important;
+  }
+}
+
+
+/* ========================================================
+   COMPREHENSIVE ULTRA-POLISHED MOBILE RESPONSIVENESS (PHONES)
+   ======================================================== */
+*, *::before, *::after {
+  box-sizing: border-box !important;
+}
+
+html, body {
+  overflow-x: hidden !important;
+  max-width: 100vw !important;
+  width: 100% !important;
+}
+
+@media (max-width: 768px) {
+  /* Prevent any element horizontal overflow */
+  body {
+    overflow-x: hidden !important;
+    position: relative;
+    width: 100% !important;
+  }
+
+  .container, .studio-header-inner, .stage, .section {
+    max-width: 100% !important;
+    overflow-x: hidden !important;
+  }
+
+  /* 1. HERO TITLE & DOLL POSITIONING */
+  #heroDollVideo,
+  #heroDollFallbackImg,
+  .inner-artwork-img-base {
+    object-position: 62% center !important;
+  }
+
+  .title-row-krishna {
+    font-size: clamp(34px, 10vw, 48px) !important;
+    letter-spacing: 0.08em !important;
+  }
+
+  .title-row-bottom {
+    display: inline-flex !important;
+    align-items: baseline !important;
+    gap: 16px !important;
+    margin-top: 4px !important;
+  }
+
+  .title-x-box {
+    margin-right: 10px !important;
+  }
+
+  .title-x-glyph {
+    font-size: clamp(38px, 11vw, 52px) !important;
+  }
+
+  .title-editz-text {
+    font-size: clamp(38px, 11vw, 52px) !important;
+    letter-spacing: 0.12em !important;
+  }
+
+  .brand-manifesto {
+    max-width: 280px !important;
+  }
+
+  .manifesto-tag {
+    font-size: 11px !important;
+  }
+
+  .manifesto-body {
+    font-size: 13.5px !important;
+    line-height: 1.55 !important;
+  }
+
+  /* 2. MASTER TYPOGRAPHY SCALING (FIX HUGE HEADINGS) */
+  .page-hero-title {
+    font-size: clamp(26px, 7.5vw, 34px) !important;
+    line-height: 1.2 !important;
+    margin-bottom: 12px !important;
+    letter-spacing: 0.02em !important;
+  }
+
+  .section-title {
+    font-size: clamp(24px, 7vw, 32px) !important;
+    line-height: 1.25 !important;
+    margin-bottom: 12px !important;
+  }
+
+  .section-desc {
+    font-size: 14.5px !important;
+    line-height: 1.6 !important;
+    margin-bottom: 24px !important;
+    padding: 0 4px !important;
+  }
+
+  .section-eyebrow {
+    font-size: 11px !important;
+    letter-spacing: 0.1em !important;
+    margin-bottom: 10px !important;
+  }
+
+  /* 3. GRIDS & CARDS: NO CLIPPING OR SIDE-CUTOFFS */
+  .services-grid {
+    grid-template-columns: 1fr !important;
+    gap: 20px !important;
+    margin-bottom: 50px !important;
+  }
+
+  .sorexa-service-card {
+    padding: 24px 18px !important;
+    width: 100% !important;
+    max-width: 100% !important;
+    box-sizing: border-box !important;
+    border-radius: 18px !important;
+  }
+
+  .service-title {
+    font-size: 22px !important;
+  }
+
+  .service-snippet {
+    font-size: 13.5px !important;
+    line-height: 1.55 !important;
+  }
+
+  .service-card-top-row {
+    flex-direction: column !important;
+    align-items: flex-start !important;
+    gap: 6px !important;
+  }
+
+  .real-works-grid {
+    grid-template-columns: 1fr !important;
+    gap: 20px !important;
+  }
+
+  .real-work-card {
+    width: 100% !important;
+    max-width: 100% !important;
+    box-sizing: border-box !important;
+  }
+
+  .real-work-body {
+    padding: 18px 16px !important;
+  }
+
+  .real-work-title {
+    font-size: 17px !important;
+    height: auto !important;
+    min-height: unset !important;
+  }
+
+  .stats-grid {
+    grid-template-columns: 1fr 1fr !important;
+    gap: 12px !important;
+    margin-bottom: 40px !important;
+  }
+
+  .stat-card {
+    padding: 16px 12px !important;
+    border-radius: 14px !important;
+  }
+
+  .stat-number {
+    font-size: 28px !important;
+  }
+
+  .stat-label {
+    font-size: 11.5px !important;
+  }
+
+  .stat-subtext {
+    font-size: 10.5px !important;
+    line-height: 1.4 !important;
+  }
+
+  /* 4. CONTACT & INQUIRY FORM MOBILE FIX */
+  .inquiry-box {
+    padding: 24px 16px !important;
+    border-radius: 18px !important;
+    margin-bottom: 40px !important;
+    width: 100% !important;
+    max-width: 100% !important;
+    box-sizing: border-box !important;
+  }
+
+  .inquiry-title {
+    font-size: 22px !important;
+  }
+
+  .inquiry-subtitle {
+    font-size: 13px !important;
+    margin-bottom: 20px !important;
+  }
+
+  .form-group-row {
+    grid-template-columns: 1fr !important;
+    gap: 14px !important;
+  }
+
+  .form-input, .form-select, .form-textarea {
+    width: 100% !important;
+    max-width: 100% !important;
+    box-sizing: border-box !important;
+    font-size: 14px !important;
+    padding: 11px 14px !important;
+  }
+
+  .channels-grid {
+    grid-template-columns: 1fr !important;
+    gap: 16px !important;
+  }
+
+  .channel-card {
+    padding: 22px 18px !important;
+  }
+
+  /* 5. PORTFOLIO & FOUNDER CARD FIX (CONTENT WAS SQUEEZED/BLACK) */
+  .founder-executive-grid,
+  .founder-grid {
+    grid-template-columns: 1fr !important;
+    gap: 24px !important;
+  }
+
+  .founder-executive-grid > div,
+  .founder-grid > div {
+    width: 100% !important;
+    max-width: 100% !important;
+  }
+
+  /* 6. PERMANENT CLIENTS TABS & VAULT */
+  .permanent-clients-grid {
+    grid-template-columns: 1fr !important;
+    gap: 16px !important;
+  }
+
+  .permanent-client-card {
+    padding: 18px 16px !important;
+  }
+
+  /* 7. SAFE TOPBAR SPACING */
+  .studio-header {
+    padding: 10px 16px !important;
+  }
+
+  .studio-brand-name {
+    font-size: 15px !important;
+  }
+}
+
+@media (max-width: 480px) {
+  .stats-grid {
+    grid-template-columns: 1fr !important;
+  }
+}
+
+/* Screen Area inside Phone Simulator */
+.phone-sim-screen-area {
+  width: 100%;
+  height: calc(100% - 44px);
+  margin-top: 44px;
+  position: relative;
+  overflow: hidden;
+}
+.phone-sim-screen-area .phone-sim-iframe {
+  width: 100%;
+  height: 100%;
+  border: none;
+  display: block;
+}
+
+/* COMPACT PRICING CTA BOX ON MOBILE (NO MORE FULL SCREEN FILLING) */
+@media (max-width: 768px) {
+  .pricing-cta-box {
+    padding: 20px 16px !important;
+    border-radius: 16px !important;
+    margin: 20px auto 28px !important;
+    max-width: 100% !important;
+    box-sizing: border-box !important;
+  }
+
+  .pricing-cta-box h4 {
+    font-size: 16px !important;
+    line-height: 1.35 !important;
+    letter-spacing: 0.02em !important;
+    margin-bottom: 8px !important;
+    text-transform: none !important;
+    color: #FFFFFF !important;
+  }
+
+  .pricing-cta-box p {
+    font-size: 12.5px !important;
+    line-height: 1.5 !important;
+    margin-bottom: 14px !important;
+    color: #cfc3ac !important;
+    padding: 0 4px !important;
+  }
+
+  .btn-wa-pricing-direct {
+    padding: 10px 20px !important;
+    font-size: 12.5px !important;
+    font-weight: 800 !important;
+    display: inline-flex !important;
+    align-items: center !important;
+    gap: 6px !important;
+    border-radius: 999px !important;
+    box-shadow: 0 4px 14px rgba(37, 211, 102, 0.35) !important;
+    width: auto !important;
+    white-space: nowrap !important;
+  }
+}
+
+
+/* ========================================================
+   KRISHNA X EDITZ — CINEMATIC LUXURY ANIMATION SUITE
+   ======================================================== */
+
+/* 1. SCROLL REVEAL (GPU-ACCELERATED SILKY ENTRANCE) */
+.kxe-reveal,
+.sorexa-card-reveal {
+  opacity: 0;
+  transform: translateY(28px) scale(0.98);
+  filter: blur(8px);
+  transition: opacity 850ms cubic-bezier(0.16, 1, 0.3, 1),
+              transform 850ms cubic-bezier(0.16, 1, 0.3, 1),
+              filter 850ms cubic-bezier(0.16, 1, 0.3, 1),
+              box-shadow 350ms cubic-bezier(0.16, 1, 0.3, 1),
+              border-color 350ms cubic-bezier(0.16, 1, 0.3, 1);
+  will-change: opacity, transform, filter;
+}
+
+.kxe-reveal.kxe-in-view,
+.sorexa-card-reveal.kxe-in-view,
+.sorexa-card-reveal.sorexa-in {
+  opacity: 1 !important;
+  transform: translateY(0) scale(1) !important;
+  filter: blur(0) !important;
+}
+
+/* Stagger delays for cascading wave effect (Khulte hi wave load) */
+.kxe-delay-0 { transition-delay: 60ms !important; }
+.kxe-delay-1 { transition-delay: 130ms !important; }
+.kxe-delay-2 { transition-delay: 200ms !important; }
+.kxe-delay-3 { transition-delay: 270ms !important; }
+.kxe-delay-4 { transition-delay: 340ms !important; }
+.kxe-delay-5 { transition-delay: 410ms !important; }
+.kxe-delay-6 { transition-delay: 480ms !important; }
+.kxe-delay-7 { transition-delay: 550ms !important; }
+.kxe-delay-8 { transition-delay: 620ms !important; }
+.kxe-delay-9 { transition-delay: 690ms !important; }
+.kxe-delay-10 { transition-delay: 760ms !important; }
+.kxe-delay-11 { transition-delay: 830ms !important; }
+
+/* 2. GOLD SHIMMER TEXT KEYFRAMES */
+@keyframes goldTextShimmer {
+  0% {
+    background-position: -200% center;
+  }
+  100% {
+    background-position: 200% center;
+  }
+}
+
+.section-eyebrow,
+.hero-kicker-badge,
+.phone-sim-badge {
+  background: linear-gradient(90deg, #F59E0B 0%, #FFF9EA 50%, #F59E0B 100%);
+  background-size: 200% auto;
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  animation: goldTextShimmer 6s linear infinite;
+  display: inline-block;
+}
+
+/* 3. FLOATING BADGE & GLOW PULSE */
+@keyframes luxuryFloat {
+  0%, 100% {
+    transform: translateY(0);
+  }
+  50% {
+    transform: translateY(-4px);
+  }
+}
+
+.hero-kicker-badge { display: none !important; 
+  animation: luxuryFloat 4s ease-in-out infinite, goldTextShimmer 6s linear infinite;
+}
+
+@keyframes luxuryGlowPulse {
+  0%, 100% {
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.6), 0 0 20px rgba(245, 158, 11, 0.15);
+  }
+  50% {
+    box-shadow: 0 14px 40px rgba(0, 0, 0, 0.8), 0 0 35px rgba(245, 158, 11, 0.35);
+  }
+}
+
+.studio-header-cta,
+.btn-submit-inquiry {
+  animation: luxuryGlowPulse 4s ease-in-out infinite;
+  transition: all 300ms cubic-bezier(0.16, 1, 0.3, 1) !important;
+}
+
+.studio-header-cta:hover,
+.btn-submit-inquiry:hover {
+  transform: translateY(-2px) scale(1.02) !important;
+  box-shadow: 0 12px 35px rgba(245, 158, 11, 0.5) !important;
+}
+
+/* 4. SPARKLE TWINKLE */
+@keyframes sparkleTwinkle {
+  0%, 100% {
+    transform: scale(1) rotate(0deg);
+    opacity: 0.85;
+  }
+  50% {
+    transform: scale(1.25) rotate(180deg);
+    opacity: 1;
+    filter: drop-shadow(0 0 12px rgba(255, 215, 0, 0.9));
+  }
+}
+
+.title-sparkle-star {
+  display: inline-block;
+  animation: sparkleTwinkle 4s ease-in-out infinite;
+}
+
+/* 5. CARD HOVER CINEMATIC POLISH (UNIVERSAL SOREXA-STYLE POLISH) */
+.real-work-card,
+.portfolio-item-card,
+.sorexa-service-card,
+.stat-card,
+.channel-card,
+.perm-client-card,
+.permanent-client-card,
+.main-price-card,
+.pricing-card,
+.pricing-promo-card,
+.book-tier-card,
+.testimonial-card,
+.book-review-card,
+.vault-card-item,
+.engine-card,
+.software-luxury-card,
+.partner-spotlight-card,
+.stat-badge-box,
+.metric-capsule {
+  transition: opacity 850ms cubic-bezier(0.16, 1, 0.3, 1),
+              transform 450ms cubic-bezier(0.16, 1, 0.3, 1),
+              filter 850ms cubic-bezier(0.16, 1, 0.3, 1),
+              box-shadow 350ms cubic-bezier(0.16, 1, 0.3, 1),
+              border-color 350ms cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.real-work-card:hover,
+.portfolio-item-card:hover,
+.sorexa-service-card:hover,
+.channel-card:hover,
+.perm-client-card:hover,
+.permanent-client-card:hover,
+.main-price-card:hover,
+.pricing-card:hover,
+.book-tier-card:hover,
+.testimonial-card:hover,
+.book-review-card:hover,
+.vault-card-item:hover,
+.engine-card:hover,
+.software-luxury-card:hover,
+.partner-spotlight-card:hover,
+.stat-card:hover,
+.stat-badge-box:hover,
+.metric-capsule:hover {
+  transform: translateY(-8px) scale(1.015) !important;
+  border-color: rgba(245, 158, 11, 0.6) !important;
+  box-shadow: 0 22px 55px rgba(0, 0, 0, 0.85), 0 0 35px rgba(245, 158, 11, 0.25) !important;
+}
+
+/* Real Work Card Thumbnail Zoom */
+.real-work-thumb img,
+.real-work-thumb video {
+  transition: transform 650ms cubic-bezier(0.16, 1, 0.3, 1) !important;
+}
+
+.real-work-card:hover .real-work-thumb img,
+.real-work-card:hover .real-work-thumb video {
+  transform: scale(1.06) !important;
+}
+
+/* Action Arrow Sliding */
+.real-work-card:hover .real-work-footer span:last-child,
+.sorexa-service-card:hover .service-action-btn span:last-child,
+.channel-card:hover .channel-action span:last-child,
+.inner-btn-explore:hover svg {
+  transform: translateX(6px) !important;
+}
+
+.real-work-footer span:last-child,
+.service-action-btn span:last-child,
+.channel-action span:last-child,
+.inner-btn-explore svg {
+  transition: transform 250ms ease !important;
+}
+
+/* 6. BUTTON RIPPLE & GLOW TRANSITIONS */
+button, a.btn-work-commission, a.btn-wa-pricing-direct {
+  transition: all 250ms cubic-bezier(0.16, 1, 0.3, 1) !important;
+}
+
+.btn-work-commission:hover,
+.btn-wa-pricing-direct:hover {
+  transform: translateY(-2px) scale(1.02) !important;
+}
+
+/* 7. REDUCED MOTION PREFERENCE */
+@media (prefers-reduced-motion: reduce) {
+  .kxe-reveal {
+    opacity: 1 !important;
+    transform: none !important;
+    filter: none !important;
+    transition: none !important;
+  }
+  .hero-kicker-badge,
+  .title-sparkle-star,
+  .studio-header-cta {
+    animation: none !important;
+  }
+}
+
+
+/* ========================================================
+   SOREXA TECHNOLOGY SIGNATURE TEXT REVEAL (SLIDE UP + BLUR-TO-SHARP)
+   ======================================================== */
+.sorexa-text-reveal {
+  opacity: 0;
+  transform: translateY(34px);
+  filter: blur(10px);
+  transition: opacity 850ms cubic-bezier(0.16, 1, 0.3, 1),
+              transform 850ms cubic-bezier(0.16, 1, 0.3, 1),
+              filter 850ms cubic-bezier(0.16, 1, 0.3, 1);
+  will-change: opacity, transform, filter;
+  display: block;
+}
+
+.sorexa-text-reveal.sorexa-in {
+  opacity: 1 !important;
+  transform: translateY(0) !important;
+  filter: blur(0) !important;
+}
+
+/* Hero opening sequence timing (Khulte hi bottom-to-top staggered slide) */
+.sorexa-hero-kicker {
+  transition-delay: 100ms !important;
+}
+
+.sorexa-hero-title-1 {
+  transition-delay: 240ms !important;
+}
+
+.sorexa-hero-title-2 {
+  transition-delay: 380ms !important;
+}
+
+.sorexa-hero-manifesto {
+  transition-delay: 520ms !important;
+}
+
+.sorexa-hero-cta {
+  transition-delay: 660ms !important;
+}
+
+/* Stagger for section headers */
+.sorexa-stagger-1 { transition-delay: 80ms !important; }
+.sorexa-stagger-2 { transition-delay: 160ms !important; }
+.sorexa-stagger-3 { transition-delay: 240ms !important; }
+.sorexa-stagger-4 { transition-delay: 320ms !important; }
+
+
+/* ========================================================
+   SOREXA-STYLE BOTTOM-TO-TOP HERO TEXT LOAD (KHULTE HI)
+   Applied to Home Hero (Krishna X Editz), Services, Portfolio,
+   My Works, About, Reviews, Contact, and Pricing.
+   ======================================================== */
+
+@keyframes sorexaTextSlideUp {
+  0% {
+    opacity: 0;
+    transform: translateY(38px);
+    filter: blur(12px);
+  }
+  100% {
+    opacity: 1;
+    transform: translateY(0);
+    filter: blur(0);
+  }
+}
+
+/* 1. HOME HERO (KRISHNA X EDITZ SIDE) */
+.hero-kicker-badge { display: none !important; 
+  animation: sorexaTextSlideUp 0.85s cubic-bezier(0.16, 1, 0.3, 1) 0.12s both !important;
+}
+
+.title-row-krishna {
+  animation: sorexaTextSlideUp 0.9s cubic-bezier(0.16, 1, 0.3, 1) 0.28s both !important;
+}
+
+.title-row-bottom {
+  animation: sorexaTextSlideUp 0.9s cubic-bezier(0.16, 1, 0.3, 1) 0.44s both !important;
+}
+
+.brand-manifesto {
+  animation: sorexaTextSlideUp 0.85s cubic-bezier(0.16, 1, 0.3, 1) 0.6s both !important;
+}
+
+.inner-btn-explore {
+  animation: sorexaTextSlideUp 0.8s cubic-bezier(0.16, 1, 0.3, 1) 0.74s both !important;
+}
+
+/* 2. SUB-PAGES HERO HEADINGS (SERVICES, PORTFOLIO, MY WORKS, ABOUT, REVIEWS, CONTACT, PRICING) */
+.page-hero-section .section-eyebrow,
+.portfolio-eyebrow,
+.section-header:first-of-type .section-eyebrow,
+main .section-eyebrow:first-of-type,
+.content-wrapper .section-eyebrow:first-of-type {
+  animation: sorexaTextSlideUp 0.85s cubic-bezier(0.16, 1, 0.3, 1) 0.12s both !important;
+}
+
+.page-hero-title,
+.portfolio-hero-title,
+main h1,
+.content-wrapper h1,
+.section-header:first-of-type h1 {
+  animation: sorexaTextSlideUp 0.9s cubic-bezier(0.16, 1, 0.3, 1) 0.28s both !important;
+}
+
+.section-desc:first-of-type,
+.portfolio-hero-desc,
+.page-hero-title + .section-desc,
+.portfolio-hero-title + .portfolio-hero-desc,
+.section-header:first-of-type .section-desc {
+  animation: sorexaTextSlideUp 0.85s cubic-bezier(0.16, 1, 0.3, 1) 0.46s both !important;
+}
+
+.portfolio-metrics-grid,
+.filter-tabs-row {
+  animation: sorexaTextSlideUp 0.85s cubic-bezier(0.16, 1, 0.3, 1) 0.62s both !important;
+}
+
+/* 3. SECTION HEADERS ON SCROLL (EXACT SAME VISUAL STORYTELLING ANIMATION) */
+.section-header.kxe-reveal {
+  opacity: 0 !important;
+  transform: translateY(38px) !important;
+  filter: blur(10px) !important;
+  transition: opacity 850ms cubic-bezier(0.16, 1, 0.3, 1),
+              transform 850ms cubic-bezier(0.16, 1, 0.3, 1),
+              filter 850ms cubic-bezier(0.16, 1, 0.3, 1) !important;
+}
+
+.section-header.kxe-reveal.kxe-in-view {
+  opacity: 1 !important;
+  transform: translateY(0) !important;
+  filter: blur(0) !important;
+}
+
+.section-header .section-eyebrow {
+  transition: opacity 850ms cubic-bezier(0.16, 1, 0.3, 1) 80ms,
+              transform 850ms cubic-bezier(0.16, 1, 0.3, 1) 80ms,
+              filter 850ms cubic-bezier(0.16, 1, 0.3, 1) 80ms;
+}
+
+.section-header .section-title {
+  transition: opacity 850ms cubic-bezier(0.16, 1, 0.3, 1) 180ms,
+              transform 850ms cubic-bezier(0.16, 1, 0.3, 1) 180ms,
+              filter 850ms cubic-bezier(0.16, 1, 0.3, 1) 180ms;
+}
+
+.section-header .section-desc {
+  transition: opacity 850ms cubic-bezier(0.16, 1, 0.3, 1) 280ms,
+              transform 850ms cubic-bezier(0.16, 1, 0.3, 1) 280ms,
+              filter 850ms cubic-bezier(0.16, 1, 0.3, 1) 280ms;
+}
+
+
+/* ========================================================
+   KRISHNA X EDITZ — AUTOMATED FESTIVAL DECORATIONS & DISCOUNT ENGINE
+   (Diwali, Halloween, New Year, Holi, Eid, and Custom Festivals)
+   ======================================================== */
+
+:root {
+  --festive-primary: #F59E0B;
+  --festive-glow: rgba(245, 158, 11, 0.45);
+  --festive-border: rgba(245, 158, 11, 0.6);
+  --festive-bg: rgba(24, 16, 9, 0.96);
+}
+
+/* 1. TOP FESTIVE ANNOUNCEMENT RIBBON */
+.kxe-festive-ribbon {
+  position: fixed !important;
+  top: 0 !important;
+  left: 0 !important;
+  width: 100% !important;
+  height: 36px !important;
+  z-index: 100000 !important;
+  background: linear-gradient(90deg, #120c08 0%, #2a180b 50%, #120c08 100%);
+  border-bottom: 1.5px solid var(--festive-border);
+  box-shadow: 0 4px 20px var(--festive-glow);
+  z-index: 10000;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 8px 16px;
+  font-family: var(--sans);
+  color: #FFFFFF;
+  font-size: 13.5px;
+  line-height: 1.4;
+  overflow: hidden;
+  transition: all 350ms ease;
+}
+
+.kxe-festive-ribbon-inner {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 12px;
+  flex-wrap: wrap;
+  max-width: 1400px;
+  margin: 0 auto;
+  position: relative;
+  z-index: 2;
+}
+
+.festive-tag-pill {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  background: var(--festive-primary);
+  color: #000000;
+  font-size: 11px;
+  font-weight: 900;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  padding: 3px 10px;
+  border-radius: 999px;
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.4);
+  white-space: nowrap;
+}
+
+.festive-headline-text {
+  font-weight: 600;
+  color: #FDF9F0;
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+}
+
+.festive-headline-text strong {
+  color: #FFD700;
+  font-weight: 800;
+}
+
+.festive-coupon-box {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  background: rgba(255, 255, 255, 0.08);
+  border: 1px dashed var(--festive-primary);
+  padding: 3px 10px;
+  border-radius: 8px;
+  cursor: pointer;
+  transition: all 200ms ease;
+  user-select: none;
+}
+
+.festive-coupon-box:hover {
+  background: rgba(245, 158, 11, 0.2);
+  transform: scale(1.03);
+}
+
+.festive-coupon-code {
+  font-family: monospace;
+  font-size: 12.5px;
+  font-weight: 900;
+  color: #FBBF24;
+  letter-spacing: 0.1em;
+}
+
+.festive-coupon-hint {
+  font-size: 10px;
+  color: #D1D5DB;
+  text-transform: uppercase;
+  opacity: 0.85;
+}
+
+.festive-action-btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 4px;
+  background: linear-gradient(135deg, var(--festive-primary), #D97706);
+  color: #000000;
+  font-size: 11.5px;
+  font-weight: 900;
+  padding: 4px 14px;
+  border-radius: 999px;
+  text-decoration: none;
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.4);
+  transition: transform 200ms ease;
+  white-space: nowrap;
+}
+
+.festive-action-btn:hover {
+  transform: translateY(-1px) scale(1.04);
+}
+
+.festive-dismiss-btn {
+  background: none;
+  border: none;
+  color: rgba(255, 255, 255, 0.6);
+  font-size: 16px;
+  cursor: pointer;
+  padding: 4px 8px;
+  line-height: 1;
+  transition: color 200ms ease;
+}
+
+.festive-dismiss-btn:hover {
+  color: #FFFFFF;
+}
+
+/* 2. FESTIVE GARLAND (JHALAR / FAIRY LIGHTS ACROSS TOP) */
+.kxe-festive-garland {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 28px;
+  z-index: 9998;
+  pointer-events: none;
+  overflow: visible;
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-around;
+}
+
+.kxe-garland-wire {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 10px;
+  border-bottom: 1.5px solid rgba(80, 60, 40, 0.6);
+  border-radius: 0 0 50% 50% / 0 0 100% 100%;
+  pointer-events: none;
+}
+
+.kxe-fairy-bulb {
+  position: relative;
+  width: 10px;
+  height: 16px;
+  border-radius: 50% 50% 45% 45% / 60% 60% 40% 40%;
+  margin-top: 4px;
+  will-change: opacity, transform, filter;
+  animation: diwaliFairyTwinkle 2.4s ease-in-out infinite alternate;
+}
+
+.kxe-fairy-bulb::before {
+  content: "";
+  position: absolute;
+  top: -3px;
+  left: 2px;
+  width: 6px;
+  height: 3px;
+  background: #33281E;
+  border-radius: 2px 2px 0 0;
+}
+
+/* Individual Bulb Stagger & Glowing Hues */
+.kxe-fairy-bulb:nth-child(2n)   { animation-duration: 1.9s; animation-delay: 0.2s; }
+.kxe-fairy-bulb:nth-child(3n)   { animation-duration: 2.7s; animation-delay: 0.5s; }
+.kxe-fairy-bulb:nth-child(5n)   { animation-duration: 2.2s; animation-delay: 0.8s; }
+.kxe-fairy-bulb:nth-child(7n)   { animation-duration: 3.1s; animation-delay: 1.1s; }
+
+@keyframes diwaliFairyTwinkle {
+  0% {
+    opacity: 0.72;
+    transform: scale(0.92);
+    filter: brightness(0.9) drop-shadow(0 0 4px currentColor);
+  }
+  50% {
+    opacity: 1;
+    transform: scale(1.12);
+    filter: brightness(1.35) drop-shadow(0 0 12px currentColor);
+  }
+  100% {
+    opacity: 0.85;
+    transform: scale(1);
+    filter: brightness(1.1) drop-shadow(0 0 7px currentColor);
+  }
+}
+
+/* 3. FESTIVE AMBIENT PARTICLES (DIYA SPARKLES / SNOWFLAKES / BATS / HOLI COLOR) */
+.kxe-festive-particles-wrap {
+  position: fixed;
+  inset: 0;
+  pointer-events: none;
+  z-index: 9997;
+  overflow: hidden;
+}
+
+.kxe-festive-particle {
+  position: absolute;
+  pointer-events: none;
+  opacity: 0;
+  will-change: transform, opacity;
+}
+
+/* Diwali Diya Sparkles (Rising gently upward) */
+.kxe-festive-diwali .kxe-festive-particle {
+  width: 5px;
+  height: 5px;
+  background: radial-gradient(circle, #FFF2B2 0%, #F59E0B 70%, transparent 100%);
+  border-radius: 50%;
+  box-shadow: 0 0 10px #F59E0B, 0 0 20px #FFD700;
+  animation: diwaliParticleFloat 7s linear infinite;
+}
+
+@keyframes diwaliParticleFloat {
+  0% {
+    opacity: 0;
+    transform: translateY(105vh) scale(0.4) rotate(0deg);
+  }
+  20% {
+    opacity: 0.85;
+  }
+  80% {
+    opacity: 0.85;
+  }
+  100% {
+    opacity: 0;
+    transform: translateY(-10vh) scale(1.2) rotate(360deg);
+  }
+}
+
+/* Halloween Floating Bats / Ghost Embers */
+.kxe-festive-halloween .kxe-festive-particle {
+  font-size: 16px;
+  animation: halloweenDrift 9s ease-in-out infinite;
+}
+
+@keyframes halloweenDrift {
+  0% {
+    opacity: 0;
+    transform: translate(-10vw, 80vh) scale(0.5);
+  }
+  20% { opacity: 0.7; }
+  80% { opacity: 0.7; }
+  100% {
+    opacity: 0;
+    transform: translate(110vw, 20vh) scale(1.1);
+  }
+}
+
+/* New Year Snowflakes */
+.kxe-festive-newyear .kxe-festive-particle {
+  color: #FFFFFF;
+  font-size: 14px;
+  text-shadow: 0 0 8px rgba(255, 255, 255, 0.8);
+  animation: snowFalling 8s linear infinite;
+}
+
+@keyframes snowFalling {
+  0% {
+    opacity: 0;
+    transform: translateY(-5vh) translateX(0) rotate(0deg);
+  }
+  15% { opacity: 0.85; }
+  85% { opacity: 0.85; }
+  100% {
+    opacity: 0;
+    transform: translateY(105vh) translateX(40px) rotate(360deg);
+  }
+}
+
+/* Holi Organic Color Splash Orbs */
+.kxe-festive-holi .kxe-festive-particle {
+  border-radius: 50%;
+  filter: blur(25px);
+  opacity: 0.18;
+  animation: holiPulse 8s ease-in-out infinite alternate;
+}
+
+@keyframes holiPulse {
+  0% { transform: scale(0.8) translate(0, 0); opacity: 0.15; }
+  100% { transform: scale(1.3) translate(20px, -20px); opacity: 0.28; }
+}
+
+/* 4. DYNAMIC FESTIVE PRICE DISPLAY & STRIKE */
+.kxe-orig-price-strike {
+  text-decoration: line-through;
+  color: rgba(255, 255, 255, 0.45) !important;
+  font-size: 0.65em !important;
+  margin-right: 8px !important;
+  font-weight: 600 !important;
+  display: inline-block;
+}
+
+.kxe-festive-price {
+  color: #FFD700 !important;
+  text-shadow: 0 0 15px rgba(245, 158, 11, 0.4) !important;
+  display: inline-block;
+}
+
+.kxe-festive-save-badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 4px;
+  padding: 3px 10px;
+  border-radius: 999px;
+  background: rgba(34, 197, 94, 0.18);
+  border: 1px solid #22C55E;
+  color: #4ADE80;
+  font-size: 11px;
+  font-weight: 800;
+  letter-spacing: 0.05em;
+  margin-left: 8px;
+  vertical-align: middle;
+  box-shadow: 0 2px 10px rgba(34, 197, 94, 0.2);
+}
+
+/* 5. FLOATING FESTIVE CONTROLLER WIDGET (TESTER & OVERRIDE) */
+.kxe-festive-float-btn {
+  position: fixed;
+  bottom: 84px;
+  right: 24px;
+  z-index: 9995;
+  background: linear-gradient(135deg, #1C150E 0%, #2A1A0F 100%);
+  border: 1.5px solid var(--festive-border);
+  box-shadow: 0 8px 25px rgba(0, 0, 0, 0.7), 0 0 20px var(--festive-glow);
+  color: #FFD700;
+  padding: 8px 16px;
+  border-radius: 999px;
+  font-family: var(--sans);
+  font-size: 12.5px;
+  font-weight: 800;
+  letter-spacing: 0.04em;
+  cursor: pointer;
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  transition: all 250ms cubic-bezier(0.16, 1, 0.3, 1);
+  user-select: none;
+}
+
+.kxe-festive-float-btn:hover {
+  transform: translateY(-3px) scale(1.04);
+  box-shadow: 0 12px 35px rgba(0, 0, 0, 0.9), 0 0 30px var(--festive-glow);
+  border-color: #F59E0B;
+}
+
+.kxe-festive-pulse-dot {
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+  background: #22C55E;
+  box-shadow: 0 0 10px #22C55E;
+  display: inline-block;
+  animation: festiveDotPulse 1.5s infinite;
+}
+
+@keyframes festiveDotPulse {
+  0%, 100% { transform: scale(0.9); opacity: 0.8; }
+  50% { transform: scale(1.3); opacity: 1; }
+}
+
+/* Festive Switcher Drawer Modal */
+.kxe-festive-modal-backdrop {
+  position: fixed;
+  inset: 0;
+  background: rgba(0, 0, 0, 0.85);
+  backdrop-filter: blur(12px);
+  z-index: 99999;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 16px;
+  opacity: 0;
+  pointer-events: none;
+  transition: opacity 250ms ease;
+}
+
+.kxe-festive-modal-backdrop.active {
+  opacity: 1;
+  pointer-events: auto;
+}
+
+.kxe-festive-modal-card {
+  width: 100%;
+  max-width: 520px;
+  background: rgba(22, 16, 10, 0.98);
+  border: 1.5px solid var(--festive-border);
+  border-radius: 24px;
+  padding: 28px 24px;
+  box-shadow: 0 25px 70px rgba(0, 0, 0, 0.95), 0 0 45px var(--festive-glow);
+  transform: translateY(20px) scale(0.96);
+  transition: transform 300ms cubic-bezier(0.16, 1, 0.3, 1);
+  font-family: var(--sans);
+  color: #FFFFFF;
+}
+
+.kxe-festive-modal-backdrop.active .kxe-festive-modal-card {
+  transform: translateY(0) scale(1);
+}
+
+.festive-modal-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 20px;
+}
+
+.festive-modal-title {
+  font-family: var(--serif);
+  font-size: 22px;
+  color: #FFFFFF;
+}
+
+.festive-modal-close {
+  background: none;
+  border: none;
+  color: rgba(255, 255, 255, 0.6);
+  font-size: 22px;
+  cursor: pointer;
+  line-height: 1;
+}
+
+.festive-modal-close:hover {
+  color: #FFFFFF;
+}
+
+.festive-presets-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(140px, 1fr));
+  gap: 12px;
+  margin-bottom: 20px;
+}
+
+.festive-preset-btn {
+  background: rgba(35, 24, 15, 0.9);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  border-radius: 14px;
+  padding: 12px 10px;
+  color: #E5E7EB;
+  font-size: 13px;
+  font-weight: 700;
+  cursor: pointer;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 4px;
+  transition: all 200ms ease;
+  text-align: center;
+}
+
+.festive-preset-btn:hover {
+  border-color: #F59E0B;
+  background: rgba(245, 158, 11, 0.15);
+  transform: translateY(-2px);
+}
+
+.festive-preset-btn.active {
+  border-color: #F59E0B;
+  background: linear-gradient(135deg, rgba(245, 158, 11, 0.3) 0%, rgba(217, 119, 6, 0.2) 100%);
+  color: #FFD700;
+  box-shadow: 0 4px 15px rgba(245, 158, 11, 0.25);
+}
+
+.festive-preset-icon {
+  font-size: 24px;
+}
+
+.festive-preset-off {
+  font-size: 11px;
+  color: #34D399;
+  font-weight: 800;
+}
+
+/* Mobile Responsiveness for Festive Ribbon & Elements */
+@media (max-width: 768px) {
+  .kxe-festive-ribbon {
+    padding: 6px 12px;
+    font-size: 12px;
+  }
+  .festive-headline-text {
+    font-size: 11.5px;
+  }
+  .festive-coupon-box {
+    padding: 2px 8px;
+  }
+  .festive-coupon-code {
+    font-size: 11px;
+  }
+  .festive-action-btn {
+    padding: 3px 10px;
+    font-size: 11px;
+  }
+  .kxe-festive-float-btn {
+    bottom: 80px;
+    right: 14px;
+    padding: 6px 12px;
+    font-size: 11px;
+  }
+}
+
+/* Push studio header and garland down when festive ribbon is active */
+body.has-festive-ribbon #topbar,
+body.has-festive-ribbon .studio-header {
+  top: 36px !important;
+}
+
+body.has-festive-ribbon .kxe-festive-garland {
+  top: 98px !important;
+}
+
+body.has-festive-ribbon {
+  padding-top: 36px !important;
+}
+
+@media (max-width: 768px) {
+  .kxe-festive-ribbon {
+    height: auto !important;
+    min-height: 42px !important;
+  }
+  body.has-festive-ribbon #topbar,
+  body.has-festive-ribbon .studio-header {
+    top: 42px !important;
+  }
+  body.has-festive-ribbon .kxe-festive-garland {
+    top: 104px !important;
+  }
+  body.has-festive-ribbon {
+    padding-top: 42px !important;
+  }
+}
+
+
+/* ========================================================
+   IN-CONTENT FESTIVE DECORATIONS (DIYAS, MOM-BATTIYAN, MIRCHI LIGHTS)
+   ======================================================== */
+
+/* 1. CLAY DIYA (🪔) WITH REALISTIC ANIMATED FLICKERING FLAME */
+.kxe-clay-diya {
+  position: relative;
+  display: inline-flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: flex-end;
+  width: 32px;
+  height: 28px;
+  pointer-events: none;
+  user-select: none;
+  filter: drop-shadow(0 0 10px rgba(245, 158, 11, 0.6));
+  z-index: 5;
+  margin: 0 8px;
+  vertical-align: middle;
+}
+
+.kxe-diya-flame {
+  width: 10px;
+  height: 16px;
+  background: radial-gradient(ellipse at 50% 80%, #FFFFFF 0%, #FFEA79 30%, #FF9900 65%, #FF3700 90%, transparent 100%);
+  border-radius: 50% 50% 35% 35% / 60% 60% 40% 40%;
+  animation: diyaFlameFlicker 1.4s ease-in-out infinite alternate;
+  box-shadow: 0 0 14px #FFD700, 0 0 28px #F59E0B;
+  transform-origin: bottom center;
+}
+
+.kxe-diya-base {
+  width: 28px;
+  height: 10px;
+  background: linear-gradient(180deg, #A0522D 0%, #683018 100%);
+  border-radius: 0 0 14px 14px;
+  border-top: 1.5px solid #FFD700;
+  box-shadow: inset 0 1px 4px rgba(255, 215, 0, 0.5);
+  margin-top: -2px;
+}
+
+@keyframes diyaFlameFlicker {
+  0% {
+    transform: scale(0.92) rotate(-3deg);
+    opacity: 0.88;
+  }
+  30% {
+    transform: scale(1.1) rotate(4deg);
+    opacity: 1;
+  }
+  65% {
+    transform: scale(0.95) rotate(-1deg);
+    opacity: 0.92;
+  }
+  100% {
+    transform: scale(1.18) rotate(2deg);
+    opacity: 1;
+    box-shadow: 0 0 18px #FFD700, 0 0 35px #F59E0B;
+  }
+}
+
+/* 2. GLOWING CANDLE (🕯️ MOM-BATTI) */
+.kxe-mom-batti {
+  position: relative;
+  display: inline-flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: flex-end;
+  width: 22px;
+  height: 38px;
+  pointer-events: none;
+  user-select: none;
+  filter: drop-shadow(0 0 12px rgba(255, 215, 0, 0.5));
+  margin: 0 8px;
+  vertical-align: middle;
+}
+
+.kxe-candle-flame {
+  width: 8px;
+  height: 14px;
+  background: radial-gradient(ellipse at 50% 80%, #FFF 0%, #FFE066 35%, #FF8C00 70%, transparent 100%);
+  border-radius: 50% 50% 30% 30% / 60% 60% 40% 40%;
+  animation: diyaFlameFlicker 1.8s ease-in-out infinite alternate;
+  box-shadow: 0 0 12px #FFD700, 0 0 25px rgba(245, 158, 11, 0.6);
+  transform-origin: bottom center;
+}
+
+.kxe-candle-wick {
+  width: 2px;
+  height: 4px;
+  background: #222;
+  margin-top: -1px;
+}
+
+.kxe-candle-body {
+  width: 14px;
+  height: 20px;
+  background: linear-gradient(90deg, #FDFBF7 0%, #ECE3D2 50%, #D4C3A3 100%);
+  border-radius: 3px 3px 2px 2px;
+  box-shadow: inset 0 2px 4px rgba(255, 215, 0, 0.4), 0 4px 10px rgba(0, 0, 0, 0.4);
+}
+
+/* 3. MIRCHI LIGHTS (TIRCHI-MIRCHI STRING DIVIDER) */
+.kxe-mirchi-divider {
+  position: relative;
+  width: min(1200px, 94vw);
+  margin: 32px auto 20px;
+  height: 20px;
+  display: flex;
+  align-items: center;
+  justify-content: space-around;
+  pointer-events: none;
+  overflow: visible;
+  padding: 0 10px;
+}
+
+.kxe-mirchi-wire {
+  position: absolute;
+  top: 10px;
+  left: 0;
+  width: 100%;
+  height: 1px;
+  background: rgba(212, 175, 55, 0.35);
+  box-shadow: 0 0 6px rgba(245, 158, 11, 0.3);
+}
+
+.kxe-mirchi-bulb {
+  width: 7px;
+  height: 11px;
+  border-radius: 50% 50% 40% 40%;
+  position: relative;
+  z-index: 2;
+  animation: mirchiBlink 1.3s ease-in-out infinite alternate;
+  will-change: transform, opacity, filter;
+}
+
+.kxe-mirchi-bulb:nth-child(2n) { animation-duration: 0.9s; animation-delay: 0.15s; }
+.kxe-mirchi-bulb:nth-child(3n) { animation-duration: 1.5s; animation-delay: 0.35s; }
+.kxe-mirchi-bulb:nth-child(5n) { animation-duration: 1.1s; animation-delay: 0.6s; }
+.kxe-mirchi-bulb:nth-child(7n) { animation-duration: 1.8s; animation-delay: 0.8s; }
+
+@keyframes mirchiBlink {
+  0% {
+    opacity: 0.35;
+    transform: scale(0.85);
+    filter: brightness(0.7);
+  }
+  100% {
+    opacity: 1;
+    transform: scale(1.25);
+    filter: brightness(1.4) drop-shadow(0 0 8px currentColor);
+  }
+}
+
+/* Section Header Diya Flankers */
+.section-header-festive-flankers {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 14px;
+  margin-bottom: 8px;
+}
+
+/* Card Corner Floating Diya / Candle */
+.card-festive-corner-diya {
+  position: absolute;
+  top: -12px;
+  right: 18px;
+  z-index: 10;
+  pointer-events: none;
+}
+
+/* Hide public festival switcher button — Managed strictly in /admin */
+.kxe-festive-float-btn,
+.kxe-festive-modal-backdrop {
+  display: none !important;
+  visibility: hidden !important;
+  pointer-events: none !important;
+}
+
+
+/* ========================================================
+   GLOBAL MOBILE RESPONSIVENESS & SIDE CLIPPING ELIMINATION
+   ======================================================== */
+@media (max-width: 768px) {
+  /* Prevent horizontal scroll leakage globally */
+  html, body {
+    overflow-x: hidden !important;
+    max-width: 100vw !important;
+    width: 100% !important;
+  }
+
+  /* Prevent hover scale from causing cards to clip on right edge */
+  .sorexa-service-card:hover,
+  .channel-card:hover,
+  .perm-client-card:hover,
+  .permanent-client-card:hover,
+  .main-price-card:hover,
+  .pricing-card:hover,
+  .book-tier-card:hover,
+  .testimonial-card:hover,
+  .book-review-card:hover,
+  .vault-card-item:hover,
+  .engine-card:hover,
+  .software-luxury-card:hover,
+  .partner-spotlight-card:hover,
+  .stat-card:hover,
+  .stat-badge-box:hover,
+  .metric-capsule:hover,
+  .pricing-cta-box:hover {
+    transform: translateY(-3px) !important;
+  }
+
+  /* Header mobile padding to prevent 26px right overflow */
+  .studio-header-inner {
+    padding: 0 12px !important;
+  }
+
+  .studio-actions-wrap {
+    gap: 6px !important;
+  }
+
+  .studio-header-admin {
+    padding: 5px 8px !important;
+    font-size: 11px !important;
+  }
+
+  /* Ensure all cards fit within 100% width on phone */
+  .sorexa-service-card,
+  .pricing-cta-box,
+  .real-work-card,
+  .work-video-card,
+  .inquiry-box,
+  .founder-executive-grid {
+    width: 100% !important;
+    max-width: 100% !important;
+    box-sizing: border-box !important;
+  }
+}
+
+  /* Leave generous room in festive ribbon on mobile so it never collides with fixed 3-line hamburger */
+  .kxe-festive-ribbon {
+    padding-right: 68px !important;
+  }
+}
+
+/* ==========================================================================
+   KRISHNA X EDITZ: LUXURY 3-LINE UNIVERSAL MOBILE HAMBURGER & DRAWER MENU
+   ========================================================================== */
+.studio-hamburger.universal-hamburger-btn,
+#menuButton {
+  position: relative;
+  display: inline-flex !important;
+  flex-direction: column !important;
+  align-items: center !important;
+  justify-content: center !important;
+  gap: 4.5px !important;
+  width: 42px !important;
+  height: 42px !important;
+  border-radius: 12px !important;
+  background: rgba(22, 16, 11, 0.94) !important;
+  border: 1.5px solid rgba(212, 175, 55, 0.65) !important;
+  box-shadow: 0 4px 18px rgba(0, 0, 0, 0.75), 0 0 12px rgba(245, 158, 11, 0.25) !important;
+  cursor: pointer !important;
+  padding: 0 !important;
+  z-index: 10000005 !important;
+  transition: all 260ms cubic-bezier(0.16, 1, 0.3, 1) !important;
+  box-sizing: border-box !important;
+  pointer-events: auto !important;
+}
+
+.studio-hamburger.universal-hamburger-btn:hover,
+#menuButton:hover {
+  background: rgba(36, 24, 15, 0.98) !important;
+  border-color: #F59E0B !important;
+  box-shadow: 0 6px 24px rgba(245, 158, 11, 0.45) !important;
+  transform: scale(1.05) !important;
+}
+
+.studio-hamburger.universal-hamburger-btn .hamburger-bar,
+#menuButton .hamburger-bar {
+  display: block !important;
+  width: 20px !important;
+  height: 2.2px !important;
+  background: linear-gradient(90deg, #FFE29F 0%, #D4AF37 50%, #F59E0B 100%) !important;
+  border-radius: 2px !important;
+  box-shadow: 0 0 6px rgba(245, 158, 11, 0.5) !important;
+  transition: transform 320ms cubic-bezier(0.16, 1, 0.3, 1), opacity 240ms ease !important;
+  transform-origin: center !important;
+  pointer-events: none !important;
+}
+
+/* 3-Line to 'X' Morphing Animation */
+[data-menu="open"] #menuButton,
+#menuButton.is-active {
+  background: rgba(32, 20, 12, 0.98) !important;
+  border-color: #F59E0B !important;
+  box-shadow: 0 0 20px rgba(245, 158, 11, 0.55) !important;
+}
+
+[data-menu="open"] #menuButton .bar-1,
+#menuButton.is-active .bar-1 {
+  transform: translateY(6.7px) rotate(45deg) !important;
+}
+
+[data-menu="open"] #menuButton .bar-2,
+#menuButton.is-active .bar-2 {
+  opacity: 0 !important;
+  transform: scaleX(0) !important;
+}
+
+[data-menu="open"] #menuButton .bar-3,
+#menuButton.is-active .bar-3 {
+  transform: translateY(-6.7px) rotate(-45deg) !important;
+}
+
+/* FIXED TOP-RIGHT ON ALL PHONES & TABLETS (ALWAYS VISIBLE OVER ALL CONTENT) */
+@media (max-width: 768px) {
+  .studio-hamburger.universal-hamburger-btn,
+  #menuButton {
+    position: fixed !important;
+    top: 12px !important;
+    right: 12px !important;
+    width: 44px !important;
+    height: 44px !important;
+    z-index: 10000005 !important;
+  }
+}
+
+/* ==========================================================================
+   LUXURY FULLSCREEN NAVIGATION DRAWER (ALL SECTIONS ACCESSIBLE)
+   ========================================================================== */
+.menu-layer {
+  position: fixed !important;
+  z-index: 10000000 !important;
+  inset: 0 !important;
+  display: block !important;
+  background: rgba(14, 10, 7, 0.97) !important;
+  backdrop-filter: blur(28px) !important;
+  -webkit-backdrop-filter: blur(28px) !important;
+  opacity: 0 !important;
+  visibility: hidden !important;
+  pointer-events: none !important;
+  transition: opacity 320ms cubic-bezier(0.16, 1, 0.3, 1), visibility 320ms !important;
+  overflow-y: auto !important;
+  -webkit-overflow-scrolling: touch !important;
+  box-sizing: border-box !important;
+}
+
+[data-menu="open"] .menu-layer {
+  opacity: 1 !important;
+  visibility: visible !important;
+  pointer-events: auto !important;
+}
+
+.menu-layer-container {
+  max-width: 680px;
+  margin: 0 auto;
+  padding: clamp(24px, 5vh, 48px) 20px 60px;
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+  box-sizing: border-box;
+}
+
+.menu-layer-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding-bottom: 16px;
+  border-bottom: 1px solid rgba(212, 175, 55, 0.22);
+  margin-bottom: 4px;
+}
+
+.menu-layer-brand {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+
+.menu-brand-title {
+  display: block;
+  font-family: var(--display, 'Cinzel', serif);
+  font-size: 16px;
+  font-weight: 900;
+  letter-spacing: 0.1em;
+  color: #FFF9EA;
+}
+
+.menu-brand-title span {
+  color: #F59E0B;
+}
+
+.menu-brand-sub {
+  display: block;
+  font-family: var(--sans, 'Plus Jakarta Sans', sans-serif);
+  font-size: 9.5px;
+  font-weight: 800;
+  letter-spacing: 0.22em;
+  color: #D4AF37;
+  text-transform: uppercase;
+  margin-top: 2px;
+}
+
+.menu-layer-close-btn {
+  width: 36px;
+  height: 36px;
+  border-radius: 50%;
+  background: rgba(255, 255, 255, 0.08);
+  border: 1px solid rgba(212, 175, 55, 0.35);
+  color: #F4D9A0;
+  font-size: 16px;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: all 200ms ease;
+}
+
+.menu-layer-close-btn:hover {
+  background: rgba(245, 158, 11, 0.25);
+  border-color: #F59E0B;
+  color: #FFFFFF;
+  transform: rotate(90deg);
+}
+
+.menu-sections-grid {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 10px;
+  box-sizing: border-box;
+}
+
+@media (min-width: 600px) {
+  .menu-sections-grid {
+    grid-template-columns: 1fr 1fr;
+    gap: 12px;
+  }
+}
+
+.menu-card-link {
+  display: flex !important;
+  align-items: center !important;
+  gap: 14px !important;
+  padding: 12px 16px !important;
+  border-radius: 14px !important;
+  background: rgba(24, 18, 12, 0.85) !important;
+  border: 1px solid rgba(212, 175, 55, 0.2) !important;
+  text-decoration: none !important;
+  color: #F0E6D2 !important;
+  transition: all 220ms ease !important;
+  cursor: pointer !important;
+  box-sizing: border-box !important;
+}
+
+.menu-card-link:hover,
+.menu-card-link:active {
+  background: rgba(42, 28, 16, 0.95) !important;
+  border-color: rgba(212, 175, 55, 0.6) !important;
+  transform: translateY(-2px) !important;
+  box-shadow: 0 6px 20px rgba(0, 0, 0, 0.6), 0 0 14px rgba(245, 158, 11, 0.2) !important;
+}
+
+.menu-card-link .m-icon {
+  font-size: 20px;
+  line-height: 1;
+  flex-shrink: 0;
+}
+
+.menu-card-link .m-info {
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+  flex: 1;
+  min-width: 0;
+}
+
+.menu-card-link .m-title {
+  font-family: var(--sans, 'Plus Jakarta Sans', sans-serif);
+  font-size: 13.5px;
+  font-weight: 800;
+  letter-spacing: 0.04em;
+  color: #FFFFFF;
+}
+
+.menu-card-link .m-desc {
+  font-family: var(--sans, 'Plus Jakarta Sans', sans-serif);
+  font-size: 11px;
+  color: rgba(244, 217, 160, 0.7);
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.menu-card-link .m-arrow {
+  color: #D4AF37;
+  font-size: 14px;
+  transition: transform 200ms ease;
+}
+
+.menu-card-link:hover .m-arrow {
+  transform: translateX(4px);
+  color: #FFD700;
+}
+
+.menu-card-link .m-badge {
+  display: inline-block;
+  font-size: 9.5px;
+  font-weight: 800;
+  padding: 1px 7px;
+  border-radius: 999px;
+  background: rgba(212, 175, 55, 0.18);
+  border: 1px solid rgba(212, 175, 55, 0.45);
+  color: #FBBF24;
+}
+
+.menu-card-link .m-badge.badge-sale {
+  background: linear-gradient(135deg, rgba(239, 68, 68, 0.25), rgba(245, 158, 11, 0.25));
+  border-color: #EF4444;
+  color: #FFB4B4;
+}
+
+.menu-card-link.highlight-gold {
+  border-color: rgba(212, 175, 55, 0.4) !important;
+  background: linear-gradient(135deg, rgba(32, 22, 14, 0.9) 0%, rgba(22, 15, 9, 0.9) 100%) !important;
+}
+
+.menu-card-link.highlight-amber {
+  border-color: rgba(245, 158, 11, 0.4) !important;
+}
+
+.menu-card-link.highlight-cta {
+  background: linear-gradient(135deg, rgba(212, 175, 55, 0.2) 0%, rgba(245, 158, 11, 0.15) 100%) !important;
+  border-color: rgba(245, 158, 11, 0.6) !important;
+}
+
+.menu-card-link.highlight-wa {
+  background: linear-gradient(135deg, rgba(37, 211, 102, 0.14) 0%, rgba(18, 140, 126, 0.12) 100%) !important;
+  border-color: rgba(37, 211, 102, 0.45) !important;
+}
+.menu-card-link.highlight-wa .m-title {
+  color: #4ade80 !important;
+}
+
+/* ==========================================================================
+   KRISHNA X EDITZ: ULTRA-HIGH FRAME RATE (50FPS / 60FPS / 120FPS) MOBILE OPTIMIZER
+   Guarantees zero-lag, butter-smooth scrolling across all Android & iOS devices
+   ========================================================================== */
+@media (max-width: 768px), (hover: none) {
+  /* 1. Disable heavy desktop GPU overlays that cause mobile compositor lag */
+  .mouse-spotlight,
+  .blossom-field,
+  .volumetric-sunbeams {
+    display: none !important;
+  }
+
+  /* 2. Hardware Composite Layer Promotion (Runs on GPU, bypasses CPU rasterizer) */
+  .stage,
+  .inner-artwork-bg,
+  #heroDollVideo,
+  #heroStage,
+  .topbar,
+  .studio-header,
+  .universal-hamburger-btn,
+  #menuButton,
+  .menu-layer,
+  .menu-card-link,
+  .sorexa-service-card,
+  .pricing-cta-box,
+  .real-work-card,
+  .work-video-card,
+  .founder-spotlight-card,
+  .permanent-client-card {
+    -webkit-transform: translateZ(0);
+    transform: translateZ(0);
+    -webkit-backface-visibility: hidden;
+    backface-visibility: hidden;
+  }
+
+  /* 3. Modern Browser Offscreen Virtualization (content-visibility: auto)
+     Tells mobile browsers to skip layout & paint calculations for offscreen sections
+     until the user is about to scroll into them. Massive memory & FPS booster! */
+  #about-section,
+  #pricing-section,
+  #works-section,
+  #permanent-clients-section,
+  #pipeline-section,
+  #software-section,
+  #reviews-section,
+  .mega-footer {
+    content-visibility: auto;
+    contain-intrinsic-size: 1px 700px;
+  }
+
+  /* 4. Native Smooth Touch Scrolling Momentum */
+  html, body {
+    -webkit-overflow-scrolling: touch;
+    scroll-behavior: smooth;
+  }
+
+  /* 5. Mobile GPU optimized backdrop-filter (balanced blur to prevent thermal throttling) */
+  .topbar,
+  .studio-header,
+  .menu-card-link,
+  .stat-card {
+    -webkit-backdrop-filter: blur(12px) !important;
+    backdrop-filter: blur(12px) !important;
+  }
+
+  /* 6. Image & Video rendering hardware bypass */
+  img, video {
+    image-rendering: -webkit-optimize-contrast;
+  }
 }

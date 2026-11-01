@@ -3,149 +3,534 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="theme-color" content="#16130e">
-  <meta name="description" content="KRISHNA X EDITZ — Master Portfolio & Curated Showcase. Exclusive commercial edits, cinematic films, and viral projects.">
-  <title>Curated Portfolio — KRISHNA X EDITZ</title>
-  
+  <meta name="theme-color" content="#14100C">
+  <meta name="description" content="KRISHNA X EDITZ &mdash; Official Curated Portfolio. 4K Cinematic Films, Commercial Enterprise Ads, Viral Social Reels, and Hollywood DaVinci Color Grading by Krishna Katiyar.">
+  <title>Curated Portfolio &mdash; KRISHNA X EDITZ</title>
+
+  <!-- Google Fonts -->
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@600;700;800;900&family=Playfair+Display:ital,wght@0,500;0,600;0,700;1,400;1,600&family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@600;700;800;900&family=Playfair+Display:ital,wght@0,500;0,600;0,700;0,800;1,400;1,600&family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="../assets/studio-interactive.css">
 
   <style>
     :root {
-      --ink: #14100c;
-      --gold: #d4af37;
-      --gold-bright: #fff2c6;
-      --gold-neon: #f59e0b;
-      --emerald: #10b981;
-      --text: #fdfaf3;
-      --muted: #cfc3ac;
+      --ink: #14100C;
+      --ink-soft: #1C1510;
+      --ink-card: #18120C;
+      --gold: #D4AF37;
+      --gold-bright: #FFF2C6;
+      --gold-neon: #F59E0B;
+      --emerald: #10B981;
+      --cyan: #06B6D4;
+      --purple: #8B5CF6;
+      --text: #FDFAF3;
+      --muted: #CFC3AC;
       --serif: "Playfair Display", Georgia, serif;
-      --display: "Cinzel", serif;
+      --display: "Cinzel", Georgia, serif;
       --sans: "Plus Jakarta Sans", sans-serif;
     }
+
     * { box-sizing: border-box; margin: 0; padding: 0; }
+    
     body {
-      background: #14100c;
+      background: #14100C;
       color: var(--text);
       font-family: var(--sans);
       overflow-x: hidden;
       line-height: 1.6;
+      -webkit-font-smoothing: antialiased;
     }
+
     .container {
-      max-width: 1440px;
+      width: min(1520px, 94vw);
+      max-width: 1520px;
       margin: 0 auto;
-      padding: 0 4vw;
-      position: relative;
-      z-index: 5;
+      padding: 0 clamp(16px, 3vw, 40px);
     }
-    .page-hero {
-      padding: 160px 0 80px;
+
+    /* Ambient background lighting */
+    .portfolio-ambient-glow {
+      position: fixed;
+      top: 0;
+      left: 50%;
+      transform: translateX(-50%);
+      width: 100vw;
+      height: 80vh;
+      background: radial-gradient(circle at 50% 15%, rgba(245, 158, 11, 0.08) 0%, rgba(16, 185, 129, 0.04) 40%, transparent 70%);
+      pointer-events: none;
+      z-index: 1;
+    }
+
+    /* ========================================================
+       PORTFOLIO HERO HEADER
+       ======================================================== */
+    .portfolio-hero {
+      position: relative;
+      z-index: 10;
+      padding: clamp(90px, 11vh, 120px) 0 40px;
       text-align: center;
-      position: relative;
     }
-    .section-eyebrow {
-      display: inline-block;
-      font-size: 14px;
+
+    .portfolio-eyebrow {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      padding: 6px 18px;
+      border-radius: 999px;
+      background: rgba(245, 158, 11, 0.12);
+      border: 1px solid rgba(245, 158, 11, 0.45);
+      color: #FBBF24;
+      font-size: 11.5px;
       font-weight: 800;
-      letter-spacing: 0.24em;
+      letter-spacing: 0.14em;
       text-transform: uppercase;
-      color: var(--gold-neon);
       margin-bottom: 20px;
+      box-shadow: 0 4px 20px rgba(245, 158, 11, 0.2);
     }
-    .page-hero-title {
-      font-family: var(--display);
-      font-size: clamp(44px, 6vw, 76px);
-      font-weight: 900;
-      letter-spacing: 0.04em;
-      margin-bottom: 22px;
+
+    .portfolio-hero-title {
+      font-family: var(--serif);
+      font-size: clamp(36px, 5.5vw, 68px);
+      font-weight: 800;
+      color: #FFFFFF;
       line-height: 1.15;
+      margin-bottom: 20px;
+      letter-spacing: -0.01em;
     }
-    .section-desc {
+
+    .portfolio-hero-title span {
+      background: linear-gradient(135deg, #FFF2C6 0%, #F59E0B 50%, #D97706 100%);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      font-style: italic;
+    }
+
+    .portfolio-hero-desc {
       color: var(--muted);
-      font-size: clamp(18px, 2vw, 21px);
+      font-size: clamp(16px, 1.4vw, 19px);
       max-width: 860px;
-      margin: 0 auto 50px;
+      margin: 0 auto 36px;
       line-height: 1.7;
     }
 
-    /* CURATED ARCHIVE CONTAINER (LUXURY PLACEHOLDER READY FOR DESIGNATED WORKS) */
-    .portfolio-archive-vault {
-      background: linear-gradient(135deg, rgba(28, 21, 14, 0.88) 0%, rgba(18, 13, 8, 0.95) 100%);
-      border: 1px solid rgba(245, 158, 11, 0.35);
-      border-radius: 28px;
-      padding: 80px 48px;
-      text-align: center;
-      position: relative;
-      overflow: hidden;
-      box-shadow: 0 24px 60px rgba(0, 0, 0, 0.7), 0 0 40px rgba(245, 158, 11, 0.1);
-      margin-bottom: 90px;
+    /* 4 Metric Capsules */
+    .portfolio-metrics-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(210px, 1fr));
+      gap: 16px;
+      margin: 0 auto 50px;
+      max-width: 1100px;
     }
-    .portfolio-archive-vault::before {
-      content: '';
-      position: absolute;
-      top: 0; left: 0; right: 0; height: 3px;
-      background: linear-gradient(90deg, #10B981, #F59E0B, #E11D48, #06B6D4);
+
+    .metric-capsule {
+      background: rgba(26, 20, 14, 0.85);
+      border: 1px solid rgba(212, 175, 55, 0.25);
+      border-radius: 16px;
+      padding: 18px 20px;
+      backdrop-filter: blur(12px);
+      transition: all 250ms ease;
     }
-    .vault-icon {
-      width: 76px;
-      height: 76px;
-      margin: 0 auto 28px;
-      border-radius: 22px;
-      background: rgba(245, 158, 11, 0.14);
-      border: 1px solid rgba(245, 158, 11, 0.4);
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      font-size: 34px;
-      box-shadow: 0 0 30px rgba(245, 158, 11, 0.25);
+
+    .metric-capsule:hover {
+      border-color: #F59E0B;
+      transform: translateY(-3px);
+      box-shadow: 0 10px 25px rgba(245, 158, 11, 0.15);
     }
-    .vault-title {
+
+    .metric-number {
       font-family: var(--display);
-      font-size: clamp(28px, 3.5vw, 42px);
+      font-size: clamp(24px, 2.5vw, 32px);
+      font-weight: 900;
+      color: #FFF2C6;
+      line-height: 1.1;
+      margin-bottom: 4px;
+    }
+
+    .metric-label {
+      font-size: 11.5px;
       font-weight: 800;
-      color: #FFFFFF;
-      margin-bottom: 16px;
-      letter-spacing: 0.05em;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      color: #F59E0B;
+      margin-bottom: 2px;
     }
-    .vault-desc {
+
+    .metric-sub {
+      font-size: 11px;
       color: var(--muted);
-      font-size: clamp(16px, 1.4vw, 18.5px);
-      max-width: 760px;
-      margin: 0 auto 36px;
-      line-height: 1.75;
     }
-    .vault-actions-row {
+
+    /* ========================================================
+       FILTER NAVIGATION BAR
+       ======================================================== */
+    .portfolio-filters-wrap {
       display: flex;
       align-items: center;
       justify-content: center;
-      gap: 18px;
+      gap: 10px;
+      flex-wrap: wrap;
+      margin-bottom: 45px;
+      position: sticky;
+      top: 75px;
+      z-index: 50;
+      padding: 12px 20px;
+      background: rgba(20, 16, 12, 0.85);
+      backdrop-filter: blur(16px);
+      border-radius: 999px;
+      border: 1px solid rgba(212, 175, 55, 0.2);
+      max-width: fit-content;
+      margin-left: auto;
+      margin-right: auto;
+      box-shadow: 0 10px 30px rgba(0, 0, 0, 0.6);
+    }
+
+    .filter-btn {
+      padding: 9px 18px;
+      border-radius: 999px;
+      background: transparent;
+      border: 1px solid transparent;
+      color: #CFC3AC;
+      font-family: var(--sans);
+      font-size: 12.5px;
+      font-weight: 800;
+      letter-spacing: 0.05em;
+      white-space: nowrap;
+      flex-shrink: 0;
+      cursor: pointer;
+      transition: all 200ms ease;
+    }
+
+    .filter-btn:hover {
+      color: #FFFFFF;
+      background: rgba(255, 255, 255, 0.06);
+    }
+
+    .filter-btn.active {
+      background: #F59E0B;
+      color: #000000;
+      font-weight: 900;
+      box-shadow: 0 4px 16px rgba(245, 158, 11, 0.4);
+    }
+
+    /* ========================================================
+       PORTFOLIO CURATED GRID
+       ======================================================== */
+    .portfolio-gallery-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(320px, 1fr));
+      gap: 24px;
+      margin-bottom: 60px;
+      position: relative;
+      z-index: 10;
+    }
+
+    .portfolio-item-card {
+      background: rgba(22, 17, 12, 0.95);
+      border: 1.5px solid rgba(212, 175, 55, 0.22);
+      border-radius: 22px;
+      overflow: hidden;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+      transition: transform 300ms cubic-bezier(0.16, 1, 0.3, 1), border-color 300ms ease, box-shadow 300ms ease;
+      cursor: pointer;
+      position: relative;
+    }
+
+    .portfolio-item-card:hover {
+      transform: translateY(-6px);
+      border-color: #F59E0B;
+      box-shadow: 0 20px 45px rgba(0, 0, 0, 0.8), 0 0 25px rgba(245, 158, 11, 0.15);
+    }
+
+    .portfolio-item-thumb {
+      position: relative;
+      width: 100%;
+      aspect-ratio: 16/9;
+      background: #000;
+      overflow: hidden;
+    }
+
+    .portfolio-item-thumb.format-vertical {
+      aspect-ratio: 16/9;
+      max-height: none;
+    }
+
+    .portfolio-item-thumb video {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      display: block;
+      transition: transform 500ms ease;
+    }
+
+    .portfolio-item-card:hover .portfolio-item-thumb video {
+      transform: scale(1.04);
+    }
+
+    .portfolio-badge-top {
+      position: absolute;
+      top: 14px;
+      left: 14px;
+      padding: 5px 12px;
+      border-radius: 999px;
+      background: rgba(0, 0, 0, 0.8);
+      backdrop-filter: blur(8px);
+      border: 1px solid rgba(212, 175, 55, 0.4);
+      color: #FBBF24;
+      font-size: 10.5px;
+      font-weight: 800;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      z-index: 5;
+    }
+
+    .portfolio-badge-format {
+      position: absolute;
+      bottom: 12px;
+      right: 12px;
+      padding: 4px 10px;
+      border-radius: 8px;
+      background: rgba(0, 0, 0, 0.85);
+      color: #FFFFFF;
+      font-size: 10px;
+      font-weight: 800;
+      letter-spacing: 0.06em;
+      z-index: 5;
+    }
+
+    .portfolio-play-overlay {
+      position: absolute;
+      inset: 0;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      background: rgba(0, 0, 0, 0.25);
+      opacity: 0;
+      transition: opacity 250ms ease;
+      z-index: 4;
+    }
+
+    .portfolio-item-card:hover .portfolio-play-overlay {
+      opacity: 1;
+    }
+
+    .portfolio-play-btn {
+      width: 54px;
+      height: 54px;
+      border-radius: 50%;
+      background: rgba(245, 158, 11, 0.95);
+      color: #000;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 20px;
+      box-shadow: 0 0 25px rgba(245, 158, 11, 0.7);
+      transform: scale(0.9);
+      transition: transform 250ms ease;
+    }
+
+    .portfolio-item-card:hover .portfolio-play-btn {
+      transform: scale(1);
+    }
+
+    .portfolio-item-body {
+      padding: 24px 22px;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+      flex-grow: 1;
+    }
+
+    .portfolio-item-meta {
+      font-size: 11px;
+      font-weight: 800;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      color: var(--gold-neon);
+      margin-bottom: 8px;
+    }
+
+    .portfolio-item-title {
+      font-family: var(--serif);
+      font-size: 20px;
+      font-weight: 700;
+      color: #FFFFFF;
+      line-height: 1.35;
+      margin-bottom: 10px;
+    }
+
+    .portfolio-item-desc {
+      color: var(--muted);
+      font-size: 13.5px;
+      line-height: 1.6;
+      margin-bottom: 18px;
+    }
+
+    .portfolio-item-tags {
+      display: flex;
+      gap: 6px;
+      flex-wrap: wrap;
+      margin-bottom: 18px;
+    }
+
+    .portfolio-tag {
+      font-size: 10.5px;
+      padding: 3px 9px;
+      border-radius: 6px;
+      background: rgba(255, 255, 255, 0.05);
+      border: 1px solid rgba(255, 255, 255, 0.1);
+      color: #E5E7EB;
+      font-weight: 600;
+    }
+
+    .portfolio-item-footer {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      border-top: 1px solid rgba(255, 255, 255, 0.08);
+      padding-top: 14px;
+      font-size: 12px;
+    }
+
+    .portfolio-author-tag {
+      color: #10B981;
+      font-weight: 800;
+      display: inline-flex;
+      align-items: center;
+      gap: 5px;
+    }
+
+    .portfolio-action-link {
+      color: #F59E0B;
+      font-weight: 900;
+      letter-spacing: 0.06em;
+      text-transform: uppercase;
+    }
+
+    /* ========================================================
+       MASTER SUITE BANNER (4 ENGINES)
+       ======================================================== */
+    .master-engines-banner {
+      background: linear-gradient(135deg, rgba(28, 20, 14, 0.95) 0%, rgba(18, 14, 10, 0.98) 100%);
+      border: 1px solid rgba(212, 175, 55, 0.35);
+      border-radius: 24px;
+      padding: 45px 36px;
+      margin-bottom: 80px;
+      position: relative;
+      z-index: 10;
+      box-shadow: 0 20px 50px rgba(0, 0, 0, 0.7);
+    }
+
+    .engines-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+      gap: 20px;
+      margin-top: 28px;
+    }
+
+    .engine-card {
+      background: rgba(14, 10, 7, 0.75);
+      border: 1px solid rgba(255, 255, 255, 0.08);
+      border-radius: 16px;
+      padding: 20px;
+      transition: all 250ms ease;
+    }
+
+    .engine-card:hover {
+      border-color: #F59E0B;
+      transform: translateY(-3px);
+    }
+
+    .engine-name {
+      font-family: var(--serif);
+      font-size: 18px;
+      color: #FFF;
+      font-weight: 700;
+      margin-bottom: 6px;
+    }
+
+    .engine-role {
+      font-size: 11px;
+      font-weight: 800;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      color: #F59E0B;
+      margin-bottom: 8px;
+    }
+
+    .engine-desc {
+      font-size: 12.5px;
+      color: var(--muted);
+      line-height: 1.5;
+    }
+
+    /* ========================================================
+       CONVERSION CTA SECTION
+       ======================================================== */
+    .portfolio-cta-section {
+      background: linear-gradient(180deg, rgba(22, 16, 12, 0.95) 0%, rgba(14, 10, 7, 0.98) 100%);
+      border: 1.5px solid rgba(245, 158, 11, 0.4);
+      border-radius: 26px;
+      padding: 60px 36px;
+      text-align: center;
+      margin-bottom: 70px;
+      position: relative;
+      z-index: 10;
+      box-shadow: 0 25px 60px rgba(0, 0, 0, 0.8), 0 0 35px rgba(245, 158, 11, 0.12);
+    }
+
+    .portfolio-cta-title {
+      font-family: var(--serif);
+      font-size: clamp(28px, 4vw, 44px);
+      color: #FFFFFF;
+      font-weight: 800;
+      margin-bottom: 14px;
+      line-height: 1.2;
+    }
+
+    .portfolio-cta-desc {
+      color: var(--muted);
+      font-size: 16px;
+      max-width: 680px;
+      margin: 0 auto 32px;
+      line-height: 1.65;
+    }
+
+    .cta-buttons-row {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 16px;
       flex-wrap: wrap;
     }
-    .btn-vault-primary {
+
+    .btn-gold-cta {
       display: inline-flex;
       align-items: center;
       gap: 10px;
       padding: 16px 36px;
       border-radius: 999px;
-      background: #F59E0B;
+      background: linear-gradient(135deg, #F59E0B 0%, #D97706 100%);
       color: #000;
       font-family: var(--sans);
-      font-weight: 900;
       font-size: 14.5px;
+      font-weight: 900;
       letter-spacing: 0.08em;
       text-transform: uppercase;
       text-decoration: none;
-      box-shadow: 0 8px 25px rgba(245, 158, 11, 0.45);
+      box-shadow: 0 10px 25px rgba(245, 158, 11, 0.35);
       transition: all 250ms ease;
     }
-    .btn-vault-primary:hover {
+
+    .btn-gold-cta:hover {
       transform: translateY(-2px);
-      box-shadow: 0 12px 35px rgba(245, 158, 11, 0.65);
+      box-shadow: 0 14px 35px rgba(245, 158, 11, 0.55);
       background: #FFB020;
     }
-    .btn-vault-secondary {
+
+    .btn-ghost-cta {
       display: inline-flex;
       align-items: center;
       gap: 10px;
@@ -155,25 +540,42 @@
       border: 1px solid rgba(255, 255, 255, 0.2);
       color: #FFFFFF;
       font-family: var(--sans);
-      font-weight: 800;
       font-size: 14.5px;
+      font-weight: 800;
       letter-spacing: 0.08em;
       text-transform: uppercase;
       text-decoration: none;
       transition: all 250ms ease;
     }
-    .btn-vault-secondary:hover {
+
+    .btn-ghost-cta:hover {
       background: rgba(255, 255, 255, 0.12);
       border-color: #F59E0B;
       color: #F59E0B;
       transform: translateY(-2px);
     }
+  
+    /* Mobile responsive fix for founder executive grid */
+    @media (max-width: 768px) {
+      .founder-executive-grid {
+        grid-template-columns: 1fr !important;
+        gap: 20px !important;
+        width: 100% !important;
+        box-sizing: border-box !important;
+      }
+      .founder-executive-grid > div {
+        width: 100% !important;
+        max-width: 100% !important;
+        box-sizing: border-box !important;
+      }
+    }
+
   </style>
 </head>
 <body>
 
-  <!-- MOUSE SPOTLIGHT (HOMEPAGE LUXURY AURA) -->
-  <div class="mouse-spotlight" id="mouseSpotlight" aria-hidden="true"></div>
+  <!-- Ambient Luxury Glow -->
+  <div class="portfolio-ambient-glow" aria-hidden="true"></div>
 
   <!-- SOREXA-STYLE BLENDED HEADER -->
   <header class="topbar studio-header" id="topbar">
@@ -181,7 +583,7 @@
       <div class="brand-wrap">
         <!-- TOP-LEFT HEADER NAVIGATION: BACK & HOME -->
         <div class="header-nav-left">
-          <button type="button" class="btn-header-back" onclick="if(document.referrer && document.referrer.indexOf(window.location.host)!==-1){history.back();}else{window.location.href='/';}" title="Go Back">
+          <button type="button" class="btn-header-back" onclick="if(window.isPricingSampleOpen){closePricingExampleVideo();}else if(document.referrer && document.referrer.indexOf(window.location.host)!==-1){history.back();}else{window.location.href='/';}" title="Go Back">
             <svg viewBox="0 0 24 24" width="13" height="13" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="15 18 9 12 15 6"></polyline></svg>
             <span>Back</span>
           </button>
@@ -200,7 +602,7 @@
         </a>
       </div>
 
-            <!-- SOREXA-INSPIRED SEAMLESS DESKTOP NAVIGATION -->
+      <!-- SOREXA-INSPIRED SEAMLESS DESKTOP NAVIGATION -->
       <nav class="studio-nav" aria-label="Main Navigation">
         <a href="/" class="studio-nav-item">Home</a>
         <a href="/services" class="studio-nav-item">Services</a>
@@ -214,8 +616,8 @@
 
       <!-- SOREXA-STYLE RIGHT ACTIONS -->
       <div class="studio-actions-wrap" style="display: flex; align-items: center; gap: 14px;">
-                <a href="/admin" class="studio-header-admin" id="adminPortalBtn" title="Admin Command Center (PIN: 8090)" aria-label="Admin Portal">
-          <span class="admin-crown-icon">👑</span>
+        <a href="/admin" class="studio-header-admin" id="adminPortalBtn" title="Admin Command Center (PIN: 8090)" aria-label="Admin Access">
+          <span class="admin-crown-icon">&#128081;</span>
           <span class="admin-text-label">Admin</span>
         </a>
         <a href="/contact" class="studio-header-cta">
@@ -229,58 +631,492 @@
     </div>
   </header>
 
-    <div class="content-wrapper">
-    <!-- FLOATING AMBIENT GLOW ORBS (CHROMATIC THEME: GREEN -> ORANGE -> RED -> PURPLE -> CYAN) -->
-    <div class="ambient-orb orb-1" aria-hidden="true"></div>
-    <div class="ambient-orb orb-2" aria-hidden="true"></div>
-    <div class="ambient-orb orb-3" aria-hidden="true"></div>
-    <div class="ambient-orb orb-4" aria-hidden="true"></div>
-    <div class="ambient-orb orb-5" aria-hidden="true"></div>
-<!-- FLOATING AMBIENT GLOW ORBS -->
-    <div class="ambient-orb orb-1" aria-hidden="true"></div>
-    <div class="ambient-orb orb-2" aria-hidden="true"></div>
-    <div class="ambient-orb orb-3" aria-hidden="true"></div>
-    <div class="ambient-orb orb-4" aria-hidden="true"></div>
-    <div class="ambient-orb orb-5" aria-hidden="true"></div>
-
-    <main class="page-hero">
+  <div class="content-wrapper">
+    <main class="portfolio-hero">
       <div class="container">
-      <!-- SUBPAGE BACK & HOME NAVIGATION BAR -->
-      <div class="subpage-nav-bar">
-        <button type="button" class="btn-nav-back" onclick="if(document.referrer && document.referrer.indexOf(window.location.host)!==-1){history.back();}else{window.location.href='/';}">
-          <svg viewBox="0 0 24 24" width="15" height="15" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
-            <polyline points="15 18 9 12 15 6"></polyline>
-          </svg>
-          <span>Back</span>
-        </button>
-        <a href="/" class="btn-nav-home">
-          <svg viewBox="0 0 24 24" width="15" height="15" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round">
-            <path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"></path>
-            <polyline points="9 22 9 12 15 12 15 22"></polyline>
-          </svg>
-          <span>Home</span>
-        </a>
-      </div>
-
-        <span class="section-eyebrow">✦ MASTER PORTFOLIO ARCHIVE ✦</span>
-        <h1 class="page-hero-title">Curated Portfolio &amp; <span>Feature Showcase</span></h1>
-        <p class="section-desc">
-          An exclusive editorial curation of Krishna's signature commercial projects, high-budget visual storytelling, and flagship brand edits.
+        
+        <!-- Eyebrow Badge -->
+        <span class="portfolio-eyebrow">&#10024; CURATED FILM &amp; POST-PRODUCTION ARCHIVE &#10024;</span>
+        
+        <!-- Main Headline -->
+        <h1 class="portfolio-hero-title">
+          Visual Mastery &amp; <span>High-Retention Cinematography</span>
+        </h1>
+        
+        <!-- Subtitle -->
+        <p class="portfolio-hero-desc">
+          Official curated showcase engineered by <strong>Krishna Katiyar</strong> &mdash; Full-Stack Software Developer &amp; Senior Video Editor (DOB: 20-08-2006, Khatima, Uttarakhand). Transforming raw multi-cam &amp; camera footage into hypnotic, multi-million-view commercial deliverables.
         </p>
 
-        <!-- LUXURY CURATION VAULT PLACEHOLDER -->
-        <div class="portfolio-archive-vault">
-          <div class="vault-icon">🎬</div>
-          <h2 class="vault-title">Curated Master Showcase Under Assembly</h2>
-          <p class="vault-desc">
-            Krishna's handpicked signature master portfolio is currently being assembled with exclusive long-form cinematic reels and brand campaigns. Stay tuned — projects will be unveiled here shortly.
+        <!-- 4 Authority Metric Capsules -->
+        <div class="portfolio-metrics-grid">
+          <div class="metric-capsule">
+            <div class="metric-number">50M+</div>
+            <div class="metric-label">Organic Views</div>
+            <div class="metric-sub">YouTube, Reels &amp; Campaigns</div>
+          </div>
+          <div class="metric-capsule">
+            <div class="metric-number">500+</div>
+            <div class="metric-label">Videos Delivered</div>
+            <div class="metric-sub">Commercials, Docs &amp; Shorts</div>
+          </div>
+          <div class="metric-capsule">
+            <div class="metric-number">99.4%</div>
+            <div class="metric-label">Client Retention</div>
+            <div class="metric-sub">Top-tier precision &amp; revisions</div>
+          </div>
+          <div class="metric-capsule">
+            <div class="metric-number">4K 60FPS</div>
+            <div class="metric-label">Hollywood Grade</div>
+            <div class="metric-sub">DaVinci Resolve Color Space</div>
+          </div>
+        </div>
+
+        <!-- STICKY FILTER NAVIGATION -->
+        <div class="portfolio-filters-wrap">
+          <button type="button" class="filter-btn active" onclick="filterPortfolio('all', this)">All Curation (16)</button>
+          <button type="button" class="filter-btn" onclick="filterPortfolio('commercial', this)">Commercial &amp; Enterprise (3)</button>
+          <button type="button" class="filter-btn" onclick="filterPortfolio('cinematic', this)">4K Cinema &amp; Film (5)</button>
+          <button type="button" class="filter-btn" onclick="filterPortfolio('viral', this)">Viral Reels &amp; Pacing (5)</button>
+          <button type="button" class="filter-btn" onclick="filterPortfolio('cultural', this)">Cultural &amp; Doc (3)</button>
+        </div>
+
+        <!-- ========================================================
+             CURATED PORTFOLIO CARDS GRID
+             ======================================================== -->
+        <div class="portfolio-gallery-grid" id="portfolioGalleryGrid">
+        <!-- 1. SOREXA SOUTH AFRICA AD -->
+        <div class="portfolio-item-card" data-category="commercial featured" onclick="openTheaterVideo('Sorexa Technologies &mdash; South Africa Campaign (4K)', 'Official enterprise software commercial for Sorexa Technologies South Africa, high-conversion visual storytelling, CRM logistics, POS billing, and 3D motion graphics.', '/assets/work_sorexa_south_africa.mp4', 'Commercial &bull; Enterprise 4K', '&#9889; SOREXA FLAGSHIP &#9889;')">
+          <div class="portfolio-item-thumb">
+            <video src="/assets/work_sorexa_south_africa.mp4" poster="/assets/thumb_work_sorexa_south_africa.jpg" muted loop playsinline preload="metadata" onmouseover="this.play().catch(function(){})" onmouseout="this.pause()"></video>
+            <div class="portfolio-item-badge">4K Commercial</div>
+            <div class="portfolio-play-overlay"><div class="portfolio-play-btn">&#9654;</div></div>
+          </div>
+          <div class="portfolio-item-body">
+            <div>
+              <div class="portfolio-item-meta">Enterprise &bull; Sorexa Tech</div>
+              <h3 class="portfolio-item-title">Sorexa Technologies &mdash; South Africa Campaign (4K)</h3>
+              <p class="portfolio-item-desc">Enterprise software commercial featuring fast UI motion graphics, dynamic HUD motion, and multi-track audio foley.</p>
+              <div class="portfolio-item-tags">
+                <span class="portfolio-tag">Enterprise 4K</span>
+                <span class="portfolio-tag">Motion Graphics</span>
+                <span class="portfolio-tag">DaVinci Grade</span>
+              </div>
+            </div>
+            <div class="portfolio-item-footer">
+              <span class="portfolio-author-tag">&#10003; Krishna Master Edit</span>
+              <span class="portfolio-action-link">Open Theater &rarr;</span>
+            </div>
+          </div>
+        </div>
+
+        <!-- 2. AMERICAN DREAM / DEBOLINA DAS -->
+        <div class="portfolio-item-card" data-category="viral reels" onclick="openTheaterVideo('American Dream / Unamerican Girls &mdash; Ultra-Clean Dynamic Velocity Edit', 'Dynamic fashion and dance visual narrative crafted with clean velocity curves, motion blur sync, and modern color grade.', '/assets/work_unamerican_girls_1080p.mp4', 'Fashion &bull; Dynamic Velocity', '&#9889; ARTIST SHOWCASE &#9889;')">
+          <div class="portfolio-item-thumb">
+            <video src="/assets/work_unamerican_girls_1080p.mp4" poster="/assets/thumb_work_unamerican_girls.jpg" muted loop playsinline preload="metadata" onmouseover="this.play().catch(function(){})" onmouseout="this.pause()"></video>
+            <div class="portfolio-item-badge">Artist Showcase</div>
+            <div class="portfolio-play-overlay"><div class="portfolio-play-btn">&#9654;</div></div>
+          </div>
+          <div class="portfolio-item-body">
+            <div>
+              <div class="portfolio-item-meta">Fashion &bull; Debolina Das</div>
+              <h3 class="portfolio-item-title">American Dream / Unamerican Girls &mdash; Dynamic Velocity</h3>
+              <p class="portfolio-item-desc">Ultra-clean velocity curves, speed ramping transitions, and rhythm-locked audio synchronization.</p>
+              <div class="portfolio-item-tags">
+                <span class="portfolio-tag">Velocity Curves</span>
+                <span class="portfolio-tag">Color Grading</span>
+                <span class="portfolio-tag">Sound Design</span>
+              </div>
+            </div>
+            <div class="portfolio-item-footer">
+              <span class="portfolio-author-tag">&#10003; Krishna Master Edit</span>
+              <span class="portfolio-action-link">Open Theater &rarr;</span>
+            </div>
+          </div>
+        </div>
+
+        <!-- 3. NAZAR-E-KHAAS -->
+        <div class="portfolio-item-card" data-category="cinematic" onclick="openTheaterVideo('Nazar-e-Khaas &mdash; 4K Poetic Cinematography', 'Soulful poetic storytelling with authentic 35mm Kodak 2383 film look, skin-tone preservation, and delicate slow-motion pacing.', '/assets/work_nazar_cinematic_1080p.mp4', 'Poetic &bull; 4K Cinema', '&#9889; 4K COLOR GRADE &#9889;')">
+          <div class="portfolio-item-thumb">
+            <video src="/assets/work_nazar_cinematic_1080p.mp4" poster="/assets/thumb_work_nazar_cinematic.jpg" muted loop playsinline preload="metadata" onmouseover="this.play().catch(function(){})" onmouseout="this.pause()"></video>
+            <div class="portfolio-item-badge">4K Cinema</div>
+            <div class="portfolio-play-overlay"><div class="portfolio-play-btn">&#9654;</div></div>
+          </div>
+          <div class="portfolio-item-body">
+            <div>
+              <div class="portfolio-item-meta">Poetic &bull; 35mm Film Grade</div>
+              <h3 class="portfolio-item-title">Nazar-e-Khaas &mdash; 4K Poetic Cinematography</h3>
+              <p class="portfolio-item-desc">High-dynamic range color space, Kodak 2383 LUT grade, warm skin isolation, and atmospheric audio layering.</p>
+              <div class="portfolio-item-tags">
+                <span class="portfolio-tag">Kodak 2383</span>
+                <span class="portfolio-tag">Skin Isolation</span>
+                <span class="portfolio-tag">Atmospheric Foley</span>
+              </div>
+            </div>
+            <div class="portfolio-item-footer">
+              <span class="portfolio-author-tag">&#10003; Krishna Master Edit</span>
+              <span class="portfolio-action-link">Open Theater &rarr;</span>
+            </div>
+          </div>
+        </div>
+
+        <!-- 4. GRIND WITH ME -->
+        <div class="portfolio-item-card" data-category="viral reels" onclick="openTheaterVideo('Grind With Me &mdash; Viral Aesthetic Motion Blur', 'High-retention reel edit with directional motion blur, velocity curve speed-ramping, and bass impact sound design.', '/assets/work_grind_viral_1080p.mp4', 'Viral &bull; 80%+ Retention', '&#9889; RETENTION VIRAL &#9889;')">
+          <div class="portfolio-item-thumb">
+            <video src="/assets/work_grind_viral_1080p.mp4" poster="/assets/thumb_work_grind_viral.jpg" muted loop playsinline preload="metadata" onmouseover="this.play().catch(function(){})" onmouseout="this.pause()"></video>
+            <div class="portfolio-item-badge">Viral Reel</div>
+            <div class="portfolio-play-overlay"><div class="portfolio-play-btn">&#9654;</div></div>
+          </div>
+          <div class="portfolio-item-body">
+            <div>
+              <div class="portfolio-item-meta">Instagram Reels &bull; 60FPS Flow</div>
+              <h3 class="portfolio-item-title">Grind With Me &mdash; Viral Aesthetic Motion Blur</h3>
+              <p class="portfolio-item-desc">Directional motion blur, speed ramping, micro-beat audio snapping, and algorithm-optimized pacing.</p>
+              <div class="portfolio-item-tags">
+                <span class="portfolio-tag">Motion Blur</span>
+                <span class="portfolio-tag">Speed Ramping</span>
+                <span class="portfolio-tag">Beat Lock</span>
+              </div>
+            </div>
+            <div class="portfolio-item-footer">
+              <span class="portfolio-author-tag">&#10003; Krishna Master Edit</span>
+              <span class="portfolio-action-link">Open Theater &rarr;</span>
+            </div>
+          </div>
+        </div>
+
+        <!-- 5. APEX CORPORATE BRAND -->
+        <div class="portfolio-item-card" data-category="commercial" onclick="openTheaterVideo('Apex Corporate &mdash; Brand Showcase', 'Executive corporate presentation with smooth kinetic typography, polished corporate pacing, and clean audio mastering.', '/assets/work_company_1080p.mp4', 'Corporate &bull; Commercial', '&#9889; CORPORATE GRADE &#9889;')">
+          <div class="portfolio-item-thumb">
+            <video src="/assets/work_company_1080p.mp4" poster="/assets/thumb_work_company.jpg" muted loop playsinline preload="metadata" onmouseover="this.play().catch(function(){})" onmouseout="this.pause()"></video>
+            <div class="portfolio-item-badge">Corporate</div>
+            <div class="portfolio-play-overlay"><div class="portfolio-play-btn">&#9654;</div></div>
+          </div>
+          <div class="portfolio-item-body">
+            <div>
+              <div class="portfolio-item-meta">Corporate &bull; Brand Story</div>
+              <h3 class="portfolio-item-title">Apex Corporate &mdash; Brand Showcase</h3>
+              <p class="portfolio-item-desc">Corporate narrative with subtle sound design, sleek motion graphics, and clean commercial timeline flow.</p>
+              <div class="portfolio-item-tags">
+                <span class="portfolio-tag">Corporate Pacing</span>
+                <span class="portfolio-tag">Typography</span>
+                <span class="portfolio-tag">Master Audio</span>
+              </div>
+            </div>
+            <div class="portfolio-item-footer">
+              <span class="portfolio-author-tag">&#10003; Krishna Master Edit</span>
+              <span class="portfolio-action-link">Open Theater &rarr;</span>
+            </div>
+          </div>
+        </div>
+
+        <!-- 6. LONG VIDEO MASTER (45s SAMPLE) -->
+        <div class="portfolio-item-card" data-category="commercial documentary" onclick="openTheaterVideo('Long Video Master &mdash; Narrative Pacing (45s Sample)', 'Sample edit demonstrating long-form video editing pacing, documentary B-roll transitions, voiceover EQ, and thematic music shifts.', '/assets/work_long_sample_1080p.mp4', 'Long-Form &bull; Documentary', '&#9889; LONG-FORM SAMPLE &#9889;')">
+          <div class="portfolio-item-thumb">
+            <video src="/assets/work_long_sample_1080p.mp4" poster="/assets/thumb_work_long_sample.jpg" muted loop playsinline preload="metadata" onmouseover="this.play().catch(function(){})" onmouseout="this.pause()"></video>
+            <div class="portfolio-item-badge">Long-Form Master</div>
+            <div class="portfolio-play-overlay"><div class="portfolio-play-btn">&#9654;</div></div>
+          </div>
+          <div class="portfolio-item-body">
+            <div>
+              <div class="portfolio-item-meta">YouTube / Documentary &bull; Pacing</div>
+              <h3 class="portfolio-item-title">Long Video Master &mdash; Narrative Pacing (45s)</h3>
+              <p class="portfolio-item-desc">Multi-track audio ducking, rhythmic B-roll selection, thematic chapter structuring, and voiceover enhancement.</p>
+              <div class="portfolio-item-tags">
+                <span class="portfolio-tag">B-Roll Flow</span>
+                <span class="portfolio-tag">Audio Ducking</span>
+                <span class="portfolio-tag">Chapters</span>
+              </div>
+            </div>
+            <div class="portfolio-item-footer">
+              <span class="portfolio-author-tag">&#10003; Krishna Master Edit</span>
+              <span class="portfolio-action-link">Open Theater &rarr;</span>
+            </div>
+          </div>
+        </div>
+
+        <!-- 7. KHAMOSHIYAN -->
+        <div class="portfolio-item-card" data-category="viral reels" onclick="openTheaterVideo('Khamoshiyan &mdash; High-Octane Beat Sync', 'Soulful musical storytelling combined with modern speed-ramping, atmospheric film color grade, and sound transitions.', '/assets/work_khamoshi_1080p.mp4', 'Musical &bull; Beat Sync', '&#9889; BEAT SYNC REEL &#9889;')">
+          <div class="portfolio-item-thumb">
+            <video src="/assets/work_khamoshi_1080p.mp4" poster="/assets/thumb_work_khamoshi.jpg" muted loop playsinline preload="metadata" onmouseover="this.play().catch(function(){})" onmouseout="this.pause()"></video>
+            <div class="portfolio-item-badge">Beat Sync</div>
+            <div class="portfolio-play-overlay"><div class="portfolio-play-btn">&#9654;</div></div>
+          </div>
+          <div class="portfolio-item-body">
+            <div>
+              <div class="portfolio-item-meta">Viral Reels &bull; Velocity Curve</div>
+              <h3 class="portfolio-item-title">Khamoshiyan &mdash; High-Octane Beat Sync</h3>
+              <p class="portfolio-item-desc">Soulful musical storytelling combined with modern speed-ramping, atmospheric film color grade, and sound transitions.</p>
+              <div class="portfolio-item-tags">
+                <span class="portfolio-tag">Speed Ramping</span>
+                <span class="portfolio-tag">Film Grain</span>
+                <span class="portfolio-tag">Sound Risers</span>
+              </div>
+            </div>
+            <div class="portfolio-item-footer">
+              <span class="portfolio-author-tag">&#10003; Krishna Master Edit</span>
+              <span class="portfolio-action-link">Open Theater &rarr;</span>
+            </div>
+          </div>
+        </div>
+
+        <!-- 8. SAHIBA -->
+        <div class="portfolio-item-card" data-category="cinematic" onclick="openTheaterVideo('Sahiba &mdash; Cinematic Narrative Film', 'Poetic short film edit highlighting emotive storytelling, soft film highlights, clean color science, and ambient sound design.', '/assets/work_sahiba_1080p.mp4', 'Narrative &bull; Film Grade', '&#9889; NARRATIVE FILM &#9889;')">
+          <div class="portfolio-item-thumb">
+            <video src="/assets/work_sahiba_1080p.mp4" poster="/assets/thumb_work_sahiba.jpg" muted loop playsinline preload="metadata" onmouseover="this.play().catch(function(){})" onmouseout="this.pause()"></video>
+            <div class="portfolio-item-badge">Narrative Film</div>
+            <div class="portfolio-play-overlay"><div class="portfolio-play-btn">&#9654;</div></div>
+          </div>
+          <div class="portfolio-item-body">
+            <div>
+              <div class="portfolio-item-meta">Narrative &bull; Jayant Balmiki</div>
+              <h3 class="portfolio-item-title">Sahiba &mdash; Cinematic Narrative Film</h3>
+              <p class="portfolio-item-desc">Warm nostalgic film tone, intimate pacing, soft skin contrast, and seamless audio crossfades.</p>
+              <div class="portfolio-item-tags">
+                <span class="portfolio-tag">Nostalgic LUT</span>
+                <span class="portfolio-tag">Audio Foley</span>
+                <span class="portfolio-tag">Cinematic</span>
+              </div>
+            </div>
+            <div class="portfolio-item-footer">
+              <span class="portfolio-author-tag">&#10003; Krishna Master Edit</span>
+              <span class="portfolio-action-link">Open Theater &rarr;</span>
+            </div>
+          </div>
+        </div>
+
+        <!-- 9. BALMIKI JAYANTI -->
+        <div class="portfolio-item-card" data-category="cultural" onclick="openTheaterVideo('Balmiki Jayanti &mdash; Divine Shobha Yatra', 'Grand spiritual celebration edit featuring energetic crowd pacing, vibrant festive color contrast, and thunderous devotional audio foley.', '/assets/work_balmiki_jayanti.mp4', 'Festival &bull; Devotional Pacing', '&#9889; FESTIVAL MASTER &#9889;')">
+          <div class="portfolio-item-thumb">
+            <video src="/assets/work_balmiki_jayanti.mp4" poster="/assets/thumb_work_balmiki_jayanti.jpg" muted loop playsinline preload="metadata" onmouseover="this.play().catch(function(){})" onmouseout="this.pause()"></video>
+            <div class="portfolio-item-badge">Festival Shobha Yatra</div>
+            <div class="portfolio-play-overlay"><div class="portfolio-play-btn">&#9654;</div></div>
+          </div>
+          <div class="portfolio-item-body">
+            <div>
+              <div class="portfolio-item-meta">Festival &bull; Jayant Balmiki</div>
+              <h3 class="portfolio-item-title">Balmiki Jayanti &mdash; Divine Shobha Yatra</h3>
+              <p class="portfolio-item-desc">Vibrant festive contrast grading, multi-camera crowd energy alignment, and devotional audio mastering.</p>
+              <div class="portfolio-item-tags">
+                <span class="portfolio-tag">Crowd Energy</span>
+                <span class="portfolio-tag">Color Pop</span>
+                <span class="portfolio-tag">Sub-Bass Sync</span>
+              </div>
+            </div>
+            <div class="portfolio-item-footer">
+              <span class="portfolio-author-tag">&#10003; Krishna Master Edit</span>
+              <span class="portfolio-action-link">Open Theater &rarr;</span>
+            </div>
+          </div>
+        </div>
+
+        <!-- 10. RAANJHANAA -->
+        <div class="portfolio-item-card" data-category="cinematic" onclick="openTheaterVideo('Raanjhanaa &mdash; 4K Melodic Film Master', 'Soulful melodic storytelling with Hollywood teal-and-orange grading, buttery 60FPS slow-motion, and emotional pacing.', '/assets/work_ranjhana_1080p.mp4', 'Melodic &bull; 4K Cinema', '&#9889; MELODIC 4K &#9889;')">
+          <div class="portfolio-item-thumb">
+            <video src="/assets/work_ranjhana_1080p.mp4" poster="/assets/thumb_work_ranjhana.jpg" muted loop playsinline preload="metadata" onmouseover="this.play().catch(function(){})" onmouseout="this.pause()"></video>
+            <div class="portfolio-item-badge">4K Melodic</div>
+            <div class="portfolio-play-overlay"><div class="portfolio-play-btn">&#9654;</div></div>
+          </div>
+          <div class="portfolio-item-body">
+            <div>
+              <div class="portfolio-item-meta">Melodic &bull; Jayant Balmiki</div>
+              <h3 class="portfolio-item-title">Raanjhanaa &mdash; 4K Melodic Film Master</h3>
+              <p class="portfolio-item-desc">Lush color saturation, optical flow slow-motion frame interpolation, and emotional lyric pacing.</p>
+              <div class="portfolio-item-tags">
+                <span class="portfolio-tag">Optical Flow</span>
+                <span class="portfolio-tag">Teal & Orange</span>
+                <span class="portfolio-tag">Lyric Sync</span>
+              </div>
+            </div>
+            <div class="portfolio-item-footer">
+              <span class="portfolio-author-tag">&#10003; Krishna Master Edit</span>
+              <span class="portfolio-action-link">Open Theater &rarr;</span>
+            </div>
+          </div>
+        </div>
+
+        <!-- 11. BHIMTAL LAKE ODYSSEY -->
+        <div class="portfolio-item-card" data-category="cinematic travel" onclick="openTheaterVideo('Bhimtal Lake Odyssey &mdash; 4K UHD Film', 'High-altitude Himalayan water reflections, emerald-and-gold color grading, and ambient nature sound immersion.', '/assets/work_bhimtal_1080p.mp4', 'Travel &bull; 4K Nature', '&#9889; 4K TRAVEL FILM &#9889;')">
+          <div class="portfolio-item-thumb">
+            <video src="/assets/work_bhimtal_1080p.mp4" poster="/assets/thumb_work_bhimtal.jpg" muted loop playsinline preload="metadata" onmouseover="this.play().catch(function(){})" onmouseout="this.pause()"></video>
+            <div class="portfolio-item-badge">4K Travel</div>
+            <div class="portfolio-play-overlay"><div class="portfolio-play-btn">&#9654;</div></div>
+          </div>
+          <div class="portfolio-item-body">
+            <div>
+              <div class="portfolio-item-meta">Travel &bull; Himalayan Lakes</div>
+              <h3 class="portfolio-item-title">Bhimtal Lake Odyssey &mdash; 4K UHD Film</h3>
+              <p class="portfolio-item-desc">Water reflection enhancement, sky gradient recovery, and peaceful mountain breeze audio layering.</p>
+              <div class="portfolio-item-tags">
+                <span class="portfolio-tag">Sky Recovery</span>
+                <span class="portfolio-tag">4K UHD</span>
+                <span class="portfolio-tag">Nature Foley</span>
+              </div>
+            </div>
+            <div class="portfolio-item-footer">
+              <span class="portfolio-author-tag">&#10003; Krishna Master Edit</span>
+              <span class="portfolio-action-link">Open Theater &rarr;</span>
+            </div>
+          </div>
+        </div>
+
+        <!-- 12. KALYANI NATURE SYMPHONY -->
+        <div class="portfolio-item-card" data-category="cinematic travel" onclick="openTheaterVideo('Kalyani Nature Symphony &mdash; Mountain Waterfalls', 'Crisp rushing waterfall sequences edited to rhythmic nature pulses with deep forest green color enhancement.', '/assets/work_kalyani_1080p.mp4', 'Nature &bull; Waterfall Audio', '&#9889; NATURE SYMPHONY &#9889;')">
+          <div class="portfolio-item-thumb">
+            <video src="/assets/work_kalyani_1080p.mp4" poster="/assets/thumb_work_kalyani.jpg" muted loop playsinline preload="metadata" onmouseover="this.play().catch(function(){})" onmouseout="this.pause()"></video>
+            <div class="portfolio-item-badge">Nature Symphony</div>
+            <div class="portfolio-play-overlay"><div class="portfolio-play-btn">&#9654;</div></div>
+          </div>
+          <div class="portfolio-item-body">
+            <div>
+              <div class="portfolio-item-meta">Nature &bull; Waterfall Symphony</div>
+              <h3 class="portfolio-item-title">Kalyani Nature Symphony &mdash; Mountain Waterfalls</h3>
+              <p class="portfolio-item-desc">Dynamic speed ramping on water cascades, deep forest green grading, and clean stereo sound panning.</p>
+              <div class="portfolio-item-tags">
+                <span class="portfolio-tag">Forest LUT</span>
+                <span class="portfolio-tag">Stereo Audio</span>
+                <span class="portfolio-tag">Speed Ramping</span>
+              </div>
+            </div>
+            <div class="portfolio-item-footer">
+              <span class="portfolio-author-tag">&#10003; Krishna Master Edit</span>
+              <span class="portfolio-action-link">Open Theater &rarr;</span>
+            </div>
+          </div>
+        </div>
+
+      </div>
+
+        <!-- ========================================================
+             THE 4 MASTER EDITING SUITES
+             ======================================================== -->
+        <div class="master-engines-banner">
+          <div style="text-align: center; max-width: 820px; margin: 0 auto;">
+            <span style="color: #F59E0B; font-size: 11.5px; font-weight: 800; letter-spacing: 0.14em; text-transform: uppercase;">
+              &#9889; INDUSTRIAL POST-PRODUCTION PIPELINE &#9889;
+            </span>
+            <h2 style="font-family: var(--serif); font-size: clamp(26px, 3.5vw, 38px); color: #FFF; margin-top: 8px; margin-bottom: 12px;">
+              The 4 Core Editing Engines of Krishna X Editz
+            </h2>
+            <p style="color: var(--muted); font-size: 15px; line-height: 1.6;">
+              Every film, commercial, and high-retention reel is crafted across four specialized post-production suites to achieve broadcast-level color fidelity, acoustic punch, and retention algorithms.
+            </p>
+          </div>
+
+          <div class="engines-grid">
+            <div class="engine-card">
+              <div class="engine-role">Color Grading &bull; Film Look</div>
+              <div class="engine-name">DaVinci Resolve Studio 19</div>
+              <p class="engine-desc">ACES color management, 3D LUT generation, film halation, skin tone isolation, and HDR grading curves.</p>
+            </div>
+            <div class="engine-card">
+              <div class="engine-role">VFX &bull; 3D Motion Graphics</div>
+              <div class="engine-name">Adobe After Effects 2026</div>
+              <p class="engine-desc">3D camera tracking, glowing kinetic typography, HUD interface overlays, and clean object removal.</p>
+            </div>
+            <div class="engine-card">
+              <div class="engine-role">Timeline Assembly &bull; Multi-Cam</div>
+              <div class="engine-name">Adobe Premiere Pro 2026</div>
+              <p class="engine-desc">Magnetic dialog cutdown, dead-air removal, multi-camera angle switching, and broadcast audio mastering.</p>
+            </div>
+            <div class="engine-card">
+              <div class="engine-role">Viral Flow &bull; Optical Slow-Mo</div>
+              <div class="engine-name">CapCut Desktop Pro</div>
+              <p class="engine-desc">Optical flow 60FPS buttery smooth slow-motion, dynamic auto-captions, and viral short-form retention pacing.</p>
+            </div>
+          </div>
+        </div>
+
+        <!-- ========================================================
+             <!-- ========================================================
+      SECTION 6: ABOUT THE FOUNDER & CHIEF ARCHITECT
+      ======================================================== -->
+      <div style="margin: 80px 0; background: linear-gradient(145deg, rgba(28,21,14,0.95), rgba(18,13,8,0.98)); border: 1.5px solid rgba(212,175,55,0.4); border-radius: 28px; padding: clamp(24px, 4vw, 48px); box-shadow: 0 25px 70px rgba(0,0,0,0.85), 0 0 40px rgba(245,158,11,0.15);">
+        
+        <div class="founder-executive-grid" style="display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: clamp(24px, 4vw, 50px); align-items: center;">
+          
+          <!-- Founder Lake Photo -->
+          <div style="position: relative; border-radius: 22px; overflow: hidden; border: 2px solid rgba(212,175,55,0.5); box-shadow: 0 20px 50px rgba(0,0,0,0.9); aspect-ratio: 3/4; background: #000;">
+            <img src="../assets/krishna_real.jpg" alt="Krishna Katiyar - Computer Science Engineer & Senior Video Editor" style="width: 100%; height: 100%; object-fit: cover; object-position: center 20%; display: block;">
+            
+            
+            <div style="position: absolute; top: 14px; left: 14px; padding: 5px 14px; border-radius: 999px; background: rgba(14,18,26,0.9); border: 1px solid rgba(212,175,55,0.5); color: #FBBF24; font-size: 11px; font-weight: 800; letter-spacing: 0.08em; text-transform: uppercase;">
+              &#128205; Khatima, Uttarakhand
+            </div>
+            
+            <div style="position: absolute; bottom: 16px; left: 16px; right: 16px;">
+              <div style="color: #00F2FE; font-size: 11px; font-weight: 800; letter-spacing: 0.14em; text-transform: uppercase;">FOUNDER &amp; ARCHITECT</div>
+              <div style="color: #FFF; font-family: var(--serif); font-size: 22px; font-weight: 800;">Krishna Katiyar</div>
+              <div style="color: #cfc3ac; font-size: 12.5px;">20 Yrs (DOB: 20-08-2006) &bull; B.Tech CS Engineer</div>
+            </div>
+          </div>
+
+          <!-- Executive Story -->
+          <div style="display: flex; flex-direction: column; gap: 18px;">
+            <div style="display: inline-flex; align-items: center; gap: 8px; padding: 5px 14px; border-radius: 999px; background: rgba(0,242,254,0.1); border: 1px solid rgba(0,242,254,0.3); color: #00F2FE; font-size: 11.5px; font-weight: 800; letter-spacing: 0.14em; text-transform: uppercase; width: fit-content;">
+              &#9889; BEHIND THE CRAFT &bull; CS ENGINEER &amp; SENIOR VIDEO EDITOR
+            </div>
+
+            <h3 style="font-family: var(--serif); font-size: clamp(26px, 3.2vw, 36px); color: #FFF; line-height: 1.25; margin: 0;">
+              "Combining Computer Science rigor with <span style="background: linear-gradient(135deg, #F59E0B, #00F2FE); -webkit-background-clip: text; -webkit-text-fill-color: transparent;">Hollywood cinema artistry</span>."
+            </h3>
+
+            <p style="color: #D1D5DB; font-size: 15px; line-height: 1.75; margin: 0;">
+              I am <strong>Krishna Katiyar</strong>, a 20-year-old Computer Science Engineer and Senior Video Editor living in <strong>Khatima, Uttarakhand</strong> (born 20 August 2006). I engineered and coded this entire KRISHNA X EDITZ platform from scratch &mdash; bridging custom backend media pipelines with 32-bit DaVinci Resolve color science.
+            </p>
+
+            <p style="color: #D1D5DB; font-size: 15px; line-height: 1.75; margin: 0;">
+              Over <strong>500+ commercial deliverables, 50 Million+ organic views</strong>, and a <strong>99.4% client retention rate</strong>. Official video post-production partner for <a href="https://www.sorexatech.com" target="_blank" rel="noopener noreferrer" style="color: #00F2FE; font-weight: 700; text-decoration: underline;">Sorexa Technologies</a> and <a href="https://www.sorexacrm.in/" target="_blank" rel="noopener noreferrer" style="color: #F59E0B; font-weight: 700; text-decoration: underline;">Sorexa CRM (All-in-One Business Management &amp; POS Billing Software)</a>.
+            </p>
+
+            <!-- 4 Micro Badges -->
+            <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(180px, 1fr)); gap: 12px; margin-top: 6px;">
+              <div style="background: rgba(14,18,27,0.85); border: 1px solid rgba(255,255,255,0.1); border-radius: 12px; padding: 12px 14px;">
+                <div style="color: #10B981; font-weight: 900; font-size: 20px; font-family: monospace;">50M+</div>
+                <div style="color: #9CA3AF; font-size: 11.5px; text-transform: uppercase;">Organic Views</div>
+              </div>
+              <div style="background: rgba(14,18,27,0.85); border: 1px solid rgba(255,255,255,0.1); border-radius: 12px; padding: 12px 14px;">
+                <div style="color: #F59E0B; font-weight: 900; font-size: 20px; font-family: monospace;">500+</div>
+                <div style="color: #9CA3AF; font-size: 11.5px; text-transform: uppercase;">Videos Delivered</div>
+              </div>
+              <div style="background: rgba(14,18,27,0.85); border: 1px solid rgba(255,255,255,0.1); border-radius: 12px; padding: 12px 14px;">
+                <div style="color: #00F2FE; font-weight: 900; font-size: 20px; font-family: monospace;">Self-Built</div>
+                <div style="color: #9CA3AF; font-size: 11.5px; text-transform: uppercase;">Studio Platform</div>
+              </div>
+              <div style="background: rgba(14,18,27,0.85); border: 1px solid rgba(255,255,255,0.1); border-radius: 12px; padding: 12px 14px;">
+                <div style="color: #D946EF; font-weight: 900; font-size: 20px; font-family: monospace;">99.4%</div>
+                <div style="color: #9CA3AF; font-size: 11.5px; text-transform: uppercase;">Client Retention</div>
+              </div>
+            </div>
+
+            <!-- WhatsApp Link -->
+            <div style="margin-top: 10px;">
+              <a href="https://wa.me/918449495147?text=Hi%20Krishna!%20I%20reviewed%20your%20flagship%20portfolio%20and%20want%20to%20hire%20you%20for%20a%20project." 
+                 target="_blank" rel="noopener noreferrer" style="display: inline-flex; align-items: center; gap: 8px; padding: 12px 24px; border-radius: 999px; background: linear-gradient(135deg, #25D366, #128C7E); color: #FFF; font-weight: 900; font-size: 13px; letter-spacing: 0.06em; text-transform: uppercase; text-decoration: none; box-shadow: 0 4px 15px rgba(37,211,102,0.35);">
+                <span>Chat Directly with Krishna &rarr;</span>
+              </a>
+            </div>
+
+          </div>
+
+        </div>
+
+      </div>
+
+      CONVERSION CALL TO ACTION
+             ======================================================== -->
+        <div class="portfolio-cta-section">
+          <h2 class="portfolio-cta-title">Ready to Transform Your Raw Footage into Cinema?</h2>
+          <p class="portfolio-cta-desc">
+            Whether you are an enterprise needing a high-conversion commercial campaign, an agency looking for a reliable post-production partner, or a creator needing viral retention pacing &mdash; Krishna Katiyar delivers with guaranteed satisfaction.
           </p>
-          <div class="vault-actions-row">
-            <a href="/my-work" class="btn-vault-primary">
-              <span>Explore 19 Delivered Works in My Works &rarr;</span>
+          <div class="cta-buttons-row">
+            <a href="https://wa.me/918449495147?text=Hi%20Krishna!%20I%20reviewed%20your%20curated%20portfolio%20and%20want%20to%20discuss%20a%20project%20edit." target="_blank" class="btn-gold-cta" rel="noopener noreferrer">
+              <span>Commission an Edit via WhatsApp</span>
+              <span>&rarr;</span>
             </a>
-            <a href="https://wa.me/918449495147?text=Hi%20Krishna!%20I%20want%20to%20discuss%20a%20master%20portfolio%20project." target="_blank" rel="noopener noreferrer" class="btn-vault-secondary">
-              <span>Commission Direct Project &nearr;</span>
+            <a href="/pricing" class="btn-ghost-cta">
+              <span>View Transparent Pricing Packages (From &#8377;250)</span>
             </a>
           </div>
         </div>
@@ -289,27 +1125,40 @@
     </main>
   </div>
 
-  <footer style="margin-top: 100px; padding: 50px 4vw; border-top: 1px solid rgba(255,255,255,0.08); text-align: center; color: var(--muted); font-size: 15px;">
-    <p>© 2026 KRISHNA X EDITZ — Master Video Editing &amp; Creative Studio. In Official Collaboration with Sorexa Technologies.</p>
-  </footer>
-
-  <script src="../assets/studio-interactive.js"></script>
-  <!-- GLOBAL FLOATING QUICK NAVIGATION (BACK & HOME ANYWHERE) -->
-  <div class="global-floating-nav" aria-label="Quick Navigation">
-    <button type="button" class="floating-nav-btn" onclick="if(document.referrer && document.referrer.indexOf(window.location.host)!==-1){history.back();}else{window.location.href='/';}" title="Go back to previous page">
-      <svg viewBox="0 0 24 24" width="14" height="14" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
-        <polyline points="15 18 9 12 15 6"></polyline>
+  <!-- FLOATING LUXURY DIRECT WHATSAPP ACTION WIDGET -->
+  <aside class="wa-float-container" aria-label="Direct WhatsApp Contact">
+    <a href="https://wa.me/918449495147?text=Hi%20Krishna!%20I%20reviewed%20your%20portfolio%20and%20want%20to%20discuss%20a%20video%20editing%20project." target="_blank" class="wa-float-btn" id="floatingWhatsAppBtn" title="Chat on WhatsApp (+91 8449495147)" rel="noopener noreferrer">
+      <svg viewBox="0 0 24 24" width="22" height="22" fill="currentColor" aria-hidden="true">
+        <path d="M.057 24l1.687-6.163c-1.041-1.804-1.588-3.849-1.587-5.946.003-6.556 5.338-11.891 11.893-11.891 3.181.001 6.167 1.24 8.413 3.488 2.245 2.248 3.481 5.236 3.48 8.414-.003 6.557-5.338 11.892-11.893 11.892-1.99-.001-3.951-.5-5.688-1.448l-6.305 1.654zm6.597-3.807c1.676.995 3.276 1.591 5.392 1.592 5.448 0 9.886-4.434 9.889-9.885.002-5.462-4.415-9.89-9.881-9.892-5.452 0-9.887 4.434-9.889 9.884-.001 2.225.651 3.891 1.746 5.634l-.999 3.648 3.742-.981zm11.387-5.464c-.074-.124-.272-.198-.57-.347-.297-.149-1.758-.868-2.031-.967-.272-.099-.47-.149-.669.149-.198.297-.768.967-.941 1.165-.173.198-.347.223-.644.074-.297-.149-1.255-.462-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.297-.347.446-.521.151-.172.2-.296.3-.495.099-.198.05-.372-.025-.521-.075-.148-.669-1.611-.916-2.206-.242-.579-.487-.501-.669-.51l-.57-.01c-.198 0-.52.074-.792.372s-1.04 1.016-1.04 2.479 1.065 2.876 1.213 3.074c.149.198 2.095 3.2 5.076 4.487.709.306 1.263.489 1.694.626.712.226 1.36.194 1.872.118.571-.085 1.758-.719 2.006-1.413.248-.695.248-1.29.173-1.414z"/>
       </svg>
-      <span>Back</span>
-    </button>
-    <a href="/" class="floating-nav-btn home-btn" title="Return to Homepage">
-      <svg viewBox="0 0 24 24" width="14" height="14" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round">
-        <path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"></path>
-        <polyline points="9 22 9 12 15 12 15 22"></polyline>
-      </svg>
-      <span>Home</span>
+      <span>WhatsApp Krishna</span>
     </a>
-  </div>
+  </aside>
 
+  <!-- Interactive Scripts -->
+  <script src="../assets/studio-interactive.js"></script>
+
+  <script>
+    function filterPortfolio(category, btn) {
+      // Highlight active button
+      document.querySelectorAll('.filter-btn').forEach(function(b) {
+        b.classList.remove('active');
+      });
+      if (btn) btn.classList.add('active');
+
+      // Filter cards
+      var cards = document.querySelectorAll('.portfolio-item-card');
+      cards.forEach(function(card) {
+        var cats = (card.getAttribute('data-category') || '').toLowerCase();
+        if (category === 'all' || cats.indexOf(category) !== -1) {
+          card.style.display = 'flex';
+          card.classList.add('kxe-in-view');
+        } else {
+          card.style.display = 'none';
+        }
+      });
+      if (window.refreshScrollReveals) window.refreshScrollReveals();
+    }
+  </script>
 </body>
 </html>

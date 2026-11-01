@@ -2154,12 +2154,21 @@
 
     .work-video-wrapper {
       position: relative;
+      width: 100%;
+      aspect-ratio: 16 / 9;
       background: #000;
       display: flex;
       align-items: center;
       justify-content: center;
       overflow: hidden;
       border-bottom: 1px solid rgba(212, 175, 55, 0.15);
+    }
+
+    .work-video-player, .work-video-elem {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      display: block;
     }
 
     .work-video-wrapper.ratio-vertical {
@@ -6416,7 +6425,7 @@
       /* Keep doll shifted to the right, opening up the left negative space */
       #heroDollVideo,
       #heroDollFallbackImg {
-        object-position: 80% center !important;
+        object-position: 62% center !important;
       }
 
       .stage {
@@ -6464,28 +6473,33 @@
       }
 
       .title-row-krishna {
-        font-size: clamp(64px, 8.5vw, 118px);
-        line-height: 0.92 !important;
-        letter-spacing: 0.04em !important;
+        font-size: clamp(38px, 10vw, 52px) !important;
+        line-height: 0.95 !important;
+        letter-spacing: 0.06em !important;
         text-shadow: 0 4px 18px rgba(0, 0, 0, 0.85) !important;
       }
 
       .title-row-bottom {
-        gap: 6px !important;
-        margin-top: 2px !important;
+        gap: 16px !important;
+        margin-top: 4px !important;
+        display: inline-flex !important;
+        align-items: baseline !important;
       }
 
       .title-x-box {
-        width: clamp(28px, 8vw, 36px) !important;
-        height: clamp(28px, 8vw, 36px) !important;
+        width: auto !important;
+        height: auto !important;
+        display: inline-flex !important;
+        margin-right: 6px !important;
       }
 
       .title-x-glyph {
-        font-size: clamp(58px, 7.5vw, 104px);
+        font-size: clamp(40px, 11vw, 54px) !important;
       }
 
       .title-editz-text {
-        font-size: clamp(58px, 7.5vw, 104px);
+        font-size: clamp(40px, 11vw, 54px) !important;
+        letter-spacing: 0.12em !important;
         text-shadow: 0 4px 18px rgba(0, 0, 0, 0.85) !important;
       }
 
@@ -6920,7 +6934,61 @@
     .orb-4 { top: 58% !important; right: -6% !important; width: 620px !important; height: 620px !important; background: rgba(139, 92, 246, 0.52) !important; animation-delay: 7.5s !important; }
     .orb-5 { top: 78% !important; left: -5% !important; width: 580px !important; height: 580px !important; background: rgba(6, 182, 212, 0.50) !important; animation-delay: 10s !important; }
 
-</style>
+
+    /* Mobile refinements: Doll fully to right & X/EDITZ distinct spacing */
+    @media (max-width: 900px) {
+      #heroDollVideo,
+      #heroDollFallbackImg {
+        object-position: 62% center !important;
+      }
+      .title-row-bottom {
+        gap: 22px !important;
+        margin-top: 6px !important;
+      }
+      .title-x-box {
+        margin-right: 18px !important;
+      }
+      .title-editz-text {
+        letter-spacing: 0.16em !important;
+        margin-left: 4px !important;
+      }
+      .inner-left-col {
+        max-width: 62% !important;
+      }
+      .pricing-cta-box {
+        width: 100% !important;
+        max-width: 100% !important;
+        box-sizing: border-box !important;
+        padding: 24px 16px !important;
+      }
+    }
+
+  
+    .btn-share-section-pill {
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      padding: 5px 14px;
+      border-radius: 999px;
+      background: rgba(212, 175, 55, 0.12);
+      border: 1px solid rgba(212, 175, 55, 0.35);
+      color: #FBBF24;
+      font-family: var(--sans);
+      font-size: 11.5px;
+      font-weight: 700;
+      cursor: pointer;
+      margin: 10px 0 0 0;
+      transition: all 200ms ease;
+    }
+    .btn-share-section-pill:hover {
+      background: rgba(212, 175, 55, 0.25);
+      border-color: #FFD700;
+      color: #FFF;
+      transform: translateY(-2px);
+      box-shadow: 0 4px 15px rgba(212, 175, 55, 0.3);
+    }
+
+  </style>
   <link rel="stylesheet" href="assets/studio-interactive.css">
 </head>
 <body data-mode="gallery" data-menu="closed">
@@ -6966,8 +7034,10 @@
             <polyline points="7 7 17 7 17 17"></polyline>
           </svg>
         </a>
-        <button class="studio-hamburger icon-button" id="menuButton" type="button" aria-label="Open menu" aria-expanded="false">
-          <span class="menu-glyph" aria-hidden="true"></span>
+        <button class="studio-hamburger icon-button universal-hamburger-btn" id="menuButton" type="button" aria-label="Open menu" aria-expanded="false" >
+          <span class="hamburger-bar bar-1"></span>
+          <span class="hamburger-bar bar-2"></span>
+          <span class="hamburger-bar bar-3"></span>
         </button>
       </div>
     </div>
@@ -7018,16 +7088,16 @@
       
       <!-- LEFT COLUMN: ORIGINAL LUXURY MULTI-FONT BRAND TITLE -->
       <div class="inner-left-col">
-        <span class="hero-kicker-badge">✦ THE CINEMATOGRAPHIC STANDARD ✦</span>
+        <!-- hero kicker badge removed per user request -->
         
         <!-- Multi-Font Luxury Title Lockup (Cinzel 900 + Playfair 700 + Gold X) -->
         <div class="brand-title-lockup">
           <h1 class="title-row-krishna">KRISHNA</h1>
-          <div class="title-row-bottom">
-            <span class="title-x-box">
+          <div class="title-row-bottom" style="gap: clamp(16px, 2.5vw, 28px);">
+            <span class="title-x-box" style="margin-right: 18px;">
               <span class="title-x-glyph">X</span>
             </span>
-            <span class="title-editz-text">EDITZ</span>
+            <span class="title-editz-text" style="letter-spacing: 0.16em; margin-left: 4px;">EDITZ</span>
             <span class="title-sparkle-star">✦</span>
           </div>
         </div>
@@ -7087,11 +7157,17 @@
     <div class="ambient-orb orb-5" aria-hidden="true"></div>
 
     <!-- SECTION 1: ABOUT / EDITING PHILOSOPHY -->
-    <section class="section" id="about-section">
+    <section class="section" id="about-section" data-section-alias="about">
       <div class="container">
         <div class="section-header reveal-elem">
           <span class="section-eyebrow">✦ Creative Direction & Video Mastery ✦</span>
           <h2 class="section-title">Visual Storytelling Sculpted For Viral Retention</h2>
+          <div>
+            <button type="button" class="btn-share-section-pill" onclick="openSectionSharer('about')" title="Share Founder Profile Direct Link on WhatsApp">
+              <span>🔗</span>
+              <span>Share Founder Link (WhatsApp)</span>
+            </button>
+          </div>
           <p class="section-desc">
             At <strong>KRISHNA X EDITZ</strong>, we transform raw video footage into high-octane cinematic narratives. Combining cutting-edge retention algorithms, aesthetic film color science, and rhythmic sound design, we engineer content that commands worldwide attention.
           </p>
@@ -7122,51 +7198,138 @@
         </div>
 
         <!-- SOREXA-STYLE FOUNDER / ABOUT ME EXECUTIVE CARD -->
-        <div class="founder-spotlight-card reveal-elem" style="margin-top: 50px;">
-          <div class="founder-card-inner">
+                    <!-- GRAND REAL FOUNDER EXECUTIVE SPOTLIGHT -->
+      <div class="krishna-executive-grid" style="display: grid; grid-template-columns: minmax(320px, 440px) 1fr; gap: clamp(32px, 4vw, 64px); align-items: start; margin-top: 24px; margin-bottom: 70px; text-align: left;">
+        
+        <!-- LEFT: REAL CINEMATIC PHOTO CARD OF KRISHNA -->
+        <div class="krishna-portrait-card" style="position: relative; border-radius: 26px; overflow: hidden; border: 1.5px solid rgba(212, 175, 55, 0.45); box-shadow: 0 25px 65px rgba(0, 0, 0, 0.85), 0 0 35px rgba(0, 242, 254, 0.2); background: #0E121A;">
+          
+          <!-- Image -->
+          <div style="position: relative; aspect-ratio: 3/4; width: 100%; overflow: hidden;">
+            <img src="assets/krishna_real.jpg" alt="Krishna Katiyar - Computer Science Engineer, Software Developer &amp; Senior Video Editor" style="width: 100%; height: 100%; object-fit: cover; object-position: center 30%; display: block; transition: transform 0.5s ease;">
             
-            <!-- LEFT: Circular Avatar with Glowing Ring & OWNER Badge -->
-            <div class="founder-avatar-col">
-              <div class="founder-avatar-frame">
-                <img src="assets/krishna_founder.svg" alt="Krishna - Founder &amp; Lead Video Editor" class="founder-avatar-img">
-              </div>
-              <div class="founder-owner-badge">
-                <svg viewBox="0 0 24 24" width="13" height="13" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
-                  <circle cx="12" cy="8" r="7"></circle>
-                  <polyline points="8.21 13.89 7 23 12 20 17 23 15.79 13.88"></polyline>
-                </svg>
-                <span>OWNER</span>
-              </div>
+            
+            <!-- Badges on Photo -->
+            <div style="position: absolute; top: 16px; left: 16px; display: inline-flex; align-items: center; gap: 6px; padding: 6px 14px; border-radius: 999px; background: rgba(14, 18, 26, 0.88); backdrop-filter: blur(12px); border: 1px solid rgba(212, 175, 55, 0.5); color: #FBBF24; font-size: 11px; font-weight: 800; letter-spacing: 0.08em; text-transform: uppercase;">
+              <span>&#128205; Khatima, Uttarakhand</span>
             </div>
 
-            <!-- RIGHT: Executive Info, Bio & Capability Pills -->
-            <div class="founder-details-col">
-              <div class="founder-eyebrow">FOUNDER &amp; LEAD VIDEO EDITOR</div>
-              <h2 class="founder-name">Krishna Katiyar</h2>
-              
-              <p class="founder-bio">
-                Founder &amp; Lead Video Editor, <strong>KRISHNA X EDITZ</strong>. Delivering high-retention commercial reels, viral short-form narratives, creator podcasts, and Hollywood cinematic color grading for clients worldwide. Official post-production partner for <strong>Sorexa Technologies</strong>.
-              </p>
-
-              <div class="founder-milestone-row">
-                <span class="founder-briefcase-icon">💼</span>
-                <span>5+ Years in High-Retention Video Production &amp; Post-Production</span>
-              </div>
-
-              <div class="founder-skills-grid">
-                <span class="founder-skill-pill">Strategic Leadership</span>
-                <span class="founder-skill-pill">Retention Architecture</span>
-                <span class="founder-skill-pill">Hollywood Color Grading</span>
-                <span class="founder-skill-pill">Custom Audio Foley</span>
-                <span class="founder-skill-pill">3D Motion Graphics</span>
-                <span class="founder-skill-pill">Viral Hook Scripting</span>
-                <span class="founder-skill-pill">Multi-Cam Sync</span>
-              </div>
+            <div style="position: absolute; top: 16px; right: 16px; display: inline-flex; align-items: center; gap: 6px; padding: 6px 14px; border-radius: 999px; background: rgba(0, 242, 254, 0.2); backdrop-filter: blur(12px); border: 1.5px solid #00F2FE; color: #00F2FE; font-size: 11px; font-weight: 900; letter-spacing: 0.12em; text-transform: uppercase;">
+              <span>&#128081; FOUNDER &amp; ARCHITECT</span>
             </div>
-
           </div>
+
+          <!-- Card Bottom Bio Strip -->
+          <div style="padding: 24px; background: rgba(14, 18, 27, 0.98); border-top: 1px solid rgba(255, 255, 255, 0.1);">
+            <div style="color: #00F2FE; font-size: 11.5px; font-weight: 800; letter-spacing: 0.16em; text-transform: uppercase; margin-bottom: 6px;">
+              CS ENGINEER &bull; SOFTWARE DEVELOPER &bull; CHIEF COLORIST
+            </div>
+            <h3 style="color: #FFFFFF; font-family: var(--serif, 'Playfair Display', serif); font-size: 26px; font-weight: 800; margin: 0 0 10px 0;">
+              Krishna Katiyar
+            </h3>
+            <p style="color: #CFC3AC; font-size: 13.5px; line-height: 1.6; margin: 0 0 16px 0;">
+              20-year-old Computer Science Engineer and Software Developer from Khatima, Uttarakhand. Creator and full-stack architect of this entire KRISHNA X EDITZ platform, delivering high-retention video editing and Hollywood color grading worldwide.
+            </p>
+            <div style="display: grid; grid-template-columns: repeat(3, 1fr); gap: 10px; padding-top: 14px; border-top: 1px dashed rgba(255,255,255,0.12); text-align: center;">
+              <div>
+                <div style="color: #10B981; font-size: 18px; font-weight: 900; font-family: monospace;">20 Yrs</div>
+                <div style="color: #9CA3AF; font-size: 11px; text-transform: uppercase;">Age (20-08-2006)</div>
+              </div>
+              <div>
+                <div style="color: #F59E0B; font-size: 18px; font-weight: 900; font-family: monospace;">B.Tech CS</div>
+                <div style="color: #9CA3AF; font-size: 11px; text-transform: uppercase;">Engineering</div>
+              </div>
+              <div>
+                <div style="color: #00F2FE; font-size: 18px; font-weight: 900; font-family: monospace;">Full-Stack</div>
+                <div style="color: #9CA3AF; font-size: 11px; text-transform: uppercase;">Platform Dev</div>
+              </div>
+            </div>
+          </div>
+
         </div>
 
+        <!-- RIGHT: COMPLETE BIOGRAPHY, CREDENTIALS, ACHIEVEMENTS & PHILOSOPHY -->
+        <div class="krishna-story-content" style="display: flex; flex-direction: column; gap: 20px;">
+          
+          <div style="display: inline-flex; align-items: center; gap: 8px; padding: 6px 16px; border-radius: 999px; background: rgba(0, 242, 254, 0.1); border: 1px solid rgba(0, 242, 254, 0.35); color: #00F2FE; font-size: 12px; font-weight: 800; letter-spacing: 0.16em; text-transform: uppercase; width: fit-content;">
+            <span>&#9889; COMPUTER SCIENCE ENGINEER &bull; DEVELOPER &bull; VIDEO ARCHITECT &#9889;</span>
+          </div>
+
+          <h2 style="font-family: var(--serif, 'Playfair Display', serif); font-size: clamp(28px, 3.8vw, 44px); color: #FFFFFF; line-height: 1.2; margin: 0;">
+            "Engineering cutting-edge software and <span style="background: linear-gradient(135deg, #F59E0B, #00F2FE); -webkit-background-clip: text; -webkit-text-fill-color: transparent;">sculpting cinematic narratives</span> frame by frame."
+          </h2>
+
+          <div style="color: #D1D5DB; font-size: clamp(15px, 1.35vw, 17px); line-height: 1.75; display: flex; flex-direction: column; gap: 16px;">
+            <p>
+              I am <strong>Krishna Katiyar</strong>, a <strong>20-year-old Computer Science Engineer, Software Developer, Senior Video Editor, and Founder of KRISHNA X EDITZ</strong> (born <strong>20 August 2006</strong>). Living in <strong>Khatima (Uttarakhand)</strong>, I bridge the worlds of high-level algorithmic software engineering and elite post-production artistry.
+            </p>
+            <p>
+              <strong>I engineered and coded this entire studio software and interactive web platform myself from scratch</strong> &mdash; merging custom backend video streaming architecture, reactive 3D interfaces, and high-performance client delivery tools. My engineering background gives me a unique technological edge in <strong>video retention science, codec compression dynamics, 60FPS optical flow rendering, and GPU-accelerated DaVinci Resolve color science</strong>.
+            </p>
+            <p>
+              To date, I have delivered over <strong>500+ commercial video edits, viral shorts, and documentary campaigns</strong> generating over <strong>50 Million+ organic views</strong> with a <strong>99.4% client retention rate</strong>. I am the primary video production partner for <a href="https://www.sorexatech.com" target="_blank" rel="noopener noreferrer" style="color: #00F2FE; font-weight: 700; text-decoration: underline;">Sorexa Technologies</a> and their flagship enterprise business platform, <a href="https://www.sorexacrm.in/" target="_blank" rel="noopener noreferrer" style="color: #F59E0B; font-weight: 700; text-decoration: underline;">Sorexa CRM (All-in-One Business Management &amp; POS Billing Software)</a>.
+            </p>
+          </div>
+
+          <!-- VERIFIED STATS & FACT SHEET -->
+          <div style="background: rgba(14, 18, 27, 0.85); border: 1.5px solid rgba(212, 175, 55, 0.35); border-radius: 20px; padding: 24px clamp(20px, 3vw, 32px); margin-top: 10px;">
+            <div style="color: #F59E0B; font-size: 11.5px; font-weight: 800; letter-spacing: 0.14em; text-transform: uppercase; margin-bottom: 14px;">
+              &#9889; Krishna Katiyar &bull; Verified Profile, Education &amp; Credentials
+            </div>
+            <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(210px, 1fr)); gap: 16px 24px;">
+              <div>
+                <span style="color: #9CA3AF; font-size: 12px; text-transform: uppercase;">Full Name</span>
+                <div style="color: #FFF; font-weight: 800; font-size: 15px;">Krishna Katiyar</div>
+              </div>
+              <div>
+                <span style="color: #9CA3AF; font-size: 12px; text-transform: uppercase;">Age &amp; Date of Birth</span>
+                <div style="color: #10B981; font-weight: 800; font-size: 15px;">20 Years (DOB: 20-08-2006)</div>
+              </div>
+              <div>
+                <span style="color: #9CA3AF; font-size: 12px; text-transform: uppercase;">Residence / Location</span>
+                <div style="color: #FFF; font-weight: 800; font-size: 15px;">Khatima, Uttarakhand, India</div>
+              </div>
+              <div>
+                <span style="color: #9CA3AF; font-size: 12px; text-transform: uppercase;">Education &amp; Profession</span>
+                <div style="color: #00F2FE; font-weight: 800; font-size: 15px;">Computer Science Engineer &bull; Software Developer</div>
+              </div>
+              <div>
+                <span style="color: #9CA3AF; font-size: 12px; text-transform: uppercase;">Platform Development</span>
+                <div style="color: #D946EF; font-weight: 800; font-size: 15px;">Self-Built Software &amp; Platform</div>
+              </div>
+              <div>
+                <span style="color: #9CA3AF; font-size: 12px; text-transform: uppercase;">Video Edits Delivered</span>
+                <div style="color: #10B981; font-weight: 800; font-size: 15px;">500+ Verified Commercial &amp; Reels</div>
+              </div>
+              <div>
+                <span style="color: #9CA3AF; font-size: 12px; text-transform: uppercase;">Organic Client Views</span>
+                <div style="color: #00F2FE; font-weight: 800; font-size: 15px;">50,000,000+ Views Generated</div>
+              </div>
+              <div>
+                <span style="color: #9CA3AF; font-size: 12px; text-transform: uppercase;">Strategic Partner</span>
+                <div style="color: #F59E0B; font-weight: 800; font-size: 15px;">
+                  <a href="https://www.sorexacrm.in/" target="_blank" rel="noopener noreferrer" style="color:#F59E0B;text-decoration:underline;">Sorexa CRM</a> &amp; <a href="https://www.sorexatech.com" target="_blank" rel="noopener noreferrer" style="color:#00F2FE;text-decoration:underline;">Sorexa Tech</a>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <!-- SKILLS & CAPABILITY BADGES -->
+          <div style="display: flex; flex-wrap: wrap; gap: 10px; margin-top: 10px;">
+            <span class="founder-skill-pill">Computer Science Engineering</span>
+            <span class="founder-skill-pill">Full-Stack Software Dev</span>
+            <span class="founder-skill-pill">Retention Psychology</span>
+            <span class="founder-skill-pill">DaVinci 35mm LUTs</span>
+            <span class="founder-skill-pill">Multi-Layer Sound Foley</span>
+            <span class="founder-skill-pill">3D Camera Tracking</span>
+            <span class="founder-skill-pill">Multicam Timeline Sync</span>
+            <span class="founder-skill-pill">Optical Flow 60FPS</span>
+            <span class="founder-skill-pill">4K HDR Mastering</span>
+          </div>
+
+        </div>
+
+      </div>
       </div>
     </section>
 
@@ -7174,11 +7337,17 @@
     
 
     <!-- SECTION 2.5: TRANSPARENT VIDEO EDITING PRICING & PACKAGES -->
-    <section class="section" id="pricing-section">
+    <section class="section" id="pricing-section" data-section-alias="pricing">
       <div class="container">
         <div class="section-header reveal-elem">
           <span class="section-eyebrow">✦ Transparent Rates &amp; Creative Retainers ✦</span>
           <h2 class="section-title">Video Editing Pricing &amp; Packages</h2>
+          <div>
+            <button type="button" class="btn-share-section-pill" onclick="openSectionSharer('pricing')" title="Share Pricing Direct Link on WhatsApp">
+              <span>🔗</span>
+              <span>Share Pricing Link (WhatsApp)</span>
+            </button>
+          </div>
           <p class="section-desc">
             Direct transparent rates for viral short-form reels, high-retention creator videos, and cinematic commercials. All packages include Hollywood color grading, custom sound Foley &amp; commercial rights.
           </p>
@@ -7381,167 +7550,663 @@
     <!-- SECTION 2.8: FEATURED CLIENT SHOWCASE & MASTER CINEMA VAULT -->
     
     <!-- SECTION 2.8: FEATURED CLIENT SHOWCASE & MASTER CINEMA VAULT -->
-    <section class="section" id="works-section">
+    <section class="section" id="works-section" data-section-alias="portfolio">
       <div class="container">
         <div class="section-header reveal-elem">
           <span class="section-eyebrow">✦ Signature Client Proofs ✦</span>
           <h2 class="section-title">Client Video Showcase</h2>
+          <div>
+            <button type="button" class="btn-share-section-pill" onclick="openSectionSharer('portfolio')" title="Share Portfolio Direct Link on WhatsApp">
+              <span>🔗</span>
+              <span>Share Portfolio Link (WhatsApp)</span>
+            </button>
+          </div>
           <p class="section-desc">
             A handpicked preview across 4K cinema, viral velocity edits, humanitarian documentary storytelling, and long-form YouTube editing.
           </p>
         </div>
 
-        <!-- 4 SIGNATURE HERO VIDEOS (EXACTLY AS REQUESTED) -->
-        <div class="works-videos-grid" style="margin-top: 24px;">
-<div class="work-video-card theme-cyan homepage-hero-card">
-              <div class="work-video-wrapper ratio-landscape">
-                <span class="work-video-badge-top" style="background: linear-gradient(135deg, rgba(6, 182, 212, 0.95), rgba(14, 116, 144, 0.95)); color: #fff; font-weight: 900;">👑 FEATURED SPOTLIGHT • 4K Cinema ✦</span>
-                <span class="work-video-aspect-tag">16:9 4K UHD 60FPS</span>
-                <video 
-                  class="work-video-elem" 
-                  controls 
-                  playsinline 
-                  preload="none" 
-                  poster="assets/thumb_work_nazar_cinematic.jpg"
-                  data-video-id="work_nazar_cinematic" 
-                  data-src="assets/work_nazar_cinematic_1080p.mp4"
-                  onplay="handleSingleVideoPlayback(this)"
-                >
-                  Your browser does not support HTML5 video.
-                </video>
+        <!-- 4 SIGNATURE HERO VIDEOS (EXACTLY MATCHING MY WORKS REAL-WORK-CARD DESIGN) -->
+        <div class="real-works-grid" style="display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 24px; margin-top: 28px;">
+          
+          <!-- Video 1: Nazar -->
+          <div class="real-work-card" data-category="cinematic travel music" onmouseenter="var v=this.querySelector('video'); if(v) v.play().catch(function(){})" onmouseleave="var v=this.querySelector('video'); if(v) v.pause()" onclick="openTheaterVideo('Nazar-e-Khaas &mdash; 4K UHD Poetic Cinematography &amp; Color Symphony', 'A cinematic widescreen masterpiece blending delicate film emulation LUTs, natural landscape framing, paper-foley acoustic design, and heart-tugging melody pacing. Mastered in full 4K 60FPS clarity.', '/assets/work_nazar_cinematic_1080p.mp4', 'Cinematic Film &amp; Color Master', '&#10024; 4K UHD POETIC CINEMA &#10024;')">
+            <div class="real-work-thumb">
+              <video src="/assets/work_nazar_cinematic_1080p.mp4" poster="/assets/thumb_work_nazar_cinematic.jpg" muted loop playsinline preload="metadata" onmouseover="this.play().catch(function(){})" onmouseout="this.pause()"></video>
+              <div style="position:absolute;top:10px;left:10px;padding:4px 10px;border-radius:999px;background:rgba(0,0,0,0.75);border:1px solid rgba(212,175,55,0.4);color:#FBBF24;font-size:10px;font-weight:800;letter-spacing:0.08em;text-transform:uppercase;">
+                &#10024; 4K UHD POETIC CINEMA &#10024;
               </div>
-              <div class="work-video-content">
-                <h4 class="work-video-title">Nazar-e-Khaas — 4K UHD Poetic Cinematography &amp; Color Symphony</h4>
-                <p class="work-video-desc">A cinematic widescreen masterpiece blending delicate film emulation LUTs, natural landscape framing, paper-foley acoustic design, and heart-tugging melody pacing. Mastered in full 4K 60FPS clarity.</p>
-                <div class="work-highlights-list">
-                  <span class="work-highlight-pill">4K 60FPS Widescreen</span>
-                  <span class="work-highlight-pill">Poetic Film Emulation</span>
-                  <span class="work-highlight-pill">Atmospheric Foley Sound</span>
-                </div>
-                <div class="work-card-footer">
-                  <span class="work-card-category">Cinematic Film &amp; Color Master</span>
-                  <button type="button" class="btn-work-commission" onclick="openBookingModal('Music Videos &amp; Films')">
-                    Book Similar Edit &rarr;
-                  </button>
-                </div>
+              <div style="position:absolute;bottom:10px;right:10px;padding:3px 8px;border-radius:6px;background:rgba(0,0,0,0.85);color:#FFF;font-size:10px;font-weight:700;">
+                16:9 4K UHD Landscape
               </div>
             </div>
+            <div class="real-work-body">
+              <div>
+                <div style="font-size:11px;font-weight:800;color:var(--gold-neon);letter-spacing:0.1em;text-transform:uppercase;margin-bottom:6px;">Cinematic Film &amp; Color Master</div>
+                <h3 class="real-work-title">Nazar-e-Khaas &mdash; 4K UHD Poetic Cinematography</h3>
+                <p class="real-work-desc">A cinematic widescreen masterpiece blending delicate film emulation LUTs, natural landscape framing, paper-foley acoustic design, and heart-tugging melody pacing.</p>
+              </div>
+              <div class="real-work-footer">
+                <span style="color:#10B981;font-weight:800;font-size:11.5px;">&#10003; Krishna Master Edit</span>
+                <span style="color:#F59E0B;font-weight:800;font-size:12px;letter-spacing:0.08em;text-transform:uppercase;">Open Theater &rarr;</span>
+              </div>
+            </div>
+          </div>
 
-<div class="work-video-card theme-gold homepage-hero-card">
-              <div class="work-video-wrapper ratio-vertical">
-                <span class="work-video-badge-top" style="background: linear-gradient(135deg, rgba(245, 158, 11, 0.95), rgba(212, 175, 55, 0.95)); color: #120e0a; font-weight: 900;">👑 TRENDING • Viral Instagram Edit ✦</span>
-                <span class="work-video-aspect-tag">9:16 4K UHD 60FPS</span>
-                <video 
-                  class="work-video-elem" 
-                  controls 
-                  playsinline 
-                  preload="none" 
-                  poster="assets/thumb_work_grind_viral.jpg"
-                  data-video-id="work_grind_viral" 
-                  data-src="assets/work_grind_viral_1080p.mp4"
-                  onplay="handleSingleVideoPlayback(this)"
-                >
-                  Your browser does not support HTML5 video.
-                </video>
+          <!-- Video 2: Grind With Me -->
+          <div class="real-work-card" data-category="viral" onmouseenter="var v=this.querySelector('video'); if(v) v.play().catch(function(){})" onmouseleave="var v=this.querySelector('video'); if(v) v.pause()" onclick="openTheaterVideo('Grind With Me &mdash; Viral Instagram Aesthetic Motion Blur Edit', 'A viral Instagram sensation edit set to the trending sound Grind With Me by Pretty Ricky. Engineered with seductive optical-flow slow-motion ramps, atmospheric motion blur whip transitions, deep bass drops, and an unmatched hypnotic visual aesthetic designed to stop the scroll.', '/assets/work_grind_viral_1080p.mp4', 'Trending Instagram Reel', '&#128293; TRENDING &bull; Viral Reel &#128293;')">
+            <div class="real-work-thumb">
+              <video src="/assets/work_grind_viral_1080p.mp4" poster="/assets/thumb_work_grind_viral.jpg" muted loop playsinline preload="metadata" onmouseover="this.play().catch(function(){})" onmouseout="this.pause()"></video>
+              <div style="position:absolute;top:10px;left:10px;padding:4px 10px;border-radius:999px;background:rgba(0,0,0,0.75);border:1px solid rgba(212,175,55,0.4);color:#FBBF24;font-size:10px;font-weight:800;letter-spacing:0.08em;text-transform:uppercase;">
+                &#128293; TRENDING &bull; Viral Reel &#128293;
               </div>
-              <div class="work-video-content">
-                <h4 class="work-video-title">Grind With Me — Viral Instagram Aesthetic Motion Blur Edit</h4>
-                <p class="work-video-desc">A viral Instagram sensation edit set to the trending sound Grind With Me by Pretty Ricky. Engineered with seductive optical-flow slow-motion ramps, atmospheric motion blur whip transitions, deep bass drops, and an unmatched hypnotic visual aesthetic designed to stop the scroll.</p>
-                <div class="work-highlights-list">
-                  <span class="work-highlight-pill">Viral Trend Audio (Pretty Ricky)</span>
-                  <span class="work-highlight-pill">Optical Flow Speed Ramps</span>
-                  <span class="work-highlight-pill">4K 60FPS Vertical Master</span>
-                </div>
-                <div class="work-card-footer">
-                  <span class="work-card-category">Trending Instagram Reel</span>
-                  <button type="button" class="btn-work-commission" onclick="openBookingModal('Viral Reels &amp; Shorts')">
-                    Book Similar Edit &rarr;
-                  </button>
-                </div>
+              <div style="position:absolute;bottom:10px;right:10px;padding:3px 8px;border-radius:6px;background:rgba(0,0,0,0.85);color:#FFF;font-size:10px;font-weight:700;">
+                9:16 4K UHD 60FPS
               </div>
             </div>
+            <div class="real-work-body">
+              <div>
+                <div style="font-size:11px;font-weight:800;color:var(--gold-neon);letter-spacing:0.1em;text-transform:uppercase;margin-bottom:6px;">Trending Instagram Reel</div>
+                <h3 class="real-work-title">Grind With Me &mdash; Viral Instagram Motion Blur Edit</h3>
+                <p class="real-work-desc">A viral Instagram sensation edit featuring seductive optical-flow slow-motion ramps, atmospheric motion blur whip transitions, and deep bass drops.</p>
+              </div>
+              <div class="real-work-footer">
+                <span style="color:#10B981;font-weight:800;font-size:11.5px;">&#10003; Krishna Master Edit</span>
+                <span style="color:#F59E0B;font-weight:800;font-size:12px;letter-spacing:0.08em;text-transform:uppercase;">Open Theater &rarr;</span>
+              </div>
+            </div>
+          </div>
 
-<div class="work-video-card theme-crimson homepage-hero-card">
-              <div class="work-video-wrapper ratio-vertical">
-                <span class="work-video-badge-top">✦ 4K 60FPS Hyper Velocity ✦</span>
-                <span class="work-video-aspect-tag">9:16 4K Reel</span>
-                <video 
-                  class="work-video-elem" 
-                  controls 
-                  playsinline 
-                  preload="none" 
-                  poster="assets/thumb_work_khamoshi.jpg"
-                  data-video-id="work_khamoshi" 
-                  data-src="assets/work_khamoshi_1080p.mp4"
-                  onplay="handleSingleVideoPlayback(this)"
-                >
-                  Your browser does not support HTML5 video.
-                </video>
+          <!-- Video 3: Khamoshiyan -->
+          <div class="real-work-card" data-category="viral" onmouseenter="var v=this.querySelector('video'); if(v) v.play().catch(function(){})" onmouseleave="var v=this.querySelector('video'); if(v) v.pause()" onclick="openTheaterVideo('Khamoshiyan &mdash; High-Octane Fast Beat Sync &amp; Velocity Transitions', 'An electrifying, high-energy transition reel set to Khamoshiyan. Engineered with precision beat-matched velocity ramps, seamless whip pans, aggressive motion blurs, punchy color pops, and high retention pacing.', '/assets/work_khamoshi_1080p.mp4', 'Fast Beat Transitions', '&#10024; 4K 60FPS Hyper Velocity &#10024;')">
+            <div class="real-work-thumb">
+              <video src="/assets/work_khamoshi_1080p.mp4" poster="/assets/thumb_work_khamoshi.jpg" muted loop playsinline preload="metadata" onmouseover="this.play().catch(function(){})" onmouseout="this.pause()"></video>
+              <div style="position:absolute;top:10px;left:10px;padding:4px 10px;border-radius:999px;background:rgba(0,0,0,0.75);border:1px solid rgba(212,175,55,0.4);color:#FBBF24;font-size:10px;font-weight:800;letter-spacing:0.08em;text-transform:uppercase;">
+                &#10024; 4K 60FPS Hyper Velocity &#10024;
               </div>
-              <div class="work-video-content">
-                <h4 class="work-video-title">Khamoshiyan — High-Octane Fast Beat Sync &amp; Velocity Transitions</h4>
-                <p class="work-video-desc">An electrifying, high-energy transition reel set to Khamoshiyan. Engineered with precision beat-matched velocity ramps, seamless whip pans, aggressive motion blurs, punchy color pops, and high retention pacing.</p>
-                <div class="work-highlights-list">
-                  <span class="work-highlight-pill">Beat-Synced Velocity Cuts</span>
-                  <span class="work-highlight-pill">Hyper Dynamic Motion Blur</span>
-                  <span class="work-highlight-pill">4K 60FPS Vertical Reel</span>
-                </div>
-                <div class="work-card-footer">
-                  <span class="work-card-category">Fast Beat Transitions</span>
-                  <button type="button" class="btn-work-commission" onclick="openBookingModal('Viral Reels &amp; Shorts')">
-                    Book Similar Edit &rarr;
-                  </button>
-                </div>
+              <div style="position:absolute;bottom:10px;right:10px;padding:3px 8px;border-radius:6px;background:rgba(0,0,0,0.85);color:#FFF;font-size:10px;font-weight:700;">
+                9:16 4K UHD Reel
               </div>
             </div>
+            <div class="real-work-body">
+              <div>
+                <div style="font-size:11px;font-weight:800;color:var(--gold-neon);letter-spacing:0.1em;text-transform:uppercase;margin-bottom:6px;">Fast Beat Transitions</div>
+                <h3 class="real-work-title">Khamoshiyan &mdash; High-Octane Fast Beat Sync</h3>
+                <p class="real-work-desc">An electrifying, high-energy transition reel with precision beat-matched velocity ramps, seamless whip pans, and punchy color pops.</p>
+              </div>
+              <div class="real-work-footer">
+                <span style="color:#10B981;font-weight:800;font-size:11.5px;">&#10003; Krishna Master Edit</span>
+                <span style="color:#F59E0B;font-weight:800;font-size:12px;letter-spacing:0.08em;text-transform:uppercase;">Open Theater &rarr;</span>
+              </div>
+            </div>
+          </div>
 
-<div class="work-video-card theme-emerald homepage-hero-card">
-              <div class="work-video-wrapper ratio-landscape">
-                <span class="work-video-badge-top">✦ Long Video Edit Sample ✦</span>
-                <span class="work-video-aspect-tag">16:9 Landscape Video</span>
-                <video 
-                  class="work-video-elem" 
-                  controls 
-                  playsinline 
-                  preload="none" 
-                  poster="assets/thumb_work_long_sample.jpg"
-                  data-video-id="work_long_sample" 
-                  data-src="assets/work_long_sample_1080p.mp4"
-                  onplay="handleSingleVideoPlayback(this)"
-                >
-                  Your browser does not support HTML5 video.
-                </video>
+          <!-- Video 4: Sample Long Edit -->
+          <div class="real-work-card" data-category="cinematic" onmouseenter="var v=this.querySelector('video'); if(v) v.play().catch(function(){})" onmouseleave="var v=this.querySelector('video'); if(v) v.pause()" onclick="openTheaterVideo('Sample for Long Video Edits &mdash; Pacing &amp; B-Roll Structure', 'A sample demonstration edit specifically crafted for long videos and YouTube content. Showcases clean narrative pacing, smooth B-roll integration, high viewer retention cuts, and balanced audio mixing.', '/assets/work_long_sample_1080p.mp4', 'Long Video Edit Sample', '&#128065; Long Video Edit Sample &#128065;')">
+            <div class="real-work-thumb">
+              <video src="/assets/work_long_sample_1080p.mp4" poster="/assets/thumb_work_long_sample.jpg" muted loop playsinline preload="metadata" onmouseover="this.play().catch(function(){})" onmouseout="this.pause()"></video>
+              <div style="position:absolute;top:10px;left:10px;padding:4px 10px;border-radius:999px;background:rgba(0,0,0,0.75);border:1px solid rgba(212,175,55,0.4);color:#FBBF24;font-size:10px;font-weight:800;letter-spacing:0.08em;text-transform:uppercase;">
+                &#128065; Long Video Edit Sample &#128065;
               </div>
-              <div class="work-video-content">
-                <h4 class="work-video-title">Sample for Long Video Edits — Pacing &amp; B-Roll Structure</h4>
-                <p class="work-video-desc">A sample demonstration edit specifically crafted for long videos and YouTube content. Showcases clean narrative pacing, smooth B-roll integration, high viewer retention cuts, and balanced audio mixing.</p>
-                <div class="work-highlights-list">
-                  <span class="work-highlight-pill">Long Video Edit Sample</span>
-                  <span class="work-highlight-pill">B-Roll Pacing &amp; Cuts</span>
-                  <span class="work-highlight-pill">YouTube Video Flow</span>
-                </div>
-                <div class="work-card-footer">
-                  <span class="work-card-category">YouTube Long-Form</span>
-                  <button type="button" class="btn-work-commission" onclick="openBookingModal('YouTube Documentaries')">
-                    Book Similar Edit &rarr;
-                  </button>
-                </div>
+              <div style="position:absolute;bottom:10px;right:10px;padding:3px 8px;border-radius:6px;background:rgba(0,0,0,0.85);color:#FFF;font-size:10px;font-weight:700;">
+                16:9 Landscape Video
               </div>
             </div>
+            <div class="real-work-body">
+              <div>
+                <div style="font-size:11px;font-weight:800;color:var(--gold-neon);letter-spacing:0.1em;text-transform:uppercase;margin-bottom:6px;">Long Video Edit Sample</div>
+                <h3 class="real-work-title">Sample for Long Video Edits &mdash; Pacing &amp; B-Roll</h3>
+                <p class="real-work-desc">A sample demonstration edit crafted for long videos &amp; YouTube. Showcases clean narrative pacing, smooth B-roll integration, and balanced audio mixing.</p>
+              </div>
+              <div class="real-work-footer">
+                <span style="color:#10B981;font-weight:800;font-size:11.5px;">&#10003; Krishna Master Edit</span>
+                <span style="color:#F59E0B;font-weight:800;font-size:12px;letter-spacing:0.08em;text-transform:uppercase;">Open Theater &rarr;</span>
+              </div>
+            </div>
+          </div>
+
         </div>
 
-        <!-- SLEEK ELONGATED CTA BUTTON (CLEAN, PROMINENT, NO CLUTTER BOX) -->
-        <div class="vault-cta-container reveal-elem" style="margin-top: 36px; text-align: center;">
-          <button type="button" class="btn-vault-elongated" onclick="openCinemaVault('all')">
-            <span class="vault-btn-icon">🎬</span>
-            <span class="vault-btn-text">OPEN CINEMA VIDEO VAULT — MORE VIDEOS</span>
-            <span class="vault-btn-arrow">➔</span>
-          </button>
-          <div class="vault-subtext">Click to stream our full collection of films, gangster edits, reels &amp; shoots</div>
+        <!-- EXPLORE ALL CLIENT WORKS CTA -->
+        <div style="text-align: center; margin-top: 45px;">
+          <a href="/pages/my-work.html" style="display: inline-flex; align-items: center; gap: 12px; padding: 18px 36px; border-radius: 999px; background: linear-gradient(135deg, #F59E0B 0%, #D97706 100%); color: #000; font-family: var(--sans); font-size: 15px; font-weight: 900; letter-spacing: 0.08em; text-transform: uppercase; text-decoration: none; box-shadow: 0 12px 30px rgba(245, 158, 11, 0.35); transition: all 250ms;">
+            <span>Explore All 20+ Client Masterpieces &amp; Viral Drops in My Works</span>
+            <span style="font-size: 18px;">&rarr;</span>
+          </a>
+        </div>
+      </div>
+    </section>
+
+
+    <!-- ========================================================
+         SECTION 2.9: EXCLUSIVE PERMANENT CLIENTS VAULT
+         ======================================================== -->
+    <section class="section" id="permanent-clients-section" style="position: relative; padding: 80px 0;">
+      <div class="container">
+        <div class="section-header reveal-elem" style="text-align: center; margin-bottom: 45px;">
+          <span class="section-eyebrow" style="color: #F59E0B; font-weight: 800; letter-spacing: 0.12em; text-transform: uppercase;">
+            &#9889; LONG-TERM PRODUCTION PARTNERSHIPS &#9889;
+          </span>
+          <h2 class="section-title" style="font-family: var(--serif, 'Playfair Display', serif); font-size: clamp(30px, 4vw, 48px); color: #FFF; margin-top: 10px; margin-bottom: 14px;">
+            Permanent Clients &amp; Retainer Roster
+          </h2>
+          <p class="section-desc" style="color: var(--muted, #CFC3AC); font-size: 16px; max-width: 820px; margin: 0 auto; line-height: 1.65;">
+            Dedicated video post-production suites and ongoing retainer pipelines for our permanent brand enterprises and signature creators. Click any client below to inspect their private video showcase.
+          </p>
+        </div>
+
+        <!-- 4 PERMANENT CLIENT CARDS -->
+        <div class="permanent-clients-grid" style="display: grid; grid-template-columns: repeat(auto-fit, minmax(260px, 1fr)); gap: 20px; margin-bottom: 35px;">
+          
+          <!-- 1. SOREXA TECHNOLOGY -->
+          <div class="perm-client-card active" id="permCard-sorexa" onclick="selectPermanentClient('sorexa')" style="cursor: pointer; position: relative; background: rgba(26, 20, 14, 0.95); border: 2px solid #F59E0B; border-radius: 20px; padding: 24px 20px; transition: all 300ms ease; box-shadow: 0 10px 30px rgba(245, 158, 11, 0.25);">
+            <div style="display: flex; align-items: center; justify-content: space-between; margin-bottom: 14px;">
+              <span style="display: inline-block; padding: 4px 10px; border-radius: 999px; background: rgba(245, 158, 11, 0.15); border: 1px solid #F59E0B; color: #FBBF24; font-size: 10px; font-weight: 800; letter-spacing: 0.1em; text-transform: uppercase;">
+                &#9889; Enterprise Client
+              </span>
+              <span style="color: #10B981; font-size: 11.5px; font-weight: 800; display: flex; align-items: center; gap: 5px;">
+                <span style="width: 7px; height: 7px; border-radius: 50%; background: #10B981; display: inline-block; box-shadow: 0 0 8px #10B981;"></span> Active Retainer
+              </span>
+            </div>
+            <div style="display: flex; align-items: center; gap: 12px; margin-bottom: 12px;">
+              <div style="width: 48px; height: 48px; border-radius: 12px; background: linear-gradient(135deg, #0284C7 0%, #0369A1 100%); display: flex; align-items: center; justify-content: center; font-size: 20px; color: #FFF; font-weight: 900; box-shadow: 0 6px 16px rgba(2, 132, 199, 0.35);">
+                ST
+              </div>
+              <div>
+                <h3 style="font-family: var(--serif, serif); font-size: 20px; color: #FFF; margin: 0 0 3px 0; font-weight: 700;">Sorexa Technology</h3>
+                <p style="color: var(--muted, #bbb); font-size: 12px; margin: 0;">Enterprise Software &amp; POS Systems</p>
+              </div>
+            </div>
+            <p style="color: #CFC3AC; font-size: 13px; line-height: 1.5; margin-bottom: 14px;">
+              Official corporate video editing partner. Commercial campaigns, CRM presentations, and software UI motion graphics.
+            </p>
+            <div style="display: flex; align-items: center; justify-content: space-between; border-top: 1px solid rgba(255,255,255,0.08); padding-top: 10px;">
+              <span style="color: #F59E0B; font-weight: 800; font-size: 12px; letter-spacing: 0.05em;">View Client Vault &rarr;</span>
+              <a href="https://www.sorexacrm.in/" target="_blank" rel="noopener" onclick="event.stopPropagation()" style="color: #38BDF8; font-size: 11px; text-decoration: none; font-weight: 700;">sorexacrm.in &#8599;</a>
+            </div>
+          </div>
+
+          <!-- 2. FARHAN -->
+          <div class="perm-client-card" id="permCard-farhan" onclick="selectPermanentClient('farhan')" style="cursor: pointer; position: relative; background: rgba(26, 20, 14, 0.95); border: 1.5px solid rgba(212, 175, 55, 0.25); border-radius: 20px; padding: 24px 20px; transition: all 300ms ease;">
+            <div style="display: flex; align-items: center; justify-content: space-between; margin-bottom: 14px;">
+              <span style="display: inline-block; padding: 4px 10px; border-radius: 999px; background: rgba(168, 85, 247, 0.15); border: 1px solid #A855F7; color: #C084FC; font-size: 10px; font-weight: 800; letter-spacing: 0.1em; text-transform: uppercase;">
+                &#128293; 4 Master Videos
+              </span>
+              <span style="color: #10B981; font-size: 11.5px; font-weight: 800; display: flex; align-items: center; gap: 5px;">
+                <span style="width: 7px; height: 7px; border-radius: 50%; background: #10B981; display: inline-block; box-shadow: 0 0 8px #10B981;"></span> Active Retainer
+              </span>
+            </div>
+            <div style="display: flex; align-items: center; gap: 12px; margin-bottom: 12px;">
+              <div style="width: 48px; height: 48px; border-radius: 12px; background: linear-gradient(135deg, #7C3AED 0%, #5B21B6 100%); display: flex; align-items: center; justify-content: center; font-size: 20px; color: #FFF; font-weight: 900; box-shadow: 0 6px 16px rgba(124, 58, 237, 0.35);">
+                F
+              </div>
+              <div>
+                <h3 style="font-family: var(--serif, serif); font-size: 20px; color: #FFF; margin: 0 0 3px 0; font-weight: 700;">Farhan</h3>
+                <p style="color: var(--muted, #bbb); font-size: 12px; margin: 0;">Creator &bull; Viral Short-Form</p>
+              </div>
+            </div>
+            <p style="color: #CFC3AC; font-size: 13px; line-height: 1.5; margin-bottom: 14px;">
+              Permanent creator retainer: The Syndicate Trade, The Sovereign Stride, Flexx &amp; Mafia, and Mohabbatein Thar edit.
+            </p>
+            <div style="display: flex; align-items: center; justify-content: space-between; border-top: 1px solid rgba(255,255,255,0.08); padding-top: 10px;">
+              <span style="color: #C084FC; font-weight: 800; font-size: 12px; letter-spacing: 0.05em;">View 4 Videos &rarr;</span>
+              <span style="color: var(--muted, #999); font-size: 11px; font-weight: 600;">Dedicated Suite</span>
+            </div>
+          </div>
+
+          <!-- 3. DEBOLINA DAS -->
+          <div class="perm-client-card" id="permCard-debolina" onclick="selectPermanentClient('debolina')" style="cursor: pointer; position: relative; background: rgba(26, 20, 14, 0.95); border: 1.5px solid rgba(212, 175, 55, 0.25); border-radius: 20px; padding: 24px 20px; transition: all 300ms ease;">
+            <div style="display: flex; align-items: center; justify-content: space-between; margin-bottom: 14px;">
+              <span style="display: inline-block; padding: 4px 10px; border-radius: 999px; background: rgba(236, 72, 153, 0.15); border: 1px solid #EC4899; color: #F472B6; font-size: 10px; font-weight: 800; letter-spacing: 0.1em; text-transform: uppercase;">
+                &#10024; Exclusive Artist
+              </span>
+              <span style="color: #10B981; font-size: 11.5px; font-weight: 800; display: flex; align-items: center; gap: 5px;">
+                <span style="width: 7px; height: 7px; border-radius: 50%; background: #10B981; display: inline-block; box-shadow: 0 0 8px #10B981;"></span> Active Retainer
+              </span>
+            </div>
+            <div style="display: flex; align-items: center; gap: 12px; margin-bottom: 12px;">
+              <div style="width: 48px; height: 48px; border-radius: 12px; background: linear-gradient(135deg, #DB2777 0%, #9D174D 100%); display: flex; align-items: center; justify-content: center; font-size: 20px; color: #FFF; font-weight: 900; box-shadow: 0 6px 16px rgba(219, 39, 119, 0.35);">
+                DD
+              </div>
+              <div>
+                <h3 style="font-family: var(--serif, serif); font-size: 20px; color: #FFF; margin: 0 0 3px 0; font-weight: 700;">Debolina Das</h3>
+                <p style="color: var(--muted, #bbb); font-size: 12px; margin: 0;">Artist, Performer &amp; Model</p>
+              </div>
+            </div>
+            <p style="color: #CFC3AC; font-size: 13px; line-height: 1.5; margin-bottom: 14px;">
+              Permanent artist pipeline: American Dream / Unamerican Girls aesthetic showcase with ultra-clean modern color grading.
+            </p>
+            <div style="display: flex; align-items: center; justify-content: space-between; border-top: 1px solid rgba(255,255,255,0.08); padding-top: 10px;">
+              <span style="color: #F472B6; font-weight: 800; font-size: 12px; letter-spacing: 0.05em;">View Video Vault &rarr;</span>
+              <span style="color: var(--muted, #999); font-size: 11px; font-weight: 600;">Dedicated Suite</span>
+            </div>
+          </div>
+
+          <!-- 4. JAYANT BALMIKI -->
+          <div class="perm-client-card" id="permCard-jayant" onclick="selectPermanentClient('jayant')" style="cursor: pointer; position: relative; background: rgba(26, 20, 14, 0.95); border: 1.5px solid rgba(212, 175, 55, 0.25); border-radius: 20px; padding: 24px 20px; transition: all 300ms ease;">
+            <div style="display: flex; align-items: center; justify-content: space-between; margin-bottom: 14px;">
+              <span style="display: inline-block; padding: 4px 10px; border-radius: 999px; background: rgba(234, 88, 12, 0.15); border: 1px solid #EA580C; color: #FB923C; font-size: 10px; font-weight: 800; letter-spacing: 0.1em; text-transform: uppercase;">
+                &#9770; 4 Master Videos
+              </span>
+              <span style="color: #10B981; font-size: 11.5px; font-weight: 800; display: flex; align-items: center; gap: 5px;">
+                <span style="width: 7px; height: 7px; border-radius: 50%; background: #10B981; display: inline-block; box-shadow: 0 0 8px #10B981;"></span> Active Retainer
+              </span>
+            </div>
+            <div style="display: flex; align-items: center; gap: 12px; margin-bottom: 12px;">
+              <div style="width: 48px; height: 48px; border-radius: 12px; background: linear-gradient(135deg, #EA580C 0%, #C2410C 100%); display: flex; align-items: center; justify-content: center; font-size: 20px; color: #FFF; font-weight: 900; box-shadow: 0 6px 16px rgba(234, 88, 12, 0.35);">
+                JB
+              </div>
+              <div>
+                <h3 style="font-family: var(--serif, serif); font-size: 20px; color: #FFF; margin: 0 0 3px 0; font-weight: 700;">Jayant Balmiki</h3>
+                <p style="color: var(--muted, #bbb); font-size: 12px; margin: 0;">Cultural &amp; Spiritual Visuals</p>
+              </div>
+            </div>
+            <p style="color: #CFC3AC; font-size: 13px; line-height: 1.5; margin-bottom: 14px;">
+              Permanent cultural production retainer: Ganesh Chaturthi, Raanjhanaa, Sahiba, and Balmiki Jayanti Mahotsav.
+            </p>
+            <div style="display: flex; align-items: center; justify-content: space-between; border-top: 1px solid rgba(255,255,255,0.08); padding-top: 10px;">
+              <span style="color: #FB923C; font-weight: 800; font-size: 12px; letter-spacing: 0.05em;">View 4 Videos &rarr;</span>
+              <span style="color: var(--muted, #999); font-size: 11px; font-weight: 600;">Dedicated Suite</span>
+            </div>
+          </div>
+
+        </div>
+
+        <!-- ==========================================
+             CLIENT SHOWCASE VAULT CONTAINERS
+             ========================================== -->
+        <div id="permanentClientVaultContainer" style="background: rgba(28, 21, 14, 0.88); backdrop-filter: blur(16px); border: 1.5px solid rgba(212, 175, 55, 0.35); border-radius: 24px; padding: 32px 28px; box-shadow: 0 20px 50px rgba(0,0,0,0.6), 0 0 35px rgba(245,158,11,0.12);">
+          
+          <!-- VAULT 1: SOREXA TECHNOLOGY -->
+          <div id="vault-sorexa" class="client-vault-view" style="display: block;">
+            <div style="display: flex; align-items: center; justify-content: space-between; flex-wrap: wrap; gap: 14px; margin-bottom: 24px; padding-bottom: 18px; border-bottom: 1px solid rgba(212, 175, 55, 0.2);">
+              <div>
+                <div style="color: #F59E0B; font-size: 11px; font-weight: 800; letter-spacing: 0.1em; text-transform: uppercase; margin-bottom: 4px;">
+                  &#9889; Official Enterprise Partner Showcase
+                </div>
+                <h3 style="font-family: var(--serif, serif); font-size: 26px; color: #FFF; margin: 0;">
+                  Sorexa Technology &mdash; Dedicated Video Vault
+                </h3>
+              </div>
+              <div style="display: flex; gap: 10px; flex-wrap: wrap;">
+                <span style="padding: 6px 14px; border-radius: 999px; background: rgba(2, 132, 199, 0.15); border: 1px solid #0284C7; color: #38BDF8; font-size: 12px; font-weight: 700;">
+                  Custom Software &bull; CRM &bull; POS
+                </span>
+                <a href="https://www.sorexacrm.in/" target="_blank" rel="noopener" style="padding: 6px 14px; border-radius: 999px; background: rgba(245, 158, 11, 0.15); border: 1px solid #F59E0B; color: #FBBF24; font-size: 12px; font-weight: 800; text-decoration: none;">
+                  Visit sorexacrm.in &#8599;
+                </a>
+              </div>
+            </div>
+
+            <!-- Video Cards Grid for Sorexa -->
+            <div id="sorexaVideosGrid" class="real-works-grid" style="display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 20px;">
+              <!-- Sorexa South Africa Ad -->
+              <div class="real-work-card" onclick="openTheaterVideo('Sorexa Technologies &mdash; South Africa Enterprise Campaign', 'Official enterprise commercial for Sorexa Technologies South Africa, delivering high-conversion visual storytelling, custom software solutions, CRM systems, and motion branding.', '/assets/work_sorexa_south_africa.mp4', 'Enterprise Commercial', '&#9889; SOREXA GLOBAL AD &#9889;')">
+                <div class="real-work-thumb">
+                  <video src="/assets/work_sorexa_south_africa.mp4" poster="/assets/thumb_work_sorexa_south_africa.jpg" muted loop playsinline preload="metadata" onmouseover="this.play().catch(function(){})" onmouseout="this.pause()"></video>
+                  <div style="position:absolute;top:10px;left:10px;padding:4px 10px;border-radius:999px;background:rgba(0,0,0,0.75);border:1px solid rgba(212,175,55,0.4);color:#FBBF24;font-size:10px;font-weight:800;letter-spacing:0.08em;text-transform:uppercase;">
+                    &#9889; SOREXA GLOBAL AD &#9889;
+                  </div>
+                  <div style="position:absolute;bottom:10px;right:10px;padding:3px 8px;border-radius:6px;background:rgba(0,0,0,0.85);color:#FFF;font-size:10px;font-weight:700;">
+                    9:16 4K Commercial
+                  </div>
+                </div>
+                <div class="real-work-body">
+                  <div>
+                    <div style="font-size:11px;font-weight:800;color:var(--gold-neon);letter-spacing:0.1em;text-transform:uppercase;margin-bottom:6px;">Enterprise Brand Ad</div>
+                    <h3 class="real-work-title">Sorexa Technologies &mdash; South Africa Enterprise Campaign</h3>
+                    <p class="real-work-desc">Official enterprise commercial for Sorexa Technologies South Africa, custom software solutions, POS billing, and 3D motion graphics.</p>
+                  </div>
+                  <div class="real-work-footer">
+                    <span style="color:#10B981;font-weight:800;font-size:11.5px;">&#10003; Verified Client Edit</span>
+                    <span style="color:#F59E0B;font-weight:800;font-size:12px;letter-spacing:0.08em;text-transform:uppercase;">Watch Video &rarr;</span>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <!-- VAULT 2: FARHAN (4 VIDEOS) -->
+          <div id="vault-farhan" class="client-vault-view" style="display: none;">
+            <div style="display: flex; align-items: center; justify-content: space-between; flex-wrap: wrap; gap: 14px; margin-bottom: 24px; padding-bottom: 18px; border-bottom: 1px solid rgba(168, 85, 247, 0.3);">
+              <div>
+                <div style="color: #C084FC; font-size: 11px; font-weight: 800; letter-spacing: 0.1em; text-transform: uppercase; margin-bottom: 4px;">
+                  &#128293; Creator Retainer Showcase &bull; 4 Client Edits
+                </div>
+                <h3 style="font-family: var(--serif, serif); font-size: 26px; color: #FFF; margin: 0;">
+                  Farhan &mdash; Dedicated Video Vault
+                </h3>
+              </div>
+              <div>
+                <span style="padding: 6px 14px; border-radius: 999px; background: rgba(168, 85, 247, 0.15); border: 1px solid #A855F7; color: #C084FC; font-size: 12px; font-weight: 700;">
+                  Viral Short-Form &bull; Kinetic Pacing &bull; Street Attitude
+                </span>
+              </div>
+            </div>
+
+            <!-- Video Cards Grid for Farhan (4 videos) -->
+            <div id="farhanVideosGrid" class="real-works-grid" style="display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 20px;">
+              
+              <!-- 1. The Syndicate Trade -->
+              <div class="real-work-card" onclick="openTheaterVideo('The Syndicate Trade &mdash; Gritty Underworld Dialogue Edit', 'Dark cinematic underworld aesthetic with high-contrast shadows, stylized typography, and tense sound design.', '/assets/work_gangster_mafia_1080p.mp4', 'Gritty Underworld Dialogue', '&#128293; SYNDICATE TRADE &#128293;')">
+                <div class="real-work-thumb">
+                  <video src="/assets/work_gangster_mafia_1080p.mp4" poster="/assets/thumb_work_gangster_mafia.jpg" muted loop playsinline preload="metadata" onmouseover="this.play().catch(function(){})" onmouseout="this.pause()"></video>
+                  <div style="position:absolute;top:10px;left:10px;padding:4px 10px;border-radius:999px;background:rgba(0,0,0,0.75);border:1px solid rgba(168,85,247,0.4);color:#C084FC;font-size:10px;font-weight:800;letter-spacing:0.08em;text-transform:uppercase;">
+                    &#128293; FARHAN EDIT #1
+                  </div>
+                  <div style="position:absolute;bottom:10px;right:10px;padding:3px 8px;border-radius:6px;background:rgba(0,0,0,0.85);color:#FFF;font-size:10px;font-weight:700;">
+                    9:16 Dialogue Reel
+                  </div>
+                </div>
+                <div class="real-work-body">
+                  <div>
+                    <div style="font-size:11px;font-weight:800;color:#C084FC;letter-spacing:0.1em;text-transform:uppercase;margin-bottom:6px;">Underworld Dialogue &bull; Farhan</div>
+                    <h3 class="real-work-title">The Syndicate Trade &mdash; Dialogue Edit</h3>
+                    <p class="real-work-desc">Dark cinematic underworld aesthetic with high-contrast shadows, stylized typography, and tense sound design.</p>
+                  </div>
+                  <div class="real-work-footer">
+                    <span style="color:#10B981;font-weight:800;font-size:11.5px;">&#10003; Farhan Master Edit</span>
+                    <span style="color:#F59E0B;font-weight:800;font-size:12px;letter-spacing:0.08em;text-transform:uppercase;">Watch Video &rarr;</span>
+                  </div>
+                </div>
+              </div>
+
+              <!-- 2. The Sovereign Stride -->
+              <div class="real-work-card" onclick="openTheaterVideo('The Sovereign Stride &mdash; Dark Cinematic Attitude', 'Slow, calculated walk and dark grading with subtle camera push-ins, film grain, and low-frequency bass impact.', '/assets/work_gangster_attitude_1080p.mp4', 'Dark Cinematic Attitude', '&#128293; SOVEREIGN STRIDE &#128293;')">
+                <div class="real-work-thumb">
+                  <video src="/assets/work_gangster_attitude_1080p.mp4" poster="/assets/thumb_work_gangster_attitude.jpg" muted loop playsinline preload="metadata" onmouseover="this.play().catch(function(){})" onmouseout="this.pause()"></video>
+                  <div style="position:absolute;top:10px;left:10px;padding:4px 10px;border-radius:999px;background:rgba(0,0,0,0.75);border:1px solid rgba(168,85,247,0.4);color:#C084FC;font-size:10px;font-weight:800;letter-spacing:0.08em;text-transform:uppercase;">
+                    &#128293; FARHAN EDIT #2
+                  </div>
+                  <div style="position:absolute;bottom:10px;right:10px;padding:3px 8px;border-radius:6px;background:rgba(0,0,0,0.85);color:#FFF;font-size:10px;font-weight:700;">
+                    9:16 Attitude Stride
+                  </div>
+                </div>
+                <div class="real-work-body">
+                  <div>
+                    <div style="font-size:11px;font-weight:800;color:#C084FC;letter-spacing:0.1em;text-transform:uppercase;margin-bottom:6px;">Cinematic Attitude &bull; Farhan</div>
+                    <h3 class="real-work-title">The Sovereign Stride &mdash; Cinematic Walk</h3>
+                    <p class="real-work-desc">Slow, calculated walk and dark grading with subtle camera push-ins, film grain, and low-frequency bass impact.</p>
+                  </div>
+                  <div class="real-work-footer">
+                    <span style="color:#10B981;font-weight:800;font-size:11.5px;">&#10003; Farhan Master Edit</span>
+                    <span style="color:#F59E0B;font-weight:800;font-size:12px;letter-spacing:0.08em;text-transform:uppercase;">Watch Video &rarr;</span>
+                  </div>
+                </div>
+              </div>
+
+              <!-- 3. Flexx & Mafia Attitude -->
+              <div class="real-work-card" onclick="openTheaterVideo('Flexx & Mafia Attitude &mdash; Gang Badmashi Street Edit', 'Intense street flex aesthetics with heavy bass drops, dark film contrast grading, dynamic strobe effects, and brotherhood pacing.', '/assets/work_gang_badmashi_flex.mp4', 'Street Attitude & Heavy Bass', '&#128293; BADMASHI STREET &#128293;')">
+                <div class="real-work-thumb">
+                  <video src="/assets/work_gang_badmashi_flex.mp4" poster="/assets/thumb_work_gang_badmashi_flex.jpg" muted loop playsinline preload="metadata" onmouseover="this.play().catch(function(){})" onmouseout="this.pause()"></video>
+                  <div style="position:absolute;top:10px;left:10px;padding:4px 10px;border-radius:999px;background:rgba(0,0,0,0.75);border:1px solid rgba(168,85,247,0.4);color:#C084FC;font-size:10px;font-weight:800;letter-spacing:0.08em;text-transform:uppercase;">
+                    &#128293; FARHAN EDIT #3
+                  </div>
+                  <div style="position:absolute;bottom:10px;right:10px;padding:3px 8px;border-radius:6px;background:rgba(0,0,0,0.85);color:#FFF;font-size:10px;font-weight:700;">
+                    9:16 Street Flex
+                  </div>
+                </div>
+                <div class="real-work-body">
+                  <div>
+                    <div style="font-size:11px;font-weight:800;color:#C084FC;letter-spacing:0.1em;text-transform:uppercase;margin-bottom:6px;">Street Badmashi &bull; Farhan</div>
+                    <h3 class="real-work-title">Flexx &amp; Mafia Attitude &mdash; Street Edit</h3>
+                    <p class="real-work-desc">Intense street flex aesthetics with heavy bass drops, dark film contrast grading, dynamic strobe effects, and brotherhood pacing.</p>
+                  </div>
+                  <div class="real-work-footer">
+                    <span style="color:#10B981;font-weight:800;font-size:11.5px;">&#10003; Farhan Master Edit</span>
+                    <span style="color:#F59E0B;font-weight:800;font-size:12px;letter-spacing:0.08em;text-transform:uppercase;">Watch Video &rarr;</span>
+                  </div>
+                </div>
+              </div>
+
+              <!-- 4. Mohabbatein Faraz -->
+              <div class="real-work-card" onclick="openTheaterVideo('Mohabbatein Faraz &mdash; Mahindra Thar Night Vibes', 'Cinematic midnight 4x4 Thar aesthetics with glowing headlights, Urdu poetic typography (محبتیں فراز), custom sound foley, and moody DaVinci color grading.', '/assets/work_thar_mohabbatein.mp4', 'Viral Aesthetic & Urdu Poetry', '&#128293; MOODY 4K THAR &#128293;')">
+                <div class="real-work-thumb">
+                  <video src="/assets/work_thar_mohabbatein.mp4" poster="/assets/thumb_work_thar_mohabbatein.jpg" muted loop playsinline preload="metadata" onmouseover="this.play().catch(function(){})" onmouseout="this.pause()"></video>
+                  <div style="position:absolute;top:10px;left:10px;padding:4px 10px;border-radius:999px;background:rgba(0,0,0,0.75);border:1px solid rgba(168,85,247,0.4);color:#C084FC;font-size:10px;font-weight:800;letter-spacing:0.08em;text-transform:uppercase;">
+                    &#128293; FARHAN EDIT #4
+                  </div>
+                  <div style="position:absolute;bottom:10px;right:10px;padding:3px 8px;border-radius:6px;background:rgba(0,0,0,0.85);color:#FFF;font-size:10px;font-weight:700;">
+                    9:16 Thar Poetry
+                  </div>
+                </div>
+                <div class="real-work-body">
+                  <div>
+                    <div style="font-size:11px;font-weight:800;color:#C084FC;letter-spacing:0.1em;text-transform:uppercase;margin-bottom:6px;">Urdu Poetry &bull; Farhan</div>
+                    <h3 class="real-work-title">Mohabbatein Faraz &mdash; Thar Night Vibes</h3>
+                    <p class="real-work-desc">Midnight 4x4 Thar aesthetics with glowing headlights, Urdu poetic typography (محبتیں فراز), custom sound foley, and moody DaVinci color grading.</p>
+                  </div>
+                  <div class="real-work-footer">
+                    <span style="color:#10B981;font-weight:800;font-size:11.5px;">&#10003; Farhan Master Edit</span>
+                    <span style="color:#F59E0B;font-weight:800;font-size:12px;letter-spacing:0.08em;text-transform:uppercase;">Watch Video &rarr;</span>
+                  </div>
+                </div>
+              </div>
+
+            </div>
+          </div>
+
+          <!-- VAULT 3: DEBOLINA DAS (1 VIDEO: AMERICAN DREAMS) -->
+          <div id="vault-debolina" class="client-vault-view" style="display: none;">
+            <div style="display: flex; align-items: center; justify-content: space-between; flex-wrap: wrap; gap: 14px; margin-bottom: 24px; padding-bottom: 18px; border-bottom: 1px solid rgba(236, 72, 153, 0.3);">
+              <div>
+                <div style="color: #F472B6; font-size: 11px; font-weight: 800; letter-spacing: 0.1em; text-transform: uppercase; margin-bottom: 4px;">
+                  &#10024; Exclusive Artist Showcase &bull; 1 Featured Edit
+                </div>
+                <h3 style="font-family: var(--serif, serif); font-size: 26px; color: #FFF; margin: 0;">
+                  Debolina Das &mdash; Dedicated Video Vault
+                </h3>
+              </div>
+              <div>
+                <span style="padding: 6px 14px; border-radius: 999px; background: rgba(236, 72, 153, 0.15); border: 1px solid #EC4899; color: #F472B6; font-size: 12px; font-weight: 700;">
+                  Cinematic Aesthetic &bull; Fashion &bull; Modern Tone
+                </span>
+              </div>
+            </div>
+
+            <!-- Video Cards Grid for Debolina -->
+            <div id="debolinaVideosGrid" class="real-works-grid" style="display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 20px;">
+              
+              <!-- American Dream / Unamerican Girls -->
+              <div class="real-work-card" onclick="openTheaterVideo('American Dream / Unamerican Girls &mdash; Ultra-Clean Aesthetic Edit', 'High-end aesthetic music edit with clean modern color grading, smooth match-cutting, and stylish typography.', '/assets/work_unamerican_girls_1080p.mp4', 'Modern Aesthetic Fashion', '&#10024; AMERICAN DREAMS &#10024;')">
+                <div class="real-work-thumb">
+                  <video src="/assets/work_unamerican_girls_1080p.mp4" poster="/assets/thumb_work_unamerican_girls.jpg" muted loop playsinline preload="metadata" onmouseover="this.play().catch(function(){})" onmouseout="this.pause()"></video>
+                  <div style="position:absolute;top:10px;left:10px;padding:4px 10px;border-radius:999px;background:rgba(0,0,0,0.75);border:1px solid rgba(236,72,153,0.4);color:#F472B6;font-size:10px;font-weight:800;letter-spacing:0.08em;text-transform:uppercase;">
+                    &#10024; DEBOLINA DAS EDIT
+                  </div>
+                  <div style="position:absolute;bottom:10px;right:10px;padding:3px 8px;border-radius:6px;background:rgba(0,0,0,0.85);color:#FFF;font-size:10px;font-weight:700;">
+                    1:1 / 9:16 Ultra-Clean
+                  </div>
+                </div>
+                <div class="real-work-body">
+                  <div>
+                    <div style="font-size:11px;font-weight:800;color:#F472B6;letter-spacing:0.1em;text-transform:uppercase;margin-bottom:6px;">Modern Aesthetic &bull; Debolina Das</div>
+                    <h3 class="real-work-title">American Dream / Unamerican Girls &mdash; Aesthetic Edit</h3>
+                    <p class="real-work-desc">High-end aesthetic music edit with clean modern color grading, smooth match-cutting, and stylish typography.</p>
+                  </div>
+                  <div class="real-work-footer">
+                    <span style="color:#10B981;font-weight:800;font-size:11.5px;">&#10003; Debolina Master Edit</span>
+                    <span style="color:#F59E0B;font-weight:800;font-size:12px;letter-spacing:0.08em;text-transform:uppercase;">Watch Video &rarr;</span>
+                  </div>
+                </div>
+              </div>
+
+            </div>
+          </div>
+
+          <!-- VAULT 4: JAYANT BALMIKI (4 VIDEOS) -->
+          <div id="vault-jayant" class="client-vault-view" style="display: none;">
+            <div style="display: flex; align-items: center; justify-content: space-between; flex-wrap: wrap; gap: 14px; margin-bottom: 24px; padding-bottom: 18px; border-bottom: 1px solid rgba(234, 88, 12, 0.3);">
+              <div>
+                <div style="color: #FB923C; font-size: 11px; font-weight: 800; letter-spacing: 0.1em; text-transform: uppercase; margin-bottom: 4px;">
+                  &#9770; Cultural &amp; Devotional Showcase &bull; 4 Client Edits
+                </div>
+                <h3 style="font-family: var(--serif, serif); font-size: 26px; color: #FFF; margin: 0;">
+                  Jayant Balmiki &mdash; Dedicated Video Vault
+                </h3>
+              </div>
+              <div>
+                <span style="padding: 6px 14px; border-radius: 999px; background: rgba(234, 88, 12, 0.15); border: 1px solid #EA580C; color: #FB923C; font-size: 12px; font-weight: 700;">
+                  Festival Energy &bull; Devotional Shobha Yatra &bull; 4K Cinema
+                </span>
+              </div>
+            </div>
+
+            <!-- Video Cards Grid for Jayant Balmiki (4 videos) -->
+            <div id="jayantVideosGrid" class="real-works-grid" style="display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 20px;">
+              
+              <!-- 1. Ganesh Chaturthi -->
+              <div class="real-work-card" onclick="openTheaterVideo('Ganesh Chaturthi &mdash; High-Energy Festival Celebration', 'Dynamic festival reel with heavy dhol beats, festive color grading, crowd energy, and seamless motion cutdowns.', '/assets/work_ganesh_1080p.mp4', 'Devotional Festival', '&#127881; GANESH CHATURTHI &#127881;')">
+                <div class="real-work-thumb">
+                  <video src="/assets/work_ganesh_1080p.mp4" poster="/assets/thumb_work_ganesh.jpg" muted loop playsinline preload="metadata" onmouseover="this.play().catch(function(){})" onmouseout="this.pause()"></video>
+                  <div style="position:absolute;top:10px;left:10px;padding:4px 10px;border-radius:999px;background:rgba(0,0,0,0.75);border:1px solid rgba(234,88,12,0.4);color:#FB923C;font-size:10px;font-weight:800;letter-spacing:0.08em;text-transform:uppercase;">
+                    &#9770; JAYANT EDIT #1
+                  </div>
+                  <div style="position:absolute;bottom:10px;right:10px;padding:3px 8px;border-radius:6px;background:rgba(0,0,0,0.85);color:#FFF;font-size:10px;font-weight:700;">
+                    9:16 Festival Energy
+                  </div>
+                </div>
+                <div class="real-work-body">
+                  <div>
+                    <div style="font-size:11px;font-weight:800;color:#FB923C;letter-spacing:0.1em;text-transform:uppercase;margin-bottom:6px;">Festival &bull; Jayant Balmiki</div>
+                    <h3 class="real-work-title">Ganesh Chaturthi &mdash; Festival Celebration</h3>
+                    <p class="real-work-desc">Dynamic festival reel with heavy dhol beats, festive color grading, crowd energy, and seamless motion cutdowns.</p>
+                  </div>
+                  <div class="real-work-footer">
+                    <span style="color:#10B981;font-weight:800;font-size:11.5px;">&#10003; Jayant Master Edit</span>
+                    <span style="color:#F59E0B;font-weight:800;font-size:12px;letter-spacing:0.08em;text-transform:uppercase;">Watch Video &rarr;</span>
+                  </div>
+                </div>
+              </div>
+
+              <!-- 2. Raanjhanaa -->
+              <div class="real-work-card" onclick="openTheaterVideo('Raanjhanaa &mdash; Cinematic 4K Film Master', 'Soulful Bollywood melodic pacing, dramatic color highlights, and cinematic golden hour skin tones.', '/assets/work_ranjhana_1080p.mp4', 'Cinematic Romance & Melody', '&#10024; GOLDEN HOUR GRADE &#10024;')">
+                <div class="real-work-thumb">
+                  <video src="/assets/work_ranjhana_1080p.mp4" poster="/assets/thumb_work_ranjhana.jpg" muted loop playsinline preload="metadata" onmouseover="this.play().catch(function(){})" onmouseout="this.pause()"></video>
+                  <div style="position:absolute;top:10px;left:10px;padding:4px 10px;border-radius:999px;background:rgba(0,0,0,0.75);border:1px solid rgba(234,88,12,0.4);color:#FB923C;font-size:10px;font-weight:800;letter-spacing:0.08em;text-transform:uppercase;">
+                    &#9770; JAYANT EDIT #2
+                  </div>
+                  <div style="position:absolute;bottom:10px;right:10px;padding:3px 8px;border-radius:6px;background:rgba(0,0,0,0.85);color:#FFF;font-size:10px;font-weight:700;">
+                    16:9 4K Film
+                  </div>
+                </div>
+                <div class="real-work-body">
+                  <div>
+                    <div style="font-size:11px;font-weight:800;color:#FB923C;letter-spacing:0.1em;text-transform:uppercase;margin-bottom:6px;">4K Cinema &bull; Jayant Balmiki</div>
+                    <h3 class="real-work-title">Raanjhanaa &mdash; Cinematic 4K Film Master</h3>
+                    <p class="real-work-desc">Soulful Bollywood melodic pacing, dramatic color highlights, and cinematic golden hour skin tones.</p>
+                  </div>
+                  <div class="real-work-footer">
+                    <span style="color:#10B981;font-weight:800;font-size:11.5px;">&#10003; Jayant Master Edit</span>
+                    <span style="color:#F59E0B;font-weight:800;font-size:12px;letter-spacing:0.08em;text-transform:uppercase;">Watch Video &rarr;</span>
+                  </div>
+                </div>
+              </div>
+
+              <!-- 3. Sahiba -->
+              <div class="real-work-card" onclick="openTheaterVideo('Sahiba &mdash; Cinematic Shoot & Narrative Film', 'Rich emotional storytelling, subtle film halation, analog tone curve, and vintage warmth crafted for Sahiba.', '/assets/work_sahiba_1080p.mp4', 'Cinematic Romance', '&#10024; VINTAGE FILM GRADE &#10024;')">
+                <div class="real-work-thumb">
+                  <video src="/assets/work_sahiba_1080p.mp4" poster="/assets/thumb_work_sahiba.jpg" muted loop playsinline preload="metadata" onmouseover="this.play().catch(function(){})" onmouseout="this.pause()"></video>
+                  <div style="position:absolute;top:10px;left:10px;padding:4px 10px;border-radius:999px;background:rgba(0,0,0,0.75);border:1px solid rgba(234,88,12,0.4);color:#FB923C;font-size:10px;font-weight:800;letter-spacing:0.08em;text-transform:uppercase;">
+                    &#9770; JAYANT EDIT #3
+                  </div>
+                  <div style="position:absolute;bottom:10px;right:10px;padding:3px 8px;border-radius:6px;background:rgba(0,0,0,0.85);color:#FFF;font-size:10px;font-weight:700;">
+                    16:9 Narrative
+                  </div>
+                </div>
+                <div class="real-work-body">
+                  <div>
+                    <div style="font-size:11px;font-weight:800;color:#FB923C;letter-spacing:0.1em;text-transform:uppercase;margin-bottom:6px;">Narrative Film &bull; Jayant Balmiki</div>
+                    <h3 class="real-work-title">Sahiba &mdash; Cinematic Shoot &amp; Film</h3>
+                    <p class="real-work-desc">Rich emotional storytelling, subtle film halation, analog tone curve, and vintage warmth crafted for Sahiba.</p>
+                  </div>
+                  <div class="real-work-footer">
+                    <span style="color:#10B981;font-weight:800;font-size:11.5px;">&#10003; Jayant Master Edit</span>
+                    <span style="color:#F59E0B;font-weight:800;font-size:12px;letter-spacing:0.08em;text-transform:uppercase;">Watch Video &rarr;</span>
+                  </div>
+                </div>
+              </div>
+
+              <!-- 4. Balmiki Jayanti -->
+              <div class="real-work-card" onclick="openTheaterVideo('Balmiki Jayanti Mahotsav &mdash; Divine Festival Shobha Yatra', 'Vibrant cultural celebration edit featuring divine musical rhythm, ceremonial fire spark transitions, high-saturation color grading, and dynamic street procession energy.', '/assets/work_balmiki_jayanti.mp4', 'Cultural Festival Documentary', '&#128293; DIVINE FESTIVAL &#128293;')">
+                <div class="real-work-thumb">
+                  <video src="/assets/work_balmiki_jayanti.mp4" poster="/assets/thumb_work_balmiki_jayanti.jpg" muted loop playsinline preload="metadata" onmouseover="this.play().catch(function(){})" onmouseout="this.pause()"></video>
+                  <div style="position:absolute;top:10px;left:10px;padding:4px 10px;border-radius:999px;background:rgba(0,0,0,0.75);border:1px solid rgba(234,88,12,0.4);color:#FB923C;font-size:10px;font-weight:800;letter-spacing:0.08em;text-transform:uppercase;">
+                    &#9770; JAYANT EDIT #4
+                  </div>
+                  <div style="position:absolute;bottom:10px;right:10px;padding:3px 8px;border-radius:6px;background:rgba(0,0,0,0.85);color:#FFF;font-size:10px;font-weight:700;">
+                    9:16 Shobha Yatra
+                  </div>
+                </div>
+                <div class="real-work-body">
+                  <div>
+                    <div style="font-size:11px;font-weight:800;color:#FB923C;letter-spacing:0.1em;text-transform:uppercase;margin-bottom:6px;">Devotional Yatra &bull; Jayant Balmiki</div>
+                    <h3 class="real-work-title">Balmiki Jayanti &mdash; Divine Shobha Yatra</h3>
+                    <p class="real-work-desc">Vibrant cultural celebration edit featuring divine musical rhythm, ceremonial fire spark transitions, high-saturation color grading, and dynamic street procession energy.</p>
+                  </div>
+                  <div class="real-work-footer">
+                    <span style="color:#10B981;font-weight:800;font-size:11.5px;">&#10003; Jayant Master Edit</span>
+                    <span style="color:#F59E0B;font-weight:800;font-size:12px;letter-spacing:0.08em;text-transform:uppercase;">Watch Video &rarr;</span>
+                  </div>
+                </div>
+              </div>
+
+            </div>
+          </div>
+
         </div>
 
       </div>
     </section>
+
+    <script>
+      function selectPermanentClient(clientId) {
+        // Highlight active card
+        var cards = document.querySelectorAll('.perm-client-card');
+        cards.forEach(function(c) {
+          c.classList.remove('active');
+          c.style.border = '1.5px solid rgba(212, 175, 55, 0.25)';
+          c.style.boxShadow = 'none';
+        });
+
+        var activeCard = document.getElementById('permCard-' + clientId);
+        if (activeCard) {
+          activeCard.classList.add('active');
+          if (clientId === 'sorexa') {
+            activeCard.style.border = '2px solid #F59E0B';
+            activeCard.style.boxShadow = '0 10px 30px rgba(245, 158, 11, 0.25)';
+          } else if (clientId === 'farhan') {
+            activeCard.style.border = '2px solid #A855F7';
+            activeCard.style.boxShadow = '0 10px 30px rgba(168, 85, 247, 0.25)';
+          } else if (clientId === 'debolina') {
+            activeCard.style.border = '2px solid #EC4899';
+            activeCard.style.boxShadow = '0 10px 30px rgba(236, 72, 153, 0.25)';
+          } else if (clientId === 'jayant') {
+            activeCard.style.border = '2px solid #EA580C';
+            activeCard.style.boxShadow = '0 10px 30px rgba(234, 88, 12, 0.25)';
+          }
+        }
+
+        // Show corresponding vault view
+        var views = document.querySelectorAll('.client-vault-view');
+        views.forEach(function(v) {
+          v.style.display = 'none';
+        });
+
+        var targetVault = document.getElementById('vault-' + clientId);
+        if (targetVault) {
+          targetVault.style.display = 'block'; if (window.refreshScrollReveals) window.refreshScrollReveals();
+          // Smooth scroll to vault container
+          var container = document.getElementById('permanentClientVaultContainer');
+          if (container) {
+            container.scrollIntoView({ behavior: 'smooth', block: 'nearest' });
+          }
+        }
+      }
+    </script>
+
+
+
 
 
     <!-- SECTION 3: PRODUCTION PIPELINE WITH ELECTRIC BEAM -->
@@ -7699,154 +8364,225 @@
       
 
 <!-- 4-SOFTWARE INTERACTIVE BEFORE/AFTER DEMONSTRATION CONSOLE -->
-      <div class="software-demo-suite" id="softwareDemoSuite" style="margin-top: 50px; text-align: left;">
-        <span class="section-eyebrow" style="color: #00F2FE;">⚡ LIVE WORKFLOW DEMONSTRATION ⚡</span>
-        <h2 style="font-family: var(--serif); font-size: clamp(24px, 3.2vw, 36px); color: #FFF; margin: 8px 0 10px 0;">
+      <!-- 4-SOFTWARE INTERACTIVE BEFORE/AFTER DEMONSTRATION CONSOLE (2x2 SEPARATE DEDICATED SLIDERS) -->
+      <div class="software-demo-suite" id="softwareDemoSuite" style="margin-top: 60px; text-align: left;">
+        <span class="section-eyebrow" style="color: #00F2FE;">&#9889; 4-SUITE PRODUCTION ARSENAL &bull; LIVE WORKFLOW INSPECTOR &#9889;</span>
+        <h2 style="font-family: var(--serif); font-size: clamp(26px, 3.5vw, 40px); color: #FFF; margin: 8px 0 12px 0;">
           Inspect The 4-Software Craft (Before vs After)
         </h2>
-        <p style="color: var(--muted); font-size: clamp(14px, 1.3vw, 15.5px); max-width: 760px; margin: 0 0 26px 0; line-height: 1.6;">
-          Drag the center handle horizontally to inspect how flat camera footage is transformed through all 4 studio post-production suites. Click any software tab below to switch workflows in real time.
+        <p style="color: var(--muted); font-size: clamp(15px, 1.4vw, 17px); max-width: 900px; margin: 0 0 36px 0; line-height: 1.65;">
+          Every reel, film, and commercial at KRISHNA X EDITZ is sculpted across these 4 industry-standard post-production suites. Drag the center handles horizontally on each card below to inspect the real-time transformation.
         </p>
 
-        <!-- 4 SOFTWARE SELECTOR TABS -->
-        <div class="sw-demo-tabs-row" style="display: flex; gap: 10px; flex-wrap: wrap; margin-bottom: 24px;">
-          <button type="button" class="sw-tab-pill active" onclick="switchSoftwareDemo('davinci', this)">
-            <span>🎨 DaVinci Resolve Studio (Color Grading)</span>
-          </button>
-          <button type="button" class="sw-tab-pill" onclick="switchSoftwareDemo('ae', this)">
-            <span>⚡ Adobe After Effects (3D VFX &amp; Motion)</span>
-          </button>
-          <button type="button" class="sw-tab-pill" onclick="switchSoftwareDemo('premiere', this)">
-            <span>🎬 Adobe Premiere Pro (Timeline Assembly)</span>
-          </button>
-          <button type="button" class="sw-tab-pill" onclick="switchSoftwareDemo('capcut', this)">
-            <span>🚀 CapCut Desktop Pro (Viral 60FPS Flow)</span>
-          </button>
-        </div>
-
-        <!-- INTERACTIVE SLIDER CONTAINER -->
-        <div class="grading-slider-container" id="softwareDemoSlider" style="position:relative;width:100%;max-width:1080px;margin:10px 0 30px 0;aspect-ratio:16/9;border-radius:22px;overflow:hidden;border:1.5px solid rgba(212,175,55,0.4);box-shadow:0 25px 60px rgba(0,0,0,0.85), 0 0 30px rgba(0,242,254,0.15);user-select:none;touch-action:none;">
+        <!-- 2x2 SEPARATE DEDICATED SOFTWARE SHOWCASE GRID -->
+        <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(min(100%, 560px), 1fr)); gap: clamp(24px, 3vw, 36px); margin-bottom: 50px;">
           
-          <!-- Top Labels -->
-          <div id="swDemoRawBadge" style="position:absolute;top:16px;right:16px;padding:6px 14px;border-radius:999px;background:rgba(0,0,0,0.8);border:1px solid rgba(255,255,255,0.25);color:#9CA3AF;font-family:monospace;font-size:11px;font-weight:800;letter-spacing:0.1em;text-transform:uppercase;z-index:10;">
-            RAW FLAT S-LOG
-          </div>
-          <div id="swDemoGradeBadge" style="position:absolute;top:16px;left:16px;padding:6px 14px;border-radius:999px;background:rgba(245,158,11,0.95);color:#000;font-family:monospace;font-size:11px;font-weight:800;letter-spacing:0.1em;text-transform:uppercase;z-index:15;">
-            DAVINCI 3D LUT GRADE
+          <!-- SUITE 1: DAVINCI RESOLVE STUDIO -->
+          <div style="background: linear-gradient(145deg, rgba(28,21,14,0.95), rgba(18,13,8,0.98)); border: 1.5px solid rgba(245,158,11,0.4); border-radius: 22px; padding: clamp(20px, 2.5vw, 28px); box-shadow: 0 20px 50px rgba(0,0,0,0.7), 0 0 30px rgba(245,158,11,0.15); display: flex; flex-direction: column;">
+            <div style="display: flex; align-items: center; justify-content: space-between; flex-wrap: wrap; gap: 10px; margin-bottom: 16px;">
+              <div style="display: flex; align-items: center; gap: 12px;">
+                <div style="width: 44px; height: 44px; border-radius: 12px; background: rgba(245,158,11,0.15); border: 1px solid rgba(245,158,11,0.4); display: flex; align-items: center; justify-content: center; font-size: 20px;">
+                  &#127912;
+                </div>
+                <div>
+                  <h3 style="color: #FFF; font-family: var(--serif); font-size: 21px; margin: 0; line-height: 1.2;">DaVinci Resolve Studio</h3>
+                  <span style="color: #F59E0B; font-size: 11.5px; font-weight: 800; letter-spacing: 0.1em; text-transform: uppercase;">Studio 19 &bull; Hollywood Color Grading</span>
+                </div>
+              </div>
+              <span style="background: rgba(245,158,11,0.2); border: 1px solid #F59E0B; color: #FBBF24; padding: 4px 12px; border-radius: 999px; font-size: 11px; font-weight: 800; text-transform: uppercase;">Color Science</span>
+            </div>
+
+            <!-- Slider 1 -->
+            <div class="grading-slider-container sw-slider-box" id="sliderBoxDavinci" style="position:relative;width:100%;aspect-ratio:16/9;border-radius:16px;overflow:hidden;border:1.5px solid rgba(212,175,55,0.45);box-shadow:0 15px 35px rgba(0,0,0,0.8);user-select:none;touch-action:none;margin-bottom:16px;">
+              <div style="position:absolute;top:12px;right:12px;padding:4px 10px;border-radius:999px;background:rgba(0,0,0,0.85);border:1px solid rgba(255,255,255,0.25);color:#9CA3AF;font-family:monospace;font-size:10px;font-weight:800;letter-spacing:0.08em;text-transform:uppercase;z-index:10;">
+                RAW FLAT S-LOG
+              </div>
+              <div style="position:absolute;top:12px;left:12px;padding:4px 10px;border-radius:999px;background:rgba(245,158,11,0.95);color:#000;font-family:monospace;font-size:10px;font-weight:900;letter-spacing:0.08em;text-transform:uppercase;z-index:15;">
+                3D LUT GRADE
+              </div>
+              <!-- Before -->
+              <div style="position:absolute;inset:0;width:100%;height:100%;">
+                <img src="https://images.unsplash.com/photo-1492691527719-9d1e07e534b4?auto=format&fit=crop&w=1200&q=40" alt="Raw S-Log Flat" style="width:100%;height:100%;object-fit:cover;filter:grayscale(85%) brightness(1.2) contrast(0.65);">
+              </div>
+              <!-- After -->
+              <div class="sw-after-layer" id="afterDavinci" style="position:absolute;inset:0;width:50%;height:100%;overflow:hidden;border-right:2.5px solid #FFFFFF;">
+                <img src="https://images.unsplash.com/photo-1492691527719-9d1e07e534b4?auto=format&fit=crop&w=1200&q=95" alt="DaVinci Grade" style="width:800px;max-width:none;height:100%;object-fit:cover;">
+              </div>
+              <!-- Handle -->
+              <div class="sw-handle" id="handleDavinci" style="position:absolute;top:0;bottom:0;left:50%;width:36px;margin-left:-18px;cursor:ew-resize;z-index:25;display:flex;align-items:center;justify-content:center;">
+                <div style="width:34px;height:34px;border-radius:50%;background:#FFF;color:#000;display:flex;align-items:center;justify-content:center;box-shadow:0 4px 15px rgba(0,0,0,0.8), 0 0 10px rgba(245,158,11,0.6);font-size:13px;font-weight:900;">&#8644;</div>
+              </div>
+            </div>
+
+            <p style="color: var(--muted); font-size: 13.5px; line-height: 1.55; margin: 0 0 12px 0;">
+              Hollywood 35mm color grading, Kodak 2383 film print emulation, 32-bit floating point color space, skin-tone isolation, and HDR tone mapping.
+            </p>
+            <div style="display:flex;align-items:center;justify-content:space-between;padding-top:12px;border-top:1px dashed rgba(255,255,255,0.1);font-size:11.5px;color:#cfc3ac;">
+              <span>&#10003; 32-Bit Float Color Pipeline</span>
+              <span style="color:#00F2FE;font-weight:800;">DRAG TO COMPARE &rarr;</span>
+            </div>
           </div>
 
-          <!-- Bottom Description Strip -->
-          <div id="swDemoDescStrip" style="position:absolute;bottom:14px;left:18px;right:18px;padding:10px 18px;border-radius:12px;background:rgba(10,12,18,0.85);backdrop-filter:blur(10px);border:1px solid rgba(255,255,255,0.12);color:#d1d5db;font-size:13px;font-weight:600;z-index:15;display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:8px;">
-            <span id="swDemoDescText">DaVinci Resolve Studio 19: Hollywood 35mm color grading, Kodak 2383 film LUTs, skin-tone isolation &amp; HDR.</span>
-            <span style="color:#00F2FE;font-size:11.5px;font-weight:800;letter-spacing:0.06em;">← DRAG TO COMPARE →</span>
+          <!-- SUITE 2: ADOBE AFTER EFFECTS -->
+          <div style="background: linear-gradient(145deg, rgba(28,21,14,0.95), rgba(18,13,8,0.98)); border: 1.5px solid rgba(153,128,250,0.4); border-radius: 22px; padding: clamp(20px, 2.5vw, 28px); box-shadow: 0 20px 50px rgba(0,0,0,0.7), 0 0 30px rgba(153,128,250,0.15); display: flex; flex-direction: column;">
+            <div style="display: flex; align-items: center; justify-content: space-between; flex-wrap: wrap; gap: 10px; margin-bottom: 16px;">
+              <div style="display: flex; align-items: center; gap: 12px;">
+                <div style="width: 44px; height: 44px; border-radius: 12px; background: rgba(153,128,250,0.15); border: 1px solid rgba(153,128,250,0.4); display: flex; align-items: center; justify-content: center; font-size: 20px;">
+                  &#10024;
+                </div>
+                <div>
+                  <h3 style="color: #FFF; font-family: var(--serif); font-size: 21px; margin: 0; line-height: 1.2;">Adobe After Effects</h3>
+                  <span style="color: #9980FA; font-size: 11.5px; font-weight: 800; letter-spacing: 0.1em; text-transform: uppercase;">2026 Pro &bull; 3D VFX &amp; Kinetic Motion</span>
+                </div>
+              </div>
+              <span style="background: rgba(153,128,250,0.2); border: 1px solid #9980FA; color: #DCDDE1; padding: 4px 12px; border-radius: 999px; font-size: 11px; font-weight: 800; text-transform: uppercase;">VFX &amp; Motion</span>
+            </div>
+
+            <!-- Slider 2 -->
+            <div class="grading-slider-container sw-slider-box" id="sliderBoxAe" style="position:relative;width:100%;aspect-ratio:16/9;border-radius:16px;overflow:hidden;border:1.5px solid rgba(153,128,250,0.45);box-shadow:0 15px 35px rgba(0,0,0,0.8);user-select:none;touch-action:none;margin-bottom:16px;">
+              <div style="position:absolute;top:12px;right:12px;padding:4px 10px;border-radius:999px;background:rgba(0,0,0,0.85);border:1px solid rgba(255,255,255,0.25);color:#9CA3AF;font-family:monospace;font-size:10px;font-weight:800;letter-spacing:0.08em;text-transform:uppercase;z-index:10;">
+                RAW PLATE
+              </div>
+              <div style="position:absolute;top:12px;left:12px;padding:4px 10px;border-radius:999px;background:rgba(153,128,250,0.95);color:#FFF;font-family:monospace;font-size:10px;font-weight:900;letter-spacing:0.08em;text-transform:uppercase;z-index:15;">
+                3D VFX &amp; TITLES
+              </div>
+              <!-- Before -->
+              <div style="position:absolute;inset:0;width:100%;height:100%;">
+                <img src="https://images.unsplash.com/photo-1518709268805-4e9042af9f23?auto=format&fit=crop&w=1200&q=40" alt="Untracked plate" style="width:100%;height:100%;object-fit:cover;filter:grayscale(50%) brightness(0.9) contrast(0.85);">
+              </div>
+              <!-- After -->
+              <div class="sw-after-layer" id="afterAe" style="position:absolute;inset:0;width:50%;height:100%;overflow:hidden;border-right:2.5px solid #FFFFFF;">
+                <img src="https://images.unsplash.com/photo-1518709268805-4e9042af9f23?auto=format&fit=crop&w=1200&q=95" alt="After Effects 3D VFX" style="width:800px;max-width:none;height:100%;object-fit:cover;">
+              </div>
+              <!-- Handle -->
+              <div class="sw-handle" id="handleAe" style="position:absolute;top:0;bottom:0;left:50%;width:36px;margin-left:-18px;cursor:ew-resize;z-index:25;display:flex;align-items:center;justify-content:center;">
+                <div style="width:34px;height:34px;border-radius:50%;background:#FFF;color:#000;display:flex;align-items:center;justify-content:center;box-shadow:0 4px 15px rgba(0,0,0,0.8), 0 0 10px rgba(153,128,250,0.6);font-size:13px;font-weight:900;">&#8644;</div>
+              </div>
+            </div>
+
+            <p style="color: var(--muted); font-size: 13.5px; line-height: 1.55; margin: 0 0 12px 0;">
+              3D planar camera tracking, glowing cyberpunk HUD motion graphics, roto brush masking, kinetic typography, and physics-driven particle explosions.
+            </p>
+            <div style="display:flex;align-items:center;justify-content:space-between;padding-top:12px;border-top:1px dashed rgba(255,255,255,0.1);font-size:11.5px;color:#cfc3ac;">
+              <span>&#10003; 3D Planar Tracking &amp; Element 3D</span>
+              <span style="color:#00F2FE;font-weight:800;">DRAG TO COMPARE &rarr;</span>
+            </div>
           </div>
 
-          <!-- BEFORE LAYER (Right Side / Full Width) -->
-          <div style="position:absolute;inset:0;width:100%;height:100%;">
-            <img id="swDemoBeforeImg" src="https://images.unsplash.com/photo-1492691527719-9d1e07e534b4?auto=format&fit=crop&w=1200&q=40" alt="Before Footage" style="width:100%;height:100%;object-fit:cover;filter:grayscale(85%) brightness(1.2) contrast(0.65);">
+          <!-- SUITE 3: ADOBE PREMIERE PRO -->
+          <div style="background: linear-gradient(145deg, rgba(28,21,14,0.95), rgba(18,13,8,0.98)); border: 1.5px solid rgba(234,56,252,0.4); border-radius: 22px; padding: clamp(20px, 2.5vw, 28px); box-shadow: 0 20px 50px rgba(0,0,0,0.7), 0 0 30px rgba(234,56,252,0.15); display: flex; flex-direction: column;">
+            <div style="display: flex; align-items: center; justify-content: space-between; flex-wrap: wrap; gap: 10px; margin-bottom: 16px;">
+              <div style="display: flex; align-items: center; gap: 12px;">
+                <div style="width: 44px; height: 44px; border-radius: 12px; background: rgba(234,56,252,0.15); border: 1px solid rgba(234,56,252,0.4); display: flex; align-items: center; justify-content: center; font-size: 20px;">
+                  &#127916;
+                </div>
+                <div>
+                  <h3 style="color: #FFF; font-family: var(--serif); font-size: 21px; margin: 0; line-height: 1.2;">Adobe Premiere Pro</h3>
+                  <span style="color: #EA38FC; font-size: 11.5px; font-weight: 800; letter-spacing: 0.1em; text-transform: uppercase;">2026 Pro &bull; Multicam &amp; Assembly</span>
+                </div>
+              </div>
+              <span style="background: rgba(234,56,252,0.2); border: 1px solid #EA38FC; color: #FFF; padding: 4px 12px; border-radius: 999px; font-size: 11px; font-weight: 800; text-transform: uppercase;">Timeline Flow</span>
+            </div>
+
+            <!-- Slider 3 -->
+            <div class="grading-slider-container sw-slider-box" id="sliderBoxPremiere" style="position:relative;width:100%;aspect-ratio:16/9;border-radius:16px;overflow:hidden;border:1.5px solid rgba(234,56,252,0.45);box-shadow:0 15px 35px rgba(0,0,0,0.8);user-select:none;touch-action:none;margin-bottom:16px;">
+              <div style="position:absolute;top:12px;right:12px;padding:4px 10px;border-radius:999px;background:rgba(0,0,0,0.85);border:1px solid rgba(255,255,255,0.25);color:#9CA3AF;font-family:monospace;font-size:10px;font-weight:800;letter-spacing:0.08em;text-transform:uppercase;z-index:10;">
+                ROUGH CUT
+              </div>
+              <div style="position:absolute;top:12px;left:12px;padding:4px 10px;border-radius:999px;background:rgba(234,56,252,0.95);color:#FFF;font-family:monospace;font-size:10px;font-weight:900;letter-spacing:0.08em;text-transform:uppercase;z-index:15;">
+                RETENTION PACING
+              </div>
+              <!-- Before -->
+              <div style="position:absolute;inset:0;width:100%;height:100%;">
+                <img src="https://images.unsplash.com/photo-1574717024653-61fd2cf4d44d?auto=format&fit=crop&w=1200&q=40" alt="Uncut rush" style="width:100%;height:100%;object-fit:cover;filter:grayscale(40%) contrast(0.9);">
+              </div>
+              <!-- After -->
+              <div class="sw-after-layer" id="afterPremiere" style="position:absolute;inset:0;width:50%;height:100%;overflow:hidden;border-right:2.5px solid #FFFFFF;">
+                <img src="https://images.unsplash.com/photo-1574717024653-61fd2cf4d44d?auto=format&fit=crop&w=1200&q=95" alt="Premiere Timeline" style="width:800px;max-width:none;height:100%;object-fit:cover;">
+              </div>
+              <!-- Handle -->
+              <div class="sw-handle" id="handlePremiere" style="position:absolute;top:0;bottom:0;left:50%;width:36px;margin-left:-18px;cursor:ew-resize;z-index:25;display:flex;align-items:center;justify-content:center;">
+                <div style="width:34px;height:34px;border-radius:50%;background:#FFF;color:#000;display:flex;align-items:center;justify-content:center;box-shadow:0 4px 15px rgba(0,0,0,0.8), 0 0 10px rgba(234,56,252,0.6);font-size:13px;font-weight:900;">&#8644;</div>
+              </div>
+            </div>
+
+            <p style="color: var(--muted); font-size: 13.5px; line-height: 1.55; margin: 0 0 12px 0;">
+              High-velocity multi-cam switching, micro-beat audio snap alignment, dynamic whip transitions, L/J cut audio bridging, and sound foley immersion.
+            </p>
+            <div style="display:flex;align-items:center;justify-content:space-between;padding-top:12px;border-top:1px dashed rgba(255,255,255,0.1);font-size:11.5px;color:#cfc3ac;">
+              <span>&#10003; 8-Stem Audio Foley &amp; Beat Locking</span>
+              <span style="color:#00F2FE;font-weight:800;">DRAG TO COMPARE &rarr;</span>
+            </div>
           </div>
 
-          <!-- AFTER LAYER (Left Side / Clipped Width) -->
-          <div class="grading-after" id="swDemoAfterLayer" style="position:absolute;inset:0;width:50%;height:100%;overflow:hidden;border-right:2.5px solid #FFFFFF;">
-            <img id="swDemoAfterImg" src="https://images.unsplash.com/photo-1492691527719-9d1e07e534b4?auto=format&fit=crop&w=1200&q=95" alt="After Finished Post-Production" style="width:1080px;max-width:none;height:100%;object-fit:cover;">
-          </div>
+          <!-- SUITE 4: CAPCUT DESKTOP PRO -->
+          <div style="background: linear-gradient(145deg, rgba(28,21,14,0.95), rgba(18,13,8,0.98)); border: 1.5px solid rgba(0,242,254,0.4); border-radius: 22px; padding: clamp(20px, 2.5vw, 28px); box-shadow: 0 20px 50px rgba(0,0,0,0.7), 0 0 30px rgba(0,242,254,0.15); display: flex; flex-direction: column;">
+            <div style="display: flex; align-items: center; justify-content: space-between; flex-wrap: wrap; gap: 10px; margin-bottom: 16px;">
+              <div style="display: flex; align-items: center; gap: 12px;">
+                <div style="width: 44px; height: 44px; border-radius: 12px; background: rgba(0,242,254,0.15); border: 1px solid rgba(0,242,254,0.4); display: flex; align-items: center; justify-content: center; font-size: 20px;">
+                  &#9889;
+                </div>
+                <div>
+                  <h3 style="color: #FFF; font-family: var(--serif); font-size: 21px; margin: 0; line-height: 1.2;">CapCut Desktop Pro</h3>
+                  <span style="color: #00F2FE; font-size: 11.5px; font-weight: 800; letter-spacing: 0.1em; text-transform: uppercase;">Desktop Pro &bull; 60FPS Optical Flow</span>
+                </div>
+              </div>
+              <span style="background: rgba(0,242,254,0.2); border: 1px solid #00F2FE; color: #00F2FE; padding: 4px 12px; border-radius: 999px; font-size: 11px; font-weight: 800; text-transform: uppercase;">Viral Retention</span>
+            </div>
 
-          <!-- DRAG HANDLE -->
-          <div class="grading-handle" id="swDemoHandle" style="position:absolute;top:0;bottom:0;left:50%;width:44px;margin-left:-22px;cursor:ew-resize;z-index:25;display:flex;align-items:center;justify-content:center;">
-            <div style="width:40px;height:40px;border-radius:50%;background:#FFF;color:#000;display:flex;align-items:center;justify-content:center;box-shadow:0 4px 20px rgba(0,0,0,0.8), 0 0 15px rgba(0,242,254,0.6);font-size:15px;font-weight:900;">↔</div>
+            <!-- Slider 4 -->
+            <div class="grading-slider-container sw-slider-box" id="sliderBoxCapcut" style="position:relative;width:100%;aspect-ratio:16/9;border-radius:16px;overflow:hidden;border:1.5px solid rgba(0,242,254,0.45);box-shadow:0 15px 35px rgba(0,0,0,0.8);user-select:none;touch-action:none;margin-bottom:16px;">
+              <div style="position:absolute;top:12px;right:12px;padding:4px 10px;border-radius:999px;background:rgba(0,0,0,0.85);border:1px solid rgba(255,255,255,0.25);color:#9CA3AF;font-family:monospace;font-size:10px;font-weight:800;letter-spacing:0.08em;text-transform:uppercase;z-index:10;">
+                24FPS CHOPPY
+              </div>
+              <div style="position:absolute;top:12px;left:12px;padding:4px 10px;border-radius:999px;background:rgba(0,242,254,0.95);color:#000;font-family:monospace;font-size:10px;font-weight:900;letter-spacing:0.08em;text-transform:uppercase;z-index:15;">
+                60FPS OPTICAL FLOW
+              </div>
+              <!-- Before -->
+              <div style="position:absolute;inset:0;width:100%;height:100%;">
+                <img src="https://images.unsplash.com/photo-1534438327276-14e5300c3a48?auto=format&fit=crop&w=1200&q=40" alt="Standard 24FPS" style="width:100%;height:100%;object-fit:cover;filter:contrast(0.85) brightness(0.9);">
+              </div>
+              <!-- After -->
+              <div class="sw-after-layer" id="afterCapcut" style="position:absolute;inset:0;width:50%;height:100%;overflow:hidden;border-right:2.5px solid #FFFFFF;">
+                <img src="https://images.unsplash.com/photo-1534438327276-14e5300c3a48?auto=format&fit=crop&w=1200&q=95" alt="60FPS Optical Flow" style="width:800px;max-width:none;height:100%;object-fit:cover;">
+              </div>
+              <!-- Handle -->
+              <div class="sw-handle" id="handleCapcut" style="position:absolute;top:0;bottom:0;left:50%;width:36px;margin-left:-18px;cursor:ew-resize;z-index:25;display:flex;align-items:center;justify-content:center;">
+                <div style="width:34px;height:34px;border-radius:50%;background:#FFF;color:#000;display:flex;align-items:center;justify-content:center;box-shadow:0 4px 15px rgba(0,0,0,0.8), 0 0 10px rgba(0,242,254,0.6);font-size:13px;font-weight:900;">&#8644;</div>
+              </div>
+            </div>
+
+            <p style="color: var(--muted); font-size: 13.5px; line-height: 1.55; margin: 0 0 12px 0;">
+              Optical flow frame-blended 60FPS buttery slow motion, dynamic word-by-word bouncing viral auto-captions, and micro-hook retention pacing.
+            </p>
+            <div style="display:flex;align-items:center;justify-content:space-between;padding-top:12px;border-top:1px dashed rgba(255,255,255,0.1);font-size:11.5px;color:#cfc3ac;">
+              <span>&#10003; 60FPS Frame Interpolation &amp; Kinetic Subs</span>
+              <span style="color:#00F2FE;font-weight:800;">DRAG TO COMPARE &rarr;</span>
+            </div>
           </div>
 
         </div>
       </div>
 
       <script>
-        var swDemos = {
-          davinci: {
-            gradeBadge: 'DAVINCI 3D LUT GRADE',
-            gradeBg: 'rgba(245,158,11,0.95)',
-            gradeColor: '#000',
-            rawBadge: 'RAW FLAT S-LOG',
-            afterImg: 'https://images.unsplash.com/photo-1492691527719-9d1e07e534b4?auto=format&fit=crop&w=1200&q=95',
-            beforeImg: 'https://images.unsplash.com/photo-1492691527719-9d1e07e534b4?auto=format&fit=crop&w=1200&q=40',
-            beforeFilter: 'grayscale(85%) brightness(1.2) contrast(0.65)',
-            desc: 'DaVinci Resolve Studio 19: Hollywood 35mm color grading, Kodak 2383 film LUTs, skin-tone isolation & HDR.'
-          },
-          ae: {
-            gradeBadge: 'AFTER EFFECTS 3D VFX & KINETIC TITLES',
-            gradeBg: 'rgba(153, 128, 250, 0.95)',
-            gradeColor: '#FFF',
-            rawBadge: 'RAW UNTRACKED CAMERA PLATE',
-            afterImg: 'https://images.unsplash.com/photo-1518709268805-4e9042af9f23?auto=format&fit=crop&w=1200&q=95',
-            beforeImg: 'https://images.unsplash.com/photo-1518709268805-4e9042af9f23?auto=format&fit=crop&w=1200&q=40',
-            beforeFilter: 'grayscale(50%) brightness(0.9) contrast(0.85)',
-            desc: 'Adobe After Effects 2026: 3D planar camera tracking, kinetic typography, neon HUD graphics, and velocity curves.'
-          },
-          premiere: {
-            gradeBadge: 'PREMIERE PRO RETENTION TIMELINE',
-            gradeBg: 'rgba(234, 56, 252, 0.95)',
-            gradeColor: '#FFF',
-            rawBadge: 'UNPULSED ROUGH CUT',
-            afterImg: 'https://images.unsplash.com/photo-1574717024653-61fd2cf4d44d?auto=format&fit=crop&w=1200&q=95',
-            beforeImg: 'https://images.unsplash.com/photo-1574717024653-61fd2cf4d44d?auto=format&fit=crop&w=1200&q=40',
-            beforeFilter: 'grayscale(40%) contrast(0.9)',
-            desc: 'Adobe Premiere Pro 2026: Multi-camera synchronized switching, micro-beat audio foley & narrative retention flow.'
-          },
-          capcut: {
-            gradeBadge: 'CAPCUT 60FPS OPTICAL FLOW & VIRAL HOOKS',
-            gradeBg: 'rgba(0, 242, 254, 0.95)',
-            gradeColor: '#000',
-            rawBadge: 'STANDARD 24FPS CHOPPY',
-            afterImg: 'https://images.unsplash.com/photo-1534438327276-14e5300c3a48?auto=format&fit=crop&w=1200&q=95',
-            beforeImg: 'https://images.unsplash.com/photo-1534438327276-14e5300c3a48?auto=format&fit=crop&w=1200&q=40',
-            beforeFilter: 'contrast(0.85) brightness(0.9)',
-            desc: 'CapCut Desktop Pro: Optical flow 60FPS buttery slow-motion, dynamic auto-captions, and viral short-form retention.'
-          }
-        };
+        // Interactive Live Sliders for all 4 software suites
+        ['Davinci', 'Ae', 'Premiere', 'Capcut'].forEach(function(key) {
+          var box = document.getElementById('sliderBox' + key);
+          var handle = document.getElementById('handle' + key);
+          var layer = document.getElementById('after' + key);
+          if (!box || !handle || !layer) return;
 
-        function switchSoftwareDemo(key, btn) {
-          document.querySelectorAll('.sw-tab-pill').forEach(function(b) { b.classList.remove('active'); });
-          if (btn) btn.classList.add('active');
-          var data = swDemos[key];
-          if (!data) return;
-
-          var gradeBadge = document.getElementById('swDemoGradeBadge');
-          var rawBadge = document.getElementById('swDemoRawBadge');
-          var afterImg = document.getElementById('swDemoAfterImg');
-          var beforeImg = document.getElementById('swDemoBeforeImg');
-          var descText = document.getElementById('swDemoDescText');
-
-          if (gradeBadge) {
-            gradeBadge.textContent = data.gradeBadge;
-            gradeBadge.style.background = data.gradeBg;
-            gradeBadge.style.color = data.gradeColor;
-          }
-          if (rawBadge) rawBadge.textContent = data.rawBadge;
-          if (descText) descText.textContent = data.desc;
-          if (afterImg) afterImg.src = data.afterImg;
-          if (beforeImg) {
-            beforeImg.src = data.beforeImg;
-            beforeImg.style.filter = data.beforeFilter;
-          }
-        }
-
-        // Live Slider Drag Controller
-        (function() {
-          var container = document.getElementById('softwareDemoSlider');
-          if (!container) return;
-          var handle = document.getElementById('swDemoHandle');
-          var afterLayer = document.getElementById('swDemoAfterLayer');
           var isDragging = false;
-
           function update(clientX) {
-            var rect = container.getBoundingClientRect();
+            var rect = box.getBoundingClientRect();
             var posX = clientX - rect.left;
             posX = Math.max(0, Math.min(posX, rect.width));
             var percent = (posX / rect.width) * 100;
-            if (handle) handle.style.left = percent + '%';
-            if (afterLayer) afterLayer.style.width = percent + '%';
+            handle.style.left = percent + '%';
+            layer.style.width = percent + '%';
           }
 
-          container.addEventListener('pointerdown', function(e) {
+          box.addEventListener('pointerdown', function(e) {
             isDragging = true;
             update(e.clientX);
             window.addEventListener('pointermove', onMove);
@@ -7859,7 +8595,7 @@
             window.removeEventListener('pointermove', onMove);
             window.removeEventListener('pointerup', onUp);
           }
-        })();
+        });
       </script>
 
 
@@ -7869,7 +8605,7 @@
 
 
     <!-- SECTION 4: CLIENT REVIEWS -->
-    <section class="section" id="reviews-section">
+    <section class="section" id="reviews-section" data-section-alias="reviews">
       <div class="container">
         
         <!-- SOREXA TECH OFFICIAL CLIENT & PARTNER SHOWCASE CARD -->
@@ -8281,20 +9017,151 @@
   <div class="blossom-field" id="blossomField" aria-hidden="true"></div>
 
   <!-- Fullscreen Menu Layer -->
+    <!-- Fullscreen Universal Navigation Layer (All Sections Accessible) -->
   <nav class="menu-layer" id="menuLayer" aria-label="Primary Navigation">
-    <ul class="menu-list">
-      <li><a class="menu-link" href="/services">Our Services</a></li>
-      <li><a class="menu-link" href="/portfolio">Portfolio</a></li>
-      <li><a class="menu-link" href="/pricing">Pricing &amp; Packages</a></li>
-      <li><a class="menu-link" href="/about">About Krishna</a></li>
-      <li><a class="menu-link" href="/founder">Founder Profile</a></li>
-      <li><a class="menu-link" href="/skills">Editing Capabilities</a></li>
-      <li><a class="menu-link" href="/testimonials">Client Reviews</a></li>
-      <li><a class="menu-link" href="/contact">Contact &amp; Bookings</a></li>
-      <li><a class="menu-link" href="/faq">FAQ</a></li>
-      <li><a class="menu-link" href="https://www.sorexatech.com/" target="_blank" rel="noopener noreferrer" style="color:var(--cyan-neon); font-size: clamp(22px, 3vw, 38px);">Sorexa Tech Official ↗</a></li>
-      <li><a class="menu-link" href="#" onclick="openAdminPortal();" style="color: #ffd700; font-size: clamp(20px, 2.6vw, 32px);">👑 Admin Command Portal</a></li>
-    </ul>
+    <div class="menu-layer-container">
+      <div class="menu-layer-header">
+        <div class="menu-layer-brand">
+          <img src="assets/logo.svg" alt="KXE Logo" width="28" height="28" style="filter: drop-shadow(0 0 8px #ffd700);">
+          <div>
+            <span class="menu-brand-title">KRISHNA <span>X</span> EDITZ</span>
+            <span class="menu-brand-sub">✦ COMPLETE STUDIO ARCHIVE ✦</span>
+          </div>
+        </div>
+        <button type="button" class="menu-layer-close-btn"  aria-label="Close menu">✕</button>
+      </div>
+
+      <div class="menu-sections-grid">
+        <!-- 1. Home Stage -->
+        <a href="#heroStage" class="menu-card-link" onclick="handleMenuNav(event, 'heroStage', '/')">
+          <span class="m-icon">🏠</span>
+          <div class="m-info">
+            <span class="m-title">Studio Home</span>
+            <span class="m-desc">3D Origami &amp; Hero Showcase</span>
+          </div>
+          <span class="m-arrow">→</span>
+        </a>
+
+        <!-- 2. Portfolio / Real Works -->
+        <a href="#works-section" class="menu-card-link highlight-gold" onclick="handleMenuNav(event, 'works-section', '/portfolio')">
+          <span class="m-icon">🎬</span>
+          <div class="m-info">
+            <div style="display:flex;align-items:center;gap:6px;">
+              <span class="m-title">Curated Portfolio</span>
+              <span class="m-badge">12+ 4K Videos</span>
+            </div>
+            <span class="m-desc">Viral Reels, YouTube, Commercials</span>
+          </div>
+          <span class="m-arrow">→</span>
+        </a>
+
+        <!-- 3. Services & Capabilities -->
+        <a href="#sec-services" class="menu-card-link" onclick="handleMenuNav(event, 'sec-services', '/services')">
+          <span class="m-icon">⚡</span>
+          <div class="m-info">
+            <span class="m-title">Services &amp; Capabilities</span>
+            <span class="m-desc">Sound Design, Color Grade, FX</span>
+          </div>
+          <span class="m-arrow">→</span>
+        </a>
+
+        <!-- 4. Pricing & Retainers -->
+        <a href="#pricing-section" class="menu-card-link highlight-amber" onclick="handleMenuNav(event, 'pricing-section', '/pricing')">
+          <span class="m-icon">💰</span>
+          <div class="m-info">
+            <div style="display:flex;align-items:center;gap:6px;">
+              <span class="m-title">Pricing &amp; Retainers</span>
+              <span class="m-badge badge-sale">15% OFF</span>
+            </div>
+            <span class="m-desc">Flexible &amp; Bargainable Rates</span>
+          </div>
+          <span class="m-arrow">→</span>
+        </a>
+
+        <!-- 5. Founder / About -->
+        <a href="#about-section" class="menu-card-link" onclick="handleMenuNav(event, 'about-section', '/founder')">
+          <span class="m-icon">👑</span>
+          <div class="m-info">
+            <span class="m-title">About Krishna (Founder)</span>
+            <span class="m-desc">Cinematic Storytelling &amp; Architect</span>
+          </div>
+          <span class="m-arrow">→</span>
+        </a>
+
+        <!-- 6. Permanent Clients -->
+        <a href="#permanent-clients-section" class="menu-card-link" onclick="handleMenuNav(event, 'permanent-clients-section')">
+          <span class="m-icon">🤝</span>
+          <div class="m-info">
+            <span class="m-title">Permanent Clients</span>
+            <span class="m-desc">Verified Creators &amp; Commercial Brands</span>
+          </div>
+          <span class="m-arrow">→</span>
+        </a>
+
+        <!-- 7. 5-Stage Editing Pipeline -->
+        <a href="#pipeline-section" class="menu-card-link" onclick="handleMenuNav(event, 'pipeline-section')">
+          <span class="m-icon">⚙️</span>
+          <div class="m-info">
+            <span class="m-title">5-Stage Editing Pipeline</span>
+            <span class="m-desc">Ingest, Cut, Sound, Grade, Delivery</span>
+          </div>
+          <span class="m-arrow">→</span>
+        </a>
+
+        <!-- 8. Editing Arsenal & Software -->
+        <a href="#software-section" class="menu-card-link" onclick="handleMenuNav(event, 'software-section')">
+          <span class="m-icon">🖥️</span>
+          <div class="m-info">
+            <span class="m-title">Software &amp; Rig Arsenal</span>
+            <span class="m-desc">Premiere, DaVinci, After Effects</span>
+          </div>
+          <span class="m-arrow">→</span>
+        </a>
+
+        <!-- 9. Reviews & Testimonials -->
+        <a href="#reviews-section" class="menu-card-link" onclick="handleMenuNav(event, 'reviews-section', '/testimonials')">
+          <span class="m-icon">⭐</span>
+          <div class="m-info">
+            <div style="display:flex;align-items:center;gap:6px;">
+              <span class="m-title">Client Reviews</span>
+              <span class="m-badge">4.9 ★ Rating</span>
+            </div>
+            <span class="m-desc">Wall of Love &amp; Client Feedback</span>
+          </div>
+          <span class="m-arrow">→</span>
+        </a>
+
+        <!-- 10. Submit Project Brief -->
+        <a href="#" class="menu-card-link highlight-cta" onclick="handleMenuAction(event, 'booking')">
+          <span class="m-icon">📩</span>
+          <div class="m-info">
+            <span class="m-title">Submit Project Brief</span>
+            <span class="m-desc">Commission Video / Get Instant Quote</span>
+          </div>
+          <span class="m-arrow">↗</span>
+        </a>
+
+        <!-- 11. WhatsApp Direct -->
+        <a href="https://wa.me/918449495147?text=Hi%20Krishna!%20I%20am%20interested%20in%20video%20editing%20services." target="_blank" rel="noopener noreferrer" class="menu-card-link highlight-wa" onclick="handleMenuAction(event, 'whatsapp')">
+          <span class="m-icon">💬</span>
+          <div class="m-info">
+            <span class="m-title">WhatsApp Krishna Direct</span>
+            <span class="m-desc">+91 84494 95147 (Instant Reply)</span>
+          </div>
+          <span class="m-arrow">↗</span>
+        </a>
+
+        <!-- 12. Admin Studio Portal -->
+        <a href="#" class="menu-card-link" onclick="handleMenuAction(event, 'admin')">
+          <span class="m-icon">🔒</span>
+          <div class="m-info">
+            <span class="m-title">Admin Studio Portal</span>
+            <span class="m-desc">Analytics, Festivals, Bookings (PIN: 8090)</span>
+          </div>
+          <span class="m-arrow">🔐</span>
+        </a>
+      </div>
+    </div>
   </nav>
 
   <!-- ========================================================
@@ -8930,12 +9797,19 @@
       updateBackBtnVisibility();
     }
 
-    // Sticky Topbar on Scroll
+    // Sticky Topbar on Scroll (60fps/120fps RAF Throttled & Passive)
+    let topbarTicking = false;
     window.addEventListener('scroll', () => {
-      if (window.scrollY > 40) {
-        topbar.classList.add('scrolled');
-      } else {
-        topbar.classList.remove('scrolled');
+      if (!topbarTicking) {
+        topbarTicking = true;
+        requestAnimationFrame(() => {
+          if (window.scrollY > 40) {
+            topbar.classList.add('scrolled');
+          } else {
+            topbar.classList.remove('scrolled');
+          }
+          topbarTicking = false;
+        });
       }
     }, { passive: true });
 
@@ -10025,7 +10899,7 @@ ${payload.project_brief || 'None specified'}
           }
           scrollContainer.innerHTML = `
             <!-- Section 1: Services Catalogue -->
-            <section class="doc-section" id="sec-services">
+            <section class="doc-section" id="sec-services" data-section-alias="services">
               <h3 class="doc-label">✦ ${data.label}</h3>
               <ol class="doc-steps">
                 ${data.services.map(s => `
@@ -10308,11 +11182,15 @@ ${payload.project_brief || 'None specified'}
     });
 
     // Menu toggle
-    menuBtn.addEventListener('click', () => {
-      const isOpen = body.getAttribute('data-menu') === 'open';
-      body.setAttribute('data-menu', isOpen ? 'closed' : 'open');
-      menuBtn.setAttribute('aria-expanded', !isOpen);
-      updateBackBtnVisibility();
+    menuBtn.addEventListener('click', (e) => {
+      if (window.toggleUniversalMobileNav) {
+        window.toggleUniversalMobileNav(e);
+      } else {
+        const isOpen = body.getAttribute('data-menu') === 'open';
+        body.setAttribute('data-menu', isOpen ? 'closed' : 'open');
+        menuBtn.setAttribute('aria-expanded', !isOpen);
+        updateBackBtnVisibility();
+      }
     });
 
     document.querySelectorAll('.menu-link').forEach(link => {
@@ -11722,5 +12600,171 @@ ${payload.project_brief || 'None specified'}
     document.addEventListener('DOMContentLoaded', loadHomeReviews);
   </script>
   <script src="assets/studio-interactive.js"></script>
+
+  <!-- UNIVERSAL CLIENT SECTION SHARER MODAL -->
+  <div id="sectionShareModal" style="display: none; position: fixed; inset: 0; z-index: 999999; background: rgba(8,6,4,0.88); backdrop-filter: blur(16px); align-items: center; justify-content: center; padding: 18px;">
+    <div style="background: linear-gradient(145deg, #18130d 0%, #100c08 100%); border: 1.5px solid rgba(212,175,55,0.45); border-radius: 22px; width: min(480px, 94vw); padding: 26px 22px; box-shadow: 0 25px 70px rgba(0,0,0,0.9), 0 0 35px rgba(245,158,11,0.2); position: relative;">
+      
+      <div style="display: flex; align-items: center; justify-content: space-between; margin-bottom: 14px;">
+        <div style="display: flex; align-items: center; gap: 8px;">
+          <span style="font-size: 22px;">🔗</span>
+          <h3 style="font-family: var(--serif); font-size: 19px; color: #FFF; margin: 0;" id="shareModalTitle">Share Section Direct Link</h3>
+        </div>
+        <button type="button" onclick="closeSectionShareModal()" style="background: none; border: none; color: #9CA3AF; font-size: 22px; cursor: pointer; padding: 4px 8px;">&times;</button>
+      </div>
+
+      <p style="color: var(--muted); font-size: 13px; line-height: 1.5; margin-bottom: 18px;" id="shareModalDesc">
+        Send this direct link to your client on WhatsApp. When they open it, it will jump straight to this exact section!
+      </p>
+
+      <!-- LINK INPUT WITH COPY -->
+      <div style="display: flex; gap: 8px; margin-bottom: 16px;">
+        <input type="text" id="shareDirectUrlInput" readonly style="flex: 1; background: #0c0906; border: 1px solid rgba(212,175,55,0.4); border-radius: 10px; padding: 10px 14px; color: #FBBF24; font-family: monospace; font-size: 13px; outline: none;">
+        <button type="button" onclick="copySectionDirectLink()" style="background: #F59E0B; color: #000; font-weight: 800; font-size: 12.5px; border: none; border-radius: 10px; padding: 0 16px; cursor: pointer; transition: all 200ms;">
+          📋 Copy
+        </button>
+      </div>
+
+      <!-- WHATSAPP SHARE BUTTON -->
+      <a id="btnShareWhatsAppDirect" href="#" target="_blank" style="display: flex; align-items: center; justify-content: center; gap: 8px; width: 100%; padding: 12px; border-radius: 12px; background: #25D366; color: #FFF; font-weight: 800; font-size: 14px; text-decoration: none; box-shadow: 0 6px 20px rgba(37,211,102,0.35); box-sizing: border-box; margin-bottom: 10px;">
+        <span>💬 Send Directly on WhatsApp</span>
+      </a>
+
+      <!-- DEDICATED FULL PAGE ALTERNATIVE -->
+      <a id="btnShareDedicatedPage" href="#" target="_blank" style="display: flex; align-items: center; justify-content: center; gap: 6px; width: 100%; padding: 9px; border-radius: 10px; background: rgba(255,255,255,0.06); border: 1px solid rgba(255,255,255,0.15); color: #E5E7EB; font-weight: 700; font-size: 12px; text-decoration: none; box-sizing: border-box;">
+        <span>↗ Open Standalone Page</span>
+      </a>
+
+      <div id="shareCopyToast" style="display: none; margin-top: 12px; padding: 8px 12px; border-radius: 8px; background: rgba(34,197,94,0.2); border: 1px solid #22C55E; color: #4ADE80; font-size: 12px; text-align: center; font-weight: 700;">
+        ✅ Direct Link Copied to Clipboard! Ready to paste on WhatsApp.
+      </div>
+
+    </div>
+  </div>
+
+  <script>
+    // DIRECT SECTION SHARING ENGINE & HASH ROUTING
+    const KXE_SECTIONS = {
+      portfolio: {
+        name: 'Curated Video Portfolio',
+        targetId: 'works-section',
+        pageUrl: '/pages/portfolio.html',
+        waText: 'Hi! Here is the official Video Editing Portfolio of Krishna Katiyar:'
+      },
+      works: {
+        name: 'Curated Video Portfolio',
+        targetId: 'works-section',
+        pageUrl: '/pages/portfolio.html',
+        waText: 'Hi! Check out my Video Editing Portfolio & Recent Commercial Works:'
+      },
+      services: {
+        name: 'Video Editing Services & Capabilities',
+        targetId: 'sec-services',
+        pageUrl: '/pages/services.html',
+        waText: 'Hi! Check out my Video Editing Services & Production Capabilities:'
+      },
+      pricing: {
+        name: 'Pricing Rates & Monthly Retainers',
+        targetId: 'pricing-section',
+        pageUrl: '/pages/pricing.html',
+        waText: 'Hi! Check out the Video Editing Rates & Retainer Packages:'
+      },
+      about: {
+        name: 'Krishna Katiyar (Founder & Architect)',
+        targetId: 'about-section',
+        pageUrl: '/pages/founder.html',
+        waText: 'Hi! Learn more about Krishna Katiyar & KRISHNA X EDITZ:'
+      },
+      reviews: {
+        name: 'Client Reviews & Wall of Love',
+        targetId: 'reviews-section',
+        pageUrl: '/#reviews',
+        waText: 'Hi! Read client reviews and testimonials for KRISHNA X EDITZ:'
+      },
+      contact: {
+        name: 'Submit Creative Project Brief',
+        targetId: 'contact-section',
+        pageUrl: '/pages/contact.html',
+        waText: 'Hi! Submit your video project brief directly to Krishna:'
+      }
+    };
+
+    function openSectionSharer(secKey) {
+      const data = KXE_SECTIONS[secKey] || KXE_SECTIONS.portfolio;
+      const modal = document.getElementById('sectionShareModal');
+      const title = document.getElementById('shareModalTitle');
+      const desc = document.getElementById('shareModalDesc');
+      const input = document.getElementById('shareDirectUrlInput');
+      const waBtn = document.getElementById('btnShareWhatsAppDirect');
+      const pageBtn = document.getElementById('btnShareDedicatedPage');
+
+      // Create full link with current origin
+      const origin = window.location.origin;
+      const directUrl = `${origin}/#${secKey}`;
+      const standaloneUrl = `${origin}${data.pageUrl}`;
+
+      if (title) title.textContent = `Share ${data.name}`;
+      if (desc) desc.textContent = `Send this direct link to your client. When they click it, the website opens directly at ${data.name}!`;
+      if (input) input.value = directUrl;
+
+      if (waBtn) {
+        const fullMsg = `${data.waText} ${directUrl}`;
+        waBtn.href = `https://api.whatsapp.com/send?text=${encodeURIComponent(fullMsg)}`;
+      }
+
+      if (pageBtn) {
+        pageBtn.href = standaloneUrl;
+        pageBtn.textContent = `↗ Open Dedicated Full Page (${data.pageUrl})`;
+      }
+
+      const toast = document.getElementById('shareCopyToast');
+      if (toast) toast.style.display = 'none';
+
+      if (modal) modal.style.display = 'flex';
+    }
+
+    function closeSectionShareModal() {
+      const modal = document.getElementById('sectionShareModal');
+      if (modal) modal.style.display = 'none';
+    }
+
+    function copySectionDirectLink() {
+      const input = document.getElementById('shareDirectUrlInput');
+      if (input) {
+        input.select();
+        input.setSelectionRange(0, 99999);
+        navigator.clipboard.writeText(input.value).then(() => {
+          const toast = document.getElementById('shareCopyToast');
+          if (toast) {
+            toast.style.display = 'block';
+            setTimeout(() => { toast.style.display = 'none'; }, 3500);
+          }
+        });
+      }
+    }
+
+    // Auto-scroll when URL contains hash like /#portfolio, /#services, /#pricing, /#about
+    function checkDirectSectionHash() {
+      const hash = (window.location.hash || '').replace('#', '').toLowerCase();
+      if (!hash) return;
+
+      const mapped = KXE_SECTIONS[hash];
+      const targetId = mapped ? mapped.targetId : hash;
+      const targetEl = document.getElementById(targetId) || document.getElementById(hash) || document.getElementById(hash + '-section') || document.getElementById('sec-' + hash);
+
+      if (targetEl) {
+        setTimeout(() => {
+          targetEl.scrollIntoView({ behavior: 'smooth', block: 'start' });
+          targetEl.style.transition = 'box-shadow 0.6s ease';
+          targetEl.style.boxShadow = '0 0 40px rgba(245, 158, 11, 0.4)';
+          setTimeout(() => { targetEl.style.boxShadow = ''; }, 2000);
+        }, 350);
+      }
+    }
+
+    window.addEventListener('DOMContentLoaded', checkDirectSectionHash);
+    window.addEventListener('hashchange', checkDirectSectionHash);
+  </script>
+
 </body>
 </html>
