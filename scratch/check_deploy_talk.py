@@ -1,11 +1,12 @@
 import json
 
-with open(r'C:\Users\Acer\.gemini\antigravity-ide\brain\48c0cc4c-fb95-4575-b76a-64a898342b10\.system_generated\logs\transcript.jsonl', 'r', encoding='utf-8') as f:
+with open(r'C:\Users\Acer\.gemini\antigravity\brain\cc4d80f8-2262-45b7-8b19-c83c83812f84\.system_generated\logs\transcript.jsonl', 'r', encoding='utf-8') as f:
     for i, line in enumerate(f):
-        if i in [789, 793, 794, 795, 820]:
+        if 628 <= i <= 645:
             try:
                 obj = json.loads(line)
-                print(f"=== STEP {i} ({obj.get('type')}) ===")
-                print(obj.get('content'))
+                c = obj.get('content', '')
+                if c:
+                    print(f"[{i}] {obj.get('source')}: {c[:140]}")
             except:
                 pass
