@@ -7025,7 +7025,7 @@
 
       <!-- SOREXA-STYLE RIGHT ACTIONS -->
       <div class="studio-actions-wrap" style="display: flex; align-items: center; gap: 14px;">
-                <a href="/admin" class="studio-header-admin" id="adminPortalBtn" title="Admin Command Center (PIN: 8090)" aria-label="Admin Portal" onclick="if(window.openAdminPortal){ event.preventDefault(); openAdminPortal(); }">
+                <a href="/admin" class="studio-header-admin" id="adminPortalBtn" title="Admin Command Center" aria-label="Admin Portal" onclick="if(window.openAdminPortal){ event.preventDefault(); openAdminPortal(); }">
           <span class="admin-crown-icon">👑</span>
           <span class="admin-text-label">Admin</span>
         </a>
@@ -9182,7 +9182,7 @@
           <span class="m-icon">🔒</span>
           <div class="m-info">
             <span class="m-title">Admin Studio Portal</span>
-            <span class="m-desc">Analytics, Festivals, Bookings (PIN: 8090)</span>
+            <span class="m-desc">Analytics, Festivals, Bookings (Protected)</span>
           </div>
           <span class="m-arrow">🔐</span>
         </a>
@@ -9284,7 +9284,7 @@
             </svg>
             Sync
           </button>
-          <a href="http://localhost:3000/admin" target="_blank" class="btn-live-site" style="padding: 6px 14px; font-size: 11px; text-decoration: none;">Open Full Page &nearr;</a>
+          <a href="/admin" target="_blank" class="btn-live-site" style="padding: 6px 14px; font-size: 11px; text-decoration: none;">Open Full Page &nearr;</a>
         </div>
       </div>
 
@@ -9299,7 +9299,7 @@
           
           <input type="password" id="adminPinInput" class="pin-input" maxlength="4" placeholder="••••" onkeydown="if(event.key==='Enter') unlockAdminPortal()">
           <button class="btn-unlock" onclick="unlockAdminPortal()">Unlock Command Center &rarr;</button>
-          <p style="margin-top: 14px; font-size: 11.5px; color: var(--gold-foil); cursor: pointer;" onclick="quickUnlock()">[🔑 Studio Admin PIN: <strong>8090</strong> • Click to Auto-Unlock]</p>
+          
         </div>
 
         <!-- View 2: Unlocked Command Center -->
@@ -10102,16 +10102,13 @@ ${payload.project_brief || 'None specified'}
         playTone(620, 'sine', 0.25, 0.06);
         loadEmbeddedAdminData();
       } else {
-        alert('Incorrect Admin PIN. Please enter the valid 4-digit Studio PIN (8090).');
+        alert('Incorrect Admin PIN. Incorrect Security PIN. Access denied.');
         document.getElementById('adminPinInput').value = '';
         document.getElementById('adminPinInput').focus();
       }
     }
 
-    function quickUnlock() {
-      document.getElementById('adminPinInput').value = '8090';
-      unlockAdminPortal();
-    }
+    
 
     async function loadEmbeddedAdminData() {
       // 1. Fetch Stats from backend if online
