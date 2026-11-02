@@ -109,6 +109,20 @@
       "pageviews": 73,
       "first_visit": "2026-11-01T07:04:34.081Z",
       "last_visit": "2026-11-01T15:22:44.754Z"
+    },
+    {
+      "id": 5,
+      "visitor_token": "127.0.0.1_Windows",
+      "date": "2026-11-02",
+      "ip": "127.0.0.1",
+      "user_agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/156.0.0.0 Safari/537.36",
+      "device_type": "💻 Desktop (Windows)",
+      "browser": "Chrome",
+      "screen_res": "Unknown",
+      "referrer": "Direct Visit",
+      "pageviews": 3,
+      "first_visit": "2026-11-02T05:07:35.827Z",
+      "last_visit": "2026-11-02T05:17:09.588Z"
     }
   ],
   "reviews": [
