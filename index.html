@@ -7060,22 +7060,24 @@
       <!-- Animated Canvas: 60-frame sprite from origami doll sequence -->
       <video 
         src="assets/hero_doll_cinematic_1080p.mp4" 
+        poster="assets/hero_origami_masterpiece.jpg"
         autoplay 
         loop 
         muted 
         playsinline 
+        preload="auto"
         class="inner-artwork-img-base"
         id="heroDollVideo"
-        style="width:100%;height:100%;object-fit:cover;object-position:72% center;position:absolute;inset:0;"
+        style="width:100%;height:100%;object-fit:cover;object-position:72% center;position:absolute;inset:0;z-index:2;"
       ></video>
-      <!-- Fallback if canvas fails -->
+      <!-- Instant Visual Presence On Laptop & Mobile -->
       <img 
         src="assets/hero_origami_masterpiece.jpg" 
         alt="Krishna X Editz High Fashion Origami Papercraft Masterpiece" 
         class="inner-artwork-img-base"
         id="heroDollFallbackImg"
         loading="eager"
-        style="display:none;"
+        style="display:block;width:100%;height:100%;object-fit:cover;object-position:72% center;position:absolute;inset:0;z-index:1;"
       >
     </div>
 
@@ -7571,10 +7573,10 @@
         <!-- 4 SIGNATURE HERO VIDEOS (EXACTLY MATCHING MY WORKS REAL-WORK-CARD DESIGN) -->
         <div class="real-works-grid" style="display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 24px; margin-top: 28px;">
           
-          <!-- Video 1: Sorexa Technologies South Africa Enterprise Campaign -->
-          <div class="real-work-card" data-category="commercial featured" onmouseenter="var v=this.querySelector('video'); if(v) v.play().catch(function(){})" onmouseleave="var v=this.querySelector('video'); if(v) v.pause()" onclick="openTheaterVideo('Sorexa Technologies &mdash; South Africa Enterprise Campaign', 'Official enterprise commercial for Sorexa Technologies South Africa, delivering high-conversion visual storytelling, custom software solutions, CRM systems, and motion branding.', '/assets/work_sorexa_south_africa.mp4', 'Enterprise Commercial', '&#9889; SOREXA GLOBAL AD &#9889;')">
+          <!-- Video 1: Sorexa Technologies Malaysia Commercial Campaign -->
+          <div class="real-work-card" data-category="commercial featured" onmouseenter="var v=this.querySelector('video'); if(v) v.play().catch(function(){})" onmouseleave="var v=this.querySelector('video'); if(v) v.pause()" onclick="openTheaterVideo('Sorexa Technologies &mdash; Malaysia Commercial Campaign', 'Official commercial campaign for Sorexa Technologies Malaysia, delivering high-conversion visual storytelling, custom software solutions, POS systems, and dynamic 3D motion graphics.', '/assets/work_sorexa_malaysia.mp4', 'Enterprise Commercial', '&#9889; SOREXA GLOBAL AD &#9889;')">
             <div class="real-work-thumb">
-              <video src="/assets/work_sorexa_south_africa.mp4" poster="/assets/thumb_work_sorexa_south_africa.jpg" muted loop playsinline preload="metadata" onmouseover="this.play().catch(function(){})" onmouseout="this.pause()"></video>
+              <video src="/assets/work_sorexa_malaysia.mp4" poster="/assets/thumb_work_sorexa_malaysia.jpg" muted loop playsinline preload="metadata" onmouseover="this.play().catch(function(){})" onmouseout="this.pause()"></video>
               <div style="position:absolute;top:10px;left:10px;padding:4px 10px;border-radius:999px;background:rgba(0,0,0,0.75);border:1px solid rgba(212,175,55,0.4);color:#FBBF24;font-size:10px;font-weight:800;letter-spacing:0.08em;text-transform:uppercase;">
                 &#9889; SOREXA GLOBAL AD &#9889;
               </div>
@@ -7585,8 +7587,8 @@
             <div class="real-work-body">
               <div>
                 <div style="font-size:11px;font-weight:800;color:var(--gold-neon);letter-spacing:0.1em;text-transform:uppercase;margin-bottom:6px;">Enterprise Brand Ad</div>
-                <h3 class="real-work-title">Sorexa Technologies &mdash; South Africa Enterprise Campaign</h3>
-                <p class="real-work-desc">Official enterprise commercial for Sorexa Technologies South Africa, custom software solutions, POS billing, and 3D motion graphics.</p>
+                <h3 class="real-work-title">Sorexa Technologies &mdash; Malaysia Commercial Campaign</h3>
+                <p class="real-work-desc">Official commercial campaign for Sorexa Technologies Malaysia, custom software solutions, POS billing, and 3D motion graphics.</p>
               </div>
               <div class="real-work-footer">
                 <span style="color:#10B981;font-weight:800;font-size:11.5px;">&#10003; Verified Client Edit</span>
@@ -7704,7 +7706,7 @@
           <div class="perm-client-card active" id="permCard-sorexa" onclick="selectPermanentClient('sorexa')" style="cursor: pointer; position: relative; background: rgba(26, 20, 14, 0.95); border: 2px solid #F59E0B; border-radius: 20px; padding: 24px 20px; transition: all 300ms ease; box-shadow: 0 10px 30px rgba(245, 158, 11, 0.25);">
             <div style="display: flex; align-items: center; justify-content: space-between; margin-bottom: 14px;">
               <span style="display: inline-block; padding: 4px 10px; border-radius: 999px; background: rgba(245, 158, 11, 0.15); border: 1px solid #F59E0B; color: #FBBF24; font-size: 10px; font-weight: 800; letter-spacing: 0.1em; text-transform: uppercase;">
-                &#9889; 2 Global Ads (South Africa &amp; Nigeria)
+                &#9889; 3 Global Ads (Malaysia, South Africa &amp; Nigeria)
               </span>
               <span style="color: #10B981; font-size: 11.5px; font-weight: 800; display: flex; align-items: center; gap: 5px;">
                 <span style="width: 7px; height: 7px; border-radius: 50%; background: #10B981; display: inline-block; box-shadow: 0 0 8px #10B981;"></span> Active Retainer
@@ -7842,6 +7844,30 @@
 
             <!-- Video Cards Grid for Sorexa -->
             <div id="sorexaVideosGrid" class="real-works-grid" style="display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 20px;">
+              <!-- 1. Sorexa Malaysia Ad -->
+              <div class="real-work-card" onclick="openTheaterVideo('Sorexa Technologies &mdash; Malaysia Commercial Campaign', 'Official commercial campaign for Sorexa Technologies Malaysia, delivering high-conversion visual storytelling, custom software solutions, CRM systems, and dynamic 3D motion graphics.', '/assets/work_sorexa_malaysia.mp4', 'Enterprise Commercial', '&#9889; SOREXA MALAYSIA AD &#9889;')">
+                <div class="real-work-thumb">
+                  <video src="/assets/work_sorexa_malaysia.mp4" poster="/assets/thumb_work_sorexa_malaysia.jpg" muted loop playsinline preload="metadata" onmouseover="this.play().catch(function(){})" onmouseout="this.pause()"></video>
+                  <div style="position:absolute;top:10px;left:10px;padding:4px 10px;border-radius:999px;background:rgba(0,0,0,0.75);border:1px solid rgba(212,175,55,0.4);color:#FBBF24;font-size:10px;font-weight:800;letter-spacing:0.08em;text-transform:uppercase;">
+                    &#9889; SOREXA MALAYSIA AD &#9889;
+                  </div>
+                  <div style="position:absolute;bottom:10px;right:10px;padding:3px 8px;border-radius:6px;background:rgba(0,0,0,0.85);color:#FFF;font-size:10px;font-weight:700;">
+                    9:16 4K UHD Commercial
+                  </div>
+                </div>
+                <div class="real-work-body">
+                  <div>
+                    <div style="font-size:11px;font-weight:800;color:var(--gold-neon);letter-spacing:0.1em;text-transform:uppercase;margin-bottom:6px;">Enterprise Brand Ad</div>
+                    <h3 class="real-work-title">Sorexa Technologies &mdash; Malaysia Commercial Campaign</h3>
+                    <p class="real-work-desc">Official commercial campaign for Sorexa Technologies Malaysia, high-converting international brand showcase, custom software & digital solutions.</p>
+                  </div>
+                  <div class="real-work-footer">
+                    <span style="color:#10B981;font-weight:800;font-size:11.5px;">&#10003; Verified Client Edit</span>
+                    <span style="color:#F59E0B;font-weight:800;font-size:12px;letter-spacing:0.08em;text-transform:uppercase;">Watch Video &rarr;</span>
+                  </div>
+                </div>
+              </div>
+
               <!-- 1. Sorexa South Africa Ad -->
               <div class="real-work-card" onclick="openTheaterVideo('Sorexa Technologies &mdash; South Africa Enterprise Campaign', 'Official enterprise commercial for Sorexa Technologies South Africa, delivering high-conversion visual storytelling, custom software solutions, CRM systems, and motion branding.', '/assets/work_sorexa_south_africa.mp4', 'Enterprise Commercial', '&#9889; SOREXA GLOBAL AD &#9889;')">
                 <div class="real-work-thumb">
@@ -9444,6 +9470,21 @@
         hero: "Our Works",
         label: "Vol. 02 — Featured Edited Projects & Showreels",
         projects: [
+          {
+            id: "proj-sorexa_malaysia",
+            num: "1000M",
+            title: "Sorexa Technologies — Malaysia Commercial Campaign",
+            category: "Commercials & Stories",
+            badge: "⚡ SOREXA MALAYSIA AD ⚡",
+            tag: "Enterprise Brand Ad",
+            accent: "gold",
+            aspect: "9:16 4K Commercial",
+            isVertical: true,
+            video: "assets/work_sorexa_malaysia.mp4",
+            poster: "assets/thumb_work_sorexa_malaysia.jpg",
+            desc: "Official commercial campaign for Sorexa Technologies Malaysia, delivering high-conversion visual storytelling, custom software solutions, POS systems, and dynamic 3D motion graphics.",
+            highlights: ["Global Enterprise Campaign", "Malaysia Market Launch", "3D Kinetic Motion & UI"]
+          },
           {
             id: "proj-sorexa_south_africa",
             num: "1001S",
@@ -11509,6 +11550,31 @@ ${payload.project_brief || 'None specified'}
                 </div>
                 <h4 class="work-title">Nazar-e-Khaas — 4K UHD Poetic Cinematography &amp; Color Symphony</h4>
                 <p class="work-summary">A cinematic widescreen masterpiece blending delicate film emulation LUTs, natural landscape framing, paper-foley acoustic design, and heart-tugging melody pacing.</p>
+              </div>
+          </div>
+
+          <!-- 2A. SOREXA MALAYSIA COMMERCIAL CAMPAIGN -->
+          <div class="work-video-card theme-gold vault-card-item" data-vault-cats="commercials all">
+              <div class="work-video-wrapper ratio-portrait">
+                <span class="work-video-badge-top">⚡ SOREXA MALAYSIA AD ⚡</span>
+                <span class="work-video-aspect-tag">9:16 4K UHD</span>
+                <video 
+                  class="work-video-elem" 
+                  controls 
+                  playsinline 
+                  preload="none" 
+                  poster="assets/thumb_work_sorexa_malaysia.jpg"
+                  src="assets/work_sorexa_malaysia.mp4">
+                  Your browser does not support HTML5 video.
+                </video>
+              </div>
+              <div class="work-video-body">
+                <div class="work-video-meta">
+                  <span class="work-genre">Enterprise Commercial</span>
+                  <span class="work-duration">0:21</span>
+                </div>
+                <h4 class="work-title">Sorexa Technologies — Malaysia Commercial Campaign</h4>
+                <p class="work-summary">Official commercial campaign for Sorexa Technologies Malaysia, high-converting international brand showcase, custom software & digital solutions.</p>
               </div>
           </div>
 
