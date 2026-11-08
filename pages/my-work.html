@@ -1528,8 +1528,16 @@
         waLink.href = 'https://wa.me/918449495147?text=' + encodeURIComponent('Hi Krishna! I want to book a video edit in the style of: ' + title);
       }
       videoElem.src = videoSrc;
+      videoElem.currentTime = 0;
       modal.classList.add('open');
-      videoElem.play().catch(function(){});
+      var playPromise = videoElem.play();
+      if (playPromise !== undefined) {
+        playPromise.catch(function(err) {
+          console.warn('[My Work Theater] Autoplay blocked, falling back to muted playback:', err);
+          videoElem.muted = true;
+          videoElem.play().catch(function(){});
+        });
+      }
     }
 
     function closeTheaterModal() {

@@ -371,13 +371,49 @@
     theaterView.classList.add('active');
     document.body.style.overflow = 'hidden';
     theaterView.scrollTop = 0;
+
+    // Robust Cross-Browser Autoplay Engine with Sound Fallback
+    const mainVid = document.getElementById('theaterMainVideo');
+    if (mainVid) {
+      mainVid.currentTime = 0;
+      const playPromise = mainVid.play();
+      if (playPromise !== undefined) {
+        playPromise.catch(function (err) {
+          console.warn('[KXE Theater] Unmuted autoplay blocked by browser policy, falling back to muted autoplay:', err);
+          mainVid.muted = true;
+          mainVid.play().catch(function () {});
+
+          const existingBtn = document.getElementById('theaterUnmuteBtn');
+          if (existingBtn) existingBtn.remove();
+
+          const soundPill = document.createElement('button');
+          soundPill.id = 'theaterUnmuteBtn';
+          soundPill.innerHTML = '🔊 Tap For Sound';
+          soundPill.style.cssText = 'position:absolute;bottom:24px;left:24px;z-index:99;padding:10px 22px;border-radius:999px;background:#F59E0B;color:#000;font-family:sans-serif;font-weight:900;font-size:13px;border:none;cursor:pointer;box-shadow:0 8px 24px rgba(245,158,11,0.6);letter-spacing:0.05em;text-transform:uppercase;';
+          soundPill.onclick = function () {
+            mainVid.muted = false;
+            soundPill.remove();
+          };
+          const videoContainer = mainVid.parentElement;
+          if (videoContainer) {
+            videoContainer.style.position = 'relative';
+            videoContainer.appendChild(soundPill);
+          }
+        });
+      }
+    }
   };
 
   window.closeTheaterVideo = function () {
     const theaterView = document.getElementById('fullscreenTheaterView');
     if (theaterView) {
       const vid = document.getElementById('theaterMainVideo');
-      if (vid) vid.pause();
+      if (vid) {
+        vid.pause();
+        vid.src = '';
+      }
+      const soundBtn = document.getElementById('theaterUnmuteBtn');
+      if (soundBtn) soundBtn.remove();
       theaterView.classList.remove('active');
       document.body.style.overflow = '';
     }
